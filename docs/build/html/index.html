@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="TSRB 1.0 documentation" href="#" />
-    <link rel="next" title="Datotečni Sustav" href="Linux_datotecni_sustav.html" /> 
+    <link rel="next" title="Datotečni sustav" href="Linux_datotecni_sustav.html" /> 
   </head>
   <body>
     <div class="related">
@@ -34,7 +34,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="Linux_datotecni_sustav.html" title="Datotečni Sustav"
+          <a href="Linux_datotecni_sustav.html" title="Datotečni sustav"
              accesskey="N">next</a> |</li>
         <li><a href="#">TSRB 1.0 documentation</a> &raquo;</li> 
       </ul>
@@ -50,22 +50,24 @@
 <p>Contents:</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Linux_datotecni_sustav.html"><strong>Datotečni Sustav</strong></a><ul>
+<li class="toctree-l1"><a class="reference internal" href="Linux_datotecni_sustav.html"><strong>Datotečni sustav</strong></a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Linux_datotecni_sustav.html#terminologija"><strong>Terminologija</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Linux_datotecni_sustav.html#ext4-datotecni-sustav"><strong>EXT4 Datotečni Sustav</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Linux_datotecni_sustav.html#struktura-ext4-datotecnog-sustava"><strong>Struktura EXT4 Datotečnog Sustava</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Linux_datotecni_sustav.html#grupe-blokova"><strong>Grupe Blokova</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Linux_datotecni_sustav.html#ext4-datotecni-sustav"><strong>EXT4 datotečni sustav</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Linux_datotecni_sustav.html#struktura-ext4-datotecnog-sustava"><strong>Struktura EXT4 datotečnog sustava</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Linux_datotecni_sustav.html#grupe-blokova"><strong>Grupe blokova</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="Linux_datotecni_sustav.html#superblock"><strong>Superblock</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Linux_datotecni_sustav.html#group-descriptors"><strong>Group Descriptors</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Linux_datotecni_sustav.html#reserved-group-descriptor-table-blocks"><strong>Reserved Group Descriptor Table Blocks</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Linux_datotecni_sustav.html#inode"><strong>Inode</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Linux_datotecni_sustav.html#deskriptori-grupe"><strong>Deskriptori grupe</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Linux_datotecni_sustav.html#rezervirani-blokovi-gd-tablice"><strong>Rezervirani blokovi GD tablice</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Linux_datotecni_sustav.html#indeks-cvor"><strong>Indeks čvor</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="Linux_datotecni_sustav.html#fizicke-i-simbolicke-poveznice"><strong>Fizičke i simboličke poveznice</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="Linux_datotecni_sustav.html#simbolicke-poveznice"><strong>Simboličke poveznice</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="Linux_datotecni_sustav.html#sadrzaj-direktorija"><strong>Sadržaj direktorija</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="Linux_datotecni_sustav.html#linearni-nacin-zapisa-u-direktorij"><strong>Linearni način zapisa u direktorij</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="Linux_datotecni_sustav.html#indeksirani-nacin-zapisa-u-direktorij"><strong>Indeksirani način zapisa u direktorij</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Linux_datotecni_sustav.html#flexible-block-groups"><strong>Flexible block groups</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="Linux_datotecni_sustav.html#primjer-stvaranja-datotecnog-sustava-na-datoteci"><strong>PRIMJER STVARANJA DATOTEČNOG SUSTAVA NA DATOTECI</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Linux_datotecni_sustav.html#fleksibilne-grupe-blokova"><strong>Fleksibilne grupe blokova</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Linux_datotecni_sustav.html#primjer-stvaranja-datotecnog-sustava-na-datoteci"><strong>Primjer stvaranja datotečnog sustava na datoteci</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="Linux_datotecni_sustav.html#prilog-detaljna-inode-struktura-ext4"><strong>Prilog - Detaljna Inode struktura (EXT4)</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="Linux_datotecni_sustav.html#literatura"><strong>LITERATURA:</strong></a></li>
 </ul>
@@ -96,7 +98,7 @@
 
   <h4>Next topic</h4>
   <p class="topless"><a href="Linux_datotecni_sustav.html"
-                        title="next chapter"><strong>Datotečni Sustav</strong></a></p>
+                        title="next chapter"><strong>Datotečni sustav</strong></a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/index.txt"
@@ -126,7 +128,7 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="Linux_datotecni_sustav.html" title="Datotečni Sustav"
+          <a href="Linux_datotecni_sustav.html" title="Datotečni sustav"
              >next</a> |</li>
         <li><a href="#">TSRB 1.0 documentation</a> &raquo;</li> 
       </ul>

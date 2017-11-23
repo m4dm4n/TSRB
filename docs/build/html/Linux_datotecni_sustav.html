@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Datotečni Sustav &mdash; TSRB 1.0 documentation</title>
+    <title>Datotečni sustav &mdash; TSRB 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -46,7 +46,7 @@
           <div class="body">
             
   <div class="section" id="datotecni-sustav">
-<h1><strong>Datotečni Sustav</strong><a class="headerlink" href="#datotecni-sustav" title="Permalink to this headline">¶</a></h1>
+<h1><strong>Datotečni sustav</strong><a class="headerlink" href="#datotecni-sustav" title="Permalink to this headline">¶</a></h1>
 <p>Termin datotečnog sustava podrazumijeva neki skup metoda i struktura
 podataka sa zadatkom organizacije, manipulacije,navigacije te pristupa
 datoteka na nekom disku ili particiji. Uglavnom se sustav definira i
@@ -131,8 +131,9 @@ vrijednosti povezane uz taj podatak).</p>
 <p><strong>Hash-tree struktura -</strong> Poseban tip strukture stabla. Radi se o
 kombinaciji B-Tree strukture i Hash tablice.</p>
 </div>
+</div>
 <div class="section" id="ext4-datotecni-sustav">
-<h2><strong>EXT4 Datotečni Sustav</strong><a class="headerlink" href="#ext4-datotecni-sustav" title="Permalink to this headline">¶</a></h2>
+<h1><strong>EXT4 datotečni sustav</strong><a class="headerlink" href="#ext4-datotecni-sustav" title="Permalink to this headline">¶</a></h1>
 <p>Originalna, prva verzija EXT datotečnog sustava je stvorena prema
 tadašnjem MINIX datotečnom sustavu (koji se koristio na istoimenom MINIX
 operacijskom sustavu, autor je Andrew S. Tanenbaum, ujedno poznat kao
@@ -152,9 +153,8 @@ u video zapisu na slijedećoj poveznici:</div>
 <p>EXT4 datotečni je zadržao razinu kompatibilnosti sa prethodnim EXT3
 datotečnim sustavom, no dodane su mnoge nove mogućnosti koje podižu
 razinu performansi i stabilnosti samo sustava.</p>
-</div>
 <div class="section" id="struktura-ext4-datotecnog-sustava">
-<h2><strong>Struktura EXT4 Datotečnog Sustava</strong><a class="headerlink" href="#struktura-ext4-datotecnog-sustava" title="Permalink to this headline">¶</a></h2>
+<h2><strong>Struktura EXT4 datotečnog sustava</strong><a class="headerlink" href="#struktura-ext4-datotecnog-sustava" title="Permalink to this headline">¶</a></h2>
 <p>Prilikom stvaranja datotečnog sustava na particiji, sektori (osnovni i
 najmanji dijelovi mogući za zapis na disk) se grupiraju u logičke
 cjeline koje se zovu blokovi (eng. blocks). U terminologiji Microsoft
@@ -221,7 +221,7 @@ tema je vrlo kompleksna te neće biti taknuta u ovom tekstu.</p>
 <p><a class="reference external" href="http://lsi.vc.ehu.es/pablogn/docencia/manuales/UCLACS111/scribe/12/fragmentation.png">http://lsi.vc.ehu.es/pablogn/docencia/manuales/UCLACS111/scribe/12/fragmentation.png</a></p>
 </div>
 <div class="section" id="grupe-blokova">
-<h2><strong>Grupe Blokova</strong><a class="headerlink" href="#grupe-blokova" title="Permalink to this headline">¶</a></h2>
+<h2><strong>Grupe blokova</strong><a class="headerlink" href="#grupe-blokova" title="Permalink to this headline">¶</a></h2>
 <p>Nakon što je particija podijeljena na blokove, oni se grupiraju u grupe
 blokova (eng. Block Groups), što je i prikazano u gornjem crtežu. Sve
 grupe blokova su jednake veličine. Svaka grupa blokova ima svoju
@@ -313,8 +313,8 @@ bloku.</p>
 zapisa ovisi o verziji (i dodatno reviziji) datotečnog sustava (EXT2,
 EXT3,EXT4) na toj particiji.</p>
 </div>
-<div class="section" id="group-descriptors">
-<h2><strong>Group Descriptors</strong><a class="headerlink" href="#group-descriptors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="deskriptori-grupe">
+<h2><strong>Deskriptori grupe</strong><a class="headerlink" href="#deskriptori-grupe" title="Permalink to this headline">¶</a></h2>
 <p>Navedena struktura, za razliku od SuperBlock dijela sadrži informacije o
 konfiguracijama pojedinih grupa. Jednako kao i u slučaju SuperBlock
 strukture, Group Descriptors se kopira u svaku grupu blokova (eng. Block
@@ -337,7 +337,7 @@ nadogradnju</li>
 </ul>
 <p>Veličina jedne Group Descriptor stavke unutar tablice je 32B, odnosno
 64B ako je aktivirana 64bitna podrška na EXT4 datotečnom sustavu.</p>
-<p><strong>PRAKTIČAN PRIMJER</strong></p>
+<p><strong>Praktičan primjer</strong></p>
 <p>U svrhu prikaza informacija Group Descriptors strukture, stvorena je
 prazna datoteka od 100MB te je na nju postavljen EXT4 datotečni sustav
 (mkfs.ext4 alat, veličina bloka je 4k).</p>
@@ -411,7 +411,7 @@ Inode Size</p>
 <p>Free Blocks: 23760 (92%)</p>
 <p>Total Directories: 2</p>
 <p>Stored Checksum: 0x8E0F</p>
-<p><strong>Prikaz Fizičkog Zapisa Group Descriptor Strukture</strong></p>
+<p><strong>Prikaz fizičkog zapisa group descriptor strukture</strong></p>
 <p>(samo prvih 32B, zatim 64B kao dokaz da je ostatak strukture prazan, te
 je ostatak izrezan iz prikaza)</p>
 <p>Izlazni rezultat je podijeljen na 3 stupca : adrese (offset,
@@ -451,8 +451,8 @@ objašnjeni kasnije u posebnom poglavlju. Detaljnije informacije je
 moguće naći na poveznici na kraju poglavlja.</p>
 <p><a class="reference external" href="https://ext4.wiki.kernel.org/index.php/Ext4_Disk_Layout#Block_Group_Descriptors">https://ext4.wiki.kernel.org/index.php/Ext4_Disk_Layout#Block_Group_Descriptors</a></p>
 </div>
-<div class="section" id="reserved-group-descriptor-table-blocks">
-<h2><strong>Reserved Group Descriptor Table Blocks</strong><a class="headerlink" href="#reserved-group-descriptor-table-blocks" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="rezervirani-blokovi-gd-tablice">
+<h2><strong>Rezervirani blokovi GD tablice</strong><a class="headerlink" href="#rezervirani-blokovi-gd-tablice" title="Permalink to this headline">¶</a></h2>
 <p>Prilikom novog stvaranja datotečnog sustava, nakon Group Descriptors
 tablice rezervira se i određeni broj blokova za buduće proširenje
 veličine tog datotečnog sustava. Ti blokovi se nalaze između Group
@@ -462,7 +462,7 @@ od originalne veličine. Podržava li sustav proširenje pokazuje je li
 aktivirana značajka Resize Inode. Radi se o specijalnom tipu Inodea u
 kojem su zapisane lokacije blokova za proširenje (
 <a class="reference external" href="https://ext4.wiki.kernel.org/index.php/Ext4_Disk_Layout">https://ext4.wiki.kernel.org/index.php/Ext4_Disk_Layout#Special_inodes</a>).</p>
-<p><strong>PRIMJER :</strong></p>
+<p><strong>Primjer:</strong></p>
 <p>U slijedećem primjeru ponovno je prikazan izlazni rezultat naredbe
 <strong>fsstat</strong> za sliku EXT4 datotečnog sustava, te su označeni bitni
 dijelovi.</p>
@@ -573,8 +573,8 @@ veličinu stvorenog datotečnog sustava povećati za otprilike 1024 puta.
 Ovdje je potrebno napomenuti ograničenje gdje zbroj originalnih GDT
 blokova i rezerviranih GDT blokova ne može biti veći od 1024 blokova.</p>
 </div>
-<div class="section" id="inode">
-<h2><strong>Inode</strong><a class="headerlink" href="#inode" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="indeks-cvor">
+<h2><strong>Indeks čvor</strong><a class="headerlink" href="#indeks-cvor" title="Permalink to this headline">¶</a></h2>
 <p>Svakoj datoteci/direktoriju na datotečnom sustavu je dodijeljen Inode
 (eng. Index NODE). Inode predstavlja strukturu na disku koja upućuje na
 sam sadržaj neke datoteke (odnosno upućuje na podatkovne blokove te
@@ -634,7 +634,7 @@ novi sustav prilagođen za takav tip/veličinu datoteka. Prilikom
 proširivanja postojećeg datotečnog sustava, omjer broja Inodeova i
 bajtova se ne mijenja.</strong></p>
 <p>Struktura Inodea je detaljno opisana u prilogu na kraju dokumenta.</p>
-<p><strong>PRAKTIČAN PRIMJER : ISCRPLJENJE PODATKOVNIH BLOKOVA/INODE STRUKTURA</strong></p>
+<p><strong>Praktičan primjer : Iscrpljenje podatkovnih blokova/Inode struktura</strong></p>
 <p>Bez obzira koliko se slobodnih blokova dodijeljenih za podatke/sadržaj
 (eng. Data Blocks) datoteka nalazi u sustavu, broj slobodnih Inodeova je
 bitna stavka za provjeru slobodnog prostora. Drugim riječima, onog
@@ -953,7 +953,7 @@ ako je putanja unutar duljine od 60 bajta, vrijednost će biti zapisana u
 samom Inodeu. U suprotnom, alocirati će se zaseban podatkovni blok za
 zapis sadržaja.</p>
 <p><a class="reference internal" href="_images/image19.png"><img alt="image17" src="_images/image19.png" style="width: 4.82569in; height: 3.17431in;" /></a></p>
-<p><strong>PRAKTIČNI PRIMJER:</strong></p>
+<p><strong>Praktičan primjer:</strong></p>
 <p>Kako locirati i ispisati sadržaj nekog Inode broja?</p>
 <p>Za primjer će se koristiti simbolička poveznica iz prošlog primjera sa
 Inode brojem 929994.</p>
@@ -1020,12 +1020,12 @@ datoteke i poveznice, unos i prikaz sadržaja, te brisanje originalne
 datoteke i pokušaj prikazivanja sadržaja preko poveznice), no u osnovi
 simbolička poveznica ukazuje na nepostojeću datoteku</p>
 <p><a class="reference internal" href="_images/image24.png"><img alt="image22" src="_images/image24.png" style="width: 6.30000in; height: 1.49965in;" /></a></p>
-<p><strong>ZA VJEŽBU:</strong></p>
+<p><strong>Za vježbu:</strong></p>
 <p>Saznati na koju datoteku upućuje simbolička poveznica /sbin/mkfs.ext4 ,
 te dokazati to prikazom sadržaja u samom Inodeu poveznice, ili
 alociranom podatkovnom bloku. Prikazuje li se apsolutna ili relativna
 putanja odredišne datoteke? Zašto? Opisati proces izračuna.</p>
-<p><strong>ZA VJEŽBU2:</strong></p>
+<p><strong>Za vježbu2:</strong></p>
 <p><a class="reference internal" href="_images/image25.png"><img alt="image23" src="_images/image25.png" style="width: 6.30000in; height: 3.76923in;" /></a></p>
 <p>Proučiti radnje na gornjoj slici, te na temelju upisanih naredbi i
 izlaznih rezultata odgovoriti:</p>
@@ -1049,7 +1049,7 @@ izlaznih rezultata odgovoriti:</p>
 </dl>
 </li>
 </ul>
-<p><strong>PITANJA:</strong></p>
+<p><strong>Pitanja:</strong></p>
 <p>Nakon obrađenog područja čvrstih poveznica, proučiti ponovno sliku sa
 početka poglavlja te odgovoriti :</p>
 <ol class="arabic simple">
@@ -1131,7 +1131,7 @@ stavka nekog direktorija se sastoji od poveznice između Inode broja i
 imena datoteke. Jedino mjesto gdje se spominje ime datoteke (između
 spomenute veze Inode broja, sadržaja datoteke i stavke direktorija) jest
 u samoj stavci unutar direktorija.</p>
-<p><strong>NAPOMENA:</strong></p>
+<p><strong>Napomena:</strong></p>
 <p>Ovisno o podržava li datotečni sustav značajku &#8220;filetype&#8221; u samu stavku
 direktorija se ujedno sprema i tip datoteke. U suprotnom, spremaju se
 samo ime datoteke i Inode broj. Je li značajka aktivna na datotečnom
@@ -1164,7 +1164,7 @@ datotekama koriste <strong>read()</strong> funkciju (ili neku varijaciju tipa
 <strong>safe_read()</strong> ), dok se za prikaz sadržaja direktorija koristi
 <strong>readdir()</strong> (koju koristi aplikacija <strong>ls</strong>, standardni dio
 <strong>cureutils</strong> paketa).</p>
-<p><strong>ZA VJEŽBU:</strong></p>
+<p><strong>Za vježbu:</strong></p>
 <p><a class="reference external" href="https://github.com/coreutils/coreutils/blob/master/src/ls.c">https://github.com/coreutils/coreutils/blob/master/src/ls.c</a></p>
 <p><a class="reference external" href="https://github.com/coreutils/coreutils/blob/master/src/cat.c">https://github.com/coreutils/coreutils/blob/master/src/cat.c</a></p>
 <p>Proučiti izvorni kod aplikacija ls i cat sa navedenih poveznica, te
@@ -1278,9 +1278,9 @@ direktoriju.</p>
 <p>Prikazani primjeri dokazuju uspješnu vezu između podataka zapisanih u
 sam podatkovni blok nekog direktorija i izlaznog rezultata neke
 aplikacije za prikaz sadržaja direktorija.</p>
-<p><strong>PRIKAZ INODE STRUKTURE LINEARNOG DIREKTORIJA</strong></p>
+<p><strong>Prikaz Inode strukture linearnog direktorija</strong></p>
 <p><a class="reference internal" href="_images/image32.png"><img alt="image30" src="_images/image32.png" style="width: 6.30000in; height: 4.20000in;" /></a></p>
-<p><strong>ZA VJEŽBU:</strong></p>
+<p><strong>Za vježbu:</strong></p>
 <p>Na gore prikazani način pronaći i zapisati informacije za slijedeće
 stavke:</p>
 <p><strong>Direktorij &#8221;..&#8221;</strong></p>
@@ -1572,7 +1572,7 @@ razloga što je ostatak prostora prazan. Metoda linearnog pristupa i
 zapisa se koristi sve dok se ne popuni cijeli blok zapisima. Crvenim
 okvirom su označeni zapisi za direktorije &#8221;.&#8221; i &#8221;..&#8221;. Nakon njih kreću
 zapisi za datoteke.</p>
-<p>Prije Indeksiranja</p>
+<p><strong>Prije Indeksiranja</strong></p>
 <p>Nakon što se zapisima popuni dodijeljeni blok, ako datotečni sustav
 podržava mehanizam indeksiranja, odnosno Htree strukturu, direktoriju se
 dodijeljuje minimalan potreban broj blokova za Htree stablo. Prvi blok
@@ -1630,7 +1630,7 @@ se brojati od nule)</li>
 <li>0x7a4e6c3e hash vrijednost čvora, 2. Blok unutar direktorija</li>
 <li>0xb5cb4252 hash vrijednost čvora, 3. Blok unutar direktorija</li>
 </ul>
-<p>Nakon Indeksiranja</p>
+<p><strong>Nakon Indeksiranja</strong></p>
 <p>Na temelju gornjih informacija, može se zaključiti kako direktorij iz
 primjera zauzima ukupno 5 blokova (nulti blok za Root Index blok, prvi
 blok za čvor sa hash vrijednošću 0, te dodatna tri bloka). S obzirom da
@@ -1675,7 +1675,7 @@ zastavice imaju slijedeću funkciju:</p>
 </table>
 <p>Drugim riječima, prvi direktorij je zaista standardan linearan
 direktorij, dok drugi direktorij koristi Htree strukturu.</p>
-<p><strong>ZA VJEŽBU:</strong></p>
+<p><strong>Za vježbu:</strong></p>
 <ol class="arabic simple">
 <li>Stvoriti direktorij proizvoljnog imena</li>
 <li>U tom direktoriju stvoriti deset datoteka proizvoljnog imena (no
@@ -1710,8 +1710,8 @@ primjeru u poglavlju (bez datoteka, samo dodijeljeni blokovi).</li>
 <p><a class="reference external" href="https://www.kernel.org/doc/ols/2002/ols2002-pages-425-438.pdf">https://www.kernel.org/doc/ols/2002/ols2002-pages-425-438.pdf</a></p>
 <p><a class="reference external" href="https://www.netbsd.org/gallery/presentations/hrishikesh/2017_AsiaBSDCon/abc2017ext4_final_paper.pdf">https://www.netbsd.org/gallery/presentations/hrishikesh/2017_AsiaBSDCon/abc2017ext4_final_paper.pdf</a></p>
 </div>
-<div class="section" id="flexible-block-groups">
-<h2><strong>Flexible block groups</strong><a class="headerlink" href="#flexible-block-groups" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="fleksibilne-grupe-blokova">
+<h2><strong>Fleksibilne grupe blokova</strong><a class="headerlink" href="#fleksibilne-grupe-blokova" title="Permalink to this headline">¶</a></h2>
 <p>Radi se o još jednoj značajki implementiranoj od četvrte verzije EXT
 datotečnoj sustava. Za početak, potrebno je vratiti se na osnovnu
 organizaciju tvrdog diska (ovdje se prvenstveno misli na standardne
@@ -1789,7 +1789,7 @@ superblock</strong> u određenoj mjeri rješava tu situaciju.</p>
 <p><a class="reference external" href="https://www.dfrws.org/sites/default/files/session-files/paper-an_analysis_of_ext4_for_digital_forensics.pdf">https://www.dfrws.org/sites/default/files/session-files/paper-an_analysis_of_ext4_for_digital_forensics.pdf</a></p>
 </div>
 <div class="section" id="primjer-stvaranja-datotecnog-sustava-na-datoteci">
-<h2><strong>PRIMJER STVARANJA DATOTEČNOG SUSTAVA NA DATOTECI</strong><a class="headerlink" href="#primjer-stvaranja-datotecnog-sustava-na-datoteci" title="Permalink to this headline">¶</a></h2>
+<h2><strong>Primjer stvaranja datotečnog sustava na datoteci</strong><a class="headerlink" href="#primjer-stvaranja-datotecnog-sustava-na-datoteci" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="_images/image55.png"><img alt="image44" src="_images/image55.png" style="width: 6.22916in; height: 3.97109in;" /></a></p>
 <p>Alati : dd, mkfs, tune2fs, debugfs, fsstat</p>
 </div>
@@ -2296,22 +2296,24 @@ datoteke/direktoriji na datotečnom sustavu.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#"><strong>Datotečni Sustav</strong></a><ul>
+<li><a class="reference internal" href="#"><strong>Datotečni sustav</strong></a><ul>
 <li><a class="reference internal" href="#terminologija"><strong>Terminologija</strong></a></li>
-<li><a class="reference internal" href="#ext4-datotecni-sustav"><strong>EXT4 Datotečni Sustav</strong></a></li>
-<li><a class="reference internal" href="#struktura-ext4-datotecnog-sustava"><strong>Struktura EXT4 Datotečnog Sustava</strong></a></li>
-<li><a class="reference internal" href="#grupe-blokova"><strong>Grupe Blokova</strong></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ext4-datotecni-sustav"><strong>EXT4 datotečni sustav</strong></a><ul>
+<li><a class="reference internal" href="#struktura-ext4-datotecnog-sustava"><strong>Struktura EXT4 datotečnog sustava</strong></a></li>
+<li><a class="reference internal" href="#grupe-blokova"><strong>Grupe blokova</strong></a></li>
 <li><a class="reference internal" href="#superblock"><strong>Superblock</strong></a></li>
-<li><a class="reference internal" href="#group-descriptors"><strong>Group Descriptors</strong></a></li>
-<li><a class="reference internal" href="#reserved-group-descriptor-table-blocks"><strong>Reserved Group Descriptor Table Blocks</strong></a></li>
-<li><a class="reference internal" href="#inode"><strong>Inode</strong></a></li>
+<li><a class="reference internal" href="#deskriptori-grupe"><strong>Deskriptori grupe</strong></a></li>
+<li><a class="reference internal" href="#rezervirani-blokovi-gd-tablice"><strong>Rezervirani blokovi GD tablice</strong></a></li>
+<li><a class="reference internal" href="#indeks-cvor"><strong>Indeks čvor</strong></a></li>
 <li><a class="reference internal" href="#fizicke-i-simbolicke-poveznice"><strong>Fizičke i simboličke poveznice</strong></a></li>
 <li><a class="reference internal" href="#simbolicke-poveznice"><strong>Simboličke poveznice</strong></a></li>
 <li><a class="reference internal" href="#sadrzaj-direktorija"><strong>Sadržaj direktorija</strong></a></li>
 <li><a class="reference internal" href="#linearni-nacin-zapisa-u-direktorij"><strong>Linearni način zapisa u direktorij</strong></a></li>
 <li><a class="reference internal" href="#indeksirani-nacin-zapisa-u-direktorij"><strong>Indeksirani način zapisa u direktorij</strong></a></li>
-<li><a class="reference internal" href="#flexible-block-groups"><strong>Flexible block groups</strong></a></li>
-<li><a class="reference internal" href="#primjer-stvaranja-datotecnog-sustava-na-datoteci"><strong>PRIMJER STVARANJA DATOTEČNOG SUSTAVA NA DATOTECI</strong></a></li>
+<li><a class="reference internal" href="#fleksibilne-grupe-blokova"><strong>Fleksibilne grupe blokova</strong></a></li>
+<li><a class="reference internal" href="#primjer-stvaranja-datotecnog-sustava-na-datoteci"><strong>Primjer stvaranja datotečnog sustava na datoteci</strong></a></li>
 <li><a class="reference internal" href="#prilog-detaljna-inode-struktura-ext4"><strong>Prilog - Detaljna Inode struktura (EXT4)</strong></a></li>
 <li><a class="reference internal" href="#literatura"><strong>LITERATURA:</strong></a></li>
 </ul>
