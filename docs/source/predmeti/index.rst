@@ -3,21 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-TSRB dokumentacija
-==================
+Predmeti
+========
 
 Sadržaj:
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 3
 
-   filesystems/index
-   predmeti/index
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
+   os/index
+   por/index
