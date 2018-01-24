@@ -1,0 +1,2413 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Razvoj EXT4 datotečnog sustava &mdash; TSRB_TEST 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="TSRB_TEST 1.0 documentation" href="../../index.html"/>
+        <link rel="up" title="EXT4" href="index.html"/>
+        <link rel="next" title="NTFS" href="../ntfs/index.html"/>
+        <link rel="prev" title="EXT4" href="index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> TSRB_TEST
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Datotečni sustavi</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../pojmovi.html"><strong>Pojmovi</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../opcenito.html"><strong>Što je datotečni sustav</strong></a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">EXT4</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href=""><strong>Razvoj EXT4 datotečnog sustava</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#struktura-ext4-datotecnog-sustava"><strong>Struktura EXT4 datotečnog sustava</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#grupe-blokova"><strong>Grupe blokova</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#superblock"><strong>Superblock</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deskriptori-grupe"><strong>Deskriptori grupe</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rezervirani-blokovi-gd-tablice"><strong>Rezervirani blokovi GD tablice</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#indeks-cvor"><strong>Indeks čvor</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fizicke-i-simbolicke-poveznice"><strong>Fizičke i simboličke poveznice</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simbolicke-poveznice"><strong>Simboličke poveznice</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sadrzaj-direktorija"><strong>Sadržaj direktorija</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linearni-nacin-zapisa-u-direktorij"><strong>Linearni način zapisa u direktorij</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#indeksirani-nacin-zapisa-u-direktorij"><strong>Indeksirani način zapisa u direktorij</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fleksibilne-grupe-blokova"><strong>Fleksibilne grupe blokova</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#primjer-stvaranja-datotecnog-sustava-na-datoteci"><strong>Primjer stvaranja datotečnog sustava na datoteci</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prilog-detaljna-inode-struktura-ext4"><strong>Prilog - Detaljna Inode struktura (EXT4)</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#literatura"><strong>Literatura:</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ntfs/index.html">NTFS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../predmeti/index.html">Predmeti</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">TSRB_TEST</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Datotečni sustavi</a> &raquo;</li>
+        
+          <li><a href="index.html">EXT4</a> &raquo;</li>
+        
+      <li><strong>Razvoj EXT4 datotečnog sustava</strong></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/filesystems/ext4/Linux_datotecni_sustav.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="razvoj-ext4-datotecnog-sustava">
+<h1><strong>Razvoj EXT4 datotečnog sustava</strong><a class="headerlink" href="#razvoj-ext4-datotecnog-sustava" title="Permalink to this headline">¶</a></h1>
+<p>Originalna, prva verzija EXT datotečnog sustava je stvorena prema
+tadašnjem MINIX datotečnom sustavu (koji se koristio na istoimenom MINIX
+operacijskom sustavu, autor je Andrew S. Tanenbaum, ujedno poznat kao
+autor mnogih kvalitetnih knjiga iz područja računalnih znanosti).</p>
+<p>Nakon prepoznavanja određenih nedostataka, stvoren je EXT2 datotečni
+sustav, koji je i danas popularan na mnogim računalima.</p>
+<p>Ubrzo je stvoren EXT3 datotečni sustav, koji zadržava kompatibilnost sa
+EXT2, no omogućava i slijedeće nove značajke : Dnevnik zapisa (eng.
+Journal), Mogućnost proširenja veličine datotečnog sustava (čak i u
+&#8220;online&#8221; modu) , Hash-tree indeksiranje za velike direktorije.</p>
+<p>Zadnja iteracija EXT datotečnih sustava je EXT4.</p>
+<div class="line-block">
+<div class="line">Sam povijesni razvoj općenitih datotečnih sustava moguće je pogledati
+u video zapisu na slijedećoj poveznici:</div>
+<div class="line"><a class="reference external" href="https://www.youtube.com/watch?v=SMcVdZk7wV8">https://www.youtube.com/watch?v=SMcVdZk7wV8</a></div>
+</div>
+<p>EXT4 datotečni je zadržao razinu kompatibilnosti sa prethodnim EXT3
+datotečnim sustavom, no dodane su mnoge nove mogućnosti koje podižu
+razinu performansi i stabilnosti samo sustava.</p>
+</div>
+<div class="section" id="struktura-ext4-datotecnog-sustava">
+<h1><strong>Struktura EXT4 datotečnog sustava</strong><a class="headerlink" href="#struktura-ext4-datotecnog-sustava" title="Permalink to this headline">¶</a></h1>
+<p>Prilikom stvaranja datotečnog sustava na particiji, sektori (osnovni i
+najmanji dijelovi mogući za zapis na disk) se grupiraju u logičke
+cjeline koje se zovu blokovi (eng. blocks). U terminologiji Microsoft
+datotečnih sustava, sektori se isto grupiraju u blokove,no oni se zovu
+klasteri (eng. clusters). Ti blokovi se naknadno grupiraju u grupe
+blokova. Osnovna, pojednostavljena struktura EXTx datotečnih sustava,
+prikazana je na slijedećem crtežu:</p>
+<p><a class="reference internal" href="../../_images/image1.png"><img alt="image0" src="../../_images/image1.png" style="width: 6.27119in; height: 0.77083in;" /></a></p>
+<p>Veličina blokova se prikazuje u bajtovima, te ona može biti:</p>
+<ul class="simple">
+<li>Za Ext2 sustave: 1KB, 2KB, 4KB i 8KB</li>
+<li>Za Ext3: Isto kao i Ext2</li>
+<li>Za Ext4: Od 1KB do 64KB</li>
+</ul>
+<p>Veličina blokova direktno utječe na :</p>
+<ul class="simple">
+<li>Maksimalnu veličinu datotečnog sustava</li>
+<li>Maksimalnu veličinu datoteke</li>
+<li>Performanse</li>
+</ul>
+<p>Što se tiče performansi, dobro je problematiku objasniti na slijedećem
+primjeru.</p>
+<p>Datoteka veličine 1MB (1048576 bajtova) nalazi se na dva datotečna
+sustava, jedan sa veličinom blokova 4KB i drugi sa veličinom od 64KB.</p>
+<p>U prvom primjeru, datoteka će biti podijeljena na 256 dijelova (
+1048576/4096), te će za učitavanje datoteke biti potrebno minimalno 256
+I/O operacija (često se gleda kroz IOPS vrijednosti, odnosno
+<strong>I</strong>nput/Output <strong>O</strong>perations <strong>P</strong>er <strong>S</strong>econd).</p>
+<p>U drugom primjeru datotečnog sustava, datoteka će biti podijeljena na 16
+blokova (1048576/65536), te će za učitavanje datoteke biti potrebno
+minimalno 16 I/O operacija, što je u teoriji skok u performansama čak 16
+puta za ovaj proces.</p>
+<p>Naravno, na datotečnim sustavima se nalaze datoteke različitih veličina,
+no primjer jasno pokazuje odnos performansi na veličinu blokova, te je
+potrebno razmisliti o njoj ako će se na sustavu pretežno nalaziti
+datoteke veće, odnosno manje veličine.</p>
+<p>Drugi problem o kojem je potrebno voditi računa je iskoristivost
+prostora na disku. U teoretskom primjeru, možemo zamisliti datotečni
+sustav podijeljen na blokove veličine 64KB, na kojem se pretežno nalaze
+datoteke veličine 20KB. S obzirom da je sa stajališta datotečnog sustava
+blok od 64KB najmanja moguća jedinica za I/O operacije, za svaku
+datoteku od 20KB imamo 44KB praznog prostora koji nije moguće
+iskoristiti za bilo što drugo, odnosno cijeli blok mora biti rezerviran
+za tu datoteku. Takav problem naziva se unutarnja fragmentacija (eng.
+internal fragmentation).</p>
+<p><strong>NAPOMENA:</strong> Iako se ne radi u temi teksta, dobro je osnovno objasniti i
+drugi koncept fragmentacije, vanjska fragmentacija (eng. external
+fragmentation). Sa razine datotečnog sustava, radi se o konceptu gdje
+postoje slobodni blokovi za zapisivanje, no nije ih moguće iskoristiti
+na način da datoteka bude sekvencijalno zapisana na njih. Naime,
+slobodni blokovi nisu u nizu, već su na različitim dijelovima, te se na
+taj način i zapisuju podaci datoteke. Na kraju procesa, datoteka je
+fragmentirana, te čitanje sadržaja te datoteke je usporeno na klasičnim
+tvrdim diskovima (s obzirom da brzina I/O operacija ovisi i o položaju
+glave na ploči tvrdog diska). Na SSDovima, problem performansi je
+drastično smanjen zbog tehnologije rada takvih tipova memorije.</p>
+<p>Isto tako, defragmentacija je postupak u kojem operacijski sustav
+preslaguje blokove na datotečnom sustavu, kako bi slobodni blokovi
+uvijek bili u nizu, te sama fragmentacija smanjena na minimum.</p>
+<p>Naravno, raznim algoritmima se pokušava zaobići cijeli problem vanjske
+fragmentacije (često se govori općenitim nazivom „fragmentacija“), no ta
+tema je vrlo kompleksna te neće biti taknuta u ovom tekstu.</p>
+<p><a class="reference internal" href="../../_images/image2.png"><img alt="image1" src="../../_images/image2.png" style="width: 4.50625in; height: 2.80486in;" /></a></p>
+<p><a class="reference external" href="http://lsi.vc.ehu.es/pablogn/docencia/manuales/UCLACS111/scribe/12/fragmentation.png">http://lsi.vc.ehu.es/pablogn/docencia/manuales/UCLACS111/scribe/12/fragmentation.png</a></p>
+</div>
+<div class="section" id="grupe-blokova">
+<h1><strong>Grupe blokova</strong><a class="headerlink" href="#grupe-blokova" title="Permalink to this headline">¶</a></h1>
+<p>Nakon što je particija podijeljena na blokove, oni se grupiraju u grupe
+blokova (eng. Block Groups), što je i prikazano u gornjem crtežu. Sve
+grupe blokova su jednake veličine. Svaka grupa blokova ima svoju
+definiranu strukturu za upravljanje datotekama, što je odmak od npr.
+NTFS datotečnim sustavima u kojima postoji jedna MFT (eng. Master File
+Table) tablica za cijelu particiju. Iako se ne može direktno
+uspoređivati, sam koncept grupe blokova bi podrazumijevao da svaka grupa
+ima svoju MFT tablicu (i ostale kritične strukture). Implementacijom
+grupe blokova, cilj je bio postići :</p>
+<ul class="simple">
+<li>Zadržati lokalnost/blizinu između pokazivača datoteke i njenog
+stvarnog sadržaja</li>
+<li>Povećati pouzdanost datotečnog sustava spremanjem kopija kritičnih
+podataka u ostale grupe blokova (SuperBlock, Group Descriptors)</li>
+<li></li>
+</ul>
+<p>Osnovna struktura grupe blokova EXTx (u ovom primjeru EXT4) je prikazana
+na slijedećem crtežu :</p>
+<p><a class="reference internal" href="../../_images/image3.png"><img alt="image2" src="../../_images/image3.png" style="width: 6.37255in; height: 0.69036in;" /></a></p>
+<p>* - Prvih 1024B svake particije je rezervirano za Boot Code, taj
+prostor se ne koristi od strane datotečnog sustava. Ovisno o veličini
+blokova na particiji, Boot Sector (često spominjan termin,iako se realno
+radi o 2 sektora, no terminologija je ostala zbog povijesnih razloga) će
+se nalaziti u zasebnom bloku, ili u istom bloku sa SuperBlock
+strukturom. U drugom slučaju, SuperBlock počinje odmah nakon tih 1024B.
+U prikazanom primjeru, može se uočiti kako datotečni sustav sa veličinom
+bloka od 1024B, počinje gledati od prvog bloka (blokovi se počinju
+brojati od nule), a to je ujedno i pozicija SuperBlock strukture. Iako
+su trenutno najčešće veličine blokova 4096B (u uvjetima standardne
+veličine particija, te korištenja standardnih postavki prilikom
+stvaranja datotečnog sustava),</p>
+<p><a class="reference internal" href="../../_images/image4.png"><img alt="image3" src="../../_images/image4.png" style="width: 3.77473in; height: 2.39415in;" /></a></p>
+<p>Svaka grupa blokova se sastoji od slijedećih dijelova:</p>
+<ul class="simple">
+<li>SuperBlock*</li>
+<li>Group Descriptors*</li>
+<li>Reserved GDT (eng. Group Descriptors Table) Blocks**</li>
+<li>Data Blocks Bitmap</li>
+<li>Inodes Bitmap</li>
+<li>Inodes Table</li>
+<li>Data Block</li>
+</ul>
+<p>*SuperBlock i Group Descriptors strukture su se zbog važnosti, za
+uspješnu inicijalizaciju datotečnog sustava, u prvoj reviziji EXT2
+datotečnog sustava kopirale na početak svake grupe blokova. U drugoj
+reviziji je implementirana opcija Sparse SuperBlock značajka
+(sparse_super) u kojoj se kopije (uz original na nultom bloku) spremaju
+samo na prvom bloku, te lokacijama blokovima višekratnika brojeva 3,5 i
+7. Primjer stvaranja datotečnog sustava sa i bez Sparse Superblock
+značajke je vidljiv na slijedećoj slici (može se uočiti velika razlika u
+broju kopija):</p>
+<p><a class="reference internal" href="../../_images/image5.png"><img alt="image4" src="../../_images/image5.png" style="width: 6.15079in; height: 1.61458in;" /></a></p>
+<p>**Reserved GDT (eng. Group Descriptors Table) Blocks struktura je dio
+EXT4 verzije datotečnog sustava, te nije standardni dio ranijih verzija.</p>
+</div>
+<div class="section" id="superblock">
+<h1><strong>Superblock</strong><a class="headerlink" href="#superblock" title="Permalink to this headline">¶</a></h1>
+<p>U SuperBlock području nalaze se informacije o konfiguraciji datotečnog
+sustava. Nalazi se uvijek na 1024B od početka particije, te je
+rezervirana veličina od 1024B za to područje. U tom području su
+definirane informacije kritične za ispravno učitavanje datotečnog
+sustava prilikom podizanja operacijskog sustava. Neke od tih informacija
+su :</p>
+<ul class="simple">
+<li>Veličina blokova (s_log_block_size, __le32 – <strong>Little Endian
+način zapisa, 32 bita</strong>)</li>
+<li>Broj blokova po grupi (s_blocks_per_group, __le32)</li>
+<li>Ukupan broj inodeova (s_inodes_count, __le32)</li>
+<li>Broj slobodnih inodeova (s_free_inodes_count, __le32)</li>
+<li>Ukupan broj blokova (s_blocks_count_lo, __le32)</li>
+<li>Broj slobodnih blokova (s_free_blocks_count_lo, __le32)</li>
+<li>Oznaka volumena* (s_volume_name[16], char – <strong>Maksimalno 16
+znakova u imenu</strong>)</li>
+<li>Lokacija direktorija zadnjeg učitavanja volumena
+(s_last_mounted[64], char)</li>
+<li>UUID volumena (s_uuid[16], char)</li>
+<li>Podržane značajke datotečnog sustava (s_feature_compat,
+s_feature_incompat, s_feature_ro_compat)</li>
+<li>Itd...</li>
+</ul>
+<p>Kompletan opis cijele SuperBlock strukture je opisana na slijedećoj
+poveznici :
+<a class="reference external" href="https://ext4.wiki.kernel.org/index.php/Ext4_Disk_Layout">https://ext4.wiki.kernel.org/index.php/Ext4_Disk_Layout#The_Super_Block</a></p>
+<p>S obzirom na važnost SuperBlock strukture, stvaraju se kopije na više
+mjesta na datotečnom sustavu (prethodno opisana metoda), no prilikom
+podizanja operacijskog sustava, čita se isključivo ona verzija na nultom
+bloku.</p>
+<p>Iako je rezervirano 1024B za zapise unutar strukture, sama količina
+zapisa ovisi o verziji (i dodatno reviziji) datotečnog sustava (EXT2,
+EXT3,EXT4) na toj particiji.</p>
+</div>
+<div class="section" id="deskriptori-grupe">
+<h1><strong>Deskriptori grupe</strong><a class="headerlink" href="#deskriptori-grupe" title="Permalink to this headline">¶</a></h1>
+<p>Navedena struktura, za razliku od SuperBlock dijela sadrži informacije o
+konfiguracijama pojedinih grupa. Jednako kao i u slučaju SuperBlock
+strukture, Group Descriptors se kopira u svaku grupu blokova (eng. Block
+Groups), osim ako nije uključena značajka &#8220;sparse_super&#8221;. U tom slučaju
+vrijede pravila kao i za SuperBlock. Na početku grupe blokova koje
+nemaju kopiju SuperBlock i Group Descriptors struktura, nalazi se
+slijedeća struktura po redoslijedu ( uglavnom Data Block Bitmap, iako to
+nije uvijek slučaj, jer je lokacija konfigurabilna i adresa se nalazi u
+Group Descriptors strukturi).</p>
+<p>Group Descriptors sadrži parametre svih grupa blokova, a to su :</p>
+<ul class="simple">
+<li>Lokacija Data Block Bitmap strukture</li>
+<li>Lokacija Inode Block Bitmap strukture</li>
+<li>Lokacija Inode Table strukture</li>
+<li>Broj slobodnih blokova</li>
+<li>Broj slobodnih inodeova</li>
+<li>Broj alociranih inodeova za direktorije unutar grupe blokova</li>
+<li>Još neke dodatne informacije ili rezerviran prostor za buduću
+nadogradnju</li>
+</ul>
+<p>Veličina jedne Group Descriptor stavke unutar tablice je 32B, odnosno
+64B ako je aktivirana 64bitna podrška na EXT4 datotečnom sustavu.</p>
+<p><strong>Praktičan primjer</strong></p>
+<p>U svrhu prikaza informacija Group Descriptors strukture, stvorena je
+prazna datoteka od 100MB te je na nju postavljen EXT4 datotečni sustav
+(mkfs.ext4 alat, veličina bloka je 4k).</p>
+<p>Prvo će biti predstavljene informacije o datotečnom sustavu pomoću alata
+fsstat (dio grupe alata unutar sleuthkit paketa, instalirati sa naredbom
+&#8220;apt-get install sleuthkit&#8221;). Informacije koje nemaju nikakvu vrijednost
+vezane uz ovaj primjer su izrezane iz izlaznog rezultata (/cut linije).
+Nakon fsstat izlaza, bit će prikazan ispis kompletne Group Descriptors
+strukture u originalnom obliku koji je zapisan na disk. Bojama su
+označene poveznice između izlazne informacije fsstat aplikacije i
+originalnog zapisa na disku ( u heksadecimalnom obliku, little endian
+način zapisa). Na kraju će biti pojedinačno izvučena sva polja jedne
+stavke Group Descriptor strukture.</p>
+<p>NAPOMENA: S obzirom da je veličina datoteke 100MB, a veličina jednog
+bloka 4KB, dovoljna je jedna grupa blokova za alokaciju svih blokova na
+ovom datotečnom sustavu. Samim time, Group Descriptor struktura ima samo
+jednu stavku (s obzirom da se nalazi samo jedna grupa blokova). Veličina
+te stavke je 32B, no rezerviran je cijeli blok za strukturu (4096B), te
+će ostatak te strukture biti izrezan (/cut linija), jer je ispunjen
+nulama.</p>
+<p>FSSTAT IZLAZNE INFORMACIJE (i prikaz korištenja aplikacije u prvoj
+liniji)</p>
+<p><a class="reference external" href="mailto:ids&#37;&#52;&#48;ids2">ids<span>&#64;</span>ids2</a> ~/LINUX_PRIMJERI $ fsstat disk_image_100M</p>
+<p>FILE SYSTEM INFORMATION</p>
+<hr class="docutils" />
+<p>File System Type: Ext4</p>
+<p>Volume Name:</p>
+<p>Volume ID: d0342eb32c739ab934523487c8ced4b</p>
+<p><tt class="docutils literal"><span class="pre">**/cut</span> <span class="pre">**</span></tt></p>
+<p>Source OS: Linux</p>
+<p>Dynamic Structure</p>
+<p>Compat Features: Journal, Ext Attributes, Resize Inode, Dir Index</p>
+<p>InCompat Features: Filetype, Extents, Flexible Block Groups,</p>
+<p>Read Only Compat Features: Sparse Super, Large File, Huge File, Extra
+Inode Size</p>
+<p>Journal ID: 00</p>
+<p>Journal Inode: 8</p>
+<p>METADATA INFORMATION</p>
+<hr class="docutils" />
+<p>Inode Range: 1 - 25601</p>
+<p>Root Directory: 2</p>
+<p>Free Inodes: 25589</p>
+<p>Inode Size: 128</p>
+<p>CONTENT INFORMATION</p>
+<hr class="docutils" />
+<p>Block Groups Per Flex Group: 16</p>
+<p>Block Range: 0 - 25599</p>
+<p>Block Size: 4096</p>
+<p>Free Blocks: 23760</p>
+<p>BLOCK GROUP INFORMATION</p>
+<hr class="docutils" />
+<p>Number of Block Groups: 1</p>
+<p>Inodes per group: 25600</p>
+<p>Blocks per group: 32768</p>
+<p>Group: 0:</p>
+<p>Block Group Flags: [INODE_ZEROED]</p>
+<p>Inode Range: 1 - 25600</p>
+<p>Block Range: 0 - 25599</p>
+<p>Layout:</p>
+<p>Super Block: 0 - 0</p>
+<p>Group Descriptor Table: 1 - 1</p>
+<p>Group Descriptor Growth Blocks: 2 - 7</p>
+<p>Data bitmap: 8 - 8</p>
+<p>Inode bitmap: 24 - 24</p>
+<p>Inode Table: 40 - 839</p>
+<p>Uninit Data Bitmaps: 8 - 23</p>
+<p>Uninit Inode Bitmaps: 24 - 39</p>
+<p>Uninit Inode Table: 40 - 12839</p>
+<p>Data Blocks: 12840 - 25599</p>
+<p>Free Inodes: 25589 (99%)</p>
+<p>Free Blocks: 23760 (92%)</p>
+<p>Total Directories: 2</p>
+<p>Stored Checksum: 0x8E0F</p>
+<p><strong>Prikaz fizičkog zapisa group descriptor strukture</strong></p>
+<p>(samo prvih 32B, zatim 64B kao dokaz da je ostatak strukture prazan, te
+je ostatak izrezan iz prikaza)</p>
+<p>Izlazni rezultat je podijeljen na 3 stupca : adrese (offset,
+heksadecimalni oblik), originalni zapis (heksadecimalni oblik, little
+endian način zapisa, 16B u jednoj liniji), te zapis u ASCII obliku.</p>
+<p><a class="reference external" href="mailto:ids&#37;&#52;&#48;ids2">ids<span>&#64;</span>ids2</a> ~/LINUX_PRIMJERI $ dd if=disk_image_100M bs=4096 skip=1
+count=1 | xxd</p>
+<p>0000000:0800 0000 1800 0000 2800 0000 d05c f563 ........(....\.c</p>
+<p>0000010:0200 0400 0000 0000 0000 0000 f563 0f8e .............c..</p>
+<p>0000020:0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
+<p>0000030:0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
+<p>0000040:0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
+<p>0000050:0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
+<p>Od cijelog bloka veličine 4kB, prikazano je samo prvih 96B, s obzirom da
+je nakon 32. bajta blok ispunjen nulama. Temeljem izlaznih podataka,
+može se zaključiti kako se na datotečnom sustavu nalazi samo jedna grupa
+blokova.</p>
+<p>Koristeći službenu referencu za iščitavanje značenja sadržaja Group
+Descriptors strukture ( poveznica na kraju poglavlja), ispod teksta je
+prikazan zapis u originalnom obliku (little endian ili LE,
+heksadecimalni zapis), zatim transformacija sadržaja u standardan oblik
+za čitanje s lijeva nadesno (big endian ili BE, i dalje heksadecimalan
+zapis). Treću stavku čini sadržaj izmijenjen iz heksadecimalnog u
+decimalni tip, te na kraju slijedi opis, odnosno značenje samog sadržaja
+, te njegova veličina.</p>
+<p>08000000 - 00000008 - 8 - Data Blocks Bitmap Location</p>
+<p>18000000 - 00000018 - 24 - Inode Blocks Bitmap Location</p>
+<p>28000000 - 00000028 - 40 - Inode Table Bitmap Location</p>
+<p>D05C - 5CD0 - 23760 - Free Blocks Count</p>
+<p>F563 - 63F5 - 25589 - Free Inodes Count</p>
+<p>0200 - 0002 - 2 - Number of directories</p>
+<p>0F8E - 8E0F - 36367 - Group Descriptor Checksum</p>
+<p>U samom izlaznom rezultatu fsstat naredbe može se primijetiti kako je
+aktivirana značajka Flexible Block Groups, te polja Uninit Data Bitmaps,
+Uninit Inode Bitmaps, Uninit Inode Table. Ti termini biti će ukratko
+objašnjeni kasnije u posebnom poglavlju. Detaljnije informacije je
+moguće naći na poveznici na kraju poglavlja.</p>
+<p><a class="reference external" href="https://ext4.wiki.kernel.org/index.php/Ext4_Disk_Layout#Block_Group_Descriptors">https://ext4.wiki.kernel.org/index.php/Ext4_Disk_Layout#Block_Group_Descriptors</a></p>
+</div>
+<div class="section" id="rezervirani-blokovi-gd-tablice">
+<h1><strong>Rezervirani blokovi GD tablice</strong><a class="headerlink" href="#rezervirani-blokovi-gd-tablice" title="Permalink to this headline">¶</a></h1>
+<p>Prilikom novog stvaranja datotečnog sustava, nakon Group Descriptors
+tablice rezervira se i određeni broj blokova za buduće proširenje
+veličine tog datotečnog sustava. Ti blokovi se nalaze između Group
+Descriptors tablice i Data Block Bitmap bloka. U standardnoj postavci,
+moguće je proširiti datotečni sustav sa faktorom do otprilike 1024 puta
+od originalne veličine. Podržava li sustav proširenje pokazuje je li
+aktivirana značajka Resize Inode. Radi se o specijalnom tipu Inodea u
+kojem su zapisane lokacije blokova za proširenje (
+<a class="reference external" href="https://ext4.wiki.kernel.org/index.php/Ext4_Disk_Layout">https://ext4.wiki.kernel.org/index.php/Ext4_Disk_Layout#Special_inodes</a>).</p>
+<p><strong>Primjer:</strong></p>
+<p>U slijedećem primjeru ponovno je prikazan izlazni rezultat naredbe
+<strong>fsstat</strong> za sliku EXT4 datotečnog sustava, te su označeni bitni
+dijelovi.</p>
+<p><a class="reference external" href="mailto:ids&#37;&#52;&#48;ids2">ids<span>&#64;</span>ids2</a> ~/LINUX_PRIMJERI $ fsstat disk_image_100M</p>
+<p>FILE SYSTEM INFORMATION</p>
+<hr class="docutils" />
+<p>File System Type: Ext4</p>
+<p>Volume Name:</p>
+<p>Volume ID: d0342eb32c739ab934523487c8ced4b</p>
+<p><tt class="docutils literal"><span class="pre">**/cut</span> <span class="pre">**</span></tt></p>
+<p>Source OS: Linux</p>
+<p>Dynamic Structure</p>
+<p>Compat Features: Journal, Ext Attributes, Resize Inode, Dir Index</p>
+<p>InCompat Features: Filetype, Extents, Flexible Block Groups,</p>
+<p>Read Only Compat Features: Sparse Super, Large File, Huge File, Extra
+Inode Size</p>
+<p>Group: 0:</p>
+<p>Block Group Flags: [INODE_ZEROED]</p>
+<p>Inode Range: 1 - 25600</p>
+<p>Block Range: 0 - 25599</p>
+<p>Layout:</p>
+<p>Super Block: 0 - 0</p>
+<p>Group Descriptor Table: 1 - 1</p>
+<p>Group Descriptor Growth Blocks: 2 - 7</p>
+<p><tt class="docutils literal"><span class="pre">**/cut**</span></tt></p>
+<p>Moguće je uočiti kako je aktivna značajka &#8220;Resize Inode&#8221;, te je
+rezervirano dodatnih 6 blokova za buduće proširenje datotečnog sustava i
+to odmah u nastavku nakon Group Descriptor tablice (iako je na prvi
+pogled samo 6 rezerviranih blokova daleko od faktora povećanja 1024x,
+kasnije u tekstu će biti objašnjena procedura i krajnji rezultat).</p>
+<p>Nadalje, upotrebom <strong>debugfs</strong> aplikacije moguće je uočiti detalje
+specijalnog Inodea sa brojem 7 (proučiti specijalne Inodeove).</p>
+<div class="line-block">
+<div class="line"><a class="reference external" href="mailto:ids&#37;&#52;&#48;ids2">ids<span>&#64;</span>ids2</a> ~/LINUX_PRIMJERI $ debugfs disk_image_100M</div>
+<div class="line">debugfs 1.42.12 (29-Aug-2014)</div>
+<div class="line">debugfs: stat &lt;7&gt;</div>
+<div class="line">Inode: 7 Type: regular Mode: 0600 Flags: 0x0</div>
+<div class="line">Generation: 0 Version: 0x00000000</div>
+<div class="line">User: 0 Group: 0 Size: 4299210752</div>
+<div class="line">File ACL: 0 Directory ACL: 0</div>
+<div class="line">Links: 1 Blockcount: 56</div>
+<div class="line">Fragment: Address: 0 Number: 0 Size: 0</div>
+<div class="line">ctime: 0x591d7d95 &#8211; Thu May 18 12:55:17 2017</div>
+<div class="line">atime: 0x591d7d95 &#8211; Thu May 18 12:55:17 2017</div>
+<div class="line">mtime: 0x591d7d95 &#8211; Thu May 18 12:55:17 2017</div>
+<div class="line">BLOCKS:</div>
+<div class="line">(DIND):840, (IND):2, (IND):3, (IND):4, (IND):5, (IND):6, (IND):7</div>
+<div class="line">TOTAL: 7</div>
+<div class="line">(END)</div>
+<div class="line">Detalji statistike Inodea pod brojem 7 prikazuju koje sve blokove
+zauzima , te se oni podudaraju sa brojem blokova koji su rezervirani
+za daljnje proširenje datotečnog sustava, vidljivo u prošlom izlaznom
+rezultatu <strong>fsstat</strong> naredbe.</div>
+</div>
+<p>Izračun trenutne veličine datotečnog sustava , i maksimalne veličine
+moguće je dobiti korištenjem varijabli Group Descriptor size, Block Size
+te Group Descriptor Blocks i Reserved Group Descriptors Blocks.</p>
+<p>I dalje će se koristiti slika od 100MB sa EXT4 datotečnom sustavom kao
+primjer. S obzirom da nije aktivna značajka 64bit, veličina jedne Group
+Descriptor stavke je 32 bajta. Veličina jednog bloka je 4096B (moguće
+provjeriti u prethodnom praktičnom primjeru za Group Descriptors
+poglavlje).</p>
+<p>Group_Des_Size = 32B</p>
+<p>Block_Size = 4096B</p>
+<p>Group_Des_Bl_Size = 1</p>
+<p>Res_Group_Des_Bl_Size = 6</p>
+<p>Number_Blocks_Per_Block_Group = Broj blokova po jednoj grupi blokova
+= 8* Block_Size = 32768</p>
+<p>Objašnjenje: Block Bitmap blok je binarna tablica statusa alokacije svih
+blokova unutar jedne grupe blokova. Veličina same grupe blokova zapravo
+ovisi o veličini jednog bloka. S obzirom da Bitmap tablica jedne grupe
+blokova uvijek zauzima jedan blok, broj blokova koji je moguće
+adresirati je 8*Block_Size (množi se sa 8 s obzirom da se radi o
+binarnoj tablici, odnosno neki blok na datotečnom sustavu ima samo dva
+stanja – alociran/slobodan).</p>
+<p>U ovom slučaju, veličina bloka je 4096B, te je moguće alocirati 32768
+blokova unutar jedne grupe blokova.</p>
+<p>Iz toga je moguće izračunati samu veličinu jedne grupe blokova:</p>
+<p>Block_Group_Size = Veličina jedne grupe blokova = 32768 * 4096B =
+134217728B = 128MB</p>
+<p>(broj blokova unutar grupe se množi sa veličinom jednog bloka)</p>
+<p>Za Group Descriptors tablicu rezerviran je jedan blok ( 4096B). Bez
+obzira što se u tablici nalazi trenutno samo jedna grupa blokova ( jer
+128B zadovoljava ukupnu veličinu od 100MB datotečnog sustava), prije
+izračuna ukupnog povećanja datotečnog sustava (aktiviranjem rezerviranih
+GDT blokova), dobro je izračunati faktor povećanja kada bi se samo
+originalni blok koristio za sve nove Group Descriptore ( odnosno
+dodavanjem novih grupa blokova).</p>
+<p>Moguće proširenje originalne veličine od 100MB korištenjem originalnog
+Group Descriptors bloka (1 blok).</p>
+<p>Group_Descriptors_per_Block = Block_Size / Group_Des_Size = 4096 /
+32 = 128</p>
+<p>Original_Total_Group_Descriptors = Group_Des_Bl_Size *
+Group_Descriptors_per_Block = 1* 128 = 128</p>
+<p>Max_Original_Size = Original_Total_Group_Descriptors *
+Block_Group_Size = 128 * 128 = 16384MB = 16GB</p>
+<p>Increment_Factor_1 = Max_Original_Size / Original_Size = 16384 /
+100 = 163x</p>
+<p>Max_Total_Group_Descriptors = (Group_Des_Bl_Size +
+Res_Group_Des_Bl_Size) * Group_Descriptors_per_Block =
+(6+1)*128 = 896</p>
+<p>Max_FileSystem_Size = Max_Total_Group_Descriptors *
+Block_Group_Size = 896 * 128 = 114688MB = 112GB</p>
+<p><strong>Increment_Factor_2 = Max_FileSystem_Size / Original_Size = 114688
+/ 100 = 1146x</strong></p>
+<p>Iz gornjeg izračuna je vidljivo kako je stvarno moguće originalnu
+veličinu stvorenog datotečnog sustava povećati za otprilike 1024 puta.
+Ovdje je potrebno napomenuti ograničenje gdje zbroj originalnih GDT
+blokova i rezerviranih GDT blokova ne može biti veći od 1024 blokova.</p>
+</div>
+<div class="section" id="indeks-cvor">
+<h1><strong>Indeks čvor</strong><a class="headerlink" href="#indeks-cvor" title="Permalink to this headline">¶</a></h1>
+<p>Svakoj datoteci/direktoriju na datotečnom sustavu je dodijeljen Inode
+(eng. Index NODE). Inode predstavlja strukturu na disku koja upućuje na
+sam sadržaj neke datoteke (odnosno upućuje na podatkovne blokove te
+datoteke). U samom Inodeu se nalaze određeni metapodaci o datoteci na
+koju upućuje (vrijeme stvaranja, modificiranja, veličina, lokacija na
+datotečnom sustavu...).</p>
+<p>Uprocesu stvaranja datotečnog sustava (podjela particije na blokove,
+stvaranje osnovnih struktura...), stvara se i tablica Inodeova, gdje
+njihov broj ovisi o zadanom omjeru broj_bajtova/Inode. Drugim riječima,
+za svaki broj bajtova na datotečnom sustavu bit će stvoren jedan Inode.
+Sam omjer može se vidjeti u konfiguracijskoj datoteci alata <strong>mke2fs</strong>
+(/etc/mke2fs.conf):</p>
+<p>[defaults]</p>
+<p>...</p>
+<p>blocksize = 4096</p>
+<p>inode_size = 256</p>
+<p>inode_ratio = 16384</p>
+<p>[fs_types]</p>
+<p>ext3 = {</p>
+<p>features = has_journal</p>
+<p>}</p>
+<p>ext4 = {</p>
+<p>features =
+has_journal,extent,huge_file,flex_bg,uninit_bg,dir_nlink,extra_isize</p>
+<p>auto_64-bit_support = 1</p>
+<p>inode_size = 256</p>
+<p>}</p>
+<p>...</p>
+<p>big = {</p>
+<p>inode_ratio = 32768</p>
+<p>}</p>
+<p>huge = {</p>
+<p>inode_ratio = 65536</p>
+<p>}</p>
+<p>news = {</p>
+<p>inode_ratio = 4096</p>
+<p>}</p>
+<p>Iz navedenog primjera mogu se primijetiti predložene vrijednosti omjera
+ovisno o situacijskom korištenju datotečnog sustava. Ako je datotečni
+sustav predodređen za pohranu velikog broja datoteka male veličine, ili
+se planira stvarati puno simboličkih poveznica (ovo ne vrijedi za
+fizičke poveznice, kasnije objašnjeni pojmovi u dokumentu), potrebno je
+osigurati dovoljan broj Inodeova kako ne bi došlo do iscrpljenja istih.
+S druge strane, ako se na datotečnom sustavu planiraju pohranjivati
+velike datoteke, potrebno je prilagoditi omjer (npr. na svakih 1MB ili
+4MB jedan Inode), kako ne bi došlo do iscrpljenja podatkovnih blokova.
+Preporučena vrijednost omjera prilikom stvaranja novog EXT4 datotečnog
+sustava je konzervativnih 16KB po jednom Inodeu.</p>
+<p>Pritom treba imati na umu kako to ne znači da Inode može adresirati samo
+16KB neke datoteke, već se radi isključivo o mehanizmu raspodjele
+Inode/Byte prilikom stvaranja sustava.</p>
+<p><strong>Bitno je napomenuti kako nije moguće stvoriti dodatne slobodne
+Inodeove ( recimo, u zamjenu za podatkovne blokove) nakon stvaranja
+EXT2/3/4 datotečnih sustava. U slučaju iscrpljenosti Inodeova, potrebno
+je ili proširiti sam datotečni sustav, ili premjestiti datoteke na neki
+novi sustav prilagođen za takav tip/veličinu datoteka. Prilikom
+proširivanja postojećeg datotečnog sustava, omjer broja Inodeova i
+bajtova se ne mijenja.</strong></p>
+<p>Struktura Inodea je detaljno opisana u prilogu na kraju dokumenta.</p>
+<p><strong>Praktičan primjer : Iscrpljenje podatkovnih blokova/Inode struktura</strong></p>
+<p>Bez obzira koliko se slobodnih blokova dodijeljenih za podatke/sadržaj
+(eng. Data Blocks) datoteka nalazi u sustavu, broj slobodnih Inodeova je
+bitna stavka za provjeru slobodnog prostora. Drugim riječima, onog
+trenutka kada se iscrpi broj slobodnih Inodeova, više ne postoji
+mogućnost stvaranja novih datoteka na datotečnom sustavu, odnosno smatra
+se da ne postoji više slobodnog prostora (iako postoje slobodni
+podatkovni blokovi). Koncept će biti prikazan u slijedećem primjeru,
+gdje će se datoteka od 100MB sa EXT4 datotečnim sustavom postaviti u
+direktorij /mnt/100M. Nakon toga će se provjeriti broj slobodnih
+podatkovnih blokova i broj slobodnih Inodeova. U prvom testiranju,
+datotečni sustav će se popuniti jednom velikom datotekom od 89MB
+(4096B*23000), kako bi se prikazala iskorištenost podatkovnih blokova u
+odnosu na Inodeove. U drugom testiranju (nakon što je datoteka
+obrisana), stvoriti će se visok broj simboličkih linkova (s obzirom na
+malu veličinu istih) kako bi se prikazala iskorištenog Inodeova u odnosu
+na podatkovne blokove.</p>
+<p>Dobro je imati na umu fragilnost ravnoteže između iskorištenosti
+podatkovnih blokova naspram broja Inodeova.</p>
+<p>Situacije u kojima postoji rizik od iscrpljenosti Inodeova su najčešće :</p>
+<ul class="simple">
+<li>Stvaranje velikog broja direktorija</li>
+<li>Stvaranje velikog broja datoteka malih veličina</li>
+<li>Stvaranje velikog broja simboličkih linkova</li>
+</ul>
+<p><strong>ids&#64;ids2 ~/LINUX_PRIMJERI $ sudo chown ids /mnt/100M</strong></p>
+<p><strong>ids&#64;ids2 ~/LINUX_PRIMJERI $ mkdir /mnt/100M</strong></p>
+<p>mkdir /mnt/100M</p>
+<p><strong>ids&#64;ids2 ~/LINUX_PRIMJERI $ mount disk_image_100M /mnt/100M/</strong></p>
+<p>mount: only root can do that</p>
+<p><strong>ids&#64;ids2 ~/LINUX_PRIMJERI $ sudo !!</strong></p>
+<p>sudo mount disk_image_100M /mnt/100M/</p>
+<p><strong>ids&#64;ids2 ~/LINUX_PRIMJERI $ cd /mnt/100M/</strong></p>
+<p><strong>ids&#64;ids2 /mnt/100M $ ls</strong></p>
+<p>lost+found</p>
+<p><strong>ids&#64;ids2 /mnt/100M $ df /mnt/100M/</strong></p>
+<p>Filesystem 1K-blocks Used Available Use% Mounted on</p>
+<p>/dev/loop0 95088 48 87872 1% /mnt/100M</p>
+<p><strong>ids&#64;ids2 /mnt/100M $ df -i /mnt/100M/</strong></p>
+<p>Filesystem Inodes IUsed IFree IUse% Mounted on</p>
+<p>/dev/loop0 25600 11 25589 1% /mnt/100M</p>
+<p><strong>Može se uočiti kako je na datotečnom sustavu trenutno iskorišteno 48
+podatkovnih blokova (1%) te 11 Inodeova (1%).</strong></p>
+<p><strong>Slijedeći korak će biti stvaranje jedne velike datoteke nešto manje od
+ukupne veličine datotečnog sustava.</strong></p>
+<p><strong>ids&#64;ids2 /mnt/100M $ dd if=/dev/zero of=/mnt/100M/95MBfile bs=4096
+count=23000</strong></p>
+<p>dd: failed to open ‘/mnt/100M/95MBfile’: Permission denied</p>
+<p><strong>ids&#64;ids2 /mnt/100M $ sudo !!</strong></p>
+<p>sudo dd if=/dev/zero of=/mnt/100M/95MBfile bs=4096 count=23000</p>
+<p>23000+0 records in</p>
+<p>23000+0 records out</p>
+<p>94208000 bytes (94 MB) copied, 0.352804 s, 267 MB/s</p>
+<p><strong>ids&#64;ids2 /mnt/100M $ df /mnt/100M/</strong></p>
+<p>Filesystem 1K-blocks Used Available Use% Mounted on</p>
+<p>/dev/loop0 95088 92060 0 100% /mnt/100M</p>
+<p><strong>ids&#64;ids2 /mnt/100M $ df -i /mnt/100M/</strong></p>
+<p>Filesystem Inodes IUsed IFree IUse% Mounted on</p>
+<p>/dev/loop0 25600 12 25588 1% /mnt/100M</p>
+<p><strong>ids&#64;ids2 /mnt/100M $ sudo rm 95Mbfile</strong></p>
+<p><strong>Iz gornjeg primjera je vidljivo kako su iscrpljeni svi podatkovni
+blokovi (100% zauzeće) dok je iskorišten samo jedan dodatan Inode za
+datoteku. Datoteka je na kraju obrisana.</strong></p>
+<p><strong>U slijedećem primjeru će se stvoriti velik broj simboličkih linkova
+koji upućuju na direktorij &#8220;lost+found&#8221;.</strong></p>
+<p><strong>ids&#64;ids2 for i in {1..25595};do ln -s lost+found/ mirko$i;echo
+$i;done</strong></p>
+<p>1</p>
+<p>2</p>
+<p>.</p>
+<p>.</p>
+<p>25589</p>
+<p>ln: failed to create symbolic link ‘mirko25590’: No space left on device</p>
+<p>25590</p>
+<p><strong>ids&#64;ids2 /mnt/100M $ df /mnt/100M/;df -i /mnt/100M/</strong></p>
+<p>Filesystem 1K-blocks Used Available Use% Mounted on</p>
+<p>/dev/loop0 95088 772 87148 1% /mnt/100M</p>
+<p>Filesystem Inodes IUsed IFree IUse% Mounted on</p>
+<p>/dev/loop0 25600 25600 0 100% /mnt/100M</p>
+<p><strong>U ovom primjeru moguće je uočiti kako je broj podatkovnih blokova
+neznatno porastao no, s druge strane, iscrpili su se svi Inodeovi, te
+više nije moguće stvarati nove datoteke na datotečnom sustavu.</strong></p>
+</div>
+<div class="section" id="fizicke-i-simbolicke-poveznice">
+<h1><strong>Fizičke i simboličke poveznice</strong><a class="headerlink" href="#fizicke-i-simbolicke-poveznice" title="Permalink to this headline">¶</a></h1>
+<p>Nakon što je obrađeno prethodno područje, potrebno je pojasniti dva
+bitna koncepta implementirana u EXT datotečne sustave, a to su :</p>
+<ul class="simple">
+<li>Fizičke poveznice ( eng. hard links)</li>
+<li>Simboličke poveznice (eng. soft links)</li>
+</ul>
+<p>Koncepti će biti pojašnjeni kroz slijedeći primjer, a to je ispis
+sadržaja korijenskog direktorija:</p>
+<p><a class="reference internal" href="../../_images/image6.png"><img alt="image5" src="../../_images/image6.png" style="width: 6.30000in; height: 3.31667in;" /></a></p>
+<p>Između ostalih opcija naredbe &#8220;ls&#8221; za ispis sadržaja direktorija,
+korištena je i opcija -i (prikaz i broja indeksa svake datoteke, odnosno
+Inode vezan uz samu datoteku).</p>
+<p>Kao što je već rečeno, na EXT datotečnim sustavima sve je prikazano kao
+datoteka (čak i direktoriji i uređaji) i svaka datoteka ima dodijeljen
+svoj broj indeksa (eng. Inode). Naime, prilikom stvaranja datoteke,
+slobodan nedodijeljen Inode se povezuje sa tom datotekom (koju još u
+ovom trenutku zapravo definira isključivo sadržaj, recimo tekst neke
+tekstualne datoteke, bez imena). U samom Inodeu se nalaze metapodaci o
+toj novostvorenoj datoteci (vlasnik datoteke, veličina, vremena
+pristupa/izmjene/stvaranja...). Ono što se ne nalazi u nijednom od
+navedenih pojmova (datoteka, Inode) je bitna stavka za korisnike
+sustava, a to je <strong>ime datoteke</strong>. Ime datoteke se stvara kao stavka u
+nekom direktoriju. Ta stavka se u osnovi sastoji od dvije stvari : ime
+datoteke i Inode. Tek je završetkom tog procesa stvorena poveznica (eng.
+link) između samog sirovog sadržaja datoteke, dodijeljenog joj indeks
+broja, te mogućnošću pristupa toj datoteci preko imena koje se nalazi u
+određenom direktoriju.</p>
+<p>Vraćajući se na gornji primjer na slici, svijetloplavom bojom je
+označena jedna stavka direktorija. Ime te stavke je jedna točka &#8221;.&#8221; ,
+što je zapravo specijalno ime direktorija koje upućuje na samog sebe.
+Drugim riječima, s obzirom da je naredba za ispis sadržaja direktorija
+pokrenuta iz korijenskog direktorija (koji je na vrhu same hijerarhije
+direktorija, odnosno ne postoji prethodni direktorij iznad njega),
+stavka sa imenom točka &#8221;.&#8221; zapravo upućuje na isti taj korijenski
+direktorij. Slijedeća stavka u direktoriju ima ime od dvije točke &#8221;..&#8221;,
+što je još jedno specijalno ime direktorija koje upućuje na prethodni
+direktorij u hijerarhiji. Kako je već rečeno da ne postoji prethodni
+direktorij iznad korijenskog direktorija, stavka sa imenom dvije točke
+&#8221;..&#8221; će ponovno upućivati na isti taj korijenski direktorij. Prilikom
+stvaranja svakog novog direktorija na datotečnom sustavu automatski će
+se stvoriti i navedene dvije stavke.</p>
+<p>Za pojašnjenje, prikazano je kretanje kroz direktorije koristeći pune
+putanje direktorija (ovaj proces se popularno naziva kretanje kroz
+strukturu direktorija korištenjem <strong>pune/apsolutne putanje</strong>), i zatim
+koristeći navedene dvije stavke u direktoriju (ovaj proces se popularno
+naziva kretanje kroz strukturu direktorija korištenjem <strong>relativnih
+putanji</strong>).</p>
+<p><a class="reference internal" href="../../_images/image7.png"><img alt="image6" src="../../_images/image7.png" style="width: 3.83333in; height: 1.60833in;" /></a></p>
+<p>Prva tri primjera sa slike prikazuju premještanje radnog direktorija
+korištenjem <strong>pune</strong>,odnosno <strong>apsolutne</strong> <strong>putanje</strong>, te je moguće
+primijetiti kako je u jednom koraku prođeno više direktorija u
+strukturi.</p>
+<p>Slijedeći primjer u radnom direktoriju putanje /etc/init.d prikazuje
+kako se korištenjem naredbe za izmjenu direktorija (naredba <strong>cd</strong>) i
+argumentom sa imenom točka &#8221;.&#8221;, nije promijenila lokacija direktorija.
+Nakon toga, višekratnom uporabom naredbe za izmjenu direktorija i
+argumentom sa imenom dvije točke &#8221;..&#8221;, u svakom koraku se radni
+direktorij promijenio za jedan korak iznad u hijerarhiji, sve do
+korijenskog direktorija &#8220;/&#8221;. Zadnja tri primjera pokazuju kako upotreba
+argumenata &#8221;.&#8221; ili &#8221;..&#8221; ne mijenja samu lokaciju radnog direktorija,
+odnosno jednaka je kao i u primjeru kada se koristi apsolutna putanja sa
+navedenim argumentom imena korijenskog direktorija &#8220;/&#8221;.</p>
+<div class="line-block">
+<div class="line">Vraćajući se na primjer stavke korijenskog direktorija sa imenom točka
+&#8221;.&#8221; označene u svijetloplavom pravokutniku, brojka 2 u prvom stupcu
+(stupac je označen crvenom bojom za sve stavke u direktoriju) označava
+broj indeksa ( eng. Inode) dodijeljen toj datoteci (podsjetnik: sve je
+datoteka). Time je stvorena poveznica između sadržaja datoteke i
+Inodea sa metapodacima o toj datoteci. Takva poveznica službeno se
+naziva <strong>čvrsta poveznica</strong> (eng. <strong>Hard Link</strong>), prvi dio teme ovoga
+poglavlja.</div>
+<div class="line">Čvrsta poveznica je veza između sirovog sadržaja datoteke (podsjetnik
+: bez imena datoteke,samo sadržaj ) i dodijeljenog Inodea toj
+datoteci.</div>
+</div>
+<p>Dodatni termin usko vezan uz čvrste poveznice je njihov broj (eng. Hard
+Link Count). Naime, moguće je stvarati nove datoteke na različitim
+direktorijima i sa različitim imenima, koje će upućivati na isti Inode,
+a time i isti sadržaj. Svaka stvorena datoteka na datotečnom sustavu ima
+obvezno minimalno jednu čvrstu poveznicu.</p>
+<p>Broj čvrstih poveznica je u gornjem primjeru označen zelenom bojom, no
+prije pojašnjenja tog primjera, bolje je koncept objasniti prvo na
+jednostavnijem.</p>
+<p><a class="reference internal" href="../../_images/image8.png"><img alt="image7" src="../../_images/image8.png" style="width: 5.41667in; height: 0.95833in;" /></a></p>
+<p>Kao što je vidljivo na slici, stvorena je nova prazna datoteka imena
+&#8220;svjetske_tajne.txt&#8221;. Sam sadržaj datoteke (u ovom slučaju ga nema) se
+nalazi u nekom podatkovnom bloku na datotečnom sustavu, dodijeljen joj
+je 929568. Inode iz Inode tablice ( time je stvorena čvrsta poveznica),
+te je na kraju procesa i stvorena stavka direktorija s imenom
+&#8220;svjetske_tajne.txt&#8221; koja upućuje na taj Inode. Vidljivo je i kako je
+trenutan broj čvrstih poveznica prema toj datoteci samo jedan.</p>
+<p>Pomoću naredbe za stvaranje poveznica između datoteka &#8220;ln&#8221; (standardne
+vrijednosti podrazumijevaju stvaranje fizičkih poveznica, no moguće je
+stvaranje i simboličkih) stvorit će se dvije poveznice na postojeću
+datoteku &#8220;svjetske_tajne.txt&#8221;. Prikazom sadržaja direktorija (opcija za
+prikaz Inode brojeva uključena) moguće je uočiti kako obje novostvorene
+datoteke upućuju na jednak Inode pod brojem 929568. Dodatno, može se
+primijetiti kako je broj čvrstih poveznica prema toj datoteci povećan sa
+1 na 3, što odgovara broju novostvorenih datoteka.</p>
+<p><a class="reference internal" href="../../_images/image9.png"><img alt="image8" src="../../_images/image9.png" style="width: 6.30000in; height: 1.40446in;" /></a></p>
+<p>Trenutno su datoteke bez sadržaja te im je ukupna veličina ukupno 0
+bajta. Razlog tomu je što ime datoteke nije vezano uz veličinu te
+datoteke već ulazi u prostor direktorija u kojem se nalazi (primijetiti
+rezerviranih 4KB za trenutno radni direktorij, tema će biti obrađena
+kasnije u tekstu), dok su metapodaci definirani u prostoru koji zauzima
+Inode povezan sa tom datotekom.</p>
+<p>Nakon upisa nekog tekstualnog sadržaja u datoteku „sve_o_svijetu.txt“
+moguće je primijetiti kako se veličina mijenja za sve 3 datoteke,
+zajedno sa drugim metapodacima (npr. uočiti vrijeme izmjene). Postupak
+upisa sadržaja je u donjem primjeru još jednom ponovljen, no ovaj puta
+za drugu datoteku, te se isto može uočiti utjecaj na sve datoteke.</p>
+<p>Drugim riječima, stvaranje čvrstih poveznica na neku datoteku stvara
+nove datoteke koje upućuju na isti sadržaj.</p>
+<p><a class="reference internal" href="../../_images/image10.png"><img alt="image9" src="../../_images/image10.png" style="width: 6.30000in; height: 2.17364in;" /></a></p>
+<p>No, što se događa kad bi se izbrisala originalna datoteka prema kojoj su
+stvorene dvije čvrste poveznice?</p>
+<p><a class="reference internal" href="../../_images/image11.png"><img alt="image10" src="../../_images/image11.png" style="width: 5.29097in; height: 1.59306in;" /></a></p>
+<p>Nakon brisanja originalne datoteke, dvije čvrste poveznice i dalje
+ostaju, jedino se broj čvrstih poveznica smanjio za 1. Sadržaj datoteke
+je i dalje vidljiv.</p>
+<p>Prije brisanja i ostalih poveznica prema sadržaju datoteke, potrebno je
+pogledati informacije iz samog Inodea vezanog uz datoteke, pod brojem
+929568. U tu svrhu će se koristiti aplikacija „istat“ (dio „sleuthkit“
+paketa , paketa alata otvorenog koda za digitalnu forenziku sustava za
+pohranjivanje podataka).</p>
+<p><a class="reference internal" href="../../_images/image12.png"><img alt="image11" src="../../_images/image12.png" style="width: 5.45347in; height: 2.96528in;" /></a></p>
+<p>Između ostalih informacija , moguće je uočiti da je Inode alociran
+(dodijeljen datoteci), te je broj poveznica ukupno 2, što odgovara
+stvarnom stanju.</p>
+<p><a class="reference internal" href="../../_images/image13.png"><img alt="image12" src="../../_images/image13.png" style="width: 6.30000in; height: 3.48733in;" /></a></p>
+<p>Nakon brisanja i ostalih čvrstih poveznica prema Inodeu, uočava se kako
+on više nije alociran, te je broj poveznica smanjen na nulu. Dodatno,
+pojavljuje se nova stavka u odnosu na prošli pregled, a to je datum i
+vrijeme brisanja datoteke (stavka Deleted). Uočiti kako vrijeme brisanja
+nije zapisano u istoj preciznosti kao i ostale stavke (najveća
+preciznost je u sekundama, dok ostale imaju preciznost u nanosekundama).</p>
+<p>Često pitanje koje postavlja jest, koja je točno svrha čvrstih poveznica
+na Linux kompatibilnim datotečnim sustavima? Prije samog odgovora sa
+primjerima, bitno je reći kako je u arhitekturi EXT datotečnih sustava
+ugrađen koncept čvrstih poveznica, odnosno svaka datoteka ima minimalno
+jednu čvrstu poveznicu. Drugim riječima, implementacija već postoji i
+dio je funkcionalnosti datotečnih sustava, bez obzira koristili ju
+korisnici u druge svrhe.</p>
+<p>Korisnik ima kolekciju filmova pohranjenu na lokalnom disku, te želi
+sortirati te filmove po direktorijima sa odgovarajućim žanrom. Neki
+filmovi ne spadaju u samo jedan žanr, nego u 3 ili više njih. Kako
+korisnik ne bi kopirao isti film u više direktorija, te samim time
+zauzimao dodatni prostor, u svaki direktorij koji odgovara žanru može se
+stvoriti čvrsta poveznica sa istim imenom datoteke kao i originalna.
+Time je ispunjen uvjet u kojem se filmovi nalaze u odgovarajućim
+direktorijima, bez potrošnje dodatnog prostora na disku.</p>
+<p><strong>Nedostatak čvrstih poveznica jest što su vezane isključivo za
+datotečni sustav na kojem se nalaze, odnosno, čvrste poveznice se ne
+mogu povezivati sa datotekama na drugom datotečnom sustavu ( drugoj
+particiji).</strong></p>
+<p>U primjeru je stvorena prazna datoteka od 100MB i na nju je postavljen
+EXT4 datotečni sustav, te je montiran (eng. mount) unutar direktorija
+/mnt/NETSHARED. Ispod na slici mogu se uočiti (označeno žutom bojom) dva
+različita montirana datotečna sustava, jedan je već naveden, dok je
+drugi montiran unutar korijenskog direktorija.</p>
+<p><a class="reference internal" href="../../_images/image14.png"><img alt="image13" src="../../_images/image14.png" style="width: 6.29653in; height: 2.34236in;" /></a></p>
+<p>Pokušaj stvaranja čvrste poveznice unutar /mnt/NETSHARED direktorija
+koja upućuje na datoteku koja se nalazi na različitom datotečnom
+sustavu, rezultirati će porukom o grešci, što je vidljivo na slici
+ispod. Ono što je moguće odmah uočiti jest da se ne radi o nedostatku
+privilegija korisnika u procesu, već o nemogućnosti stvaranja poveznica
+između dva uređaja (eng. cross-device link).</p>
+<p><a class="reference internal" href="../../_images/image15.png"><img alt="image14" src="../../_images/image15.png" style="width: 6.30000in; height: 0.29029in;" /></a></p>
+<p>Razlog tog nedostatka leži u samom postupku stvaranja čvrstih poveznica.
+Naime, kao što je već navedeno, svaka datoteka na datotečnom sustavu
+sastoji se od 3 povezane komponente : sirovi sadržaj (npr. tekst
+datoteke), stavka u direktoriju i indeks broj (eng. Inode). S obzirom da
+je Inode vezan uz datotečan sustav, svaki datotečan sustav će imati
+zasebnu bazu Inodeova. Drugim riječima Inode sa brojem npr. 378 na
+jednom datotečnom sustavu će upućivati na različitu datoteku od Inodea
+sa istim brojem na nekom drugom datotečnom sustavu.</p>
+</div>
+<div class="section" id="simbolicke-poveznice">
+<h1><strong>Simboličke poveznice</strong><a class="headerlink" href="#simbolicke-poveznice" title="Permalink to this headline">¶</a></h1>
+<p>Simboličke poveznice isto upućuju na originalnu datoteku, no mehanizam
+je drugačiji od čvrstih poveznica. Za razliku od čvrstih poveznica koje
+dijele isti Inode sa originalnom datotekom, simboličke poveznice su nove
+datoteke sa drugim dodijeljenim Inodeom (kao i kod svakog stvaranja
+datoteke). Osnovne razlike u odnosu na čvrste poveznice su :</p>
+<ul>
+<li><p class="first">Simbolička poveznica i originalna datoteka ne dijele isti Inode broj</p>
+</li>
+<li><dl class="first docutils">
+<dt>Simboličke poveznice mogu upućivati na datoteke koje se nalaze na</dt>
+<dd><p class="first last">različitom datotečnom sustavu (na drugoj particiji)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Nakon brisanja originalne datoteke na koju upućuje simbolička</dt>
+<dd><p class="first last">poveznica, ona više nije dostupna</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">Dodavanje simboličkih poveznica ne mijenja brojač čvrstih poveznica</p>
+</li>
+<li><p class="first">Mogu upućivati na direktorije</p>
+</li>
+</ul>
+<p>Razlika može biti prikazana i na način kao u donjoj slici:</p>
+<p>Drugim riječima, simboličke poveznice najviše podsjećaju na termin
+poveznica u svakodnevnom korištenju (eng. shortcut) jer samo ukazuju na
+lokaciju željene datoteke.</p>
+<p>U primjeru na slici ispod stvorena je simbolička poveznica (može se
+koristiti već spomenuta aplikacija za stvaranje poveznica &#8220;ln&#8221; uz
+upotrebu opcije &#8220;-s&#8221;). Simbolička poveznica je poseban tip datoteke te
+je tako i označena u ispisu sadržaja direktorija (primijetiti slovo &#8220;L&#8221;
+unutar žutog okvira, eng. Link).</p>
+<p>Nadalje, može se primijetiti kako simbolička poveznica pod imenom
+&#8220;SIMBOLIČKI&#8221; i Inode brojem 929994 upućuje na datoteku &#8220;hostname&#8221;
+(unutar /etc direktorija) sa drugačijim Inode brojem 785066. U ovom
+slučaju , veličina datoteke SIMBOLIČKI je 13 bajta (putanja
+/etc/hostname zauzima ukupno 13 znakova).</p>
+<p><a class="reference internal" href="../../_images/image17.png"><img alt="image15" src="../../_images/image17.png" style="width: 6.30000in; height: 0.68588in;" /></a></p>
+<p>No, što se nalazi unutar simboličke poveznice, koji je sadržaj te
+datoteke? Standardnim načinom (npr. aplikacijom &#8220;cat&#8221;) će se uvijek
+prikazati sadržaj datoteke na koju poveznica upućuje, što je i dokazano
+u slijedećem primjeru. Za prikaz stvarnog sadržaja simboličke poveznice,
+može se koristiti aplikacija &#8220;readlink&#8221;.</p>
+<p><a class="reference internal" href="../../_images/image18.png"><img alt="image16" src="../../_images/image18.png" style="width: 4.48819in; height: 0.97708in;" /></a></p>
+<p>Detaljniji pregled karakteristika simboličke poveznice prikazati će
+jednu zanimljivost, nije dodijeljen nijedan podatkovni blok za zapis
+sadržaja te datoteke. Gdje je onda zapisana putanja odredišne datoteke?
+Prema dosadašnjem pravilu,
+(<a class="reference external" href="https://ext4.wiki.kernel.org/index.php/Ext4_Disk_Layout#Symbolic_Links">https://ext4.wiki.kernel.org/index.php/Ext4_Disk_Layout#Symbolic_Links</a>)
+ako je putanja unutar duljine od 60 bajta, vrijednost će biti zapisana u
+samom Inodeu. U suprotnom, alocirati će se zaseban podatkovni blok za
+zapis sadržaja.</p>
+<p><a class="reference internal" href="../../_images/image19.png"><img alt="image17" src="../../_images/image19.png" style="width: 4.82569in; height: 3.17431in;" /></a></p>
+<p><strong>Praktičan primjer:</strong></p>
+<p>Kako locirati i ispisati sadržaj nekog Inode broja?</p>
+<p>Za primjer će se koristiti simbolička poveznica iz prošlog primjera sa
+Inode brojem 929994.</p>
+<p>S obzirom da je struktura datotečnog sustava raspodijeljena po grupama,
+potrebno je saznati grupu u kojoj se nalazi Inode. Aplikacija
+&#8220;<strong>istat</strong>&#8221; prikazuje i grupu blokova u kojoj se nalazi Inode, a ona je
+pod brojem 113.</p>
+<p>Detaljnu strukturu datotečnog sustava je moguće iščitati pomoću već
+spomenute aplikacije &#8220;<strong>fsstat</strong>&#8221;. Izlazni rezultat bit će spremljen u
+datoteku &#8220;<strong>fsstat_sda2</strong>&#8221; (<strong>sda2</strong> je uređaj na kojem se nalazi
+datotečni sustav). Zatim će se upotrebom uzorka za pretraživanje (pomoću
+&#8220;<strong>grep</strong>&#8221; aplikacije i korištenjem opcije <strong>-n</strong> za prikaz linije u
+datoteci) prikazati linija u datoteci na kojoj se nalazi traženi filter.</p>
+<p>Slijedeći korak je ispis sadržaja datoteke na ekran, počevši od nađene
+linije, sve do završetka informacija koje se tiču detalja grupe blokova
+113.</p>
+<p><a class="reference internal" href="../../_images/image20.png"><img alt="image18" src="../../_images/image20.png" style="width: 5.69792in; height: 2.79097in;" /></a></p>
+<p>Može se primijetiti kako se Inode broj 929994 stvarno nalazi unutar
+ranga 923889-932064 koji pripada grupi 113.</p>
+<p>Tablica svih Inodeova tog ranga je veličine 511 blokova (blok je
+standardne veličine od 4096 bajtova) i nalazi se u rangu blokova
+3670559-3671069. Ta dva ranga predstavljaju početni uvjet za pronalazak
+lokacije željenog Inodea.</p>
+<p>Prvo je potrebno saznati koji je Inode po redu unutar ranga, što se može
+saznati tako da se oduzme traženi Inode sa početnim Inodeom u rangu (
+929994 - 923889 ). Dobiva se rezultat 6105, to je redno mjesto u rangu.</p>
+<p>Da bi se saznala točna lokacija, odnosno blok u kojem se nalazi,
+potrebno je znati veličinu jednog Inodea, te veličinu bloka u datotečnom
+sustavu. U ovom primjeru, s obzirom da se radi u EXT4 datotečnom
+sustavu, standardna veličina jednog Inodea je 256B, dok je veličina
+jednog bloka 4096B. Znači da se u Inode tablici, unutar jednog bloka
+nalazi točno 16 Inodeova.</p>
+<p>Redni broj 6105 se dijeli sa 16, kako bi se dobio broj blokova koji se
+preskaču, a to je 381 preskočeni blok (381,5625) . Ostatak je 9
+(0,5625*16), što znači da se unutar 382. bloka na 10. mjestu nalazi
+traženi Inode.</p>
+<p>Potrebno je nadodati broj 381 početnom bloku Inode tablice ( 3670559 +
+381), te se dobiva blok 3670940 u kojem se nalazi traženi Inode.</p>
+<p>Taj blok se može spremiti u zasebnu datoteku uz pomoć aplikacije blkcat.</p>
+<p><a class="reference internal" href="../../_images/image21.png"><img alt="image19" src="../../_images/image21.png" style="width: 5.91875in; height: 0.18611in;" /></a></p>
+<p>Uz pomoć nekog hex editora potrebno je iščitati sadržaj spremljene
+datoteke (radi lakšeg snalaženja, postaviti pregled od 16 bajta u jednoj
+liniji). S obzirom da je traženi Inode 10. po redu u navedenom bloku, a
+veličina Inodea je 256 bajta, traženi odmak (eng. offset) u datoteci je
+2304 bajta (odnosno adresa 0x900 u heksadecimalnom obliku).</p>
+<p>Između ostalih detalja, jasno se može uočiti upisana putanja odredišne
+datoteke na koju upućuje ova simbolička poveznica.</p>
+<p><a class="reference internal" href="../../_images/image22.png"><img alt="image20" src="../../_images/image22.png" style="width: 6.30000in; height: 2.97772in;" /></a></p>
+<p>S druge strane, ako je poveznica veća od 60 bajta, traženi sadržaj se
+sprema u zaseban podatkovni blok, što će biti prikazano za poveznicu
+SIMBOLIČKI_DUGI iz gornjeg primjera, veličine 80 bajta. Iz detaljnijeg
+prikaza informacija Inodea 929995, može se uočiti kako je alociran
+podatkovni blok 3679773 za zapis sadržaja datoteke. Korištenjem
+aplikacija <strong>dd</strong> (s obzirom da se blokovi počinju brojati od nule, ne
+smanjuje se vrijednost za preskakanje blokova za 1) i <strong>xxd</strong> (za prikaz
+izlaznog rezultata u hexa obliku, umjesto u standardnom ASCII) može se
+uočiti putanja datoteke na koju upućuje simbolička poveznica ( putanja
+je izmišljena u svrhu prikaza veličine simboličke poveznice iznad 60
+bajta).</p>
+<p><a class="reference internal" href="../../_images/image23.png"><img alt="image21" src="../../_images/image23.png" style="width: 6.30000in; height: 4.51189in;" /></a></p>
+<p>Što se događa ako se obriše originalna datoteka, a simbolička poveznica
+ostane? Cijeli proces je prikazan u slijedećem primjeru (stvaranje
+datoteke i poveznice, unos i prikaz sadržaja, te brisanje originalne
+datoteke i pokušaj prikazivanja sadržaja preko poveznice), no u osnovi
+simbolička poveznica ukazuje na nepostojeću datoteku</p>
+<p><a class="reference internal" href="../../_images/image24.png"><img alt="image22" src="../../_images/image24.png" style="width: 6.30000in; height: 1.49965in;" /></a></p>
+<p><strong>Za vježbu:</strong></p>
+<p>Saznati na koju datoteku upućuje simbolička poveznica /sbin/mkfs.ext4 ,
+te dokazati to prikazom sadržaja u samom Inodeu poveznice, ili
+alociranom podatkovnom bloku. Prikazuje li se apsolutna ili relativna
+putanja odredišne datoteke? Zašto? Opisati proces izračuna.</p>
+<p><strong>Za vježbu2:</strong></p>
+<p><a class="reference internal" href="../../_images/image25.png"><img alt="image23" src="../../_images/image25.png" style="width: 6.30000in; height: 3.76923in;" /></a></p>
+<p>Proučiti radnje na gornjoj slici, te na temelju upisanih naredbi i
+izlaznih rezultata odgovoriti:</p>
+<ul>
+<li><dl class="first docutils">
+<dt>Koje izmjene i karakteristike ima kopirana simbolička poveznica</dt>
+<dd><p class="first last">(Inode, Veličina datoteke, Prava pristupa)? Što se može zaključiti?</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Koje izmjene i karakteristike ima premještena simbolička poveznica</dt>
+<dd><p class="first last">(Inode, Veličina datoteke, Prava pristupa)? Što se može zaključiti?</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Upućuje li premještena simbolička poveznica na ispravnu putanju</dt>
+<dd><p class="first last">odredišne datoteke? Zašto?</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Pitanja:</strong></p>
+<p>Nakon obrađenog područja čvrstih poveznica, proučiti ponovno sliku sa
+početka poglavlja te odgovoriti :</p>
+<ol class="arabic simple">
+<li>Zašto direktorij /usr ima ukupno 10 čvrstih poveznica?</li>
+<li>Koliko čvrstih poveznica ima /etc direktorij?</li>
+<li>Koji je Inode broj korijenskog direktorija?</li>
+<li>Koji direktoriji imaju dodijeljen Inode pod brojem 1? Zašto?</li>
+<li>Nabrojati par primjera prednosti čvrstih poveznica.</li>
+<li>Koji je nedostatak čvrstih poveznica? Detaljno objasniti razlog
+nedostatka.</li>
+<li>Zašto premještanje datoteke sa veličinom od 10GB u neki drugi
+direktorij (na istom datotečnom sustavu) traje jako kratko?</li>
+<li>Koje su osnovne razlike između simboličkih i čvrstih poveznica?</li>
+<li>Koja se vrsta poveznica u praksi češće koristi?</li>
+<li>Gdje je zapisan podatak simboličke poveznice veličine manje 60B, a
+gdje od veće ?</li>
+<li>Što se događa sa simboličkom poveznicom ako se obriše odredišna
+datoteka?</li>
+</ol>
+<p><a class="reference external" href="http://blog.adityapatawari.com/2013/03/all-about-inodes-hard-links-and-soft.html">http://blog.adityapatawari.com/2013/03/all-about-inodes-hard-links-and-soft.html</a></p>
+<p><a class="reference external" href="https://opensource.com/article/17/5/introduction-ext4-filesystem">https://opensource.com/article/17/5/introduction-ext4-filesystem</a></p>
+<p><a class="reference external" href="http://www.grymoire.com/Unix/Inodes.html">http://www.grymoire.com/Unix/Inodes.html</a></p>
+</div>
+<div class="section" id="sadrzaj-direktorija">
+<h1><strong>Sadržaj direktorija</strong><a class="headerlink" href="#sadrzaj-direktorija" title="Permalink to this headline">¶</a></h1>
+<p>Direktorij u EXT datotečnim sustavima je zapravo datoteka u koju su
+zapisane stavke , odnosno objekti unutar direktorija. Svaka stavka
+sadrži slijedeće informacije:</p>
+<ul>
+<li><p class="first">Inode broj na koji upućuje stavka direktorija</p>
+</li>
+<li><p class="first">Ukupna duljina stavke</p>
+</li>
+<li><p class="first">Duljina imena stavke</p>
+</li>
+<li><dl class="first docutils">
+<dt>Tip datoteke (pod uvjetom da je aktivna &#8220;filetype&#8221; značajka u</dt>
+<dd><p class="first last">datotečnom sustavu)</p>
+</dd>
+</dl>
+</li>
+<li><p class="first">Ime datoteke</p>
+</li>
+</ul>
+<p>Zapisi u direktorij izvršeni su na jedan od dva načina :</p>
+<ul>
+<li><p class="first">Linearni način zapisa</p>
+</li>
+<li><dl class="first docutils">
+<dt>Indeksirani način zapisa (eng. Hash tree , mora biti aktivna</dt>
+<dd><p class="first last">&#8220;dir_index&#8221; značajka u datotečnom sustavu)</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Prije detaljnog objašnjenja strukture zapisa direktorija, dobro je
+proučiti izlazni rezultat prikaza sadržaja nekog direktorija (slika
+ispod).</p>
+<p><a class="reference internal" href="../../_images/image26.png"><img alt="image24" src="../../_images/image26.png" style="width: 6.30000in; height: 2.83970in;" /></a></p>
+<p>Kako i gdje su zapravo organizirani prikazani podaci? Iz navedenog
+primjera može se vidjeti kako svaka stavka sadrži slijedeće informacije:</p>
+<ul class="simple">
+<li>Inode broj</li>
+<li>Vrsta datoteke (npr. direktorij, simbolička poveznica, regularna
+datoteka...)</li>
+<li>Prava pristupa (Vlasnik, Grupa, Ostali)</li>
+<li>Broj čvrstih poveznica</li>
+<li>Vlasnik datoteke</li>
+<li>Grupa koje je vlasnik član</li>
+<li>Veličina datoteke</li>
+<li>Datum zadnje izmjene</li>
+<li>Vrijeme zadnje izmjene</li>
+<li>Ime datoteke (te dodatno putanja odredišne datoteke za simboličke
+poveznice)</li>
+</ul>
+<p>Sve informacije su zapisane u dvije lokacije: Inode strukturu (označeno
+zelenom bojom) i stavku direktorija (označeno žutom bojom). Dakle, sama
+stavka nekog direktorija se sastoji od poveznice između Inode broja i
+imena datoteke. Jedino mjesto gdje se spominje ime datoteke (između
+spomenute veze Inode broja, sadržaja datoteke i stavke direktorija) jest
+u samoj stavci unutar direktorija.</p>
+<p><strong>Napomena:</strong></p>
+<p>Ovisno o podržava li datotečni sustav značajku &#8220;filetype&#8221; u samu stavku
+direktorija se ujedno sprema i tip datoteke. U suprotnom, spremaju se
+samo ime datoteke i Inode broj. Je li značajka aktivna na datotečnom
+sustavu može se vidjeti postupkom prikazanom na slijedećem primjeru:</p>
+<p><a class="reference internal" href="../../_images/image27.png"><img alt="image25" src="../../_images/image27.png" style="width: 6.26667in; height: 1.69167in;" /></a></p>
+<p>Ovisno o podršci za prikaz tipa datoteke, mijenja se i izgled same
+strukture stavke direktorija. Prepoznaju se dva tipa: ext4dir_entry i
+ext4_dir_entry_2 (sa podrškom za prikaz tipa datoteke).</p>
+<p>Strukture su opisane u datoteci ext4.h (eng. Header file). Mogu se
+uočiti dvije strukture (ext4_dir_entry i ext4_dir_entry_2). S
+obzirom da je maksimalna veličina imena datoteke ukupno 255 znakova, a u
+prvoj verziji strukture je bilo dodijeljeno 2 bajta za ime (_le16, 16
+bita), u drugoj verziji je veličina varijable smanjena na 1 bajt
+(dovoljno sa maksimalnu veličinu imena). Stvorena je dodatna mogućnost
+nove varijable veličine 1 bajt koja služi za spremanje tipa datoteke u
+stavku direktorija.</p>
+<p><a class="reference internal" href="../../_images/image28.png"><img alt="image26" src="../../_images/image28.png" style="width: 3.70643in; height: 3.14961in;" /></a></p>
+<p>Poveznica :
+<a class="reference external" href="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/tree/fs/ext4/ext4.h?h=v4.13.4#n1908">https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git/tree/fs/ext4/ext4.h?h=v4.13.4#n1908</a></p>
+</div>
+<div class="section" id="linearni-nacin-zapisa-u-direktorij">
+<h1><strong>Linearni način zapisa u direktorij</strong><a class="headerlink" href="#linearni-nacin-zapisa-u-direktorij" title="Permalink to this headline">¶</a></h1>
+<p>S obzirom da je direktorij datoteka kao i svaka druga na datotečnom
+sustavu, dodijeljuje mu se Inode te potrebni podatkovni blokovi za zapis
+sadržaja. Iako se radi o datoteci, jednostavno nije moguće pokušati na
+standardan način (npr. upotrebom <strong>cat</strong> aplikacije) vidjeti neki
+tekstualni neformatirani sadržaj direktorija. Razlog tomu je korištenje
+različitih funkcija za čitanje. Naime, aplikacije kao cat za pristup
+datotekama koriste <strong>read()</strong> funkciju (ili neku varijaciju tipa
+<strong>safe_read()</strong> ), dok se za prikaz sadržaja direktorija koristi
+<strong>readdir()</strong> (koju koristi aplikacija <strong>ls</strong>, standardni dio
+<strong>cureutils</strong> paketa).</p>
+<p><strong>Za vježbu:</strong></p>
+<p><a class="reference external" href="https://github.com/coreutils/coreutils/blob/master/src/ls.c">https://github.com/coreutils/coreutils/blob/master/src/ls.c</a></p>
+<p><a class="reference external" href="https://github.com/coreutils/coreutils/blob/master/src/cat.c">https://github.com/coreutils/coreutils/blob/master/src/cat.c</a></p>
+<p>Proučiti izvorni kod aplikacija ls i cat sa navedenih poveznica, te
+potražiti na koji način pristupaju datotekama, odnosno direktorijima.
+Koje funkcije se koriste u procesu?</p>
+<p>Jedini drugi način je direktan pristup podatkovnom bloku, te
+interpretirati zapisani sadržaj. Za primjer će se koristiti
+<strong>LINEAR_DIRECTORY</strong> direktorij sa sadržajem prikazanim na slici ispod.</p>
+<p><a class="reference internal" href="../../_images/image29.png"><img alt="image27" src="../../_images/image29.png" style="width: 5.28125in; height: 1.12500in;" /></a></p>
+<p>Može se iščitati kako je direktoriju dodijeljen Inode 929997, te pomoću
+<strong>istat</strong> aplikacije prikazuju se detalji Inode strukture. Direktoriju
+je dodijeljen jedan podatkovni blok pod brojem 3679779.</p>
+<p><a class="reference internal" href="../../_images/image30.png"><img alt="image28" src="../../_images/image30.png" style="width: 6.06250in; height: 2.98958in;" /></a></p>
+<p>Upotrebom <strong>blkcat</strong> aplikacije, navedeni blok se sprema u zasebnu
+datoteku, te se sadržaj prikazuje nekim hex editorom (u ovom slučaju
+<strong>ghex</strong>). S obzirom da je ostatak podatkovnog bloka prazan, nije
+prikazan na slici.</p>
+<p><a class="reference internal" href="../../_images/image31.png"><img alt="image29" src="../../_images/image31.png" style="width: 6.30000in; height: 3.20164in;" /></a></p>
+<p>S obzirom da datotečni sustav ima aktiviranu podršku &#8220;filetype&#8221; za
+spremanje tipa datoteke u strukturu stavke direktorija, ona će biti
+slijedeće strukture:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="12%" />
+<col width="24%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">0x0</th>
+<th class="head">__le32</th>
+<th class="head">inode</th>
+<th class="head">Number of the inode that this directory entry points to.</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x4</td>
+<td>__le16</td>
+<td>rec_len</td>
+<td>Length of this directory entry.</td>
+</tr>
+<tr class="row-odd"><td>0x6</td>
+<td>__u8</td>
+<td>name_len</td>
+<td>Length of the file name.</td>
+</tr>
+<tr class="row-even"><td>0x7</td>
+<td>__u8</td>
+<td>file_type</td>
+<td><p class="first">File type code, one of:</p>
+<table border="1" class="last docutils">
+<colgroup>
+<col width="21%" />
+<col width="79%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">0x0</th>
+<th class="head">Unknown.</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x1</td>
+<td>Regular file.</td>
+</tr>
+<tr class="row-odd"><td>0x2</td>
+<td>Directory.</td>
+</tr>
+<tr class="row-even"><td>0x3</td>
+<td>Character device file.</td>
+</tr>
+<tr class="row-odd"><td>0x4</td>
+<td>Block device file.</td>
+</tr>
+<tr class="row-even"><td>0x5</td>
+<td>FIFO.</td>
+</tr>
+<tr class="row-odd"><td>0x6</td>
+<td>Socket.</td>
+</tr>
+<tr class="row-even"><td>0x7</td>
+<td>Symbolic link.</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="row-odd"><td>0x8</td>
+<td>char</td>
+<td>name[EXT4_NAME_LEN]</td>
+<td>File name.</td>
+</tr>
+</tbody>
+</table>
+<p>Potrebno je samo pratiti dokumentaciju te iščitavati sadržaj prema njoj.</p>
+<p>CD300E00-&gt;0x 000E30CD = 929997</p>
+<p>0C00-&gt;0x 000C = 12</p>
+<p>01-&gt;0x 01 = 1</p>
+<p>02-&gt; 0x 02 = Directory</p>
+<p>2E-&gt;0x 2E = .</p>
+<p>000000-&gt;Ostatak do kraja stavke</p>
+<p>Zaključak, radi se o prvoj stavci direktorija, koji upućuje na samog
+sebe. Direktoriji &#8221;.&#8221; i &#8221;..&#8221; su uvijek prve dvije stavke u svakom
+direktoriju.</p>
+<p>Primjer datoteke disk_image_100M</p>
+<p>E1300E00-&gt;0x000E30E1 = 930017</p>
+<p>1800-&gt;0x 0018 = 24</p>
+<p>0F-&gt;0x 0F = 15</p>
+<p>01-&gt;0x 01 = Regular File</p>
+<p>0x 6469736B5F696D6167655F3130304D = disk_image_100M</p>
+<p>00-&gt;Ostatak do kraja stavke</p>
+<p>Prikazani primjeri dokazuju uspješnu vezu između podataka zapisanih u
+sam podatkovni blok nekog direktorija i izlaznog rezultata neke
+aplikacije za prikaz sadržaja direktorija.</p>
+<p><strong>Prikaz Inode strukture linearnog direktorija</strong></p>
+<p><a class="reference internal" href="../../_images/image32.png"><img alt="image30" src="../../_images/image32.png" style="width: 6.30000in; height: 4.20000in;" /></a></p>
+<p><strong>Za vježbu:</strong></p>
+<p>Na gore prikazani način pronaći i zapisati informacije za slijedeće
+stavke:</p>
+<p><strong>Direktorij &#8221;..&#8221;</strong></p>
+<p><strong>Datoteka &#8220;fsstat_sda2&#8221;</strong></p>
+<p><strong>Direktorij &#8220;SIMLINKOVI&#8221;</strong></p>
+</div>
+<div class="section" id="indeksirani-nacin-zapisa-u-direktorij">
+<h1><strong>Indeksirani način zapisa u direktorij</strong><a class="headerlink" href="#indeksirani-nacin-zapisa-u-direktorij" title="Permalink to this headline">¶</a></h1>
+<p>Linearni način zapisa predstavlja određene probleme u performansama kada
+se radi o velikoj količini datoteka unutar nekog direktorija. Svaka
+operacija nad stavkama unutar direktorija (stvaranje,
+brisanje,otvaranje) podrazumijeva linearno pretraživanje ciljane stavke.
+Drugim riječima, za pregled sadržaja datoteke Datoteka09.txt, potrebno
+je prilikom pretraživanja prvo proći kroz datoteke
+Datoteka01.txt-Datoteka08.txt linearnim redoslijedom. Povećanjem broja
+datoteka unutar direktorija, cijena izvođenja operacija je sve veća.
+Matematički gledano, cijena pretraživanja za X stavaka u direktoriju će
+uvijek biti ista, bez obzira na kojoj poziciji se ta stavka nalazi.
+Drugim riječima, za 10 stavaka u direktoriju, očekuje se izvršavanje 10
+koraka u pretraživanju (jer ta stavka stvarno može biti na zadnjem
+mjestu).</p>
+<p><a class="reference internal" href="../../_images/image33.png"><img alt="image31" src="../../_images/image33.png" style="width: 6.30000in; height: 1.95923in;" /></a></p>
+<p>Kao što je već prikazano u prethodnom poglavlju, struktura linearnih
+zapisa izgleda kao prema slijedećem crtežu.</p>
+<p><a class="reference internal" href="../../_images/image34.png"><img alt="image32" src="../../_images/image34.png" style="width: 6.30000in; height: 1.66672in;" /></a></p>
+<p>IZVOR:
+<a class="reference external" href="http://www.geeksforgeeks.org/wp-content/uploads/gq/2016/10/Linear-Search.png">http://www.geeksforgeeks.org/wp-content/uploads/gq/2016/10/Linear-Search.png</a></p>
+<p><a class="reference external" href="http://www.geeksforgeeks.org/linear-search-vs-binary-search/">http://www.geeksforgeeks.org/linear-search-vs-binary-search/</a></p>
+<p>Kako bi se došlo do stavke J, potrebno je proći sve stavke od A-J
+linearnim putem. Ovdje se postavlja pitanje brisanja postojećih ili
+dodavanja novih stavaka u linearni zapis. Što napraviti u slučaju
+brisanja stavke D, ostaviti prazninu ili presložiti cijeli zapis? Što
+napraviti ako se želi dodati ponovno obrisana stavka, treba li ponovno
+presložiti zapis kako bi stavka sjela u redoslijed, ili ju dodati na
+kraj zapisa? Postoje različite optimizacije i implementacije rješenja
+koje se bave ovim pitanjima.</p>
+<p>No, bez obzira na optimizacije, i dalje se radi o rješenju koje je
+neučinkovito za veliki broj zapisa. Jedno od predloženih rješenja je
+uvađanje tzv. binarnog pretraživanja. Osnova binarnog pretraživanja je
+korištenje isključivo dvije odluke - lijevo/desno, odnosno veće/manje.
+Algoritam je u tom smislu jednostavan, i kao što će se pokazati u ovom
+primjeru učinkovitiji od klasičnog linearnog algoritma.</p>
+<p>U nekom polju od A-X, sa ciljem pretraživanja stavke J, prvi korak je
+skok na polovicu tog polja. Sa te pozicije, gleda se je li stavka J veća
+ili manja u vrijednosti od te točke ( u ovom slučaju slovo L), te se
+radi odluka kreće li pretraživanje dalje ulijevo ili desno. S obzirom da
+je J manje od L, skok ide ulijevo, i to ponovno na polovicu ovog puta
+manjeg raspona polja ( A-L ) na slovo F. Ponavljaju se identične radnje
+kako bi se došlo do slova J. Primjećuje se osjetno smanjenje potrebnih
+koraka do dostizanja cilja u odnosu na linearno pretraživanje.</p>
+<p><a class="reference internal" href="../../_images/image35.png"><img alt="image33" src="../../_images/image35.png" style="width: 6.30000in; height: 2.49863in;" /></a></p>
+<p>Prije nastavka, treba imati na umu da linearno pretraživanje ima svoju
+primjenu, i to na :</p>
+<ol class="arabic">
+<li><p class="first">Poljima gdje stavke nisu sortirane (umjesto ABCDE -&gt;ACDEB)</p>
+</li>
+<li><p class="first">Mali broj stavaka u polju (ne postoji jasna granica, te ovisi o samim
+implementacijama zapisa)</p>
+</li>
+<li><p class="first">Stavke u strukturi su povezane (eng. linked list), te nije moguće
+nasumično pretraživanje (C je vezan uz B koji je vezan za A)</p>
+<p>Itd...</p>
+</li>
+</ol>
+<p>Drugim riječima, postoje razne situacije u kojima se koristi linearno
+pretraživanje, odnosno u kojima prednost imaju neki drugi oblici ili
+tipovi algoritama. Za svaku implementaciju je potrebno testiranje kako
+bi se odabralo optimalno rješenje.</p>
+<p>Algoritam za binarno pretraživanje je samo način pretraživanja podataka
+koji su i dalje zapravo linearno zapisani. Da bi se stvorila optimalna
+struktura zapisa, potrebno promijeniti sam način zapisa objekata (recimo
+datoteka u direktoriju) u ukupnoj strukturi. Tako je u odnosu na
+linearan zapis, stvorena struktura stabla (eng. tree structure, stablo
+je postavljeno naopako, korijen je na vrhu), u prvom primjeru
+konkretnije binarna struktura stabla.</p>
+<p>U prikazu strukture stabla, crvenom bojom je jasno označen put
+pretraživanja do stavke J.</p>
+<p>Prije objašnjenja specifičnosti binarne strukture stabla, dobro je
+objasniti par osnovnih pojmova (nisu svi pojmovi spomenuti) koji
+definiraju svaku općenitu strukturu stabla :</p>
+<ul class="simple">
+<li>Čvor - Dio stabla koji ima minimalno jednu vezu prema roditelju i/ili
+djetetu</li>
+<li>Korijenski čvor (eng. root) - Vrh stabla, ima vezu isključivo prema
+djeci</li>
+<li>Unutarnji čvor (eng. internal node) - Dio stabla koji je povezan sa
+roditeljem i minimalno jednim djetetom</li>
+<li>List čvor (eng. leaf node, external node) - Krajnji čvor u strukturi,
+nema djece, isključivo veza prema roditelju</li>
+<li>Roditelj - Hijerarhijski iznad djeteta, Korijenski čvor je jedini
+isključivo roditelj ( nije ujedno i dijete)</li>
+<li>Dijete - Hijerarhijski ispod roditelja, List čvor je jedino
+isključivo dijete ( nije ujedno i roditelj)</li>
+<li>Razina - Ovisno o početnom broju, vertikalna udaljenost nekog čvora
+od korijenskog čvora. Korijenski čvor može početi kao razina 0 ili
+razina 1, te je prvo dijete u razini 1 , odnosno 2.</li>
+<li>Visina stabla - Ukupni broj razina nekog stabla</li>
+<li>Dubina stabla - Udaljenost nekog čvora od korijenskog čvora. Stablo
+koje se sastoji samo od korijenskog čvora ima dubinu 0. Stablo sa
+jednim čvorom djetetom ima dubinu 1.</li>
+<li>Ključ - Vrijednost koja se može dodijeliti nekom čvoru , koristi se
+kao argument prilikom pretraživanja strukture stabla</li>
+</ul>
+<p>Nakon definiranih pojmova, mogu se navesti određene specifičnosti
+binarnog stabla u odnosu na neko općenito:</p>
+<ul class="simple">
+<li>Sadrži korijenski čvor, u razini 0 može biti samo jedan korijenski
+čvor</li>
+<li>Svaki unutarnji čvor može imati najviše dvoje djece (uređeno stablo)</li>
+</ul>
+<p>Iako strukture stabla nisu tema ovog dokumenta, a samo područje je
+iznimno kompleksno, pokušava se obraditi minimum potrebnog sadržaja kako
+bi se moglo nastaviti sa obradom teme.</p>
+<p>Nešto kompleksniji tip strukture stabla od binarnog je B-tree stablo
+(slovo B u imenu ne označava binarno, odnosno samo značenje tog slova
+nije jasno definirano). Za početak, u odnosu na binarno stablo, B-tree
+dozvoljava da čvor sadrži više od dvoje djece, te se automatski
+balansira struktura. Pojam balansiranja podrazumijeva da, prilikom unosa
+novih stavki (ili brisanja postojećih), stablo pokušava zadržati
+minimalnu ukupnu visinu.</p>
+<p>Nebalansirano i balansirano stablo</p>
+<p>B-tree struktura zapisa (odnosno njegove varijacije, kao B+ Tree ili
+HashTree) je implementirana u mnoge popularne baze podataka ili
+datotečne sustave kao što su : HFS+ (Apple), NTFS (Microsoft), Ext4
+(Linux), Btrfs ( Linux).</p>
+<p>S obzirom da čvorovi unutar stabla B-tree strukture smiju sadržavati
+više od dvoje djece, smanjuje se ukupna visina stabla ( u odnosu na
+binarnu strukturu), te se štedi potreban prostor u zamjenu za nešto
+kompleksniji algoritam. S obzirom da u jedan čvor može stati više od
+dvoje djece, koristi se jedan ili više od jednog ključa koji je
+dodijeljen tom čvoru za odluke. Prilikom definiranja strukture, mora se
+definirati minimalan i maksimalan broj ključeva u jednom čvoru. Primjer
+B-tree stabla čiji čvorovi imaju više od jednog djeteta prikazan je na
+slijedećoj slici. Koristi se isti rang slova koji je korišten u
+strukturi binarnog stabla.</p>
+<p>Prvenstveno je moguće primijetiti kako je drvo razgranatije, ali je
+smanjen za jednu cijelu razinu stabla. Dodatno je moguće primijetiti
+kako se u jednom čvoru nalazi najviše 4 djeteta ( broj <strong>D</strong>jece se
+izračunava tako da se broju <strong>K</strong>ljučeva nekog čvora <strong>X</strong> doda broj
+1, odnosno <strong>D(x)=K(x)+1</strong> ), a minimalno jedan ključ,odnosno dva
+djeteta. Čvorovi u binarnim stablima imaju najviše dvoje djece, odnosno
+jedan ključ po čvoru.</p>
+<p>Nakon obrade dvije općenite strukture stabala (<strong>binarno</strong> stablo i
+kompleksnija <strong>b-tree</strong> struktura stabla), potrebno je vratiti se na
+samu implementaciju indeksiranog načina zapisa u direktorije na EXT4
+datotečnom sustavu. Službeni naziv implementacije je <strong>Htree</strong> (skraćeno
+od <strong>Hash</strong> <strong>Tree</strong>). Na razvoju koda primjene za EXT2 datotečnog
+sustava je originalno radio autor Daniel Phillips (2001. – izvor:
+<a class="reference external" href="https://www.kernel.org/doc/ols/2002/ols2002-pages-425-438.pdf">https://www.kernel.org/doc/ols/2002/ols2002-pages-425-438.pdf</a>). Prijenos
+koda (eng. port) za EXT3 sustav je razvijen od strane Christopher Lia i
+Andrew Mortona (2002.). Za oba EXT2 (iako osnovni EXT2 kod neće
+koristiti tu funkcionalnost) i EXT3 sustava je potrebno uključiti
+korištenje indeksiranja direktorija prilikom stvaranja datotečnog
+sustava, dok je na EXT4 ta opcija standardno uključena.</p>
+<p>Struktura Htree je vrlo slična B-tree stablu, osim što se umjesto
+originalnih imena datoteka koriste njihove <strong>hash</strong> vrijednosti za
+pronalazak njihove lokacije u stablu. U slijedećim primjerima biti će
+prikazane situacije u kojima bi se za navedene datoteke koristio
+<strong>linearni</strong> način zapisa, <strong>b-tree</strong> struktura, te na kraju i <strong>htree</strong>
+stablo.</p>
+<p>U linearnom načinu zapisa nekog direktorija, samom direktoriju je
+dodijeljen jedan podatkovni blok (uobičajena veličina je 4KB), te se
+datoteke dodaju jedna iza druge (sam fizički zapis u blok je već
+objašnjen u prošlom poglavlju). Ispod je prikazan pojednostavljeni način
+linearnog zapisa u podatkovni blok. U slučaju da datotečni sustav ne
+podržava indeksirani način zapisa, nakon što se prvi podatkovni blok
+popuni zapisima, direktoriju se dodijeljuje novi podatkovni blok, te se
+zapisi nastavljaju linearno.</p>
+<p>Ako datotečni sustav podržava indeksirani način zapisa, nakon što se
+podatkovni blok direktorija popuni (linearnim zapisima), aktivira se
+značajka <strong>indeksiranja</strong>, te se automatski stvara struktura stabla.
+Prilikom stvaranja te strukture, dodijeljuju se dodatni podatkovni
+blokovi koji će imati funkciju čvorova u strukturi. Ovisno o broju novih
+datoteka (odnosno zauzeću prostora prema veličini imena, jer prostor
+direktorija zauzimaju stavke imena), dodijeljuju se potrebni podatkovni
+blokovi za strukturu stabla. U donjem primjeru su alocirana dodatna tri
+bloka za strukturu stabla. Prvi blok (označen sa imenom Root) je
+prenamijenjen iz bloka za linearni zapis datoteka u Korijenski indeks
+(eng. root index). U njemu su, prema pravilima B-tree strukture,
+zapisani ključevi koji su povezani na krajnje/list čvorove. U svakom
+list čvoru zapisane su datoteke linearnim načinom zapisa. U osnovnoj
+B-tree verziji struktura bi izgledala otprilike ovako :</p>
+<p><strong>Htree</strong> stablo u odnosu na prethodni primjer izgleda vrlo slično, osim
+što se oznakama čvorova dodijeljuju <strong>hash</strong> ključevi.</p>
+<p>Za svako ime datoteke se stvara <strong>hash</strong> ključ. Ako je vrijednost tog
+ključa unutar raspona hash vrijednosti čvorova, datoteka će se zapisati
+u taj čvor. Dakle, datoteke se više ne raspoređuju prema imenu, već
+prema hash vrijednosti.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="38%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Čvor/Podatkovni blok</th>
+<th class="head">Hash vrijednost (samo primjer broja)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>0x00000000 (početna vrijednost)</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>0x053f08c4</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>0x0b3ba35f</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="69%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Ime datoteke</th>
+<th class="head">Hash vrijednost (samo primjer broja)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Datoteka01.txt</td>
+<td>0x08bb6a0c</td>
+</tr>
+<tr class="row-odd"><td>Datoteka02.txt</td>
+<td>0x0b6e2090</td>
+</tr>
+<tr class="row-even"><td>Datoteka03.txt</td>
+<td>0x0707ad70</td>
+</tr>
+<tr class="row-odd"><td>Datoteka04.txt</td>
+<td>0x0388d349</td>
+</tr>
+<tr class="row-even"><td>Datoteka05.txt</td>
+<td>0x0741579c</td>
+</tr>
+<tr class="row-odd"><td>Datoteka06.txt</td>
+<td>0x03093eb5</td>
+</tr>
+<tr class="row-even"><td>Datoteka07.txt</td>
+<td>0x0128148c</td>
+</tr>
+<tr class="row-odd"><td>Datoteka08.txt</td>
+<td>0x04b1d00d</td>
+</tr>
+<tr class="row-even"><td>Datoteka09.txt</td>
+<td>0x08414db8</td>
+</tr>
+<tr class="row-odd"><td>Datoteka10.txt</td>
+<td>0x0f7f6b3e</td>
+</tr>
+<tr class="row-even"><td>Datoteka11.txt</td>
+<td>0x0eee0dcb</td>
+</tr>
+<tr class="row-odd"><td>Datoteka12.txt</td>
+<td>0x0dfcffa6</td>
+</tr>
+</tbody>
+</table>
+<p>Prema gornjim podacima, stvara se struktura hash stabla, odnosno
+<strong>Htree</strong> struktura.</p>
+<p>Koraci prilikom pretraživanja neke datoteke su slijedeći :</p>
+<ol class="arabic simple">
+<li>Pročitaj sadržaj prvog bloka datoteke direktorija (eng. Index Root)</li>
+<li>Izračunaj hash vrijednost datoteke (Datoteka11.txt -&gt; 0x9f2ceffc...)</li>
+<li>Odluči koji list čvor pretraživati (Hash vrijednost ranga odabranog
+list čvora u sebi sadrži i hash vrijednost odredišne datoteke)</li>
+<li>Ako nađeni čvor nije list čvor, pretraživanje se nastavlja u nižoj
+razini strukture stabla</li>
+<li>Nakon što je odredišni list čvor nađen (u kojem se nalazi tražena
+datoteka), pretraga u tom bloku se nastavlja linearno</li>
+</ol>
+<p>DODATAK: Upotreba hash vrijednosti objekata za izgradnju strukture
+podataka neizbježno za sobom povlači popularan problem hash kolizije.
+Radi se o događaju kada dva objekta u nekom istom području/tablici imaju
+identičnu hash vrijednost. Postoje različiti mehanizmi koji se brinu za
+rješavanja takvih problema.</p>
+<p>Tako i u Htree strukturi, ako slučajno datoteka nije nađena u krajnjem
+list čvoru, postoji mogućnost da se ta datoteka nalazi u slijedećem list
+čvoru. S obzirom na kompleksnost, ovo područje neće biti obrađeno u
+dokumentu.</p>
+<p>Prilikom stvaranja novog praznog direktorija, iako EXT4 datotečni sustav
+podržava indeksiranje, ta opcija još neće biti uključena. Direktoriju će
+se prvo dodijeliti jedan podatkovni blok (4096B), te će svi zapisi biti
+raspoređeni linearnom metodom. U donjem primjeru je prikazan sirov
+sadržaj nekog direktorija u kojem se nalazi deset datoteka
+(Datoteka1.txt - Datoteka10.txt). Na slici nije prikazan cijeli blok iz
+razloga što je ostatak prostora prazan. Metoda linearnog pristupa i
+zapisa se koristi sve dok se ne popuni cijeli blok zapisima. Crvenim
+okvirom su označeni zapisi za direktorije &#8221;.&#8221; i &#8221;..&#8221;. Nakon njih kreću
+zapisi za datoteke.</p>
+<p><strong>Prije Indeksiranja</strong></p>
+<p>Nakon što se zapisima popuni dodijeljeni blok, ako datotečni sustav
+podržava mehanizam indeksiranja, odnosno Htree strukturu, direktoriju se
+dodijeljuje minimalan potreban broj blokova za Htree stablo. Prvi blok
+(koji je bio popunjen linearnim zapisima) mijenja funkciju i strukturu,
+te postaje DX_ROOT (Index Root). Prvo se može primijetiti promjena u
+odnosu na gornju sliku. Radi kompatibilnosti , zapisi označenih
+direktorija i dalje ostaju, no duljina zapisa direktorija &#8221;..&#8221; je
+promijenjena u 4084 bajta (vidljivo u označenom okviru, vrijednost
+0x0FF4, odnosno sve do kraja bloka (prvi zapis je duljine 12 bajta,
+ukupno 4096 bajta). Razlog tomu je za slučaj ako bi se podigao EXT2/EXT3
+(bez podrške pregleda/upravljanja Htree strukture) datotečni sustav na
+particiji sa navedenim direktorijem, kako se ne bi izmijenila Htree
+struktura sa pokušajem linearnog zapisa. U tom slučaju će se nakon
+ispisa &#8221;.&#8221; i &#8221;..&#8221; stavki preskočiti cijeli blok, te će se slijedeći blok
+normalno pretraživati linearnim algoritmom.</p>
+<p>Nakon dvije stavke navedenih direktorija, slijedi struktura koja opisuje
+detalje stvorene Htree strukture :</p>
+<ul>
+<li><p class="first">4 rezervirana bajta za eventualne kasnije nadogradnje</p>
+</li>
+<li><p class="first">Verziju Hash funkcije ( 1 bajt, u ovom slučaju Half MD4 tip Hash
+funkcije)</p>
+</li>
+<li><p class="first">Duljina polja za informacije o stablu (1 bajt, u ovom slučaju duljina
+informacije je 8 bajta)</p>
+</li>
+<li><p class="first">Dubina stabla (1 bajt, u ovom slučaju dubina je nula, odnosno, sve
+datoteke zapisane su u čvorovima odmah ispod Root čvora, dakle radi
+se o list čvorovima)</p>
+</li>
+<li><p class="first">Nekorištena zastavica (1 bajt, za eventualne kasnije nadogradnje)</p>
+</li>
+<li><p class="first">Maksimalan broj čvorova (2 bajta, u ovom slučaju maksimalno 508
+čvorova)</p>
+</li>
+<li><p class="first">Stvaran broj čvorova (2 bajta, u ovom slučaju 4 čvora)</p>
+</li>
+<li><p class="first">Broj podatkovnog bloka unutar direktorija sa izračunatom hash
+vrijednosti = 0 (4 bajta, u ovom slučaju dodijeljen je prvi blok)</p>
+</li>
+<li><p class="first">Nastavak svih daljnjih čvorova koji postoje u stablu (svaki čvor ima
+svoju strukturu od 8 bajta)</p>
+<p>NAPOMENA : Podatkovni blok unutar nekog direktorija je zapravo
+relativna adresa u odnosu na početak samog direktorija. Dakle prvi
+podatkovni blok direktorija će imati adresu 0, no njegova apsolutna
+adresa ovisi o datotečnom sustavu.</p>
+</li>
+</ul>
+<p>Struktura informacije svakog čvora je ukupne duljine 8 bajta koja se
+sastoji od 4 bajta za izračunatu hash vrijednost čvora, te dodijeljenom
+bloku unutar direktorija. Na slici ispod su prikazana 3 dodatna čvora :</p>
+<ul class="simple">
+<li>0x47c60174 hash vrijednost čvora, 4. Blok unutar direktorija (počinje
+se brojati od nule)</li>
+<li>0x7a4e6c3e hash vrijednost čvora, 2. Blok unutar direktorija</li>
+<li>0xb5cb4252 hash vrijednost čvora, 3. Blok unutar direktorija</li>
+</ul>
+<p><strong>Nakon Indeksiranja</strong></p>
+<p>Na temelju gornjih informacija, može se zaključiti kako direktorij iz
+primjera zauzima ukupno 5 blokova (nulti blok za Root Index blok, prvi
+blok za čvor sa hash vrijednošću 0, te dodatna tri bloka). S obzirom da
+je navedena dubina ovog stabla 0, znači da su svi čvorovi zapravo i list
+čvorovi povezani na Root Index blok, i u njima su raspoređene sve
+datoteke. Na slijedećoj slici se može vidjeti ukupna veličina tog
+direktorija (5 blokova po 4096 bajta).</p>
+<p><a class="reference internal" href="../../_images/image44.png"><img alt="image34" src="../../_images/image44.png" style="width: 6.30000in; height: 0.34077in;" /></a></p>
+<p>Detalji inodea dodijeljenog tom direktoriju otkrivaju dodatne
+informacije. Vidljivo je koji su podatkovni blokovi dodijeljeni (imati
+na umu da se ovdje radi o apsolutnim adresama tih blokova, za razliku od
+relativnih u odnosu na direktorij), te da je aktivna zastavica opcije
+&#8220;Hash Indexed Directory&#8221;.</p>
+<p><a class="reference internal" href="../../_images/image45.png"><img alt="image35" src="../../_images/image45.png" style="width: 5.36762in; height: 3.34167in;" /></a></p>
+<p><strong>Prikaz Inode strukture indeksiranog direktorija</strong></p>
+<p>Na slijedeće dvije slike može se primijetiti razlika između standardnog
+linearnog direktorija i direktorija sa podrškom za indeksiranje, odnosno
+onog sa Htree strukturom. Na odmaku (eng. offset) adrese 0x20 (na
+slikama 0xD20 i 0xF20) nalazi se struktura u koju se zapisuju različite
+zastavice za neki Inode.</p>
+<p><a class="reference internal" href="../../_images/image46.png"><img alt="image36" src="../../_images/image46.png" style="width: 6.30000in; height: 1.84649in;" /></a></p>
+<p><a class="reference internal" href="../../_images/image47.png"><img alt="image37" src="../../_images/image47.png" style="width: 6.30000in; height: 1.84997in;" /></a></p>
+<p>Mogu se primijetiti na oba primjera jedna ista aktivna zastavica, te na
+drugom primjeru i jedna dodatna zastavica.</p>
+<p>Prema dokumentaciji EXT4 , konkretno detalji strukture jednog Inodea
+zastavice imaju slijedeću funkciju:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">0x1000</th>
+<th class="head">Directory has hashed indexes (EXT4_INDEX_FL).</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x80000</td>
+<td>Inode uses extents (EXT4_EXTENTS_FL).</td>
+</tr>
+</tbody>
+</table>
+<p>Drugim riječima, prvi direktorij je zaista standardan linearan
+direktorij, dok drugi direktorij koristi Htree strukturu.</p>
+<p><strong>Za vježbu:</strong></p>
+<ol class="arabic simple">
+<li>Stvoriti direktorij proizvoljnog imena</li>
+<li>U tom direktoriju stvoriti deset datoteka proizvoljnog imena (no
+prve tri datoteke neka se zovu : Primjer1.txt, Primjer2.doc,
+Primjer3.png)</li>
+<li>Pronaći fizički podatkovni blok stvorenog direktorija, te ga
+spremiti u datoteku. Ispisati i opisati detalje <strong>Primjer3.png</strong>
+datoteke (prema strukturi stavaka direktorija). Od ukupnog broja
+stavaka u direktoriju, koja je točno stavka po redu navedena
+datoteka?</li>
+<li>Zapisati duljinu zapisa stavke <strong>Primjer2.doc</strong> datoteke.</li>
+<li>Obrisati <strong>Primjer3.png</strong> datoteku. Ponovno zapisati duljinu zapisa
+stavke Primjer2.doc datoteke. Što se dogodilo sa duljinom? Probaj
+zaključiti zašto.</li>
+<li>Stvoriti novu datoteku imena <strong>Novi_Primjer.mp3</strong>. Gdje je zapisana
+stavka novostvorene datoteke? Je li još uvijek zapisana
+<strong>Primjer3.png</strong> stavka datoteke? Zaključi u kojoj bi se situaciji
+zapis prepisao.</li>
+<li>Koliko je još bajtova u podatkovnom bloku direktorija neiskorišteno
+( Pomoć : Koja je duljina posljednje stavke direktorija? )</li>
+<li>Saznati Inode broj direktorija, te zapisati vrijednost zastavice
+EXT4_INDEX_FL (hashed indexes directory). Pomoć : Detalje je
+moguće saznati &#8220;<strong>istat</strong>&#8221; naredbom</li>
+<li>Stvoriti potreban broj novih datoteka proizvoljnog imena kako bi se
+prepunio podatkovni blok i pojavila potreba za dodjelom novog.</li>
+<li>Pomoću &#8220;<strong>istat</strong>&#8221; naredbe , saznati koji su novi podatkovni blokovi
+dodijeljeni direktoriju. Ponovno zapisati vrijednost zastavice
+EXT4_INDEX_FL (hashed indexes directory).</li>
+<li>Prema strukturi Htree stabla, iscrtati stablo čvorova kao prema
+primjeru u poglavlju (bez datoteka, samo dodijeljeni blokovi).</li>
+</ol>
+<p><a class="reference external" href="https://www.kernel.org/doc/ols/2002/ols2002-pages-425-438.pdf">https://www.kernel.org/doc/ols/2002/ols2002-pages-425-438.pdf</a></p>
+<p><a class="reference external" href="https://www.netbsd.org/gallery/presentations/hrishikesh/2017_AsiaBSDCon/abc2017ext4_final_paper.pdf">https://www.netbsd.org/gallery/presentations/hrishikesh/2017_AsiaBSDCon/abc2017ext4_final_paper.pdf</a></p>
+</div>
+<div class="section" id="fleksibilne-grupe-blokova">
+<h1><strong>Fleksibilne grupe blokova</strong><a class="headerlink" href="#fleksibilne-grupe-blokova" title="Permalink to this headline">¶</a></h1>
+<p>Radi se o još jednoj značajki implementiranoj od četvrte verzije EXT
+datotečnoj sustava. Za početak, potrebno je vratiti se na osnovnu
+organizaciju tvrdog diska (ovdje se prvenstveno misli na standardne
+rotirajuće diskove, a ne SSD) i EXT4 datotečnog sustava na njemu.
+Minimalna veličina zapisa na tvrdi disk je veličine sektora (tehnički
+točniji termin je <strong>logički blok</strong>, no neće se koristiti kako ne bi
+došlo da zamjene sa minimalnim zapisom na EXT4 datotečnom sustavu), a
+najčešće se radi o 512B.</p>
+<p>To je prva organizacija zapisa na medij. Sektori se adresiraju LBA (eng.
+Logical Block Addressing, otuda naziv logički blok) mehanizmom, te je
+prva adresa 0. Prije stvaranja datotečnog sustava, potrebno je prvo
+podijeliti tvrdi disk na jednu ili više particija, ovisno o svrsi
+korištenja. Datotečni sustav se instalira ne jednu od tih particija.
+Prilikom stvaranja datotečnog sustava, particija (koja se sastoji od
+određenog broja sektora) se prvo podijeli na više blokova jednakih
+veličina. Uobičajena veličina jednog bloka na EXT4 datotečnom sustavu je
+4KiB, no moguće je odabrati i neku drugu veličinu bloka. Ti se blokovi
+zatim grupiraju u <strong>grupe blokova</strong>. Kao što je već prethodno
+objašnjeno, sa 4KiB veličinom blokova, u jednoj <strong>grupi blokova</strong> se
+nalazi ukupno <strong>32768</strong> blokova. Svaka grupa blokova ima svoju strukturu
+(group descriptors, inode table, inode bitmap, block bitmap...).</p>
+<p>Na slici ispod je prikazana korelacija između sektora (plava), blokova
+(ljubičasta) i grupe blokova (narančasta).</p>
+<p><a class="reference internal" href="../../_images/image49.png"><img alt="image38" src="../../_images/image49.png" style="width: 6.30000in; height: 0.39993in;" /></a></p>
+<p>U EXT4 verziji datotačnog sustava implementirana je dodatna razina
+apstrakcije, gdje se grupe blokova dodatno ujedinjuju u posebne
+strukture pod imenom <strong>fleksibilne grupe blokova</strong>.</p>
+<p>Prilikom ujedinjavanja, sve strukture svake grupe blokova se isto
+ujedinjavaju i postavljaju na početak prve grupe blokova. Kao rezultat
+toga, u jednoj fleksibilnoj grupi blokova, samo prva grupa blokova će
+sadržavati opisnu strukturu za sve ostale grupe, dok će ostatak
+fleksibilne grupe biti ispunjen podatkovnim blokovima.</p>
+<p>Na slici ispod su prikazani pojedinačni blokovi (ljubičasta), grupe
+blokova sa posebno označenim dijelom za strukturu (narančasta sa žutom),
+te u donjem redu fleksibilna grupa blokova sa posebno označenim dijelom
+za strukturu (zelena sa žutom).</p>
+<p><a class="reference internal" href="../../_images/image50.png"><img alt="image39" src="../../_images/image50.png" style="width: 6.30000in; height: 0.40371in;" /></a></p>
+<p>NAPOMENA: Iako se u fleksibilnoj grupi blokova struktura svake grupe
+premješta na početak fleksibilne grupe, to pravilo ne vrijedi za kopije
+SuperBloka i Group Descriptors tablice. One ostaju na početku
+namijenjene grupe.</p>
+<p>Na slijedećoj slici je detaljnije prikazana struktura svake grupe
+blokova, pod uvjetom da nije uključena <strong>sparse superblock</strong> opcija
+(SuperBlock i GDT strukture se ne spremaju u svaku grupu blokova).</p>
+<p><a class="reference internal" href="../../_images/image51.png"><img alt="image40" src="../../_images/image51.png" style="width: 6.30000in; height: 1.14254in;" /></a></p>
+<p>Izvor slika :
+<a class="reference external" href="https://www.dfrws.org/sites/default/files/session-files/pres_afeic_-_advanced_forensic_ext4_inode_carving.pdf">https://www.dfrws.org/sites/default/files/session-files/pres_afeic_-_advanced_forensic_ext4_inode_carving.pdf</a></p>
+<p>Prema gornjoj strukturi, na slijedećoj slici je prikazan primjer osam
+grupa blokova, bez uključene opcije fleksibilne grupe blokova.</p>
+<p><a class="reference internal" href="../../_images/image52.png"><img alt="image41" src="../../_images/image52.png" style="width: 6.30000in; height: 1.24369in;" /></a></p>
+<p>Te zatim isti primjer, no ovaj put je uključena opcija fleksibilne grupe
+blokova:</p>
+<p><a class="reference internal" href="../../_images/image53.png"><img alt="image42" src="../../_images/image53.png" style="width: 3.15000in; height: 0.61500in;" /></a></p>
+<p>Moguće je primijetiti kako se SuperBlock i GDT strukture i dalje nalaze
+na početku svake grupe blokova, no Inode i Block Bitmap, te Inode
+tablica su premještene na početak prve grupe blokova.</p>
+<p>Time se oslobađa prostor u ostalim grupama za podatkovne blokove, što
+povećava kontinuitet alociranih blokova za datoteke. Određeni problem u
+kontinuitetu predstavljaju SuperBlock i GDT strukture, no <strong>sparse
+superblock</strong> u određenoj mjeri rješava tu situaciju.</p>
+<p><a class="reference internal" href="../../_images/image54.png"><img alt="image43" src="../../_images/image54.png" style="width: 3.15000in; height: 0.61500in;" /></a></p>
+<p><a class="reference external" href="http://wiki.lustre.org/images/e/e0/Dilger_Workshop_LUG_09.pdf">http://wiki.lustre.org/images/e/e0/Dilger_Workshop_LUG_09.pdf</a></p>
+<p><a class="reference external" href="http://www.nongnu.org/ext2-doc/ext2.html">http://www.nongnu.org/ext2-doc/ext2.html</a></p>
+<p><a class="reference external" href="http://www.read.cs.ucla.edu/111/2006fall/notes/lec14">http://www.read.cs.ucla.edu/111/2006fall/notes/lec14</a></p>
+<p><a class="reference external" href="http://www.slashroot.in/understanding-file-system-superblock-linux">http://www.slashroot.in/understanding-file-system-superblock-linux</a></p>
+<p><a class="reference external" href="https://unix.stackexchange.com/questions/4402/what-is-a-superblock-inode-dentry-and-a-file">https://unix.stackexchange.com/questions/4402/what-is-a-superblock-inode-dentry-and-a-file</a></p>
+<p><a class="reference external" href="https://ext4.wiki.kernel.org/index.php/Ext4_Disk_Layout">https://ext4.wiki.kernel.org/index.php/Ext4_Disk_Layout</a></p>
+<p><a class="reference external" href="http://www.thegeekstuff.com/2011/05/ext2-ext3-ext4">http://www.thegeekstuff.com/2011/05/ext2-ext3-ext4</a></p>
+<p><a class="reference external" href="https://www.tecmint.com/linux-file-system-explained/">https://www.tecmint.com/linux-file-system-explained/</a></p>
+<p><a class="reference external" href="http://www.linfo.org/filesystem.html">http://www.linfo.org/filesystem.html</a></p>
+<p><a class="reference external" href="https://www.ibm.com/developerworks/library/l-anatomy-ext4/">https://www.ibm.com/developerworks/library/l-anatomy-ext4/</a></p>
+<p><a class="reference external" href="https://digital-forensics.sans.org/blog/2010/12/20/digital-forensics-understanding-ext4-part-1-extents">https://digital-forensics.sans.org/blog/2010/12/20/digital-forensics-understanding-ext4-part-1-extents</a></p>
+<p><a class="reference external" href="https://selvamvasu.wordpress.com/2014/08/01/inode-vs-ext4/">https://selvamvasu.wordpress.com/2014/08/01/inode-vs-ext4/</a></p>
+<p><a class="reference external" href="https://events.linuxfoundation.org/slides/2010/linuxcon_japan/linuxcon_jp2010_fujita.pdf">https://events.linuxfoundation.org/slides/2010/linuxcon_japan/linuxcon_jp2010_fujita.pdf</a></p>
+<p><a class="reference external" href="https://www.dfrws.org/sites/default/files/session-files/paper-an_analysis_of_ext4_for_digital_forensics.pdf">https://www.dfrws.org/sites/default/files/session-files/paper-an_analysis_of_ext4_for_digital_forensics.pdf</a></p>
+</div>
+<div class="section" id="primjer-stvaranja-datotecnog-sustava-na-datoteci">
+<h1><strong>Primjer stvaranja datotečnog sustava na datoteci</strong><a class="headerlink" href="#primjer-stvaranja-datotecnog-sustava-na-datoteci" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference internal" href="../../_images/image55.png"><img alt="image44" src="../../_images/image55.png" style="width: 6.22916in; height: 3.97109in;" /></a></p>
+<p>Alati : dd, mkfs, tune2fs, debugfs, fsstat</p>
+</div>
+<div class="section" id="prilog-detaljna-inode-struktura-ext4">
+<h1><strong>Prilog - Detaljna Inode struktura (EXT4)</strong><a class="headerlink" href="#prilog-detaljna-inode-struktura-ext4" title="Permalink to this headline">¶</a></h1>
+<p>0000100: ed41 0000 0010 0000 b073 5359 ed16 1c59 .A.......sSY...Y</p>
+<p>0000110: ed16 1c59 0000 0000 0000 1700 0800 0000 ...Y............</p>
+<p>0000120: 0000 0800 2400 0000 0af3 0100 0400 0000 ....$...........</p>
+<p>0000130: 0000 0000 0000 0000 0100 0000 1124 0000 .............$..</p>
+<p>0000140: 0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
+<p>0000150: 0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
+<p>0000160: 0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
+<p>0000170: 0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
+<p>0000180: 1c00 0000 7cbc 2caa 7cbc 2caa 8c8d dac1 ....|.,.|.,.....</p>
+<p>0000190: 5c25 1459 0000 0000 0000 0000 0000 0000 \%.Y............</p>
+<p>00001a0: 0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
+<p>00001b0: 0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
+<p>00001c0: 0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
+<p>00001d0: 0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
+<p>00001e0: 0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
+<p>00001f0: 0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
+<p>Za primjer prvog opisa preuzeta je Inode stavka root direktorija ( / )
+na aktivnom Linux sustavu, koji se nalazi na EXT4 datotečnom sustavu. S
+obzirom da je aktivirana značajka &#8220;Extra Inode Size&#8221; (nova značajka
+podržana od EXT4 verzije datotečnog sustava), Inode stavke mogu preći
+standardnu veličinu od 128B (veličina Inodeova u EXT2 i EXT3 verzijama).
+Sama veličina jednog Inodea je zapisana u SuperBlock strukturi
+(prikazano u slijedećem primjeru), no potrebno je razlikovati
+rezerviranu veličinu za kompletnu Inode stavku, te potrebnu veličinu za
+zapis samih (meta)podataka. Prema slijedećem primjeru, veličina Inode
+strukture je 256B, a ukupna potrebna veličina za podatke je 128B
+(originalna veličina) + 28B (dodatna potrebna veličina), odnosno 156B.
+Iz tog razloga, preuzeta je ukupna veličina Inode stavke iz tablice od
+256 bajta.</p>
+<p><a class="reference external" href="mailto:ids&#37;&#52;&#48;ids2">ids<span>&#64;</span>ids2</a> ~/LINUX_PRIMJERI $ sudo tune2fs -l /dev/sda2</p>
+<p>/cut</p>
+<p>Inode size: 256</p>
+<p>Required extra isize: 28</p>
+<p>/cut</p>
+<p>Size, Little-Endian HEX, Big-Endian HEX, DEC/BIN/STRING</p>
+<p><strong>Sigurnosne postavke, tip datoteke</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="48%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">0x1</th>
+<th class="head">S_IXOTH (Others may execute)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x2</td>
+<td>S_IWOTH (Others may write)</td>
+</tr>
+<tr class="row-odd"><td>0x4</td>
+<td>S_IROTH (Others may read)</td>
+</tr>
+<tr class="row-even"><td>0x8</td>
+<td>S_IXGRP (Group members may execute)</td>
+</tr>
+<tr class="row-odd"><td>0x10</td>
+<td>S_IWGRP (Group members may write)</td>
+</tr>
+<tr class="row-even"><td>0x20</td>
+<td>S_IRGRP (Group members may read)</td>
+</tr>
+<tr class="row-odd"><td>0x40</td>
+<td>S_IXUSR (Owner may execute)</td>
+</tr>
+<tr class="row-even"><td>0x80</td>
+<td>S_IWUSR (Owner may write)</td>
+</tr>
+<tr class="row-odd"><td>0x100</td>
+<td>S_IRUSR (Owner may read)</td>
+</tr>
+<tr class="row-even"><td>0x200</td>
+<td>S_ISVTX (Sticky bit)</td>
+</tr>
+<tr class="row-odd"><td>0x400</td>
+<td>S_ISGID (Set GID)</td>
+</tr>
+<tr class="row-even"><td>0x800</td>
+<td>S_ISUID (Set UID)</td>
+</tr>
+<tr class="row-odd"><td>These are mutually-exclusive file types:</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>0x1000</td>
+<td>S_IFIFO (FIFO)</td>
+</tr>
+<tr class="row-odd"><td>0x2000</td>
+<td>S_IFCHR (Character device)</td>
+</tr>
+<tr class="row-even"><td>0x4000</td>
+<td>S_IFDIR (Directory)</td>
+</tr>
+<tr class="row-odd"><td>0x6000</td>
+<td>S_IFBLK (Block device)</td>
+</tr>
+<tr class="row-even"><td>0x8000</td>
+<td>S_IFREG (Regular file)</td>
+</tr>
+<tr class="row-odd"><td>0xA000</td>
+<td>S_IFLNK (Symbolic link)</td>
+</tr>
+<tr class="row-even"><td>0xC000</td>
+<td>S_IFSOCK (Socket)</td>
+</tr>
+</tbody>
+</table>
+<p>2B - ED41 – 41ED - 100000111101101</p>
+<p><a class="reference external" href="mailto:ids&#37;&#52;&#48;ids2">ids<span>&#64;</span>ids2</a> / $ ls -alh</p>
+<p>total 104K</p>
+<p>drwxr-xr-x 23 root root 4.0K May 17 11:25 .</p>
+<p>Prema tablici sa zastavicama i ispisu samih detalja korijenskog
+direktorija, moguće je vidjeti kako se informacije poklapaju ( Tip
+datoteke je Direktorij, Vlasnik ima RWX prava, Grupa ima RX prava,
+Ostali imaju RX prava, ostale zastavice nisu aktivirane)</p>
+<p><strong>Donjih 16 bita korisničkog ID broja (UID) vlasnika</strong></p>
+<p>2B - 0000 - 0000 -</p>
+<p><strong>Donjih 32 bita broja veličine datoteke u bajtima</strong></p>
+<p>4B - 0010 0000 - 0000 1000</p>
+<p><strong>Zadnje vrijeme pristupa u sekundama od referentnog vremena (vrijeme
+epohe Linuxa, 00:00:00 UTC 1.1.1970)</strong></p>
+<p>4B - B073 5359 - 5953 73B0</p>
+<p><strong>Zadnje vrijeme izmjene Inode stavke u sekundama od referentnog
+vremena</strong></p>
+<p>4B - ED16 1C59 - 591C 16ED</p>
+<p><strong>Zadnje vrijeme izmjene sadržaja datoteke u sekundama od referentnog
+vremena</strong></p>
+<p>4B - ED16 1C59 - 591C 16ED</p>
+<p><strong>Vrijeme postavljanja statusa &#8220;deleted&#8221; u sekundama od referentnog
+vremena</strong></p>
+<p>4B - 0000 0000 - 0000 0000</p>
+<p>S obzirom da je ovdje vrijednost 0, radi se o Inodeu koji se koristi
+(aktivan je), odnosno datoteka na koju upućuje se ne smatra obrisanom</p>
+<p><strong>Donjih 16 bita ID broja grupe (GID)</strong></p>
+<p>2B - 0000 - 0000</p>
+<p><strong>Broj čvrstih linkova (eng. Hard Link Count)</strong></p>
+<p>2B - 1700 - 0017</p>
+<p>Vrijednost je 23, te je iz primjera vidljivo kako je stvarno stvoreno 23
+čvrste poveznice (eng. hard links).</p>
+<p><a class="reference external" href="mailto:ids&#37;&#52;&#48;ids2">ids<span>&#64;</span>ids2</a> / $ ls -alh</p>
+<p>total 104K</p>
+<p>drwxr-xr-x 23 root root 4.0K May 17 11:25 .</p>
+<p><strong>Donjih 32 bita broja blokova</strong></p>
+<p>4B - 0800 0000 - 0000 0008</p>
+<p><strong>Zastavice Inode stavke</strong></p>
+<p>Inode flags. Any of:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="6%" />
+<col width="10%" />
+<col width="10%" />
+<col width="17%" />
+<col width="56%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Offset</th>
+<th class="head">Variable Type</th>
+<th class="head">Variable Name</th>
+<th class="head">Flag Value</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td rowspan="30">0x20</td>
+<td rowspan="30">_le32</td>
+<td rowspan="30">i_flags</td>
+<td>0x1</td>
+<td>This file requires secure deletion (EXT4_SECRM_FL). (not implemented)</td>
+</tr>
+<tr class="row-odd"><td>0x2</td>
+<td>This file should be preserved, should undeletion be desired (EXT4_UNRM_FL).
+(not implemented)</td>
+</tr>
+<tr class="row-even"><td>0x4</td>
+<td>File is compressed (EXT4_COMPR_FL). (not really implemented)</td>
+</tr>
+<tr class="row-odd"><td>0x8</td>
+<td>All writes to the file must be synchronous (EXT4_SYNC_FL).</td>
+</tr>
+<tr class="row-even"><td>0x10</td>
+<td>File is immutable (EXT4_IMMUTABLE_FL).</td>
+</tr>
+<tr class="row-odd"><td>0x20</td>
+<td>File can only be appended (EXT4_APPEND_FL).</td>
+</tr>
+<tr class="row-even"><td>0x40</td>
+<td>The dump(1) utility should not dump this file (EXT4_NODUMP_FL).</td>
+</tr>
+<tr class="row-odd"><td>0x80</td>
+<td>Do not update access time (EXT4_NOATIME_FL).</td>
+</tr>
+<tr class="row-even"><td>0x100</td>
+<td>Dirty compressed file (EXT4_DIRTY_FL). (not used)</td>
+</tr>
+<tr class="row-odd"><td>0x200</td>
+<td>File has one or more compressed clusters (EXT4_COMPRBLK_FL). (not used)</td>
+</tr>
+<tr class="row-even"><td>0x400</td>
+<td>Do not compress file (EXT4_NOCOMPR_FL). (not used)</td>
+</tr>
+<tr class="row-odd"><td>0x800</td>
+<td>Encrypted inode (EXT4_ENCRYPT_FL). This bit value previously was
+EXT4_ECOMPR_FL (compression error), which was never used.</td>
+</tr>
+<tr class="row-even"><td>0x1000</td>
+<td>Directory has hashed indexes (EXT4_INDEX_FL).</td>
+</tr>
+<tr class="row-odd"><td>0x2000</td>
+<td>AFS magic directory (EXT4_IMAGIC_FL).</td>
+</tr>
+<tr class="row-even"><td>0x4000</td>
+<td>File data must always be written through the journal (EXT4_JOURNAL_DATA_FL).</td>
+</tr>
+<tr class="row-odd"><td>0x8000</td>
+<td>File tail should not be merged (EXT4_NOTAIL_FL). (not used by ext4)</td>
+</tr>
+<tr class="row-even"><td>0x10000</td>
+<td>All directory entry data should be written synchronously (see dirsync)
+(EXT4_DIRSYNC_FL).</td>
+</tr>
+<tr class="row-odd"><td>0x20000</td>
+<td>Top of directory hierarchy (EXT4_TOPDIR_FL).</td>
+</tr>
+<tr class="row-even"><td>0x40000</td>
+<td>This is a huge file (EXT4_HUGE_FILE_FL).</td>
+</tr>
+<tr class="row-odd"><td>0x80000</td>
+<td>Inode uses extents (EXT4_EXTENTS_FL).</td>
+</tr>
+<tr class="row-even"><td>0x200000</td>
+<td>Inode stores a large extended attribute value in its data blocks
+(EXT4_EA_INODE_FL).</td>
+</tr>
+<tr class="row-odd"><td>0x400000</td>
+<td>This file has blocks allocated past EOF (EXT4_EOFBLOCKS_FL). (deprecated)</td>
+</tr>
+<tr class="row-even"><td>0x1000000</td>
+<td>Inode is a snapshot (EXT4_SNAPFILE_FL). (not in mainline)</td>
+</tr>
+<tr class="row-odd"><td>0x4000000</td>
+<td>Snapshot is being deleted (EXT4_SNAPFILE_DELETED_FL). (not in mainline)</td>
+</tr>
+<tr class="row-even"><td>0x8000000</td>
+<td>Snapshot shrink has completed (EXT4_SNAPFILE_SHRUNK_FL). (not in mainline)</td>
+</tr>
+<tr class="row-odd"><td>0x10000000</td>
+<td>Inode has inline data (EXT4_INLINE_DATA_FL).</td>
+</tr>
+<tr class="row-even"><td>0x20000000</td>
+<td>Create children with the same project ID (EXT4_PROJINHERIT_FL).</td>
+</tr>
+<tr class="row-odd"><td>0x80000000</td>
+<td>Reserved for ext4 library (EXT4_RESERVED_FL).</td>
+</tr>
+<tr class="row-even"><td>0x4BDFFF</td>
+<td>User-visible flags.</td>
+</tr>
+<tr class="row-odd"><td>0x4B80FF</td>
+<td>User-modifiable flags. Note that while EXT4_JOURNAL_DATA_FL and EXT4_EXTENTS_FL
+can be set with setattr, they are not in the kernel&#8217;s EXT4_FL_USER_MODIFIABLE
+mask, since it needs to handle the setting of these flags in a special manner
+and they are masked out of the set of flags that are saved directly to i_flags.</td>
+</tr>
+</tbody>
+</table>
+<p>4B - 0000 0800 - 0008 0000</p>
+<p>Polje se poklapa sa zastavicom koja govori da Inode koristi &#8220;Extents&#8221;
+način adresiranja podatkovnih blokova ( nešto kasnije o razlici između
+direktnog/indirektnog adresiranja blokova i &#8220;Extents&#8221; načina)</p>
+<p><strong>Podaci ovisni o operacijskom sustavu (GNU Linux, GNU Hurd, MASIX)</strong></p>
+<p>S obzirom da se proučava datotečni sustav na Linux distribuciji, gleda
+se Linux polje</p>
+<p><strong>Verzija Inode stavke</strong></p>
+<p>4B - 2400 0000 - 0000 0024</p>
+<p>Verzija Inode stavke (osim u slučaju kad je aktivirana zastavica
+EA_INODE u Superblock strukturi, provjeriti službenu dokumentaciju u
+toj situaciji). Verzija se inkrementira za jedan prilikom svake izmjene
+Inode stavke.</p>
+<p>Primjer:</p>
+<p><a class="reference external" href="mailto:ids&#37;&#52;&#48;ids2">ids<span>&#64;</span>ids2</a> / $ ls -alh</p>
+<p>total 104K</p>
+<p>drwxr-xr-x 23 root root 4.0K May 17 11:25 .</p>
+<p>Iz primjera je vidljivo kako direktorij ima 23 čvrste poveznice (eng.
+hard links), te s obzirom da se počinje sa verzijom 1, krajnja verzija
+je 24. PROUČITI ZAŠTO BROJ ODGOVARA, A ZAPISAN JE U HEX OBLIKU ????</p>
+<p><strong>Mapa blokova ili Extent tree (pogledati Contents of inode.i_block)</strong></p>
+<p>60B - 0AF3 0100 0400 0000 0000 0000 0000 0000 0100 0000 1124 0000 0000
+0000 0000 0000 0000 0000 0000 00000000 0000 0000 0000 0000 0000 0000
+0000 0000 0000</p>
+<p><strong>Verzija datoteke (koristi se za NFS datotečni sustav)</strong></p>
+<p>4B - 0000 0000 - 0000 0000</p>
+<p><strong>Donjih 32 bita za prošireni blok atributa (npr. ACL, access control
+list)</strong></p>
+<p>4B - 0000 0000 - 0000 0000</p>
+<p><strong>Gornjih 32 bita za veličinu direktorija/datoteke</strong></p>
+<p>4B - 0000 0000 - 0000 0000</p>
+<p><strong>Adresa fragmenta (zastarjelo)</strong></p>
+<p>4B - 0000 0000 - 0000 0000</p>
+<p><strong>Podaci ovisni o operacijskom sustavu (GNU Linux, GNU Hurd, MASIX)</strong></p>
+<p>S obzirom da se proučava datotečni sustav na Linux distribuciji, gleda
+se Linux polje</p>
+<p>12B - 0000 0000 0000 0000 0000 0000 - 0000 0000 0000 0000 0000 0000</p>
+<p>12B se dijele na 6 polja od po 2 bajta.</p>
+<p>2B - Gornjih 16 bita broja blokova - 0000</p>
+<p>2B - Gornjih 16 bita za prošireni blok atributa (npr. ACL, access
+control list) - 0000</p>
+<p>2B - Gornjih 16 bita korisničkog ID broja vlasnika - 0000</p>
+<p>2B - Gornjih 16 bita ID broja grupe - 0000</p>
+<p>2B - Donjih 16 bita Inode provjere sume - 0000</p>
+<p>2B - Trenutno se ne koristi - 0000</p>
+<p><strong>Dodatna potrebna veličina Inode stavke</strong></p>
+<p>2B - 1C00 - 001C</p>
+<p>Potrebna dodatna veličina Inode stavke u odnosu na originalnu od 128B.
+0x1C u HEX obliku je pretvoreno u DEC oblik vrijednosti 28. Znači ukupna
+veličina spomenutog Inodea je 128+28 = 156B.</p>
+<p><strong>Gornjih 16 bita Inode provjere sume</strong></p>
+<p>2B - 0000 - 0000</p>
+<p><strong>Dodatni bitovi za preciznije vrijeme izmjene Inode stavke</strong></p>
+<p>4B - 7CBC 2CAA - AA2C BC7C</p>
+<p><strong>Dodatni bitovi za preciznije vrijeme izmjene sadržaja datoteke</strong></p>
+<p>4B - 7CBC 2CAA - AA2C BC7C</p>
+<p><strong>Dodatni bitovi za preciznije vrijeme pristupa</strong></p>
+<p>4B - 8C8D DAC1 - C1DA 8D8C</p>
+<p><strong>Vrijeme stvaranja datoteke u sekundama od referentnog vremena</strong></p>
+<p>4B - 5C25 1459 - 5914 255C</p>
+<p><strong>Dodatni bitovi za preciznije vrijeme stvaranja datoteke</strong></p>
+<p>4B - 0000 0000 - 0000 0000</p>
+<p><strong>Gornjih 32 bita za verziju</strong></p>
+<p>4B - 0000 0000 - 0000 0000</p>
+<p><strong>ID Projekta</strong></p>
+<p>4B - 0000 0000 - 0000 0000</p>
+<p>IZRAČUNI</p>
+<p>Napomena: Gornji + Donji brojevi se ne zbrajaju, već samo spajaju</p>
+<p>Korisnički ID broja vlasnika ( Gornji + Donji)</p>
+<p>0000 + 0000 = 0x00000000 = 0</p>
+<p>UID Vlasnika datoteke je 0.</p>
+<p>Prema primjeru, vlasnik direktorija je Root korisnik koji pripada Root
+grupi (za slijedeći primjer izračun GID broja).</p>
+<p><a class="reference external" href="mailto:ids&#37;&#52;&#48;ids2">ids<span>&#64;</span>ids2</a> / $ ls -alh</p>
+<p>total 104K</p>
+<p>drwxr-xr-x 23 root root 4.0K May 17 11:25 .</p>
+<p>Provjeru UID i GID brojeva za korisnike i njihovih primarnih grupa
+moguće uvidjeti iz /etc/passwd datoteke.</p>
+<p><a class="reference external" href="mailto:ids&#37;&#52;&#48;ids2">ids<span>&#64;</span>ids2</a> / $ cat /etc/passwd</p>
+<p>root:x:0:0:root:/root:/bin/bash</p>
+<p>Prva nula predstavlja UID korisnika , dok druga predstavlja GID (
+referenca : <a class="reference external" href="https://linux.die.net/man/5/passwd">https://linux.die.net/man/5/passwd</a>)</p>
+<p>Iz primjera je vidljivo kako root korisnik ima UID i GID vrijednost 0
+(što je uglavnom slučaj kod svih root korisnika)</p>
+<p>ID broja primarne grupe korisnika ( vlasnika direktorija)</p>
+<p>0000 + 0000 = 0x00000000 = 0</p>
+<p>GID Vlasnika datoteke je 0.</p>
+<p>Detaljno obrazloženje je napisano u prošlom primjeru, ovaj izračun je
+samo potvrda.</p>
+<p>Broj blokova</p>
+<p>0000 + 0000 0008 = 0x000000000008 = 8</p>
+<p>Vrijednost proširenog bloka atributa (npr. ACL, access control list)</p>
+<p>0000 + 0000 0000 = 0x000000000000 = 0</p>
+<p>Vrijednost Inode provjere sume</p>
+<p>0000 + 0000 = 0x00000000 = 0</p>
+<p>Veličina datoteke u bajtima</p>
+<p>0000 0000 + 0000 1000 = 0x0000000000001000 = 4096</p>
+<p>Veličina datoteke je 4096B. S obzirom da je tip datoteke direktorij, to
+je standardna veličina za ovaj primjer.</p>
+<p>Zadnje vrijeme pristupa u sekundama od referentnog vremena</p>
+<p>5953 73B0 = 1498641328s = 17345,386 dana</p>
+<p>Referentno vrijeme je 1.1.1970. te se tom datum trebaju zbrojiti svi
+dani/sati/minute i sekunde kako bi se dobilo precizno vrijeme pristupa.</p>
+<p>Zadnje vrijeme izmjene Inode stavke u sekundama od referentnog vremena</p>
+<p>591C 16ED = 1495013101s</p>
+<p>Zadnje vrijeme izmjene sadržaja datoteke u sekundama od referentnog
+vremena</p>
+<p>591C 16ED = 1495013101s</p>
+<p>Vrijeme stvaranja datoteke u sekundama od referentnog vremena</p>
+<p>5914 255C = 1494492508s</p>
+<p>NAPOMENA : Prilikom izračuna vremena, potrebno je imati na umu kako se
+radi o 32 bitnom broju koji može imati pozitivan/negativan predznak.
+Zbog podrške za predznak 2^32 ,broj 4294967296 se dijeli na pola te
+zapravo podržava maksimalno 2147483648 sekundi od referentnog vremena
+(1.1.1970.), te je granica 2038. godina kada će se broj preliti u novo
+brojanje.</p>
+<p>Više o Unix vremenu na slijedećoj poveznici :
+<a class="reference external" href="https://en.wikipedia.org/wiki/Unix_time">https://en.wikipedia.org/wiki/Unix_time</a></p>
+<p>A o zanimljivom članku vezanom uz materiju na slijedećoj poveznici :
+<a class="reference external" href="https://www.wired.com/2001/09/unix-tick-tocks-to-a-billion/">https://www.wired.com/2001/09/unix-tick-tocks-to-a-billion/</a></p>
+<p><strong>EXTENT TREE</strong></p>
+<p>60B - 0AF3 0100 0400 0000 0000 0000 0000 0000 0100 0000 1124 0000 0000
+0000 0000 0000 0000 0000 0000 00000000 0000 0000 0000 0000 0000 0000
+0000 0000 0000</p>
+<p>Extent strukture velike su po 12 bajta, no prvih 12 bajta zauzima
+zaglavlje extent struktura, što znači da preostaje 4 extent struktura (
+12B*5 = 60B, ukupna veličina polja).</p>
+<p><strong>EXTENT HEADER</strong></p>
+<p>Čarobni broj 0xF30A</p>
+<p>2B - 0AF3 - F30A</p>
+<p>Broj extent stavaka nakon zaglavlja</p>
+<p>2B - 0100 - 0001 = 1</p>
+<p>Ukupni broj extent stavaka koje mogu slijediti nakon zaglavlja</p>
+<p>2B - 0400 - 0004 = 4</p>
+<p>Dubina extent stabla</p>
+<p>2B - 0000 - 0000 = 0</p>
+<p>Generation ID ( ne koristi se u Ext4 sustavima)</p>
+<p>4B - 0000 0000 - 00000000 = 0</p>
+<p><strong>PRVO EXTENT POLJE</strong></p>
+<p>Broj logičkog bloka</p>
+<p>4B - 0000 0000 - 00000000</p>
+<p>Broj blokova u extentu</p>
+<p>2B - 0100 - 0001</p>
+<p>Gornjih 16 bitova fizičke adrese bloka</p>
+<p>2B - 0000 - 0000</p>
+<p>Donjih 32 bita fizičke adrese bloka</p>
+<p>4B - 1124 0000 - 00002411</p>
+<p>KRAJNJA FIZIČKA ADRESA BLOKA</p>
+<p>0000 + 00002411 = 0x000000002411 = 9233</p>
+<p>Prema izračunu, potrebno kako bi se došlo do sadržaja root direktorija,
+potrebno je učitati fizički blok 9233 na datotečnom sustavu.</p>
+<p><a class="reference external" href="mailto:ids&#37;&#52;&#48;ids2">ids<span>&#64;</span>ids2</a> / $ sudo dd if=/dev/sda2 bs=4096 count=1 skip=9233 | xxd</p>
+<p>0000000: 0200 0000 0c00 0102 2e00 0000 0200 0000 ................</p>
+<p>0000010: 0c00 0202 2e2e 0000 0b00 0000 1400 0a02 ................</p>
+<p>0000020: 6c6f 7374 2b66 6f75 6e64 0000 01fe 0300 lost+found......</p>
+<p>0000030: 0c00 0302 6269 6e00 01fd 0500 0c00 0402 ....bin.........</p>
+<p>0000040: 626f 6f74 01fc 0700 0c00 0302 6465 7600 boot........dev.</p>
+<p>0000050: 01fa 0b00 0c00 0302 6574 6300 01f9 0d00 ........etc.....</p>
+<p>0000060: 0c00 0402 686f 6d65 01f8 0f00 0c00 0302 ....home........</p>
+<p>0000070: 6c69 6200 01ff 0100 1000 0502 6c69 6236 lib.........lib6</p>
+<p>0000080: 3400 0000 01f7 1100 1000 0502 6d65 6469 4...........medi</p>
+<p>0000090: 6100 0000 01f6 1300 0c00 0302 6d6e 7400 a...........mnt.</p>
+<p>00000a0: 02fe 0300 0c00 0302 6f70 7400 02fd 0500 ........opt.....</p>
+<p>00000b0: 0c00 0402 7072 6f63 02ff 0100 0c00 0402 ....proc........</p>
+<p>00000c0: 726f 6f74 02fc 0700 0c00 0302 7275 6e00 root........run.</p>
+<p>00000d0: 02fa 0b00 0c00 0402 7362 696e 02f9 0d00 ........sbin....</p>
+<p>00000e0: 0c00 0302 7372 7600 02f8 0f00 0c00 0302 ....srv.........</p>
+<p>00000f0: 7379 7300 02f7 1100 0c00 0302 746d 7000 sys.........tmp.</p>
+<p>0000100: 02f6 1300 0c00 0302 7573 7200 03fc 0700 ........usr.....</p>
+<p>0000110: 0c00 0302 7661 7200 0c00 0000 1400 0a07 ....var.........</p>
+<p>0000120: 696e 6974 7264 2e69 6d67 0000 0d00 0000 initrd.img......</p>
+<p>0000130: 1000 0707 766d 6c69 6e75 7a00 82fb 1100 ....vmlinuz.....</p>
+<p>0000140: c40e 0702 2e63 6f6e 6669 6700 7d2d 0000 .....config.}-..</p>
+<p>0000150: b40e 1201 2e69 736d 6f75 6e74 2d74 6573 .....ismount-tes</p>
+<p>0000160: 742d 6669 6c65 0000 0000 0000 0000 0000 t-file..........</p>
+<p>0000170: 0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
+<p>0000180: 0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
+<p>0000190: 0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
+<p>Slijedi ispis sadržaja korijenskog direktorija:</p>
+<p><a class="reference external" href="mailto:ids&#37;&#52;&#48;ids2">ids<span>&#64;</span>ids2</a> / $ ls -alhi</p>
+<p>total 104K</p>
+<p>2 drwxr-xr-x 23 root root 4.0K Jun 30 11:43 .</p>
+<p>2 drwxr-xr-x 23 root root 4.0K Jun 30 11:43 ..</p>
+<p>261633 drwxr-xr-x 2 root root 4.0K May 11 11:16 bin</p>
+<p>392449 drwxr-xr-x 3 root root 4.0K May 11 11:23 boot</p>
+<p>1178498 drwx&#8212;&#8212; 3 root mdm 4.0K May 11 11:06 .config</p>
+<p>3 drwxr-xr-x 14 root root 3.3K Jun 12 13:43 dev</p>
+<p>784897 drwxr-xr-x 140 root root 12K May 17 11:34 etc</p>
+<p>915713 drwxr-xr-x 3 root root 4.0K May 11 10:55 home</p>
+<p>12 lrwxrwxrwx 1 root root 31 May 11 10:48 initrd.img -&gt;
+/boot/initrd.img-3.16.0-4-amd64</p>
+<p>1046529 drwxr-xr-x 22 root root 4.0K May 11 10:55 lib</p>
+<p>130817 drwxr-xr-x 2 root root 4.0K May 11 11:14 lib64</p>
+<p>11 drwx&#8212;&#8212; 2 root root 16K May 11 10:48 lost+found</p>
+<p>1177345 drwxr-xr-x 2 root root 4.0K Jan 16 17:35 media</p>
+<p>1308161 drwxr-xr-x 4 root root 4.0K Jun 12 13:43 mnt</p>
+<p>261634 drwxr-xr-x 4 root root 4.0K Jan 16 18:05 opt</p>
+<p>1 dr-xr-xr-x 164 root root 0 May 12 12:22 proc</p>
+<p>130818 drwx&#8212;&#8212; 6 root root 4.0K Jun 12 13:55 root</p>
+<p>7458 drwxr-xr-x 29 root root 960 May 13 07:35 run</p>
+<p>784898 drwxr-xr-x 2 root root 12K May 11 11:29 sbin</p>
+<p>915714 drwxr-xr-x 2 root root 4.0K Jan 16 17:35 srv</p>
+<p>1 dr-xr-xr-x 13 root root 0 May 18 12:15 sys</p>
+<p>1177346 drwxrwxrwt 11 root root 4.0K Jul 4 11:19 tmp</p>
+<p>1308162 drwxr-xr-x 10 root root 4.0K Jan 16 17:34 usr</p>
+<p>523267 drwxr-xr-x 11 root root 4.0K Jan 16 18:19 var</p>
+<p>13 lrwxrwxrwx 1 root root 27 May 11 10:48 vmlinuz -&gt;
+boot/vmlinuz-3.16.0-4-amd64</p>
+<p>Prvo što je moguće uočiti je razlika u redoslijedu imena
+direktorija/datoteka između dva rezultata. Naredba ls će sa standardnim
+postavkama sortirati imena po abecednom redoslijedu, dok se u samom
+fizičkom bloku imena upisuju onim redoslijedom kako su stvorene
+datoteke/direktoriji na datotečnom sustavu.</p>
+</div>
+<div class="section" id="literatura">
+<h1><strong>Literatura:</strong><a class="headerlink" href="#literatura" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://digital-forensics.sans.org/blog/2010/12/20/digital-forensics-understanding-ext4-part-1-extents">https://digital-forensics.sans.org/blog/2010/12/20/digital-forensics-understanding-ext4-part-1-extents#</a></p>
+<p><a class="reference external" href="https://digital-forensics.sans.org/blog/2011/03/14/digital-forensics-understanding-ext4-part-2-timestamps">https://digital-forensics.sans.org/blog/2011/03/14/digital-forensics-understanding-ext4-part-2-timestamps</a></p>
+<p><a class="reference external" href="https://digital-forensics.sans.org/blog/2011/03/28/digital-forensics-understanding-ext4-part-3-extent-trees">https://digital-forensics.sans.org/blog/2011/03/28/digital-forensics-understanding-ext4-part-3-extent-trees</a></p>
+<p><a class="reference external" href="https://digital-forensics.sans.org/blog/2011/04/08/understanding-ext4-part-4-demolition-derby">https://digital-forensics.sans.org/blog/2011/04/08/understanding-ext4-part-4-demolition-derby</a></p>
+<p><a class="reference external" href="https://digital-forensics.sans.org/blog/2011/08/22/understanding-ext4-part5-large-extents">https://digital-forensics.sans.org/blog/2011/08/22/understanding-ext4-part5-large-extents</a></p>
+<p><a class="reference external" href="https://digital-forensics.sans.org/blog/2017/06/07/understanding-ext4-part-6-directories">https://digital-forensics.sans.org/blog/2017/06/07/understanding-ext4-part-6-directories</a></p>
+<p><a class="reference external" href="http://www.academia.edu/6303025/Digital_Forensic_Understanding_Ext4_On_the_basis_of_kevin_D_Fairbanks_research_paper_Analysis_of_ext4_for_digital_forensic_Submitted_to_Respected_Sir_Zafar_Qasim_Advance_Operating_System_M.E_CS_Fall_2013_By">http://www.academia.edu/6303025/Digital_Forensic_Understanding_Ext4_On_the_basis_of_kevin_D_Fairbanks_research_paper_Analysis_of_ext4_for_digital_forensic_Submitted_to_Respected_Sir_Zafar_Qasim_Advance_Operating_System_M.E_CS_Fall_2013_By</a></p>
+<p><a class="reference external" href="http://www.marshall.edu/forensics/files/RusbarskyKelsey_Research-Paper-Summer-2012.pdf">http://www.marshall.edu/forensics/files/RusbarskyKelsey_Research-Paper-Summer-2012.pdf</a></p>
+<p><a class="reference external" href="http://www.deer-run.com/~hal/CEIC-EXT4-Bit-By-Bit.pdf">http://www.deer-run.com/~hal/CEIC-EXT4-Bit-By-Bit.pdf</a></p>
+<p><a class="reference external" href="http://dfrws.org/sites/default/files/session-files/pres-an_analysis_of_ext4_for_digital_forensics.pdf">http://dfrws.org/sites/default/files/session-files/pres-an_analysis_of_ext4_for_digital_forensics.pdf</a></p>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ntfs/index.html" class="btn btn-neutral float-right" title="NTFS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="EXT4" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Marko Stojanović.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

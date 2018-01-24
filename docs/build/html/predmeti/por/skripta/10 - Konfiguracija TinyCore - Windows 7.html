@@ -1,0 +1,319 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Konfiguracija Windows 98 / Windows 7 dual boot sustava &mdash; TSRB_TEST 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="TSRB_TEST 1.0 documentation" href="../../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> TSRB_TEST
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../filesystems/index.html">Datotečni sustavi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Predmeti</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">TSRB_TEST</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Konfiguracija Windows 98 / Windows 7 dual boot sustava</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/predmeti/por/skripta/10 - Konfiguracija TinyCore - Windows 7.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="konfiguracija-windows-98-windows-7-dual-boot-sustava">
+<h1>Konfiguracija Windows 98 / Windows 7 dual boot sustava<a class="headerlink" href="#konfiguracija-windows-98-windows-7-dual-boot-sustava" title="Permalink to this headline">¶</a></h1>
+<p>Za dodavanje slova WIN98 particije, potrebno je otići u Disk Management
+konzolu, na jedan od tri predložena načina :</p>
+<ul class="simple">
+<li>Pritisnuti na tipku Start, te u Search prozor upisati &#8220;<em>diskmgmt</em>.msc&#8221;</li>
+<li>Pritisnuti na tipku Start , desni klik na Computer, te odabrati opciju</li>
+</ul>
+<p>Manage. U konzoli odabrati opciju Disk Management ( kategorija Storage)</p>
+<ul class="simple">
+<li>Pritisnuti na tipku Start, te u Search prozor upisati &#8220;disk</li>
+</ul>
+<p>management&#8221;, te odabrati iz popisa &#8220;Create and format hard disk
+partitions&#8221;</p>
+<p><a class="reference internal" href="../../../_images/image126.png"><img alt="image0" src="../../../_images/image126.png" style="width: 5.16184in; height: 2.75591in;" /></a></p>
+<p>Primijetiti kako u popisu particija (stupac sa imenom Volume, Volume
+označava logički dio diska, odnosno particiju) WIN98 particija nema
+pridruženo slovo.</p>
+<p><a class="reference internal" href="../../../_images/image217.png"><img alt="image1" src="../../../_images/image217.png" style="width: 6.12847in; height: 2.30278in;" /></a></p>
+<p>Desnom tipkom miša kliknuti na WIN98 particiju, te odabrati opciju
+Change Drive Letter and Paths.</p>
+<p><a class="reference internal" href="../../../_images/image313.png"><img alt="image2" src="../../../_images/image313.png" style="width: 3.24236in; height: 1.62847in;" /></a></p>
+<p>Odabrati željeno slovo, no dovoljno je ostaviti preporučene vrijednosti,
+i samo kliknuti OK.</p>
+<p><a class="reference internal" href="../../../_images/image411.png"><img alt="image3" src="../../../_images/image411.png" style="width: 5.37847in; height: 2.36389in;" /></a></p>
+<p>Nakon izvršenog postupka, uz ime WIN98 particije će se prikazati i
+pridruženo slovo. U ovom trenutku će se pokrenuti i AutoPlay opcija (ako
+nije isklučena) sa mogućnošću pristupa particiji, primijetiti promjenu u
+Task Bar dijelu ekrana.</p>
+<p><a class="reference internal" href="../../../_images/image511.png"><img alt="image4" src="../../../_images/image511.png" style="width: 4.22708in; height: 1.12847in;" /></a></p>
+<p>Ponovno pokrenuti Windows Explorer aplikaciju, te ući u WIN98 particiju.
+Primijetiti kako se nalazi samo jedna datoteka u popisu ( ako se u
+jednom od prethodnih koraka nisu kopirale datoteke Volkov Commander
+aplikacije, onda se neće prikazati niti jedna datoteka). Razlog tome je
+što ostale datoteke imaju ili skriveni atribut (Hidden attribute) ili
+predstavljaju sistemske datoteke (System attribute).</p>
+<p><a class="reference internal" href="../../../_images/image66.png"><img alt="image5" src="../../../_images/image66.png" style="width: 7.08611in; height: 2.42329in;" /></a></p>
+<p>Za prikaz svih datoteka, u prozoru Windows Explorer aplikacije odabrati
+izbornik Organize, te opciju &#8220;Folder and search options&#8221;.</p>
+<p><a class="reference internal" href="../../../_images/image76.png"><img alt="image6" src="../../../_images/image76.png" style="width: 2.99236in; height: 2.99236in;" /></a></p>
+<p>U otvorenom prozoru odabrati karticu View, te učiniti slijedeće radnje :</p>
+<ul class="simple">
+<li><strong>Uključiti</strong> opciju &#8220;Show hidden files,folders, and drives&#8221;</li>
+<li><strong>Isključiti</strong> opciju &#8220;Hide extensions for known file types&#8221;</li>
+<li><strong>Isključiti</strong> opciju &#8220;Hide protected operating system files</li>
+</ul>
+<p>(Recommended)&#8221; - Nakon odabira ove opcije, potrebno je još jednom
+potvrditi odabir u novom prozoru. Primijetiti kako se zaštićenim
+datotekama operacijskog sustava smatraju one datoteke koje imaju
+aktivirane System i Hidden atribute.</p>
+<p><a class="reference internal" href="../../../_images/image87.png"><img alt="image7" src="../../../_images/image87.png" style="width: 6.34933in; height: 4.33071in;" /></a></p>
+<p>U prozoru kliknuti na tipke Apply te zatim OK, i pojaviti će se potpun
+popis datoteka i direktorija koje se nalaze na WIN98 particiji.</p>
+<p><a class="reference internal" href="../../../_images/image97.png"><img alt="image8" src="../../../_images/image97.png" style="width: 5.89498in; height: 3.54331in;" /></a></p>
+<p>Datoteku BOOTSECT.BAK preimenovati u BOOTSECT.DOS, dakle samo zamijeniti
+ekstenziju. U oba slijedeća prozora odgovoriti potvrdno ( jedan
+upozorava na promjenu ekstenzije, dok drugi upozorava kako se mijenja
+ime datoteke sa System atributom).</p>
+<p><a class="reference internal" href="../../../_images/image107.png"><img alt="image9" src="../../../_images/image107.png" style="width: 2.53056in; height: 0.66667in;" /></a></p>
+<p><a class="reference internal" href="../../../_images/image1112.png"><img alt="image10" src="../../../_images/image1112.png" style="width: 4.60625in; height: 1.62847in;" /></a></p>
+<p><a class="reference internal" href="../../../_images/image127.png"><img alt="image11" src="../../../_images/image127.png" style="width: 4.69341in; height: 2.75591in;" /></a></p>
+<p>Datoteku BOOT.INI preimenovati u BOOT.BAK2, a datoteku BOOT.BAK
+preimenovati u BOOT.INI. Nakon izvršenih radnji, ponovno pokrenuti
+računalo.</p>
+<p><a class="reference internal" href="../../../_images/image135.png"><img alt="image12" src="../../../_images/image135.png" style="width: 2.78056in; height: 0.62847in;" /></a></p>
+<p>U procesu pokretanja operacijskog sustava Windows 7, pojavljuje se
+izbornik sa odabirom ( tzv. &#8220;Dual Boot&#8221; izbornik). U ovom koraku
+odabrati &#8220;Earlier Version of Windows&#8221;</p>
+<p><a class="reference internal" href="../../../_images/image144.png"><img alt="image13" src="../../../_images/image144.png" style="width: 7.08611in; height: 1.93113in;" /></a></p>
+<p>Uvjeriti se kako se pojavila ljuska Windows 98 operacijskog sustava, što
+znači da su uspješno obavljene radnje. U suprotnom, provjeriti točno
+prethodne korake i ispraviti potrebno. Ponovno pokrenuti računalo (U
+VirtualBox aplikaciji kombinacijom tipki CTRL + R), te odabrati Windows
+7 u izborniku.</p>
+<p><a class="reference internal" href="../../../_images/image153.png"><img alt="image14" src="../../../_images/image153.png" style="width: 4.19722in; height: 1.16667in;" /></a></p>
+<p>Za posljednji skup radnji u postavkama Dual Boot procesa, potrebno je
+izmijeniti naziv &#8220;Earlier Version of Windows&#8221; u izborniku u nešto
+prepoznatljivije. Kliknuti na Start tipku, upisati <strong>cmd,</strong> te u popisu
+kliknuti desnom tipkom miša na <strong>cmd</strong> ( Command Prompt) aplikaciju.
+Odabrati opciju &#8220;Run as administrator&#8221;.</p>
+<p><a class="reference internal" href="../../../_images/image163.png"><img alt="image15" src="../../../_images/image163.png" style="width: 3.14450in; height: 3.93701in;" /></a></p>
+<p>U slučaju da User Account Control (UAC) servis nije isključen, pojaviti
+će se prozor u kojem je potrebno dodatno potvrditi željenu radnju.</p>
+<p><a class="reference internal" href="../../../_images/image172.png"><img alt="image16" src="../../../_images/image172.png" style="width: 4.86389in; height: 2.53056in;" /></a></p>
+<p>Postavke Boot Manager programa ( ugrađen od verzije Windows Vista
+sustava) mijenjaju se standardno kroz aplikaciju <strong>bcdedit</strong> koja dolazi
+sa operacijskim sustavom. Za početak samo pozvati aplikaciju naredbom
+<strong>bcdedit</strong> bez dodatnih opcija, te proučiti prikazane informacije.</p>
+<p><a class="reference internal" href="../../../_images/image182.png"><img alt="image17" src="../../../_images/image182.png" style="width: 5.31042in; height: 5.11389in;" /></a></p>
+<p>Za promjenu imena prikazanog operacijskog sustava u Dual Boot izborniku,
+potrebno je promijeniti objekt &#8220;<strong>description</strong>&#8221; (opis), i to u
+<strong>{ntldr}</strong> (vitičaste zagrade) identifikatoru ( prisjetiti se što
+<strong>ntldr</strong>, NT Loader, predstavlja). U opis upisati Razred ( bez točke
+iza rednog broja) i Ime učenika-ce, kao što je prikazano u slijedećem
+primjeru:</p>
+<p><strong>Naredba</strong> :</p>
+<p><strong>bcdedit /set {ntldr} description &#8220;Razred_Ime Windows 98&#8221;</strong></p>
+<p><a class="reference internal" href="../../../_images/image191.png"><img alt="image18" src="../../../_images/image191.png" style="width: 6.40903in; height: 5.11389in;" /></a></p>
+<p>Ovime je završena procedura instalacije i konfiguracije Dual Boot
+sustava.</p>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Marko Stojanović.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

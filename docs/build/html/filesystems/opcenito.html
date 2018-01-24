@@ -1,0 +1,272 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Što je datotečni sustav &mdash; TSRB_TEST 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="TSRB_TEST 1.0 documentation" href="../index.html"/>
+        <link rel="up" title="Datotečni sustavi" href="index.html"/>
+        <link rel="next" title="EXT4" href="ext4/index.html"/>
+        <link rel="prev" title="Pojmovi" href="pojmovi.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> TSRB_TEST
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Datotečni sustavi</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pojmovi.html"><strong>Pojmovi</strong></a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href=""><strong>Što je datotečni sustav</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="ext4/index.html">EXT4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ntfs/index.html">NTFS</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../predmeti/index.html">Predmeti</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">TSRB_TEST</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Datotečni sustavi</a> &raquo;</li>
+        
+      <li><strong>Što je datotečni sustav</strong></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/filesystems/opcenito.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sto-je-datotecni-sustav">
+<h1><strong>Što je datotečni sustav</strong><a class="headerlink" href="#sto-je-datotecni-sustav" title="Permalink to this headline">¶</a></h1>
+<p>Termin datotečnog sustava podrazumijeva neki skup metoda i struktura
+podataka sa zadatkom organizacije, manipulacije,navigacije te pristupa
+datoteka na nekom disku ili particiji. Uglavnom se sustav definira i
+proučava kroz više aspekata pristupa :</p>
+<ul class="simple">
+<li>Pohrana podataka ( eng. Data Storage)</li>
+<li>Upravljanje nazivima objekata (eng. Namespace)</li>
+<li>Sigurnosni model (eng. Security Model)</li>
+<li>API funkcije</li>
+</ul>
+<p>Dio koji se tiče same pohrane podataka je uglavnom vezan uz samu
+organizaciju objekata na datotečnom sustavu kao što je : organizacijska
+struktura direktorija, podrška za velike datoteke, podrška za Dnevnički
+sustav ( eng. Journaling), mehanizmi rješavanje problema
+fragmentacije...</p>
+<p>Svaki datotečni sustav ujedno mora imati riješenu organizaciju
+upravljanja nazivima objekata, kao što je recimo ukupan broj znakova u
+imenu.</p>
+<p>Sigurnosni model uglavnom podrazumijeva metode upravljanja sigurnosnim
+dozvolama za korisnike prilikom pristupa datotekama i ostalim objektima.
+Još jedan primjer bi bio podrška enkripcije objekata na datotečnom
+sustavu</p>
+<p>API (eng. Application Programming Interface) funkcije su specifične za
+svaku vrstu datotečnog sustava, a njihova svrha je stvoriti određeni
+softverski okvir (eng. framework) za korištenje sistemskih poziva
+operacijskog sustava kako bi se standardizirao pristup nekom objektu
+datotečnog sustava sa aplikacijske razine. Bez ovog podsustava , svaka
+aplikacija na operacijskom sustavu bi trebala imati dodatne integrirane
+metode i funkcije za korištenje nekog datotečnog sustava.</p>
+<p><a class="reference external" href="https://opensource.com/article/17/5/introduction-ext4-filesystem">https://opensource.com/article/17/5/introduction-ext4-filesystem</a></p>
+<p><a class="reference external" href="https://opensource.com/life/16/10/introduction-linux-filesystems">https://opensource.com/life/16/10/introduction-linux-filesystems</a></p>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ext4/index.html" class="btn btn-neutral float-right" title="EXT4" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pojmovi.html" class="btn btn-neutral" title="Pojmovi" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Marko Stojanović.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,638 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Upravljanje korisničkim računima u Windows 7 operacijskom sustavu &mdash; TSRB_TEST 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="TSRB_TEST 1.0 documentation" href="../../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> TSRB_TEST
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../filesystems/index.html">Datotečni sustavi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Predmeti</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">TSRB_TEST</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Upravljanje korisničkim računima u Windows 7 operacijskom sustavu</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/predmeti/por/skripta/12 - Upravljanje korisničkim računima u Windows 7 operacijskom sustavu.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="upravljanje-korisnickim-racunima-u-windows-7-operacijskom-sustavu">
+<h1>Upravljanje korisničkim računima u Windows 7 operacijskom sustavu<a class="headerlink" href="#upravljanje-korisnickim-racunima-u-windows-7-operacijskom-sustavu" title="Permalink to this headline">¶</a></h1>
+<p>Korisnički račun je skup raznih postavki i informacija koje govore
+operacijskom sustavu kojim datotekama i direktorijima smije taj korisnik
+pristupiti, kojim mrežnim objektima ima pristup, kako izgleda okruženje
+radne površine, itd. Pomoću korisničkog računa omogućen je pristup i rad
+na operacijskom sustavu.</p>
+<p>Osnovni atributi nekog korisničkog računa su:</p>
+<ul class="simple">
+<li>Korisničko ime</li>
+<li>Lozinka</li>
+<li>Korisnička grupa kojoj pripada (može pripadati u više grupa odjednom)</li>
+<li>Tip korisničkog računa ( Administrator, Standardni korisnik, Gost)</li>
+</ul>
+<p>Prilikom stvaranja svakog korisničkog računa, stvara se i njegov
+jedinstveni identifikacijski broj, <strong>SID</strong> (eng. <strong>Security
+IDentifier</strong>), te se sve odluke o pravima pristupa nekom objektu
+postavljaju prema tom broju, a ne prema korisničkom imenu (o pravima
+korisnika nešto kasnije). Pravilo je da <strong>SID</strong> nekog sigurnosnog
+objekta ( računalo, korisnik, grupa) mora biti jedinstven u mreži ili
+domeni. Iznimku tog pravila predstavljaju računi koji imaju isti <strong>SID</strong>
+na svim instalacijama Windows operacijskog sustava kao što su :
+<strong>Everyone</strong>, <strong>System</strong> , <strong>Builtin</strong>, itd.</p>
+<p>Prilikom svake nove instalacije operacijskog sustava stvara se
+jedinstveni <strong>SID</strong>. Struktura <strong>SIDa</strong> je opisana u slijedeća 4
+primjera:</p>
+<ul class="simple">
+<li>standardni <strong>Administrator</strong> korisnički račun ( stvara se prilikom
+instalacije sustava , te je automatski onemogućen nakon stvaranja)</li>
+<li>prvi korisnički račun stvoren od strane korisnika tokom instalacije
+(automatski nasljeđuje administratorska prava, dakle prvi
+administratorski račun u sustavu)</li>
+<li><strong>SYSTEM</strong> korisnički račun ( stvara se prilikom instalacije sustava
+, ima najviše privilegije od svih računa, no radi se o specijalnom
+računu, neće biti detaljno obrađen u ovom dokumentu)</li>
+<li><strong>Everyone</strong> korisnički račun (predstavlja svakog korisnika na
+sustavu, vrijedi globalno, SID je identičan na svim instalacijama na
+svijetu)</li>
+</ul>
+<p><strong>Administrator</strong></p>
+<p><strong>SID</strong> : S-1-5-21-2642376952-1522586937-214818887-500</p>
+<p><strong>Korisnik1 (samo primjer korisničkog imena)</strong></p>
+<p><strong>SID</strong> : S-1-5-21-2642376952-1522586937-214818887-1000</p>
+<p><strong>SYSTEM</strong></p>
+<p><strong>SID</strong> : S-1-5-18</p>
+<p><strong>Everyone</strong></p>
+<p><strong>SID</strong> : S-1-1-0</p>
+<p>S - Slovo koje označava kako je slijedeći niz znakova zapravo SID</p>
+<p>1 - Revizija (verzija) SIDa, zasad se uvijek radi o vrijednosti 1</p>
+<p>5 - Autoritet koji ima prava stvaranja navedenog SIDa (neće biti
+detaljno objašnjeno, vrijednost 5 označava NT Authority i vrijedi
+uglavnom za sve stvorene korisničke račune i grupe)</p>
+<p>21 - Uglavnom označava kako će slijedeći niz znakova biti stvoren za
+lokalno računalo ili domenu</p>
+<p>18 - U ovom slučaju broj označava RID ( eng. Relative IDentifier) za
+SYSTEM korisnički račun</p>
+<p>2642376952-1522586937-214818887 - Jedinstveno generiran broj koji
+označava računalo u nekoj mreži, ili identificira domenu</p>
+<p>500- Označava RID sigurnosnog objekta. Brojevi od &lt;1000 stvoreni su
+prilikom instalacije operacijskog sustava, odnosno, nije ih stvorio
+korisnik. Broj 500 će uvijek označavati korisnički račun sa imenom
+<strong>Administrator</strong></p>
+<p>1000- Označava RID sigurnosnog objekta. Brojevi &gt;1000 stvoreni su
+prilikom stvaranja bilo kojeg korisničkog računa ili grupe od strane
+korisnika nakon instalacije operacijskog sustava.</p>
+<p>Iako je sama struktura SIDa nekog objekta prilično komplicirana,
+dovoljno je znati samo slijedeće :</p>
+<ul class="simple">
+<li><a href="#id1"><span class="problematic" id="id2">**</span></a>SID se uglavnom sastoji od slijedeće 3 komponente : **</li>
+</ul>
+<p><strong>S-1-5-21-2642376952-1522586937-214818887-1000</strong></p>
+<p>Informacije uglavnom vezane uz ovlasti onog tko je generirao SID</p>
+<p>Nasumice stvoren jedinstveni broj koji označava neko računalo u mreži,
+ili domenu</p>
+<p>RID objekta, broj iznad 1000 vrijedi za sve objekte stvorene od strane
+nekog korisnika, nakon instalacije operacijskog sustava</p>
+<ul class="simple">
+<li><strong>Sigurnosna prava na neki objekt se primjenjuju prema SID
+vrijednosti, a ne prema korisničkom imenu ili imenu računala</strong></li>
+<li><strong>Kada se obriše korisnički račun iz sustava i stvori novi račun sa
+istim imenom, SID neće biti isti</strong></li>
+<li><strong>Ako se promijeni naziv nekog korisničkog računa (ili bilo koji
+drugi atributi), SID će ostati nepromijenjen</strong></li>
+</ul>
+<p>Prilikom instalacije Windows 7 operacijskog sustava stvara se
+administratorski korisnički račun imena <strong>Administrator</strong> (<strong>RID</strong> ovog
+računa je uvijek <strong>500</strong>). No, nakon stvaranja, račun se postavlja kao
+onemogućen iz sigurnosnih razloga. Iz tog razloga, prvi korisnički
+profil koji se stvara od strane korisnika (postavke nakon instalacije)
+dobiva administratorska prava, odnosno postaje dio <strong>Administrators</strong>
+grupe. Taj korisnički profil će imati <strong>RID</strong> vrijednost od <strong>1000</strong> i
+za svakog slijedećeg stvorenog korisnika ili grupe će se <strong>RID</strong>
+vrijednost povećati za <strong>1</strong>.</p>
+<p>Upravljanje korisničkim računala moguće je na 4 načina :</p>
+<ul class="simple">
+<li><strong>Control Panel izbornik</strong></li>
+<li><strong>Computer Management konzola</strong></li>
+<li><strong>Command Prompt sučelje</strong></li>
+<li><strong>PowerShell sučelje (neće biti obrađen u ovom dijelu dokumenta)</strong></li>
+</ul>
+<p>Neke od ovih metoda omogućavaju samo osnovnu konfiguraciju korisničkih
+profila.</p>
+<p><strong>Upravljanje korisničkim računima iz Control Panel izbornika</strong></p>
+<p>Potrebno je pokrenuti <strong>Control Panel</strong> izbornik, te odabrati &#8220;<strong>User
+Accounts and Family Safety</strong>&#8221; (u slučaju da je uključen pregled prema
+kategoriji) ili &#8220;<strong>User Accounts</strong>&#8221; (u slučaju da je uključen pregled
+samo ikona). Mogućnosti su prikazane na slijedeće dvije slike.</p>
+<p><a href="#id5"><span class="problematic" id="id6">|image0|</span></a></p>
+<p><a href="#id7"><span class="problematic" id="id8">|image1|</span></a></p>
+<p>U otvorenom prozoru je standardno prikazan izbornik za promjenu opcija
+trenutno prijavljenog korisnika, te je potrebno odabrati &#8220;<strong>Manage
+another account</strong>&#8221; opciju.</p>
+<p><a href="#id9"><span class="problematic" id="id10">|image2|</span></a></p>
+<p>U slijedećem prozoru za stvaranje novog korisnika potrebno je odabrati
+&#8220;<strong>Create a new account</strong>&#8221; opciju.</p>
+<p><a href="#id11"><span class="problematic" id="id12">|image3|</span></a></p>
+<p>Potrebno je upisati željeno korisničko ime računa, tip korisničkog
+računa i zatim potvrditi stvaranje odabirom opcije &#8220;Create Account&#8221;. Kod
+odabira tipa računa, moguće je odabrati <strong>standardnog</strong> korisnika ili
+<strong>administratora</strong>. Razlika je u tome što će administrator imati dodatnu
+pripadnost <strong>Administrators</strong> grupe uz standardnu <strong>Users</strong> grupu. Na
+ovo je potrebno obratiti pažnju kod upravljanja pravima korisnika ili
+grupa, pogotovo kod korištenja <strong>eksplicitnih</strong> zabrana (kasnije u
+dokumentu).</p>
+<p><a href="#id13"><span class="problematic" id="id14">|image4|</span></a></p>
+<p>U popisu korisnika je moguće vidjeti o kojem se tipu korisnika radi. Za
+primjer su stvorena dva korisnika : <strong>PrimjerA</strong> ( kao
+<strong>administrator</strong>) i <strong>PrimjerS</strong> (kao <strong>standardni</strong> korisnik).</p>
+<p><a href="#id15"><span class="problematic" id="id16">|image5|</span></a></p>
+<p>Iz <strong>Control</strong> <strong>Panel</strong> izbornika nije moguće vidjeti kojoj grupi
+pripada korisnik, te je potrebno pokrenuti <strong>Computer</strong> <strong>Management</strong>
+konzolu, &#8220;<strong>Local Users and Groups</strong>&#8221; izbornik. U &#8220;<strong>Users</strong>&#8221; izborniku
+je moguće vidjeti kojim grupama pripada svaki specifični korisnik, dok
+se u &#8220;<strong>Groups</strong>&#8221; izborniku može vidjeti koji sve korisnici pripadaju
+odabranoj grupi. Sa prikaz kojim grupama pripada korisnik, potrebno je
+odabrati &#8220;<strong>User</strong>&#8221; izbornik, desni klik na željeni korisnički profil i
+odabrati <strong>Properties</strong>. U otvorenom prozoru, potrebno je odabrati
+karticu &#8220;<strong>Member of</strong>&#8221; za prikaz pripadnosti grupama. Na slijedećem
+primjeru jasno je prikazana pripadnost grupama korisnika stvorenih u
+prošlom koraku. Korisnik &#8220;<strong>PrimjerA</strong>&#8221; pripada u dvije grupe, <strong>Users</strong>
+i <strong>Administrators</strong>.</p>
+<p>Više o ugrađenim korisničkim grupama i standardnim pravima te
+namijenjenim ulogama može se pročitati na slijedećoj poveznici :</p>
+<p><a class="reference external" href="https://technet.microsoft.com/en-us/library/cc770756(v=ws.11).aspx">https://technet.microsoft.com/en-us/library/cc770756(v=ws.11).aspx</a></p>
+<p><a href="#id17"><span class="problematic" id="id18">|image6|</span></a></p>
+<p>U prošlom primjeru prilikom stvaranja novih korisničkih profila nisu
+dodane lozinke za zaštitu prilikom prijave u operacijski sustav. Za
+stvaranje nove lozinke, u popisu korisnika (<strong>Control Panel</strong> izbornik),
+potrebno je odabrati željeni korisnički profil te zatim &#8220;<strong>Create a
+password</strong>&#8221; opciju.</p>
+<p><a href="#id19"><span class="problematic" id="id20">|image7|</span></a></p>
+<p>U novom prozoru je potrebno dvaput upisati lozinku (drugi put za potvrdu
+ispravno upisane lozinke) te u zadnjem prozoru pomoć u slučaju da se
+korisnik ne može sjetiti lozinke (eng. <strong>Hint</strong>). Upisane lozinke su
+osjetljive na velika i mala slova, te je potrebno obratiti pozornost na
+to.</p>
+<p>Pomoć za lozinku ne bi smjela jasno upućivati na postavljenu lozinku,
+već samo kao savjet kako bi se samo taj korisnik lakše sjetio. U
+laboratorijskim vježbama , lozinke će uvijek morati biti jednake
+korisničkom imenu.</p>
+<p><a href="#id21"><span class="problematic" id="id22">|image8|</span></a></p>
+<p>U slučaju brisanja korisničkog računa, potrebno je odabrati željeni
+račun, te opciju &#8220;<strong>Delete the account</strong>&#8221;.</p>
+<p><a href="#id23"><span class="problematic" id="id24">|image9|</span></a></p>
+<p>U slijedećem prozoru postoji mogućnost kopiranja korisničkih datoteka na
+radnu površinu u svrhu stvaranja pričuvne kopije.</p>
+<p>NAPOMENA: Korisnički profil se stvara tek prilikom prve prijave u
+sustav. Struktura direktorija se kopira iz &#8220;<strong>\Users\Default</strong>&#8221;
+direktorija na particiji sa Windows operacijskim sustavom. Tek kad je
+profil stvoren, može se spremiti kopija u slučaju brisanja korisničkog
+računa.</p>
+<p><a href="#id25"><span class="problematic" id="id26">|image10|</span></a></p>
+<p><strong>Upravljanje korisničkim računima iz Computer Management konzole</strong></p>
+<p>U pokrenutoj konzoli potrebno je odabrati izbornik &#8220;<strong>Local Users and
+Groups</strong>&#8221;. U podizborniku &#8220;<strong>Users</strong>&#8221; prikazani su svi stvoreni
+korisnički računi. Za razliku od prikaza u <strong>Control Panel</strong> izborniku,
+ovdje će biti prikazani i onemogućeni korisnički računi (npr.
+<strong>Administrator</strong> je stvoren i onemogućen automatski tokom instalacije
+sustava). Onemogućeni računi su označeni sa strelicom prema dolje u
+prikazu ikone.</p>
+<p><a href="#id27"><span class="problematic" id="id28">|image11|</span></a></p>
+<p>U podizborniku &#8220;<strong>Groups</strong>&#8221; prikazane su sve korisničke grupe. Mnoge
+korisničke grupe su automatski stvorene prilikom instalacije
+operacijskog sustava , i gledaju se kao ugrađene u sustav (eng.
+<strong>BuiltIn</strong> groups). Dodatno se mogu primijetiti dvije naknadno stvorene
+grupe &#8220;<strong>Gosti</strong>&#8221; i &#8220;<strong>Korisnici</strong>&#8221;. Pojednostavljeno, grupe su jedna
+vrsta kontejnera u kojem se nalaze članovi, te postavljanje određenih
+prava ili zabrana na neku datoteku ili direktorij automatski vrijedi za
+sve članove te grupe, te je u tu svrhu olakšana administracija. U
+sustavima sa puno korisnika, grupe su jedna od metoda stvaranja određene
+logičke hijerarhije korisnika i njihovih prava.</p>
+<p><a href="#id29"><span class="problematic" id="id30">|image12|</span></a></p>
+<p>Za stvaranje novog korisnika, potrebno je odabrati podizbornik
+&#8220;<strong>Users</strong>&#8221; te u padajućem izborniku prozora odabrati opciju
+&#8220;<strong>Action-&gt;New User...&#8221;</strong>. Drugi način je desnim klikom miša kliknuti na
+praznu površinu sa popisom korisnika, i zatim odabrati opciju &#8220;<strong>New
+User</strong>&#8221;.</p>
+<p><a href="#id31"><span class="problematic" id="id32">|image13|</span></a></p>
+<p>U otvorenom prozoru potrebno je navesti podatke o novom korisniku, kao
+što je prikazano u slijedećem primjeru:</p>
+<p><a href="#id33"><span class="problematic" id="id34">|image14|</span></a></p>
+<p>Opis stavki u prozoru :</p>
+<ul class="simple">
+<li>User name - Prikaz korisničkog imena (ovo je polje obvezno!)</li>
+<li>Full name - Puno ime korisnika (prikazuje se prilikom prijave
+korisnika u sustav)</li>
+<li>Description - Opisne informacije korisnika</li>
+<li>Password - Zaštita korisničkog profila lozinkom</li>
+<li>Confirm password - Sadržaj polja mora biti jednako gornjem</li>
+<li>User must change password at next logon - Korisnik ima obvezu
+promjene lozinke prilikom slijedeće prijave na sustav</li>
+<li>User cannot change password - Korisnik nema pravo promijeniti
+pridodanu lozinku</li>
+<li>Password never expires - Lozinka nema vijek trajanja</li>
+<li>Account is disabled - Korisnički račun je onemogućen, korisnik se ne
+može prijaviti u sustav</li>
+</ul>
+<p>U stvarnim sustavima se često za korisnička imena profila koriste
+kombinacije imena i prezimena korisnika (jedan primjer je prikazan u
+gornjoj slici), te se rijetko koriste neki općeniti nazivi (tipa
+Korisnik1). Za potrebe laboratorijskih vježbi uglavnom će se koristiti
+općeniti nazivi.</p>
+<p>Opcija obvezne promjene lozinke prilikom slijedeće prijave korisnika se
+obično primjenjuje u situacijama kada je korisnik zaboravio svoju
+lozinku, te ju je potrebno resetirati (samo korisnici sa
+administratorskim ovlastima mogu to napraviti). Nakon što je stara
+lozinka resetirana, administrator upisuje neku novu koja je poznata i
+administratoru i tom korisniku. U toj situaciji se uključuje opcija
+obveze promjene lozinke, kako bi novu lozinku poznavao samo taj
+korisnik.</p>
+<p>Onemogućavanje računa je opcija koja se koristi ,za primjer, u
+situacijama gdje korisnik samo privremeno svake godine treba imati
+mogućnost pristupa sustavu. Kada bi se svaki put brisao korisnički
+račun, i stvarao novi (čak i sa identičnim korisničkim imenom) , treba
+se sjetiti kako svaki put stvara novi <strong>SID</strong> broj, te je potrebno svaki
+puta konfigurirati prava za tog korisnika, što je administracijsko
+opterećenje. U tu svrhu je kvalitetnije rješenje samo privremeno
+onemogućiti prijavu korisnika u sustav. Nakon uključivanja navedene
+opcije, korisničko ime više neće biti prikazano u popisu prilikom
+prijave u sustav.</p>
+<p>Za stvaranje nove korisničke grupe, potrebno je odabrati podizbornik
+&#8220;<strong>Groups</strong>&#8221; te u padajućem izborniku prozora odabrati opciju
+&#8220;<strong>Action-&gt;New Group...&#8221;</strong>. Drugi način je desnim klikom miša kliknuti
+na praznu površinu sa popisom korisnika, i zatim odabrati opciju &#8220;<strong>New
+Group</strong>&#8221;.</p>
+<p><a href="#id35"><span class="problematic" id="id36">|image15|</span></a></p>
+<p>U otvorenom prozoru potrebno je navesti podatke o novoj grupi, te
+eventualno dodati željene članove u grupu (opcija <strong>Add</strong>). Prilikom
+dodavanja članova, potrebno je upisati korisničko ime računa</p>
+<p><a href="#id37"><span class="problematic" id="id38">|image16|</span></a></p>
+<p>Iz <strong>Computer Management</strong> konzole (u prošlom poglavlju) moguće je
+vidjeti popis grupa, no ne može se primijetiti koje su grupe stvorene
+prilikom instalacije sustava, a koje su naknadno dodane od strane
+korisnika nakon instalacije.</p>
+<p>Kao što je navedeno , svaki sigurnosni objekt (korisnički račun,
+korisnička grupa...) ima vezan uz sebe sigurnosni identifikator <strong>SID</strong>.
+Popis svih objekata (korisnici, korisničke grupe, specijalni objekti kao
+što su sustavski računi) moguće je prikazati u komandnoj liniji (eng.
+<strong>Command prompt</strong>). U slijedećem primjeru prikazan je popis svih grupa
+i njihov pripadajući sigurnosni identifikator.</p>
+<p><a href="#id39"><span class="problematic" id="id40">|image17|</span></a></p>
+<p>Iz slike se jasno može primijetiti kako su grupe &#8220;<strong>Gosti</strong>&#8221; i
+&#8220;<strong>Korisnici</strong>&#8221; naknadno dodane jer se u <strong>SID</strong> oznaci nalazi i
+identifikacijski broj računala ( broj
+<strong>3052370195-1277775261-3487442991</strong>), te je njihov <strong>RID</strong> veći od
+<strong>1000</strong>. Ostale grupe imaju drukčiji <strong>SID</strong> broj te je potrebno
+identificirati pripadnost i tip navedenih grupa. Za to je potrebno
+ispisati popis svih sustavskih računa, kao u slijedećem primjeru :</p>
+<p><a href="#id41"><span class="problematic" id="id42">|image18|</span></a></p>
+<p>Na dnu liste moguće je uočiti poseban tip objekta naziva &#8220;<strong>BUILTIN</strong>&#8221;.
+Radi se o posebnom tipu objekta čiji se članovi stvaraju tokom same
+instalacije operacijskog sustava i njihov opseg identifikacije vrijedi
+isključivo za taj operacijski sustav.</p>
+<p>To je moguće opisati na slijedećem primjeru. Pretpostavka je kako se na
+nekom računalu nalaze dva Microsoft Windows operacijska sustava (<strong>XP</strong>,
+<strong>Vista</strong>, <strong>7</strong>, <strong>8</strong>, <strong>10</strong>...). Svaki operacijski sustav će imati
+već ugrađene grupe istog imena, za primjer Administrators grupa, sa
+identičnim <strong>SID</strong> brojem (za <strong>Administrators</strong> grupu <strong>SID</strong> je
+<strong>S-1-5-32-544</strong>). No s druge strane, naknadno stvorene grupe (npr.
+Korisnici) na oba operacijska sustava će imati različite <strong>SID</strong>
+brojeve.</p>
+<p>Iz gornjih slika može se primijetiti kako sve grupe stvorene prilikom
+instalacije sustava spadaju u &#8220;<strong>BUILTIN</strong>&#8221; domenu (opseg te domene je
+isključivo vezan za taj operacijski sustav). Iz tog razloga, njihov
+<strong>SID</strong> broj ne sadrži dodatan identifikacijski broj računala.</p>
+<p>Za brisanje korisničkih računa kroz Computer Management konzolu potrebno
+je desnim klikom miša odabrati korisnika (Local Users and Groups-&gt;Users
+izbornik), te odabrati opciju &#8220;Delete&#8221;, kao što je prikazano u
+slijedećem primjeru:</p>
+<p><a href="#id43"><span class="problematic" id="id44">|image19|</span></a></p>
+<p>Nakon odabira te opcije, za razliku od Control Panel izbornika (gdje se
+pojavljuje upit žele li se spremiti,odnosno zadržati, datoteke i
+direktoriji korisnika koji se briše sa sustava), ovdje se ne pojavljuje
+mogućnost spremanja strukture korisničkog profila, već upozorenje vezano
+uz <strong>SID</strong> broj. Ta problematika opisana je nedavno u tekstu kroz
+područje onemogućavanja korisnika.</p>
+<p><a href="#id45"><span class="problematic" id="id46">|image20|</span></a></p>
+<p>Bitno je napomenuti kako se ovom metodom brisanja korisnika ne brišu i
+podaci, odnosno struktura korisničkog profila (u C:\Users\
+direktoriju), te je taj postupak potrebno obaviti ručno. U slučaju
+provjere postavki direktorija obrisanog korisnika, moguće je vidjeti
+kako sve ovlasti ima nepoznati korisnik (bez korisničkog imena). U
+popisu je prikazan samo <strong>SID</strong> tog nepoznatog korisnika, no radi se
+zapravo o <strong>SID</strong>u obrisanog korisničkog računa. Iz tog razloga, novi
+korisnici ne mogu preuzeti već postojeće <strong>SID</strong> brojeve na sustavu,
+odnosno <strong>SID</strong> brojevi se ne mogu ponovno koristiti za nove korisničke
+račune.</p>
+<p><a href="#id47"><span class="problematic" id="id48">|image21|</span></a></p>
+<p><strong>Upravljanje korisničkim računima iz Command Prompt sučelja</strong></p>
+<p>Jedan od fleksibilnijih načina upravljanja sustavom je korištenjem
+komandne ljuske operacijskog sustava. Iako je učenje korištenja
+kombinacija naredbi u početku kompleksniji od istog zadatka grafičkom
+sučelju, mogućnosti su veće. Isto tako, proces je moguće jednostavno
+automatizirati kroz skripte, te kasnije (uz eventualne modifikacije)
+iste skripte ponovno koristiti, što u grafičkom sučelju nije moguće
+postići.</p>
+<p>U ovom poglavlju, cijeli proces je i dalje usmjeren na upravljanje
+korisničkim računima, te se za to koriste dva osnovna seta naredbi :
+<strong>net</strong> i <strong>wmic</strong>.</p>
+<p><strong>NET</strong> naredba je u osnovi namijenjena za upravljanje mrežnim resursima
+kao što je mrežno dijeljenje datoteka i direktorija, upravljanje mrežnim
+poslovima ispisa (mrežni pisači), dodavanje/brisanje računala u domeni,
+itd. No korisnički računi i grupe su isto tako zapravo mrežni objekti,
+iako su često ograničeni na lokalna računala. U kontekstu ovog područja
+značajne su slijedeće naredbe:</p>
+<p><strong>- Net accounts</strong></p>
+<p><strong>- Net user</strong></p>
+<p><strong>- Net group (vrijedi samo za domensku infrastrukturu)</strong></p>
+<p><strong>- Net localgroup</strong></p>
+<p><strong>WMIC</strong> je konzolna verzija <strong>WMI</strong> (eng. <strong>Windows Management
+Instrumentation</strong>) infrastrukture. Radi se o određenom skupu funkcija
+uglavnom stvorenih za pregled informacija o mnogim dijelovima
+operacijskog sustava, no često i za konfiguraciju. U kontekstu ovog
+područja značajne su slijedeće naredbe:</p>
+<p><strong>- Wmic Useraccount</strong></p>
+<p><strong>- Wmic Group</strong></p>
+<p><strong>- Wmic Sysaccount</strong></p>
+<p>NAPOMENA : Svaka od gorenavedenih naredbi ima opcije specifične za tu
+naredbu, te je njih moguće saznati standardnom metodom poziva pomoći
+(npr. &#8220;<strong>net /?</strong>&#8221;, &#8220;<strong>net user /?</strong>&#8221;, &#8220;<strong>wmic useraccount get /?</strong>&#8221;). U
+principu je moguće za svaku stavku pozvati pomoć kako bi se proučila
+upotreba i smisao naredbe.</p>
+<p><strong>Stvaranje i brisanje korisničkih računa iz Command Prompt sučelja</strong></p>
+<p>Za stvaranje novog korisničkog računa , koristi se naredba &#8220;<strong>net
+user</strong>&#8221; sa slijedećim mogućnostima:</p>
+<p>Stvaranje novog korisnika bez lozinke</p>
+<p><strong>net user korisnik1 /ADD</strong></p>
+<p>Stvaranje novog korisnika sa lozinkom (jednaka korisničkom imenu)</p>
+<p><strong>net user korisnik2 korisnik2 /ADD</strong></p>
+<p>Stvaranje novog korisnika sa lozinkom, no uz obvezan unos lozinke nakon
+stvaranja (sigurnija opcija od prošle jer se lozinka ne prikazuje na
+zaslonu)</p>
+<p><strong>net user korisnik3 * /ADD</strong></p>
+<p>Stvaranje novog korisnika sa slučajnom lozinkom koja je prikazana nakon
+stvaranja korisničkog računa</p>
+<p><strong>net user korisnik4 /ADD /RANDOM</strong></p>
+<p>Pregled postojećih korisnika u sustavu</p>
+<p><strong>net user</strong></p>
+<p>Brisanje korisnika</p>
+<p><strong>net user korisnik1 /DELETE</strong></p>
+<p>Za stvaranje nove korisničke grupe , koristi se naredba &#8220;<strong>net
+localgroup</strong>&#8221; sa slijedećim mogućnostima:</p>
+<p>Stvaranje nove korisničke grupe</p>
+<p><strong>net localgroup Korisnici /ADD</strong></p>
+<p>Stvaranje nove korisničke grupa sa opisom</p>
+<p><strong>net localgroup Gosti /add /comment:&#8221;Gosti tvrtke&#8221;</strong></p>
+<p>Brisanje korisničke grupe</p>
+<p><strong>net localgroup Gost /DELETE</strong></p>
+<p><strong>Izmjena postavki korisničkih računa iz Command Prompt sučelja</strong></p>
+<p>Za izmjenu postavki korisničkih računa , koristi se naredba &#8220;<strong>net
+accounts</strong>&#8221; te izmjene vrijede za sve korisnike u sustavu.</p>
+<p>Ispis mogućih postavki za izmjenu:</p>
+<p><strong>net accounts</strong></p>
+<p>Force user logoff how long after time expires?: Never</p>
+<p>Minimum password age (days): 0</p>
+<p>Maximum password age (days): 42</p>
+<p>Minimum password length: 0</p>
+<p>Length of password history maintained: None</p>
+<p>Lockout threshold: Never</p>
+<p>Lockout duration (minutes): 30</p>
+<p>Lockout observation window (minutes): 30</p>
+<p>Computer role: WORKSTATION</p>
+<p>Izmjena minimalne potrebne dužine lozinke na 8 znakova:</p>
+<p><strong>net accounts /minpwlen:8</strong></p>
+<p>Izmjena broja mogućih upisanih netočnih lozinki prije zaključavanja
+korisničkog računa</p>
+<p><strong>net accounts /lockoutthreshold:5</strong></p>
+<p>Za izmjenu postavki specifičnih korisničkih računa, koristi se naredba
+&#8220;<strong>wmic useraccount</strong>&#8221;.</p>
+<p>Pregled postojećih korisnika u sustavu</p>
+<p><strong>wmic useraccount</strong> (rezultati su grupirani u mnoge stupce, od kojih
+svaki stupac predstavlja jedan mogući objekt pretraživanja, što je
+prikazano u slijedećem primjeru)</p>
+<p>Pregled postojećih korisnika u sustavu, no prikaz isključivo korisničkih
+imena</p>
+<p><a href="#id3"><span class="problematic" id="id4">**</span></a>wmic useraccount get name **</p>
+<p>Pregled postojećih korisnika u sustavu, no prikaz isključivo korisničkih
+imena i <strong>SID</strong> broja</p>
+<p><strong>wmic useraccount get name,sid</strong> (uočiti <strong>RID</strong> vrijednosti u <strong>SID</strong>
+broju u primjeru dolje)</p>
+<p>C:\Windows\system32&gt;<strong>wmic useraccount get name,sid</strong></p>
+<p>Name SID</p>
+<p>Administrator S-1-5-21-3303623748-671368537-3114359584-500</p>
+<p>Guest S-1-5-21-3303623748-671368537-3114359584-501</p>
+<p>korisnik1 S-1-5-21-3303623748-671368537-3114359584-12147</p>
+<p>korisnik2 S-1-5-21-3303623748-671368537-3114359584-12148</p>
+<p>korisnik3 S-1-5-21-3303623748-671368537-3114359584-12149</p>
+<p>mirko S-1-5-21-3303623748-671368537-3114359584-12146</p>
+<p>TEST S-1-5-21-3303623748-671368537-3114359584-1000</p>
+<p>Prikaz mogućih opcija za izmjenu postavki korisničkog računa:</p>
+<p>C:\Windows\system32&gt;<strong>wmic useraccount set /?</strong></p>
+<p>Property set operations.</p>
+<p>USAGE:</p>
+<p>SET &lt;assign list&gt;</p>
+<p>NOTE: &lt;assign list&gt; can be more than one property name separated by
+commas</p>
+<p>Each property name should be followed by &#8216;=&#8217; and its value.</p>
+<p>The following writeable properties are available:</p>
+<p>Property Type Operation</p>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Marko Stojanović.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
