@@ -3,14 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Predmeti
-========
+LV03
+=====================================
 
-Sadržaj:
+Contents:
 
 .. toctree::
    :maxdepth: 3
 
-   os/index
-   por/index
-   linux/index
+   
+   03_FSH_i_rad_sa_direktorijima

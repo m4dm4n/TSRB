@@ -3,14 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Predmeti
-========
+LV05
+=====================================
 
-Sadržaj:
+Contents:
 
 .. toctree::
    :maxdepth: 3
 
-   os/index
-   por/index
-   linux/index
+   
+   05_Izvrsavanje_naredbi

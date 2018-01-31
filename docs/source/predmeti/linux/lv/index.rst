@@ -3,14 +3,21 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Predmeti
-========
+Laboratorijske vježbe
+=====================
 
-Sadržaj:
+Contents:
 
 .. toctree::
    :maxdepth: 3
 
-   os/index
-   por/index
-   linux/index
+   LV01/index
+   LV02/index
+   LV03/index
+   LV04/index
+   LV05/index
+   LV06
+   LV07
+   LV08
+   LV09
+   LV10

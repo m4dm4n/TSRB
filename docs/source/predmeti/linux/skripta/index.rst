@@ -3,14 +3,12 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Predmeti
-========
+Skripta
+=======
 
-Sadržaj:
+Contents:
 
 .. toctree::
    :maxdepth: 3
 
-   os/index
-   por/index
-   linux/index
+   
