@@ -1,4 +1,4 @@
-Izvrsavanje zadataka
+Izvršavanje zadataka
 ============================
 
 **Zadaci:**
