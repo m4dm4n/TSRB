@@ -221,37 +221,6 @@ Naredbe koje se koriste u vježbi: nano, touch, cp, mv, rm, ln, file, locate, fi
 
 38. Osvježiti bazu, te ponoviti prethodni zadatak. Što se promijenilo?
 
-39. Proučiti manpage naredbe ln (LN malim slovima). Unutar direktorija ~/Documents stvoriti novu datoteku imena Original.txt. Ispisati
-    sadržaj datoteke /proc/cpuinfo, no rezultat preusmjeriti u datoteku Original.txt. Koja je veličina datoteke?
-
-40. Unutar direktorija ~/Documents stvoriti novi direktorij LINKANJE. Ispisati sadržaj direktorija sa opcijama "-alh" (prisjetiti se svrhe
-    tih opcija).
-
-    Prije objašnjenja termina čvrstih i simboličkih poveznica (eng. Hardlinks and soft/symbolic links ), potrebno je ukratko pojasniti osnove
-    EXT datotečnih sustava (EXT2, EXT3 i EXT4), točnije, dio koji se tiče same strukture.
-
-    /dev/sda1 - 40 134 656 sektora, 20548943872 bajta (cca 19,5GB)
-
-    https://www.ics.uci.edu/computing/bin/img/perms1.png
-
-    NAPOMENA : U prvoj slici je prikazano objašnjenje svake stavke long
-    listing rezultata naredbe ls. U drugoj slici je prikazan stvarni
-    primjer, sa posebno označenim dijelom sa brojem čvrstih poveznica
-    (eng. Hard link) na datoteke i direktorije. Svaki stvoreni
-    direktorij počinje sa dvije poveznice, Ime\_direktorija i znak "."
-    koja označava taj direktorij i upućuje na njega. Dodatno, svaki
-    direktorij u popisu sadrži i oznaku ".." koja upućuje na prethodni
-    direktorij u strukturi. Čak i korijenski direktorij u sebi sadrži
-    dvije oznake, kao što je vidljivo na slici ispod. Ono što je
-    specifično za korijenski direktorij je što obje oznake "." i ".."
-    upućuju na isti direktorij, odnosno korijenski direktorij ( eng.
-    Root directory, oznaka "/" ). Isto tako je na slici ispod vidljivo
-    kako obje oznake imaju isti "inode" broj (broj 2), odnosno radi se o
-    istom direktoriju.
-
-41. Stvoriti 3 čvrste poveznice
-
-42. Stvoriti 3 simboličke poveznice
 
 !!! DODATNO !!!
 

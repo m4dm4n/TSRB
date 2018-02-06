@@ -16,7 +16,7 @@ Contents:
    LV03/index
    LV04/index
    LV05/index
-   LV06
+   LV06/index
    LV07
    LV08
    LV09

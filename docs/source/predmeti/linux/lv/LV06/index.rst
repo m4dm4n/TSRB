@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-LV05
+LV06
 =====================================
 
 Contents:
@@ -12,4 +12,4 @@ Contents:
    :maxdepth: 3
 
    
-   05_Simbolicke_i_Cvrste_poveznice
+   06_Izvrsavanje_naredbi
