@@ -211,5 +211,67 @@ DODATNO
 34. Prijaviti se ssh protokolom na poslužitelj koristeći **verbose** opciju (moguće je povećati razinu opširnosti informacija dodavanjem dodatnih slova, do razine 3). Proučiti cijeli
     proces prijave te ga pokušati na skraćen način opisati.
 
+35. Vratiti ip postavke mrežnog sučelja na standardno dinamičko preuzimanje od DHCP poslužitelja.
 
  
+36. Pokrenuti wireshark, te pratiti svaki korak zadatka u aplikaciji. Poslati 3 ICMP zahtjeva prema poveznici www.google.com. Koji su sve protokoli vezani uz prethodni proces?
+    Što se dogodilo prije samog slanja ICMP zahtjeva, kako je dohvaćena ip adresa poslužitelja? Je li izvršen ARP upit? Ako nije, koji je razlog? Što se mora napraviti kako bi se 
+    obvezno izvršio ARP upit na početku?
+
+37. Proučiti manpage naredbe nslookup. Poslati upit za web poslužitelj www.google.com (obvezno pratiti proces u Wireshark aplikaciji). Tko je odgovorio na upit (identificirati ip adresu)?
+    Na koji port DNS poslužitelja je poslan upit? Saznati koja datoteka sadrži informaciju o navedenom DNS poslužitelju (datoteka se nalazi u /etc direktoriju, ne zaboraviti preusmjeriti standardne poruke o greški u /dev/null).
+    Proučiti sadržaj pronađene datoteke, koji su sve poslužitelji konfigurirani? Proučiti manpage konfiguracijske datoteke, koliko je moguće navesti DNS poslužitelja (eng. nameserver,jedan od termina) u datoteku?
+
+38. Zakomentirati sve informacije o poslužiteljima u datoteci i spremiti izmjene. Ponovno poslati upit za web poslužitelj www.google.com (pratiti proces u Wireshark aplikaciji). Ima li kakvih odgovora? Zašto? Vratiti sadržaj
+    konfiguracijske datoteke u originalno stanje.
+
+39. Proučiti manpage naredbe **resolvconf**, pronaći koja opcija se koristi za postavljanje više DNS poslužitelja u datoteci /etc/network/interfaces. Postaviti statičku IP konfiguraciju (kao iz prethodnih primjera), te još dodatno
+    upisati slijedeće 3 ip adrese za DNS poslužitelje : 192.168.111.19, 192.168.210.37 i 1.1.1.1 (samo zadnja adresa je ispravna). Pokrenuti wireshark, te pomoću nslookup naredbe poslati upit za www.google.com. Među paketima postaviti
+    filter prikazivanja za navedeni DNS upit (eng. query).
+
+    NAPOMENA: Jedan od jednostavnijih načina za pripremanje željenog filtera iz postojećeg prikazanog prometa je :
+
+	- Odabrati paket iz popisa sa željenim sadržajem za filtriranje 
+	- Proširiti detaljan prikaz paketa , te odabrati "sloj" u kojem se nalazi sadržaj (u ovom slučaju DNS protokol, query tip poruke, aplikacijski sloj)
+	- Ovaj korak ovisi o odabiru u prethodnom koraku, te se biraju željeni detalji protokola (u ovom slučaju Queries, te zatim desni klik na "Name : www.google.com" i "Apply as filter"
+
+             U **filter** polju je moguće vidjeti sam naziv željenog filtera.
+
+40. Koliko je ukupno upita poslano poslužiteljima prije nego je klijent prešao na slijedećeg u redoslijedu? Je li zadnji poslužitelj odgovorio na upit? Koliko je vremena klijent čekao na odgovor prije slanja upita slijedećm poslužitelju?
+
+41. Izmijeniti statičke ip postavke sučelja tako da se prve dvije nevažeće ip adrese DNS poslužitelja zamijene sa: ip adresa gatewaya mreže, 193.198.184.130 (CARNet DNS poslužitelj).
+
+42. Proučiti manpage konfiguracijske datoteke **hosts** i saznati osnovnu svrhu datoteke. U datoteku unijeti www.google.com poveznicu i ip adresu tog poslužitelja (saznati ju) te spremiti promjene. Pokrenuti wireshark, te poslati ICMP
+    zahtjeve (maksimalno 4) na navedenu adresu. Ima li odgovora? Mogu li se u wiresharku uočiti DNS upiti za dobivanje ip adrese poslužitelja? Zašto?
+
+43. Pokrenuti wireshark, te poslati 4 ICMP zahtjeva na **hostname** trenutnog računala. Na koju adresu se šalju ICMP paketi? Ima li kakvih upita u wiresharku za prevođenjem imena računala? Mogu li se uočiti ICMP zahtjevi i 
+    odgovori u Wireshark aplikaciji? Zašto? Ponovno poslati 4 ICMP zahtjeva, no ovog puta imenu računala dodati domenu **local** (npr. mojeracunalo.local). Na koju adresu se sad šalju upiti i ima li kakvih upita za prevođenjem 
+    imena računala? Koji protokol se koristi? Na koju adresu se šalje upit? Kojoj klasi pripada IP adresa? Mogu li se vidjeti ICMP paketi u Wireshark aplikaciji?
+
+    NAPOMENA: Doma proučiti opis i svrhu MDNS protokola.
+    
+
+44. Proučiti manpage konfiguracijske datoteke **nsswitch.conf** (posebno značenje polja databases i services). Pronaći odgovor na
+    slijedeća pitanja:
+
+	- Koju svrhu ima **hosts** baza podataka (eng. database)
+	- Kojim redoslijedom se traži odgovor adrese za neko ime računala
+	- Koja je točno funkcija mdns4_minimal parametra
+	- Koja je funkcija [NOTFOUND=return] akcije
+
+45. Zakomentirati liniju u kojoj je definiran raspored pretraživanja ip adresa prema imenu računala (eng. hostname). Odmah ispod te linije (prema primjeru zakomentirane linije) unijeti novu u kojoj će redoslijed
+    pretraživanja biti :
+
+	- Na prvom mjestu slati upis DNS poslužitelju
+	- Na drugom mjestu pretražiti lokalnu hosts datoteku
+
+46. Pokrenuti praćenje prometa u wireshark aplikaciji, te poslati 4 ICMP zahtjeva na web poslužitelj www.google.com. Što se dogodilo? Na koju adresu se šalju zahtjevi i zašto?
+
+47. U konfiguracijskoj datoteci mrežnog sučelja promijeniti podatke o DNS poslužiteljima sa slijedećim adresama: 192.168.111.19 i 192.168.210.37. Pokrenuti praćenje prometa u wireshark aplikaciji, te poslati 4 ICMP zahtjeva na web poslužitelj www.google.com. Pratiti oko promet u aplikaciji oko minutu. Odgovoriti na slijedeća pitanja:
+
+	- Na koje adrese se šalju upiti
+	- Koji je redoslijed DNS poslužitelja na koji se šalju upiti
+	- Koliko je vrijeme čekanja između slanja slijedećeg zahtjeva, te može li se uočiti uzorak u prioritetu slanja prema DNS poslužiteljima
+	- Na koju adresu se šalju ICMP zahtjevi i zašto?
+
+48. Vratiti postavke mrežnog sučelja u dinamičku konfiguraciju, očistiti izmjene u /etc/hosts datoteci, te vratiti /etc/nsswitch.conf datoteku u prvotno stanje.
