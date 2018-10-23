@@ -189,11 +189,11 @@ Zadaci:
 
    Primjeri korištenja radnji nad datotekama u nekom direktoriju:
 
-    for file in /direktorij/*;do cp $file /tmp;done
+    for file in /direktorij/\*;do cp $file /tmp;done
 
-    for file in /direktorij/*.sh;do mv $file /direktorij/$fileBAK;done
+    for file in /direktorij/\*.sh;do mv $file /direktorij/$fileBAK;done
 
-    for file in /direktorij/*.sh;do mv $file /direktorij/$(basename -s sh $file)BAK;done
+    for file in /direktorij/\*.sh;do mv $file /direktorij/$(basename -s sh $file)BAK;done
 
 8. Ispisati sadržaj HOME direktorija korisnika. Preusmjeriti izlazni sadržaj u datoteku /dev/null, umjesto na zaslon.
 
