@@ -21,8 +21,8 @@ Izvršavanje zadataka
    U gornjem primjeru je povezano 7 zasebnih radnji u lanac. Svaka naredba će se izvršiti tek po dovršetku prethodne. Bitno je naglasiti
    kako slijedeća radnja ne ovisi o uspješnom pokretanju prethodne, već je bitno samo da se proces dovrši.
    
-   Jedina naredba koju bi bilo dobro objasniti je echo -en "\n". Naredba echo služi za ispis nekog teksta na standardni izlaz,
-   dok opcija -e služi za raspoznavanje i interpretaciju backslash znakova **\** (podsjetiti se čemu služi \n kombinacija, do
+   Jedina naredba koju bi bilo dobro objasniti je **echo -en \"\\n\"**. Naredba **echo** služi za ispis nekog teksta na standardni izlaz,
+   dok opcija -e služi za raspoznavanje i interpretaciju backslash znakova **\\** (podsjetiti se čemu služi \n kombinacija, do
    značenja je moguće doći i čitanjem manpage echo naredbe), a opcija -n ne dodaje još jedan novi redak nakon izvršavanja naredbe.
 
 5. Povezati dvije naredbe u lanac, no sa prvom naredbom pokušati ispisati sadržaj nepostojećeg direktorija /direktorijNEpostoji, 

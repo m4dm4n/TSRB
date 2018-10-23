@@ -130,7 +130,7 @@ Zadaci:
               je reći kako se cijeli sustav temelji na povjerenju u neku treću stranu. U ovom slučaju, korisnik vjeruje u autentičnost javnog ključa autora.
 
 23. Nakon provjere integriteta arhivske datoteke, raspakirati htop-x.y.z.tar.gz datoteku, te postaviti novostvoreni direktorij kao radni direktorij. Ispisati
-    sadržaj novog direktorija. Koje ekstenzije imaju većinski broj datoteka u direktoriju? Što uglavnom opisuju ekstenzije *.c i *.h?
+    sadržaj novog direktorija. Koje ekstenzije imaju većinski broj datoteka u direktoriju? Što uglavnom opisuju ekstenzije \*.c i \*.h?
 
 24. Pročitati sadržaj datoteke INSTALL, dovoljno je poglavlje **Basic Installation**.
 

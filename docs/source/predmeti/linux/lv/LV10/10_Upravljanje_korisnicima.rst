@@ -151,7 +151,7 @@ Napisati skriptu koja će automatizirati postupak (novu lozinku i korisnika upis
 
     curl -u USERNAME\@gmail.com:PASSWORD --silent "https://mail.google.com/mail/feed/atom"
 
-
+.. hint::
 
     PRIMJER RJEŠENJA ZADATKA:
 
@@ -174,6 +174,9 @@ Napisati skriptu koja će automatizirati postupak (novu lozinku i korisnika upis
       echo "Zero unread mail"
       source ~/.bashrc
     fi
+
+
+.. tip::
 
     NAPOMENA: Bitno je napomenuti da se nakon pokretanja skripte stvara novi proces sa novom ljuskom u kojem će se ta skripta izvršavati. Kao posljedicu, svaka izmjena varijable okruženja će ostati vezana za taj proces. U ovom slučaju, skripta
               će uspješno izmijeniti izgled prompta, no nakon završetka kontrola se vraća originalnoj ljusci i procesu, sa prethodno definiranim izgledom prompta. Rješenje problema je tzv. "source scripting", odnosno, pokretanje skripte
