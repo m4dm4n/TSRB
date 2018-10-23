@@ -1,7 +1,7 @@
 LV11
 ====
 
-Instalacija Windows 7 operacijskog sustava
+Instalacija Windows 10 operacijskog sustava
 ------------------------------------------
 
 Sve postupke, korištene naredbe i dobivene rezultate po točkama zadataka

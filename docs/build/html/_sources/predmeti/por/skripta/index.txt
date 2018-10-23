@@ -11,18 +11,18 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   01 - Osnove korištenja Total Commander aplikacije
-   02 - Osnove korištenja Partition Wizard aplikacije
-   03 - Upute za kućno korištenje laboratorijskih vježbi
-   04 - Osnove korištenja MBRWizard aplikacije
-   05 - Osnove korištenja HxD aplikacije
-   06 - Osnove korištenja GNU Linux Fdisk aplikacije
-   07 - Osnovno korištenje Linux TinyCore distribucije
-   #08 - Priprema za instalaciju Microsoft Windows 7 operacijskog sustava
-   #09 - Instalacija Microsoft Windows 7 operacijskog sustava
-   #10 - Konfiguracija TinyCore - Windows 7
-   #11 - Spremanje pricuvne kopije
-   #12 - Upravljanje korisničkim računima u Windows 7 operacijskom sustavu
-   #13 - Prilog 1
-   #14 - Prilog 2
-
+   Upute za kućno korištenje laboratorijskih vježbi.rst
+   Upute Instalacija Virtualbox Guest Tools.rst
+   Upute Tipovi virtualne mreze Virtualbox.rst
+   04 - Osnove korištenja Partition Wizard aplikacije.rst
+   05 - Osnove korištenja Total Commander aplikacije.rst
+   06 - Osnove korištenja MBRWizard aplikacije.rst
+   07 - Osnovno korištenje Linux TinyCore distribucije.rst
+   08 - Osnove korištenja HxD aplikacije.rst
+   09 - Osnove korištenja GNU Linux Fdisk aplikacije.rst
+   11 - Instalacija Windows10 operacijskog sustava.rst
+   12 - Konfiguracija Dualboot Windows10 operacijskog sustava.rst
+   12 - Spremanje pricuvne kopije.rst
+   14 - Upravljanje korisničkim računima u Windows 10 operacijskom sustavu.rst
+   Prilog 1.rst
+   Prilog 2.rst

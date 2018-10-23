@@ -1,5 +1,5 @@
-Osnovno korištenje GNU/Linux operacijskog sustava (TinyCore distribucija)
-=========================================================================
+07 - Osnovno korištenje GNU/Linux operacijskog sustava (TinyCore distribucija)
+==============================================================================
 
 U ovom poglavlju bit će obrađeno područje osnovnih naredbi za
 upravljanje direktorijima i datotekama (sadržaj je univerzalan za sve
@@ -363,48 +363,48 @@ spremljeni virtualni strojevi na tvrdom disku), te odabrati i učitati
 VMUDrive000.vmdk datoteku u konfiguraciju. Ponovno pokrenuti virtualni
 stroj.
 
-.. |image0| image:: media07/image1.png
+.. |image0| image:: SKmedia07/image1.png
    :width: 3.80942in
    :height: 2.75591in
-.. |image1| image:: media07/image2.png
+.. |image1| image:: SKmedia07/image2.png
    :width: 3.88940in
    :height: 2.76378in
-.. |image2| image:: media07/image3.png
+.. |image2| image:: SKmedia07/image3.png
    :width: 5.53969in
    :height: 2.75591in
-.. |image3| image:: media07/image5.png
+.. |image3| image:: SKmedia07/image5.png
    :width: 5.08858in
    :height: 2.75591in
-.. |image4| image:: media07/image6.png
+.. |image4| image:: SKmedia07/image6.png
    :width: 3.82029in
    :height: 3.93701in
-.. |image5| image:: media07/image7.png
+.. |image5| image:: SKmedia07/image7.png
    :width: 2.75591in
    :height: 1.85823in
-.. |image6| image:: media07/image8.png
+.. |image6| image:: SKmedia07/image8.png
    :width: 4.70362in
    :height: 2.75591in
-.. |image7| image:: media07/image9.png
+.. |image7| image:: SKmedia07/image9.png
    :width: 4.10224in
    :height: 3.54331in
-.. |image8| image:: media07/image10.png
+.. |image8| image:: SKmedia07/image10.png
    :width: 7.07778in
    :height: 2.45486in
-.. |image9| image:: media07/image11.png
+.. |image9| image:: SKmedia07/image11.png
    :width: 5.85833in
    :height: 3.33333in
-.. |image10| image:: media07/image12.png
+.. |image10| image:: SKmedia07/image12.png
    :width: 5.17500in
    :height: 3.84167in
-.. |image11| image:: media07/image13.png
+.. |image11| image:: SKmedia07/image13.png
    :width: 5.51181in
    :height: 6.35797in
-.. |image12| image:: media07/image14.png
+.. |image12| image:: SKmedia07/image14.png
    :width: 7.08611in
    :height: 3.36904in
-.. |image13| image:: media07/image15.png
+.. |image13| image:: SKmedia07/image15.png
    :width: 6.94792in
    :height: 4.54514in
-.. |image14| image:: media07/image16.png
+.. |image14| image:: SKmedia07/image16.png
    :width: 6.92708in
    :height: 4.51042in

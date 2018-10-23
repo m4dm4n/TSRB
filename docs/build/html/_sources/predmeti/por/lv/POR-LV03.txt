@@ -58,9 +58,9 @@ Pojaviti će se prozor sa informacijom instalacije Syslinux bootloadera na MBR U
 7. Ponovno pokrenuti računalo sa USB pogonom u računalu , te provjeriti
    ispravnost instalacije.
 
-.. |image0| image:: media03/image1.png
+.. |image0| image:: LVmedia03/image1.png
    :width: 3.22222in
    :height: 2.54167in
-.. |image1| image:: media03/image2.png
+.. |image1| image:: LVmedia03/image2.png
    :width: 3.14583in
    :height: 2.04167in
