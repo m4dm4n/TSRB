@@ -2,7 +2,7 @@ LV11
 ====
 
 Instalacija Windows 10 operacijskog sustava
-------------------------------------------
+--------------------------------------------
 
 Sve postupke, korištene naredbe i dobivene rezultate po točkama zadataka
 zapisivati u bilježnicu. Odgovoriti u bilježnicu na postavljena pitanja

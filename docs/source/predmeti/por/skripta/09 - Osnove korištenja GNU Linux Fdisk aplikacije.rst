@@ -134,7 +134,7 @@ ispravnost sintakse!**
 
 Naredba:
 
-**sudo fdisk –c=dos /dev/sdb **
+**sudo fdisk –c=dos /dev/sdb**
 
 |image3|
 

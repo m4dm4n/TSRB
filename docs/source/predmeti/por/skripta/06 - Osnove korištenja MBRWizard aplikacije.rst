@@ -259,7 +259,7 @@ ispravnom datotekom.
 **U situaciji kad je slučajno vraćen MBR tvrdog diska na USB pogon,
 bitno je imati pričuvnu kopiju neispravnog USB pogona na nekom drugom
 ispravnom, te je potrebno samo ponoviti proces sa ispravnom datotekom i
-na ispravni uređaj. **
+na ispravni uređaj.**
 
 Ako ne postoji pričuvna datoteka za USB pogon, potrebno je ili ponovno
 proći proces izrade Multiboot USB-a, ili se samostalno snaći nekim
@@ -324,7 +324,7 @@ RAČUNALU**
 
 Naredba :
 
-**mbrwiz /writeini /filename=hdconfig **
+**mbrwiz /writeini /filename=hdconfig**
 
 (nije korištena apsolutna ni relativna putanja već samo ime datoteke, te
 će aplikacija stvoriti datoteku u radnom direktoriju)

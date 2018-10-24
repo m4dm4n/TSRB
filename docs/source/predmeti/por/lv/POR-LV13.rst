@@ -2,7 +2,7 @@ LV13
 ====
 
 Instalacija upravljačkih programa u Windows 10 operacijskom sustavu
-------------------------------------------------------------------
+--------------------------------------------------------------------
 
 Sve postupke, korištene naredbe i dobivene rezultate po točkama zadataka
 zapisivati u bilježnicu. Odgovoriti u bilježnicu na postavljena pitanja

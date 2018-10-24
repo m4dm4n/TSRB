@@ -159,7 +159,7 @@ Napisati skriptu koja će automatizirati postupak (novu lozinku i korisnika upis
 
     USERNAME="$1"
 
-    read -sp 'Lozinka: ' PASSWORD
+    read -sp 'Lozinka:' PASSWORD
     echo
     
     UNREADMAIL=$(curl -u $USERNAME\@gmail.com:$PASSWORD --silent "https://mail.google.com/mail/feed/atom" | cut -d"<" -f8 | cut -d">" -f2)
@@ -168,8 +168,8 @@ Napisati skriptu koja će automatizirati postupak (novu lozinku i korisnika upis
     if [ $UNREADMAIL -gt 0 ]
       then
       echo "You have unread mail"
-    #  PS1="\[\e[33m\]_NEW-MAIL_\[\e[m\]\[\e[33m\]\u\[\e[m\]\[\e[33m\]\\$\[\e[m\]\[\e[33m\]\h\[\e[m\]\[\e[33m\]-\[\e[m\]\[\e[33m\]\w\[\e[m\]\[\e[33m\]\\$\[\e[m\] "
-       PS1="\[\e[33m\]_NEW-MAIL_\[\e[m\]\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] "
+    #  PS1="\\[\\e[33m\\]\_NEW-MAIL\_\\[\\e[m\\]\\[\\e[33m\\]\\u\[\\e[m\\]\\[\\e[33m\\]\\\\$\\[\\e[m\\]\\[\\e[33m\\]\\h\\[\\e[m\\]\\[\\e[33m\\]-\\[\\e[m\\]\\[\\e[33m\\]\\w\\[\\e[m\\]\\[\\e[33m\\]\\\\$\\[\\e[m\\] "
+       PS1="\\[\\e[33m\\]\_NEW-MAIL\_\\[\\e[m\\]\\[\\033[01;32m\\]\\u@\\h\\[\\033[01;34m\\] \\w \\$\\[\\033[00m\\]"
     else
       echo "Zero unread mail"
       source ~/.bashrc
@@ -188,26 +188,28 @@ Napisati skriptu koja će automatizirati postupak (novu lozinku i korisnika upis
 
 PRIMJER RJEŠENJA 18. ZADATKA:
 
-Izgled prompta:
+.. hint::
 
-IP adresa: 192.168.70.44
-Korisnik : ids
+    Izgled prompta:
 
-             total       used       free     shared    buffers     cached
-Mem:          2.0G       1.7G       219M        86M        20M       259M
-ids@ids2 ~ $ 
-
-
-Početni dio sadržaja ~/.bashrc datoteke:
-
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
-#ISPIS INFORMACIJA
-IP=$(hostname -I)
-echo IP adresa: $IP
-echo Korisnik : $USER
-echo
-free -ht | egrep 'total|Mem'
-/OSTATAK DATOTEKE
+    IP adresa: 192.168.70.44
+    Korisnik : ids
+    
+                 total       used       free     shared    buffers     cached
+    Mem:          2.0G       1.7G       219M        86M        20M       259M
+    ids@ids2 ~ $ 
+    
+    
+    Početni dio sadržaja ~/.bashrc datoteke:
+    
+    # ~/.bashrc: executed by bash(1) for non-login shells.
+    # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+    # for examples
+    
+    #ISPIS INFORMACIJA
+    IP=$(hostname -I)
+    echo IP adresa: $IP
+    echo Korisnik : $USER
+    echo
+    free -ht | egrep 'total|Mem'
+    /OSTATAK DATOTEKE

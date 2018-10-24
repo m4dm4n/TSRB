@@ -8,7 +8,7 @@ Sve postupke, korištene naredbe i dobivene rezultate po točkama zadataka
 zapisivati u bilježnicu. Odgovoriti u bilježnicu na postavljena pitanja
 vezana uz ovu vježbu.
 
-**Zadaci: **
+**Zadaci:**
 
 1. Iz **HOME** particije ponovno pokrenuti računalo i u Multiboot
    izborniku odabrati "Other OS and Tools", te zatim "Hiren's Boot CD"
@@ -32,7 +32,7 @@ vezana uz ovu vježbu.
    zatim vratiti u Windows 10 operacijski sustav
 
 5. Instalirati EasyBCD aplikaciju sa lokacije
-   `**\\\\IP\_ADRESA\\2h\\por\\appl\\** <file:///\\IP_ADRESA\2h\por\appl\>`__
+   `\\\\IP\_ADRESA\\2h\\por\\appl\\` __
 
 6. Pokrenuti EasyBCD aplikaciju i proučiti sučelje.
 

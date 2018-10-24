@@ -4,14 +4,11 @@
 Za dodavanje slova TinyCore particije, potrebno je otići u Disk
 Management konzolu, na jedan od tri predložena načina :
 
-    - Desnim klikom na Start tipku pojavljuje se izbornik sa raznim
-    opcijama. Potrebno je odabrati opciju **Disk Management**
+    - Desnim klikom na Start tipku pojavljuje se izbornik sa raznim opcijama. Potrebno je odabrati opciju **Disk Management**
 
-- Pritisnuti na tipku Start, te u Search prozor upisati "*diskmgmt*.msc"
+    - Pritisnuti na tipku Start, te u Search prozor upisati "*diskmgmt*.msc"
 
-    - Pritisnuti na tipku Start, te u Search prozor upisati "disk
-    management", te odabrati iz popisa "Create and format hard disk
-    partitions"
+    - Pritisnuti na tipku Start, te u Search prozor upisati "disk management", te odabrati iz popisa "Create and format hard disk partitions"
 
 |image0|
 
@@ -54,7 +51,7 @@ U otvorenom prozoru odabrati karticu View, te učiniti slijedeće radnje :
 - **Isključiti** opciju "Hide extensions for known file types"
 
 - **Isključiti** opciju "Hide protected operating system files
-(Recommended)" - Nakon odabira ove opcije, potrebno je još jednom
+(Recommended)". Nakon odabira ove opcije, potrebno je još jednom
 potvrditi odabir u novom prozoru. Primijetiti kako se zaštićenim
 datotekama operacijskog sustava smatraju one datoteke koje imaju
 aktivirane System i Hidden atribute.
