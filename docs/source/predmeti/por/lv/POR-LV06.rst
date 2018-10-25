@@ -43,17 +43,24 @@ vezana uz ovu vježbu.
 
 7.  Spremiti sadržaj Master Boot Record sektora USB pogona u datoteku
     imena sa inicijalima učenika vlasnika USB pogona i dodatka teksta
-    **"\_USB.mbr"** (primjer : **PP\_USB.mbr** za ime Pero Perić).
+    **"\_USB.mbr"**.
+
+..  note::
+
+     Primjer : ``PP\_USB.mbr`` za ime Pero Perić
 
 8.  Spremiti sadržaj Master Boot Record sektora tvrdog diska u datoteku
     imena **h1.mbr**.
 
 9.  Koje veličine su spremljene datoteke? Zašto?
 
-10. Pregledati sadržaj datoteka koristeći opciju **/Show** (primjer :
-    **mbrwiz /Show=file /Filename=h1.mbr**), te usporediti sa
+10. Pregledati sadržaj datoteka koristeći opciju **/Show**, te usporediti sa
     informacijama iz 6. zadatka. Što se može zaključiti, odgovara li
     sadržaj spremljenih datoteka stvarnom stanju na uređajima?
+
+..  note::
+
+    Primjer: ``mbrwiz /Show=file /Filename=h1.mbr``
 
 11. Izvaditi USB pogon, ponovno pokrenuti računalo i sa HOME particije
     započeti postupak prebacivanja na A1 particiju pokretanjem
@@ -67,9 +74,14 @@ vezana uz ovu vježbu.
 
 13. Spremiti pričuvnu kopiju A1 particije pod imenom **a1.mbr** u
     direktorij MBRWIZD na USB pogonu, koristeći apsolutnu putanju u
-    **/Filename** opciji (Primjer: **mbrwiz.exe /Disk=1 /Save=MBR
-    /filename=C:\\IME\_RAZREDA\\MBRWiz3\\a1.mbr, C: zamijeniti sa slovom
-    USB pogona, a IME\_RAZREDA sa oznakom tvojeg razreda**).
+    **/Filename** opciji.
+
+..  note::
+
+     Primjer: 
+     ``mbrwiz.exe /Disk=1 /Save=MBR /filename=C:\\IME\_RAZREDA\\MBRWiz3\\a1.mbr``
+
+     **C: zamijeniti sa slovom USB pogona, a IME\_RAZREDA sa oznakom tvojeg razreda**
 
 14. Zamijeniti sadržaj MBRa na tvrdom disku koristeći **h1.mbr**
     datoteku. Ponovno pokrenuti računalo bez USB pogona. Na kojoj se
@@ -83,17 +95,15 @@ vezana uz ovu vježbu.
 16. Stvoriti datoteku sa imenom **a1.bat** i spremiti ju u postojeći
     direktorij **MBRWiz3** na USB pogonu.
 
-17. Upisati slijedeći tekst pod navodnicima (ne upisivati navodnike) u
-    datoteku iz 17. zadatka:
+17. Upisati slijedeći tekst u datoteku iz 17. zadatka:
 
-    **"@echo off**
+    ::
+      
+      @echo off
+      cls
+      echo Skripta za prebacivanje na A1 particiju (H3 i A1)
+      mbrwiz /disk=1 /restore=MBR /filename=a1.mbr /confirm /shutdown=4
 
-    **Cls**
-
-    **Echo Skripta za prebacivanje na A1 particiju (H3 i A1)**
-
-    **mbrwiz /disk=1 /restore=MBR /filename=a1.mbr /confirm
-    /shutdown=4"**
 
     Spremiti datoteku.
 

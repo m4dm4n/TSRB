@@ -194,56 +194,47 @@
 zapisivati u bilježnicu. Odgovoriti u bilježnicu na postavljena pitanja
 vezana uz ovu vježbu.</p>
 <p><strong>Zadaci:</strong></p>
-<ol class="arabic">
-<li><p class="first">Iz <strong>HOME</strong> particije ponovno pokrenuti računalo i u Multiboot
+<ol class="arabic simple">
+<li>Iz <strong>HOME</strong> particije ponovno pokrenuti računalo i u Multiboot
 izborniku odabrati “Other OS and Tools”, te zatim “Hiren’s Boot CD”
 stavku. Pojaviti će se slijedeći izbornik te je u njemu potrebno
 odabrati „Mini Windows XP“ opciju. Nakon učitavanja „Mini Windows
-XP“ sustava, pojaviti će se radna površina.</p>
-</li>
-<li><p class="first">Pomoću aplikacije MBRWizard spremiti sadržaj Master Boot Record
+XP“ sustava, pojaviti će se radna površina.</li>
+<li>Pomoću aplikacije MBRWizard spremiti sadržaj Master Boot Record
 sektora tvrdog diska u datoteku imena <strong>h1.mbr</strong> unutar MBRWIZ3
 direktorija na USB pogonu. Provjeriti sadržaj datoteke kako bi se
 uvjerili da je spremljen ispravan MBR (sa HOME particijom u
-tablici).</p>
-</li>
-<li><p class="first">Izvaditi USB pogon, ponovno pokrenuti računalo i sa HOME particije
+tablici).</li>
+<li>Izvaditi USB pogon, ponovno pokrenuti računalo i sa HOME particije
 započeti postupak prebacivanja na A1 particiju. Odmah nakon toga
 priključiti USB pogon u računalo kako bi se pojavio MultiBoot
 izbornik. Odabrati „Hiren’s Boot CD“ stavku i zatim „Mini Windows
-XP“ opciju.</p>
-</li>
-<li><p class="first">Spremiti sadržaj Master Boot Record sektora tvrdog diska u datoteku
+XP“ opciju.</li>
+<li>Spremiti sadržaj Master Boot Record sektora tvrdog diska u datoteku
 imena <strong>a1.mbr</strong> unutar MBRWIZ3 direktorija na USB pogonu.
 Provjeriti sadržaj datoteke kako bi se uvjerili da je spremljen
-ispravan MBR (sa H3 i A1 particijama u tablici).</p>
-</li>
-<li><p class="first">Pokrenuti HBCD menu i odabrati izbornik Programs, te zatim
+ispravan MBR (sa H3 i A1 particijama u tablici).</li>
+<li>Pokrenuti HBCD menu i odabrati izbornik Programs, te zatim
 Editors/Viewers. Unutar izbornika odabrati aplikaciju HxD. Povećati
-prozor do veličine ekrana</p>
-</li>
-<li><p class="first">U izborniku Extras odabrati opciju Open disk. Koji su svi uređaji
+prozor do veličine ekrana</li>
+<li>U izborniku Extras odabrati opciju Open disk. Koji su svi uređaji
 prikazani? Koja je razlika između kategorija „Logical disks“ i
-„Physical disks“? Kako su povezane te dvije kategorije?</p>
-</li>
-<li><p class="first">Unutar kategorije „Physical disks“, može li se uočiti jasna razlika
-između tvrdog diska u računalu i USB pogona?</p>
-</li>
-<li><p class="first">Isključiti opciju „Open as read only“, te iz popisa odabrati prvi
+„Physical disks“? Kako su povezane te dvije kategorije?</li>
+<li>Unutar kategorije „Physical disks“, može li se uočiti jasna razlika
+između tvrdog diska u računalu i USB pogona?</li>
+<li>Isključiti opciju „Open as read only“, te iz popisa odabrati prvi
 fizički tvrdi disk u računalu (Physical disks, Hard disk 1). Otvoren
 je prozor sa sirovim sadržajem sektora na tvrdom disku, počevši od
 prvog sektora. Koliko je bajtova zapisano u svakoj liniji (uočiti da
 su adrese linija i bajtova u linijama zapisane u heksadecimalnom
 obliku). Iz izbornika „View“ odabrati opciju „Bytes per row“ te
 upisati prikaz od 16 bajtova po liniji. Uočiti kako je automatski
-prikazan i broj sektora sa desne strane.</p>
-</li>
-<li><p class="first">Što se nalazi na prvom sektoru svakog tvrdog diska? Zapisati početnu
+prikazan i broj sektora sa desne strane.</li>
+<li>Što se nalazi na prvom sektoru svakog tvrdog diska? Zapisati početnu
 i završnu adresu MBR područja tvrdog diska. Prema strukturi MBR
 područja (Master Boot Code, Partition table, Magic number 55AA)
-zapisati početnu i završnu adresu svakog dijela MBR područja.</p>
-</li>
-<li><p class="first">Unutar Master Boot Record područja pronaći područje particijske
+zapisati početnu i završnu adresu svakog dijela MBR područja.</li>
+<li>Unutar Master Boot Record područja pronaći područje particijske
 tablice, te iščitati broj particija unutar tablice. Koliki je ukupni
 broj primarnih particija podržanih u particijskoj tablici. Na kojoj
 adresi počinje područje particijske tablice, a na kojoj završava? Za
@@ -252,116 +243,101 @@ zapisa izvući osnovne informacije (BootFlag, Partition type ID,
 Početni LBA sektor particije, Broj sektora koje particija zauzima na
 disku, izračunati završni sektor particije). Primjer postupka je
 opisan u uputama za odradu laboratorijskih vježbi, poglavlje 6,
-naslov „Proučavanje prvog sektora tvrdog diska“.</p>
-</li>
-<li><p class="first">Obrisati Master Boot Code područje (prvih 446B Master Boot Record
+naslov „Proučavanje prvog sektora tvrdog diska“.</li>
+<li>Obrisati Master Boot Code područje (prvih 446B Master Boot Record
 područja), zapiši promjene na tvrdi disk, te ponovno pokrenuti
 računalo bez USB pogona u njemu. Što se dogodilo? Zapiši eventualne
-poruke o grešci.</p>
-</li>
-<li><p class="first">Priključiti USB pogon u računalo, ponovno ga pokrenuti, te vratiti
+poruke o grešci.</li>
+<li>Priključiti USB pogon u računalo, ponovno ga pokrenuti, te vratiti
 sadržaj datoteke a1.mbr na MBR tvrdog diska (NE ZABORAVITI <strong>/DISK</strong>
 opciju!!). Pokrenuti HxD te se uvjeriti kako je vraćen MBC dio u
-prvi sektor tvrdog diska.</p>
-</li>
-<li><p class="first">Zamijeniti vrijednost BootFlag zastavice iz 0x80 u 0x00 na prvoj
+prvi sektor tvrdog diska.</li>
+<li>Zamijeniti vrijednost BootFlag zastavice iz 0x80 u 0x00 na prvoj
 particiji, zapisati promjene na tvrdi disk, te ponovno pokrenuti
 računalo bez USB pogona u njemu. Što se dogodilo? Zapiši eventualne
-poruke o grešci.</p>
-</li>
-<li><p class="first">U HxD aplikaciji zamijeniti vrijednost BootFlag zastavice iz 0x00 u
+poruke o grešci.</li>
+<li>U HxD aplikaciji zamijeniti vrijednost BootFlag zastavice iz 0x00 u
 0x80 na drugoj particiji, zapisati promjene na tvrdi disk, te
 ponovno pokrenuti računalo bez USB pogona u njemu. Što se dogodilo?
-Zapiši eventualne poruke o grešci.</p>
-</li>
-<li><p class="first">Priključiti USB pogon u računalo, ponovno ga pokrenuti, te u
+Zapiši eventualne poruke o grešci.</li>
+<li>Priključiti USB pogon u računalo, ponovno ga pokrenuti, te u
 aplikaciji HxD vratiti originalne vrijednosti BootFlag zastavice
-(0x80 na prvu particiju, 0x00 na drugu).</p>
-</li>
-<li><p class="first">U HxD aplikaciji ostaviti vrijednost BootFlag zastavice na prvoj
+(0x80 na prvu particiju, 0x00 na drugu).</li>
+<li>U HxD aplikaciji ostaviti vrijednost BootFlag zastavice na prvoj
 particiji, no isprazniti ostatak sadržaja particijske tablice
 (vrijednost 55 AA ostaviti, jer nije dio particijske tablice!).
 Zapisati promjene na tvrdi disk, te ponovno pokrenuti računalo bez
 USB pogona u njemu. Što se dogodilo? Zapiši eventualne poruke o
-grešci.</p>
-</li>
-<li><p class="first">Priključiti USB pogon u računalo, ponovno ga pokrenuti, te vratiti
+grešci.</li>
+<li>Priključiti USB pogon u računalo, ponovno ga pokrenuti, te vratiti
 sadržaj datoteke a1.mbr na MBR tvrdog diska (NE ZABORAVITI <strong>/DISK</strong>
 opciju!!). Pokrenuti HxD te se uvjeriti kako je vraćen originalni
-sadržaj u prvi sektor tvrdog diska.</p>
-</li>
-<li><p class="first">Zamijeniti vrijednost Partition Type ID polja iz 0x0C u 0x00 na
+sadržaj u prvi sektor tvrdog diska.</li>
+<li>Zamijeniti vrijednost Partition Type ID polja iz 0x0C u 0x00 na
 prvoj particiji, zapisati promjene na tvrdi disk, te ponovno
 pokrenuti računalo bez USB pogona u njemu. Što se dogodilo? Zapiši
-eventualne poruke o grešci.</p>
-</li>
-<li><p class="first">Vratiti vrijednost iz prošlog zadatka, no ovaj put zamijeniti
+eventualne poruke o grešci.</li>
+<li>Vratiti vrijednost iz prošlog zadatka, no ovaj put zamijeniti
 vrijednost istog polja na drugoj particiji iz 0x07 u 0x00, zapisati
 promjene na tvrdi disk, te ponovno pokrenuti računalo bez USB pogona
 u njemu. Što se dogodilo? Koja je razlika u poruci u odnosu na
 prošli zadatak? Vratiti originalnu vrijednost i zapisati promjene na
-tvrdi disk.</p>
-</li>
-<li><p class="first">Obrisati sadržaj polja početne LBA adrese ( veličina polja je 4
+tvrdi disk.</li>
+<li>Obrisati sadržaj polja početne LBA adrese ( veličina polja je 4
 bajta) prve particije u tablici (H3 particija), zapisati promjene na
 tvrdi disk, te ponovno pokrenuti računalo bez USB pogona u njemu.
 Što se dogodilo? Probati pokrenuti Windows 98, i Windows 7
 operacijske sustave. Zapiši eventualne poruke o grešci. Vratiti
-originalnu vrijednost i zapisati promjene na tvrdi disk.</p>
-</li>
-<li><p class="first">Obrisati sadržaj polja broja sektora particije ( veličina polja je 4
+originalnu vrijednost i zapisati promjene na tvrdi disk.</li>
+<li>Obrisati sadržaj polja broja sektora particije ( veličina polja je 4
 bajta) prve particije u tablici (H3 particija), zapisati promjene na
 tvrdi disk, te ponovno pokrenuti računalo bez USB pogona u njemu.
 Što se dogodilo? Probati pokrenuti Windows 98, i Windows 7
 operacijske sustave. Zapiši eventualne poruke o grešci. Vratiti
-originalnu vrijednost i zapisati promjene na tvrdi disk.</p>
-</li>
-<li><p class="first">Ponoviti postupak iz 20. zadatka, no ovaj put na drugoj particiji u
-tablici (A1 particija).</p>
-</li>
-<li><p class="first">Ponoviti postupak iz 21. zadatka, no ovaj put na drugoj particiji u
-tablici (A1 particija).</p>
-</li>
-<li><p class="first">Zamijeniti vrijednost zadnja dva bajta u prvom sektoru (magični
+originalnu vrijednost i zapisati promjene na tvrdi disk.</li>
+<li>Ponoviti postupak iz 20. zadatka, no ovaj put na drugoj particiji u
+tablici (A1 particija).</li>
+<li>Ponoviti postupak iz 21. zadatka, no ovaj put na drugoj particiji u
+tablici (A1 particija).</li>
+<li>Zamijeniti vrijednost zadnja dva bajta u prvom sektoru (magični
 broj) iz 0x55AA u 0x0000 , zapisati promjene na tvrdi disk, te
 ponovno pokrenuti računalo bez USB pogona u njemu. Što se dogodilo?
 Zapiši eventualne poruke o grešci. Vratiti originalnu vrijednost i
-zapisati promjene na tvrdi disk.</p>
-</li>
-<li><p class="first">U aplikaciji HxD označiti kompletan sadržaj prvog sektora tvrdog
-diska,kopirati ga, te zalijepiti na 40. sektor.</p>
-</li>
-<li><p class="first">Ručno obrisati kompletan prvi sektor ( označiti željeni sadržaj, te
+zapisati promjene na tvrdi disk.</li>
+<li>U aplikaciji HxD označiti kompletan sadržaj prvog sektora tvrdog
+diska,kopirati ga, te zalijepiti na 40. sektor.</li>
+<li>Ručno obrisati kompletan prvi sektor ( označiti željeni sadržaj, te
 koristiti opciju Fill Selection u Edit izborniku, te odabrati već
 preporučenu vrijednost 00). Ponovno pokrenuti računalo bez
-priključenog USB pogona. Što se dogodilo?</p>
-</li>
-<li><p class="first">Vratiti sadržaj iz 40. sektora u 1. sektor tvrdog diska, zapisati
+priključenog USB pogona. Što se dogodilo?</li>
+<li>Vratiti sadržaj iz 40. sektora u 1. sektor tvrdog diska, zapisati
 promjene i ponovno pokrenuti računalo bez priključenog USB pogona.
 Što se dogodilo? Odabrati podizanje Windows 7 operacijskog sustava i
-utvrditi ispravnost.</p>
-</li>
-<li><p class="first">U izborniku „Extras“ odabrati opciju „Open disk“, te odabrati
+utvrditi ispravnost.</li>
+<li>U izborniku „Extras“ odabrati opciju „Open disk“, te odabrati
 fizički USB pogon (Physical disks, Removable disk 1). Isključiti
-opciju „Open as Readonly“.</p>
-</li>
-<li><p class="first">Nalazi li se na prvom sektoru ispravno MBR područje (mora sadržavati
+opciju „Open as Readonly“.</li>
+<li>Nalazi li se na prvom sektoru ispravno MBR područje (mora sadržavati
 Master Boot Code, Particijsku tablicu i na kraju 55AA)? Ako je
 odgovor pozitivan, označiti kompletan sadržaj prvog sektora,
 kopirati ga, te zalijepiti na prvi slijedeći prazan sektor na
-uređaju.</p>
-<p>NAPOMENA : Neki USB pogoni nemaju MBR područje, već se na prvom
+uređaju.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Neki USB pogoni nemaju MBR područje, već se na prvom
 sektoru nalazi Boot Sector, odnosno prvi sektor particije. Sa takvom
 strukturom, USB pogon neće biti prepoznat (od strane BIOS sustava)
 kao USB tvrdi disk, već kao USB Floppy. Razlog tomu je što se na
 disketama mogla nalaziti isključivo jedna particija, te je ona
 zauzimala kompletno područje medija. Početak particije je bio na
 prvom sektoru.</p>
-<p>U tom slučaju , potrebno je aplikacijom Rufus stvoriti MBR strukturu
+<p class="last">U tom slučaju , potrebno je aplikacijom Rufus stvoriti MBR strukturu
 na USB pogonu (upute su na mrežno dijeljenom disku), te ponoviti
 postupak Yumi Multiboot instalacije.</p>
-</li>
-<li><p class="first">OVAJ ZADATAK ODRADITI SAMO NA JEDNOM USB POGONU, samo zbog
+</div>
+<ol class="arabic simple" start="30">
+<li><strong>OVAJ ZADATAK ODRADITI SAMO NA JEDNOM USB POGONU</strong>, samo zbog
 demonstracije. ZA ODRADU OVOG ZADATKA OBVEZNO JE IMATI DRUGI
 ISPRAVAN USB POGON. Ručno obrisati kompletan prvi sektor USB pogona,
 te ponovno pokrenuti računalo sa USB pogonom u njemu. Što se
@@ -369,8 +345,11 @@ dogodilo? Pokreće li se MultiBoot izbornik? Zaključi zašto. Ponovno
 pokrenuti računalo sa drugim USB pogonom. Učitati Mini Windows XP
 sustav, te zatim ubaciti drugi USB pogon u računalo. Pokrenuti HxD
 aplikaciju, te vratiti kopiju MBR područja na ispražnjen sektor
-“neispravnog” USB pogona. Provjeriti ispravnost radnje.</p>
-<p>NAPOMENA: Ponekad se događa situacija da se, prilikom vraćanja
+“neispravnog” USB pogona. Provjeriti ispravnost radnje.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Ponekad se događa situacija da se, prilikom vraćanja
 različitih MBR područja pomoću aplikacije MBRWizard, upiše
 neispravna vrijednost “/Disk” opcije, te se kopija spremi na USB
 pogon, umjesto prvi sektor tvrdog diska. U tom slučaju je dobro
@@ -378,14 +357,13 @@ imati pričuvnu kopiju MBR područja USB pogona, kako bi se uređaju
 brzo vratila funkcionalnost. U suprotnom je potrebno ponovno
 stvoriti particiju na uređaju, te ponoviti postupak instalacije YUMI
 Multiboot sustava.</p>
-</li>
-<li><p class="first">Ponovno pokrenuti računalo sa priključenim USB pogonom, te vratiti
+</div>
+<ol class="arabic simple" start="31">
+<li>Ponovno pokrenuti računalo sa priključenim USB pogonom, te vratiti
 sadržaj datoteke h1.mbr na Master Boot Record tvrdog diska
-(MBRWizard aplikacija), ponovno pokrenuti računalo bez USB pogona.</p>
-</li>
-<li><p class="first">Uvjeriti se u uspješnost podizanja Windows 98 operacijskog sustava
-na HOME particiji.</p>
-</li>
+(MBRWizard aplikacija), ponovno pokrenuti računalo bez USB pogona.</li>
+<li>Uvjeriti se u uspješnost podizanja Windows 98 operacijskog sustava
+na HOME particiji.</li>
 </ol>
 </div>
 </div>

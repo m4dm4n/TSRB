@@ -27,8 +27,10 @@ vezana uz ovu vježbu.
    informacije svih particija u tablici ( BootFlag, Partition type ID,
    Start Sector, izračunati završni sektor).
 
-   NAPOMENA: Ime datoteke H132HBKP.mbr označava da se u datoteci nalazi
-   sadržaj 3 particije (H13 + 2H + BKP)
+..  note::
+
+     Ime datoteke H132HBKP.mbr označava da se u datoteci nalazi
+     sadržaj 3 particije (H13 + 2H + BKP)
 
 4. Pomoću aplikacije **MBRWIZ** vratiti sadržaj datoteke
    **H132HBKP.mbr** na **MBR** tvrdog diska, te zatim ponovno pokrenuti
@@ -67,51 +69,52 @@ vezana uz ovu vježbu.
     rezultatu? Prikazuju li se poruke o grešci? Mogu li se sad iščitati
     lokacije datoteke "tc-install.sh"?
 
-    NAPOMENA: Područje iz ovog zadatka će biti obrađeno u kasnijim
-    vježbama, no u osnovi svaka naredba koja se pokrene rezultate
-    prikazuje na standardnom izlazu (eng. standard output, termin koji
-    uglavnom podrazumijeva ekran zaslona). S druge strane, standardan
-    ulaz (eng. standard input) je uglavnom tipkovnica. Logika se može
-    povezati sa programskim jezikom C, u kojem se prije programa mora
-    učitati biblioteka stdio.h (#include stdio.h, odnosno STanDard
-    Input/Output), kako bi se rezultati tog programa prikazivali na
-    ekranu, te kako bi korisnik mogao komunicirati sa programom preko
-    tipkovnice.
+..  note::
 
-    No, rezultate bilo koje naredbe/aplikacije je moguće preusmjeriti i
-    na neku drugu lokaciju, kao što je datoteka. U tu svrhu se koriste
-    znakovi **>** (uvijek prepiši postojeći sadržaj datoteke sa novim )
-    ili **>>** (ostavi postojeći sadržaj u datoteci , te samo dodaj
-    svježi sadržaj)
+     Područje iz ovog zadatka će biti obrađeno u kasnijim
+     vježbama, no u osnovi svaka naredba koja se pokrene rezultate
+     prikazuje na standardnom izlazu (eng. standard output, termin koji
+     uglavnom podrazumijeva ekran zaslona). S druge strane, standardan
+     ulaz (eng. standard input) je uglavnom tipkovnica. Logika se može
+     povezati sa programskim jezikom C, u kojem se prije programa mora
+     učitati biblioteka stdio.h (#include stdio.h, odnosno STanDard
+     Input/Output), kako bi se rezultati tog programa prikazivali na
+     ekranu, te kako bi korisnik mogao komunicirati sa programom preko
+     tipkovnice.
 
-    Drugo područje koje je potrebno objasniti su dva tipa standardnog
-    izlaza : standard output i standard error. Kao što se može iščitati
-    iz samih imena, aplikacija odjeljuje izlazne rezultate prema
-    standardnim porukama i porukama o grešci. Svaka poruka o grešci
-    (npr. File not found, No permissions, Bad command...) je zapravo
-    standard error tip poruke. Pri preusmjeravanju rezultata , razlikuju
-    se u identifikaciji brojevima, odnosno 1 označava standard output, a
-    2 standard error, što je moguće bolje shvatiti u slijedećim
-    primjerima :
+     No, rezultate bilo koje naredbe/aplikacije je moguće preusmjeriti i
+     na neku drugu lokaciju, kao što je datoteka. U tu svrhu se koriste
+     znakovi **>** (uvijek prepiši postojeći sadržaj datoteke sa novim )
+     ili **>>** (ostavi postojeći sadržaj u datoteci , te samo dodaj
+     svježi sadržaj)
 
-    > izlaz.txt preusmjerava standardni izlaz u datoteku izlaz.txt
+     Drugo područje koje je potrebno objasniti su dva tipa standardnog
+     izlaza : standard output i standard error. Kao što se može iščitati
+     iz samih imena, aplikacija odjeljuje izlazne rezultate prema
+     standardnim porukama i porukama o grešci. Svaka poruka o grešci
+     (npr. File not found, No permissions, Bad command...) je zapravo
+     standard error tip poruke. Pri preusmjeravanju rezultata , razlikuju
+     se u identifikaciji brojevima, odnosno 1 označava standard output, a
+     2 standard error, što je moguće bolje shvatiti u slijedećim
+     primjerima 
 
-    1> izlaz.txt preusmjerava standardni izlaz u datoteku izlaz.txt
+     ``> izlaz.txt preusmjerava standardni izlaz u datoteku izlaz.txt``
 
-    2> izlaz.txt preusmjerava standardne greške u datoteku izlaz.txt
+     ``1> izlaz.txt preusmjerava standardni izlaz u datoteku izlaz.txt``
 
-    &> izlaz.txt preusmjerava standardni izlaz i standardne greške u
-    datoteku izlaz.txt
+     ``2> izlaz.txt preusmjerava standardne greške u datoteku izlaz.txt``
 
-    Za kraj , /dev/null je posebna vrsta datoteke u Linux sustavima koji
-    prihvaća bilo kakav podatak, te ga odbaci. Može ju se smatrati kao
-    "crna rupa" za podatke. Svaki podatak koji se preusmjerava u tu
-    datoteku nestaje.
+     ``&> izlaz.txt preusmjerava standardni izlaz i standardne greške u datoteku izlaz.txt``
 
-    Stoga, primjer iz zadatka "find / -name "tc-install.sh" 2>/dev/null"
-    preusmjerava poruke o grešci u /dev/null datoteku koja odbacuje
-    iste, te se na standardan izlaz prikazuju samo standardne uspješne
-    poruke.
+     Za kraj , /dev/null je posebna vrsta datoteke u Linux sustavima koji
+     prihvaća bilo kakav podatak, te ga odbaci. Može ju se smatrati kao
+     "crna rupa" za podatke. Svaki podatak koji se preusmjerava u tu
+     datoteku nestaje.
+
+     Stoga, primjer iz zadatka "find / -name "tc-install.sh" 2>/dev/null"
+     preusmjerava poruke o grešci u /dev/null datoteku koja odbacuje
+     iste, te se na standardan izlaz prikazuju samo standardne uspješne
+     poruke.
 
 12. Postaviti /usr/local/bin kao radni direktorij (ne prepisivati sve,
     navikavati se na korištenje TAB tipke za autocomplete)

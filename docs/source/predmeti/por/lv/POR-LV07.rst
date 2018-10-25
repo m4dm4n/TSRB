@@ -4,8 +4,8 @@ LV07
 Osnove rada u TinyCore GNU/Linux distribuciji
 ---------------------------------------------
 
-Nove aplikacije i naredbe korištene u vježbi : pwd, ls, touch, mkdir,
-cp, mv, rmdir, rm, cd, file, dd, fdisk
+Nove aplikacije i naredbe korištene u vježbi : ``pwd``, ``ls``, ``touch``, ``mkdir``,
+``cp``, ``mv``, ``rmdir``, ``rm``, ``cd``, ``file``, ``dd``, ``fdisk``
 
 Sve postupke, korištene naredbe i dobivene rezultate po točkama zadataka
 zapisivati u bilježnicu. Odgovoriti u bilježnicu na postavljena pitanja
@@ -27,11 +27,17 @@ vezana uz ovu vježbu.
    Ponovno upisati naredbu, no ovog puta "cd .." . Zašto su u prva dva
    slučaja ispisane poruke o grešci?
 
-    NAPOMENA : U Linux distribucijama bitno je paziti na mala/velika
-    slova prilikom poziva naredbi ili datoteka, te je bitno koristiti
-    ispravnu sintaksu.
+..  note::
+    
+     U Linux distribucijama bitno je paziti na mala/velika
+     slova prilikom poziva naredbi ili datoteka, te je bitno koristiti
+     ispravnu sintaksu.
 
-    Naredba opcija argument
+     Općenita sintaksa: ``naredba opcija argument``
+
+     Primjer:           ``dir /a c:\Windows``
+
+
 
 4. Upisati naredbu pwd. Što se promijenilo u odnosu na 2. Zadatak.
 
@@ -82,12 +88,14 @@ vezana uz ovu vježbu.
 
 17. Upisati "cd Ba", te zatim stisnuti tipku TAB. Što se dogodilo?
 
-    NAPOMENA : Tipka TAB služi za automatsko dovršavanje poznatih
-    naredbi (one koje su definirane u putanjama sustava) ili postojećih
-    datoteka/direktorija u radnom direktoriju. Ako postoji više objekata
-    koji odgovaraju upisanom uvjetu (iz vježbe npr. Backup i Batman),
-    dvostruskim pritiskom na tipku TAB će se prikazati svi objekti koji
-    odgovaraju uvjetu.
+..  note::
+
+     Tipka TAB služi za automatsko dovršavanje poznatih
+     naredbi (one koje su definirane u putanjama sustava) ili postojećih
+     datoteka/direktorija u radnom direktoriju. Ako postoji više objekata
+     koji odgovaraju upisanom uvjetu (iz vježbe npr. Backup i Batman),
+     dvostruskim pritiskom na tipku TAB će se prikazati svi objekti koji
+     odgovaraju uvjetu.
 
 18. Unutar direktorija stvoriti praznu datoteku home.mbr.
 
@@ -115,19 +123,21 @@ vezana uz ovu vježbu.
     uređaje. Što predstavljaju oznake sda1, odnosno sdb1? Objasniti
     zašto.
 
-    NAPOMENA : Na Unix/Linux distribucijama, sve je prikazano kao
-    datoteka. Čak i svi uređaji. Tom logikom su i tvrdi diskovi
-    prikazani kao uređaji. Svi uređaji se nalaze u direktoriju /dev
-    (eng. DEVices).
+..  note::
 
-    /dev/sda je prvi tvrdi disk u računalu (od prvog do zadnjeg sektora,
-    prvi sektor je MBR)
+     Na Unix/Linux distribucijama, sve je prikazano kao
+     datoteka. Čak i svi uređaji. Tom logikom su i tvrdi diskovi
+     prikazani kao uređaji. Svi uređaji se nalaze u direktoriju /dev
+     (eng. DEVices).
 
-    /dev/sda1 je prva particija na prvom tvrdom disku (ograničena je
-    veličinom particije, odnosno prvi sektor datoteke je boot sektor
-    particije)
+     /dev/sda je prvi tvrdi disk u računalu (od prvog do zadnjeg sektora,
+     prvi sektor je MBR)
 
-    Drugim riječima, cijela sda1 datoteka je samo dio sda datoteke.
+     /dev/sda1 je prva particija na prvom tvrdom disku (ograničena je
+     veličinom particije, odnosno prvi sektor datoteke je boot sektor
+     particije)
+
+     Drugim riječima, cijela sda1 datoteka je samo dio sda datoteke.
 
 26. Stvoriti dvije prazne datoteke : HOMEbootsectfromSDX.bst i
     HOMEbootsectfromSDX1.bst (slovo X zamijeniti sa slovom uređaja koji

@@ -190,114 +190,102 @@
 <h1>LV07<a class="headerlink" href="#lv07" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="osnove-rada-u-tinycore-gnu-linux-distribuciji">
 <h2>Osnove rada u TinyCore GNU/Linux distribuciji<a class="headerlink" href="#osnove-rada-u-tinycore-gnu-linux-distribuciji" title="Permalink to this headline">¶</a></h2>
-<p>Nove aplikacije i naredbe korištene u vježbi : pwd, ls, touch, mkdir,
-cp, mv, rmdir, rm, cd, file, dd, fdisk</p>
+<p>Nove aplikacije i naredbe korištene u vježbi : <code class="docutils literal notranslate"><span class="pre">pwd</span></code>, <code class="docutils literal notranslate"><span class="pre">ls</span></code>, <code class="docutils literal notranslate"><span class="pre">touch</span></code>, <code class="docutils literal notranslate"><span class="pre">mkdir</span></code>,
+<code class="docutils literal notranslate"><span class="pre">cp</span></code>, <code class="docutils literal notranslate"><span class="pre">mv</span></code>, <code class="docutils literal notranslate"><span class="pre">rmdir</span></code>, <code class="docutils literal notranslate"><span class="pre">rm</span></code>, <code class="docutils literal notranslate"><span class="pre">cd</span></code>, <code class="docutils literal notranslate"><span class="pre">file</span></code>, <code class="docutils literal notranslate"><span class="pre">dd</span></code>, <code class="docutils literal notranslate"><span class="pre">fdisk</span></code></p>
 <p>Sve postupke, korištene naredbe i dobivene rezultate po točkama zadataka
 zapisivati u bilježnicu. Odgovoriti u bilježnicu na postavljena pitanja
 vezana uz ovu vježbu.</p>
 <p><strong>Zadaci:</strong></p>
-<ol class="arabic">
-<li><p class="first">Iz <strong>HOME</strong> particije ponovno pokrenuti računalo i u Multiboot
-izborniku odabrati “Linux Distributions”, te zatim “TinyCore” stavku.</p>
-</li>
-<li><p class="first">Upisati pwd (eng. Print Working Directory) naredbu za ispis putanje
+<ol class="arabic simple">
+<li>Iz <strong>HOME</strong> particije ponovno pokrenuti računalo i u Multiboot
+izborniku odabrati “Linux Distributions”, te zatim “TinyCore” stavku.</li>
+<li>Upisati pwd (eng. Print Working Directory) naredbu za ispis putanje
 radnog direktorija. Koja je putanja prikazana? Koji znak odjeljuje
-direktorije? Koji znak se koristi u Microsoft Windows sustavima?</p>
-</li>
-<li><p class="first">Upisati naredbu “cd..” (eng. Change Directory, upisati bez navodnika
+direktorije? Koji znak se koristi u Microsoft Windows sustavima?</li>
+<li>Upisati naredbu “cd..” (eng. Change Directory, upisati bez navodnika
 i točno onako kako je napisano) za prijelaz u viši direktorij u
 strukturi. Probati napisati “CD ..” (između naredbe i argumenta je
 razmak). Koje su poruke ispisane na ekranu nakon obje naredbe?
 Ponovno upisati naredbu, no ovog puta “cd ..” . Zašto su u prva dva
-slučaja ispisane poruke o grešci?</p>
-<blockquote>
-<div><p>NAPOMENA : U Linux distribucijama bitno je paziti na mala/velika
+slučaja ispisane poruke o grešci?</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>U Linux distribucijama bitno je paziti na mala/velika
 slova prilikom poziva naredbi ili datoteka, te je bitno koristiti
 ispravnu sintaksu.</p>
-<p>Naredba opcija argument</p>
-</div></blockquote>
-</li>
-<li><p class="first">Upisati naredbu pwd. Što se promijenilo u odnosu na 2. Zadatak.</p>
-</li>
-<li><p class="first">Ponovno upisati naredbu za prijelaz u viši direktorij i zatim za
+<p>Općenita sintaksa: <code class="docutils literal notranslate"><span class="pre">naredba</span> <span class="pre">opcija</span> <span class="pre">argument</span></code></p>
+<p class="last">Primjer:           <code class="docutils literal notranslate"><span class="pre">dir</span> <span class="pre">/a</span> <span class="pre">c:\Windows</span></code></p>
+</div>
+<ol class="arabic simple" start="4">
+<li>Upisati naredbu pwd. Što se promijenilo u odnosu na 2. Zadatak.</li>
+<li>Ponovno upisati naredbu za prijelaz u viši direktorij i zatim za
 ispis radnog direktorija. Može li se prijeći u viši direktorij? Kako
 se zove direktorij iznad kojeg nema drugog direktorija, već se svi
-iz njega granaju?</p>
-</li>
-<li><p class="first">Upisati naredbu za izmjenu direktorija, no bez ikakvih argumenata.
-Je li se radni direktorij promijenio?</p>
-</li>
-<li><p class="first">Upisati naredbu za prijelaz u <strong>korijenski</strong> (odgovor na pitanje iz
+iz njega granaju?</li>
+<li>Upisati naredbu za izmjenu direktorija, no bez ikakvih argumenata.
+Je li se radni direktorij promijenio?</li>
+<li>Upisati naredbu za prijelaz u <strong>korijenski</strong> (odgovor na pitanje iz
 5. zadatka) direktorij koristeći putanju direktorija. Vratiti se u
-home direktorij korisnika koristeći punu putanju direktorija.</p>
-</li>
-<li><p class="first">Ispisati sadržaj radnog direktorija naredbom ls (eng. List Directory
-Contents). Što se ispisalo?</p>
-</li>
-<li><p class="first">Naredbom touch stvoriti praznu datoteku imena “Batman.btm”.</p>
-</li>
-<li><p class="first">Naredbom mkdir stvoriti direktorij imena “SuperHeroji”. Ponovno
+home direktorij korisnika koristeći punu putanju direktorija.</li>
+<li>Ispisati sadržaj radnog direktorija naredbom ls (eng. List Directory
+Contents). Što se ispisalo?</li>
+<li>Naredbom touch stvoriti praznu datoteku imena “Batman.btm”.</li>
+<li>Naredbom mkdir stvoriti direktorij imena “SuperHeroji”. Ponovno
 ispisati sadržaj radnog direktorija. Što se promijenilo? Može li se
-u ispisu uočiti razlika između datoteke i direktorija?</p>
-</li>
-<li><p class="first">Naredbom cp kopirati datoteku Batman.btm u direktorij SuperHeroji.
-Provjeri uspješnost radnje.</p>
-</li>
-<li><p class="first">Naredbom mv preimenovati datoteku Batman.btm u Hulk.avg. Istu
+u ispisu uočiti razlika između datoteke i direktorija?</li>
+<li>Naredbom cp kopirati datoteku Batman.btm u direktorij SuperHeroji.
+Provjeri uspješnost radnje.</li>
+<li>Naredbom mv preimenovati datoteku Batman.btm u Hulk.avg. Istu
 naredbu upotrijebiti za prebacivanje u direktorij SuperHeroji. Zašto
 se može koristiti ista naredba za dvije različite radnje? Koja je
 razlika između preimenovanja datoteke i micanja? Što se dogodilo sa
-originalnom Batman.btm datotekom?</p>
-</li>
-<li><p class="first">Naredbom rm obrisati datoteku Hulk.avg. Potvrditi sa slovom “y”.</p>
-</li>
-<li><p class="first">Naredbom rmdir pokušati obrisati direktorij SuperHeroji. Koja je
+originalnom Batman.btm datotekom?</li>
+<li>Naredbom rm obrisati datoteku Hulk.avg. Potvrditi sa slovom “y”.</li>
+<li>Naredbom rmdir pokušati obrisati direktorij SuperHeroji. Koja je
 poruka prikazana? Upisati istu naredbu bez ikakvih argumenata. Može
-li naredba obrisati direktorij koji nije prazan?</p>
-</li>
-<li><p class="first">Naredbom rm pokušati obrisati direktorij SuperHeroji. Koja je poruka
+li naredba obrisati direktorij koji nije prazan?</li>
+<li>Naredbom rm pokušati obrisati direktorij SuperHeroji. Koja je poruka
 prikazana? Upisati istu naredbu bez ikakvih argumenata i proučiti
 opcije. Saznati što znači termin “recursive”. Upotrijebiti opciju -r
 te ponovno pokušati obrisati direktorij. Na svako pitanje odgovoriti
-potvrdno. Koji su koraci naredbe prilikom brisanja direktorija?</p>
-</li>
-<li><p class="first">Stvoriti direktorij Backup_MBR. Pokušati ući u direktorij
-upisivanjem “cd backup_mbr”. Što se dogodilo? Zašto?</p>
-</li>
-<li><p class="first">Upisati “cd Ba”, te zatim stisnuti tipku TAB. Što se dogodilo?</p>
-<p>NAPOMENA : Tipka TAB služi za automatsko dovršavanje poznatih
+potvrdno. Koji su koraci naredbe prilikom brisanja direktorija?</li>
+<li>Stvoriti direktorij Backup_MBR. Pokušati ući u direktorij
+upisivanjem “cd backup_mbr”. Što se dogodilo? Zašto?</li>
+<li>Upisati “cd Ba”, te zatim stisnuti tipku TAB. Što se dogodilo?</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Tipka TAB služi za automatsko dovršavanje poznatih
 naredbi (one koje su definirane u putanjama sustava) ili postojećih
 datoteka/direktorija u radnom direktoriju. Ako postoji više objekata
 koji odgovaraju upisanom uvjetu (iz vježbe npr. Backup i Batman),
 dvostruskim pritiskom na tipku TAB će se prikazati svi objekti koji
 odgovaraju uvjetu.</p>
-</li>
-<li><p class="first">Unutar direktorija stvoriti praznu datoteku home.mbr.</p>
-</li>
-<li><p class="first">Naredbom <strong>file</strong> pokušati saznati informacije o sadržaju datoteke
-home.mbr. Koji je rezultat?</p>
-</li>
-<li><p class="first">Upisati naredbu “tce-load” , te proučiti opciju “-wi”.</p>
-</li>
-<li><p class="first">Naredbom “tce-load -wi parted” instalirati aplikaciju Parted
-(PARTition EDitor).</p>
-</li>
-<li><p class="first">Pokrenuti parted aplikaciju i proučiti izgled ekrana. Primijetiti
+</div>
+<ol class="arabic simple" start="18">
+<li>Unutar direktorija stvoriti praznu datoteku home.mbr.</li>
+<li>Naredbom <strong>file</strong> pokušati saznati informacije o sadržaju datoteke
+home.mbr. Koji je rezultat?</li>
+<li>Upisati naredbu “tce-load” , te proučiti opciju “-wi”.</li>
+<li>Naredbom “tce-load -wi parted” instalirati aplikaciju Parted
+(PARTition EDitor).</li>
+<li>Pokrenuti parted aplikaciju i proučiti izgled ekrana. Primijetiti
 promjenu u terminal promptu. Sad je aktivna ljuska od aplikacije.
 Pozvati pomoć od aplikacije prema uputama , te proučiti opcije
-naredbe “print”.</p>
-</li>
-<li><p class="first">Upisati naredbu “print devices”. Iz prikazanog, koji uređaj je USB
+naredbe “print”.</li>
+<li>Upisati naredbu “print devices”. Iz prikazanog, koji uređaj je USB
 pogon, a koji je tvrdi disk? Prema čemu je izveden zaključak? Izaći
-iz aplikacije i primijetiti promjenu u izgledu prompta.</p>
-</li>
-<li><p class="first">Pozvati aplikaciju “fdisk” bez argumenata te proučiti opcije. Posebno
-obratiti pažnju na opciju “-l”. Svojim riječima opisati svrhu opcije.</p>
-</li>
-<li><p class="first">Upisati “fdisk -l” naredbu. Primijetiti u ispisu /dev/sda i /dev/sdb
+iz aplikacije i primijetiti promjenu u izgledu prompta.</li>
+<li>Pozvati aplikaciju “fdisk” bez argumenata te proučiti opcije. Posebno
+obratiti pažnju na opciju “-l”. Svojim riječima opisati svrhu opcije.</li>
+<li>Upisati “fdisk -l” naredbu. Primijetiti u ispisu /dev/sda i /dev/sdb
 uređaje. Što predstavljaju oznake sda1, odnosno sdb1? Objasniti
-zašto.</p>
-<p>NAPOMENA : Na Unix/Linux distribucijama, sve je prikazano kao
+zašto.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Na Unix/Linux distribucijama, sve je prikazano kao
 datoteka. Čak i svi uređaji. Tom logikom su i tvrdi diskovi
 prikazani kao uređaji. Svi uređaji se nalaze u direktoriju /dev
 (eng. DEVices).</p>
@@ -306,38 +294,31 @@ prvi sektor je MBR)</p>
 <p>/dev/sda1 je prva particija na prvom tvrdom disku (ograničena je
 veličinom particije, odnosno prvi sektor datoteke je boot sektor
 particije)</p>
-<p>Drugim riječima, cijela sda1 datoteka je samo dio sda datoteke.</p>
-</li>
-<li><p class="first">Stvoriti dvije prazne datoteke : HOMEbootsectfromSDX.bst i
+<p class="last">Drugim riječima, cijela sda1 datoteka je samo dio sda datoteke.</p>
+</div>
+<ol class="arabic simple" start="26">
+<li>Stvoriti dvije prazne datoteke : HOMEbootsectfromSDX.bst i
 HOMEbootsectfromSDX1.bst (slovo X zamijeniti sa slovom uređaja koji
-predstavlja tvrdi disk na sustavu).</p>
-</li>
-<li><p class="first">Koji je početni sektor particije HOME?</p>
-</li>
-<li><p class="first">Naredbom dd spremiti prvi sektor particije sda1 u datoteku
-HOMEbootsectfromSDX1.bst</p>
-</li>
-<li><p class="first">Naredbom dd spremiti 64. sektor tvrdog diska sda u datoteku
+predstavlja tvrdi disk na sustavu).</li>
+<li>Koji je početni sektor particije HOME?</li>
+<li>Naredbom dd spremiti prvi sektor particije sda1 u datoteku
+HOMEbootsectfromSDX1.bst</li>
+<li>Naredbom dd spremiti 64. sektor tvrdog diska sda u datoteku
 HOMEbootsectfromSDX.bst (s obzirom da se sektori počinju brojati od
-nule, potrebno je preskočiti prva 63 sektora).</p>
-</li>
-<li><p class="first">Naredbom diff (eng. Difference) usporediti dvije datoteke. U slučaju
+nule, potrebno je preskočiti prva 63 sektora).</li>
+<li>Naredbom diff (eng. Difference) usporediti dvije datoteke. U slučaju
 da su datoteke iste, aplikacija neće dati nikakav poseban rezultat.
-Što se dogodilo? Koji se zaključak može izvesti iz izvršenih radnji?</p>
-</li>
-<li><p class="first">Spremiti prvi sektor tvrdog diska u datoteku home.mbr.</p>
-</li>
-<li><p class="first">Ponovno naredbom file pokušati saznati informacije datoteke home.mbr.
+Što se dogodilo? Koji se zaključak može izvesti iz izvršenih radnji?</li>
+<li>Spremiti prvi sektor tvrdog diska u datoteku home.mbr.</li>
+<li>Ponovno naredbom file pokušati saznati informacije datoteke home.mbr.
 Ima li kakvih promjena u odnosu na 19. zadatak? Primijetiti string
 “MS-MBR Windows 7” (MicroSoft-MasterBootRecord , installed by Windows
 7 version). Može li se iščitati struktura particijske tablice? Koliko
 se particija nalazi u njoj, zapisati početne i završne sektore. O
-kojoj se particiji radi?</p>
-</li>
-<li><p class="first">Naredbom file saznati informacije datoteke HOMEbootsectfromSDX.bst.
+kojoj se particiji radi?</li>
+<li>Naredbom file saznati informacije datoteke HOMEbootsectfromSDX.bst.
 Koji je tip sektora? Koji je naziv (eng. Label) particije? Radi li se
-o HOME particiji?</p>
-</li>
+o HOME particiji?</li>
 </ol>
 <p>DODATNI ZADACI</p>
 <ol class="arabic" start="34">

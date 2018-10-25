@@ -194,68 +194,72 @@
 zapisivati u bilježnicu. Odgovoriti u bilježnicu na postavljena pitanja
 vezana uz ovu vježbu.</p>
 <p><strong>Zadaci:</strong></p>
-<ol class="arabic">
-<li><p class="first">Iz <strong>HOME</strong> particije ponovno pokrenuti računalo i u Multiboot
+<ol class="arabic simple">
+<li>Iz <strong>HOME</strong> particije ponovno pokrenuti računalo i u Multiboot
 izborniku odabrati “Other OS and Tools”, te zatim “Hiren’s Boot CD”
 stavku. Pojaviti će se slijedeći izbornik te je u njemu potrebno
 odabrati „Mini Windows XP“ opciju. Nakon učitavanja „Mini Windows
-XP“ sustava, pojaviti će se radna površina.</p>
-</li>
-<li><p class="first">Pokrenuti Windows Explorer aplikaciju, odabrati USB pogon, te u
-njemu odabrati direktorij sa imenom razreda (2x,3x ili 4x)</p>
-</li>
-<li><p class="first">Desnom tipkom miša odabrati MBRWiz.exe aplikaciju, te odabrati
+XP“ sustava, pojaviti će se radna površina.</li>
+<li>Pokrenuti Windows Explorer aplikaciju, odabrati USB pogon, te u
+njemu odabrati direktorij sa imenom razreda (2x,3x ili 4x)</li>
+<li>Desnom tipkom miša odabrati MBRWiz.exe aplikaciju, te odabrati
 opciju Command Prompt Here. Što se dogodilo? Koji je trenutno radni
-direktorij u komandnoj liniji?</p>
-</li>
-<li><p class="first">Pokrenuti <strong>mbrwiz.exe</strong> aplikaciju sa opcijom <strong>/?</strong> (pozivanje
+direktorij u komandnoj liniji?</li>
+<li>Pokrenuti <strong>mbrwiz.exe</strong> aplikaciju sa opcijom <strong>/?</strong> (pozivanje
 izbornika pomoći). Ponovno pokrenuti aplikaciju , no bez upisivanja
 “.exe” ekstenzije. Je li se što promijenilo? Zaključi zašto.
 Proučiti sve opcije, a zapisati i opisati slijedeće opcije :
 <strong>/List, /Disk, /Save, /Restore, /Show, /Confirm, /Shutdown,
 /Active, /WriteIni</strong>. Čemu služi znak <strong>“#”</strong> , a čemu <strong>“X”</strong> u
-popisu opcija?</p>
-</li>
-<li><p class="first">Pomoću MBRWizard aplikacije ispisati sadržaj particijskih tablica
+popisu opcija?</li>
+<li>Pomoću MBRWizard aplikacije ispisati sadržaj particijskih tablica
 svih uređaja za pohranu. Po čemu se može prepoznati da je jedan od
 prikazanih uređaja USB pogon? Koliko particija se nalazi trenutno na
 tvrdom disku? Prema dokumentaciji tvrdog diska, o kojoj se particiji
-radi?</p>
-</li>
-<li><p class="first">Zapisati osnovne informacije particijske tablice USB pogona (Početni
+radi?</li>
+<li>Zapisati osnovne informacije particijske tablice USB pogona (Početni
 sektor, izračunati završni sektor, Boot status, tip datotečnog
-sustava).</p>
-</li>
-<li><p class="first">Spremiti sadržaj Master Boot Record sektora USB pogona u datoteku
+sustava).</li>
+<li>Spremiti sadržaj Master Boot Record sektora USB pogona u datoteku
 imena sa inicijalima učenika vlasnika USB pogona i dodatka teksta
-<strong>“_USB.mbr”</strong> (primjer : <strong>PP_USB.mbr</strong> za ime Pero Perić).</p>
-</li>
-<li><p class="first">Spremiti sadržaj Master Boot Record sektora tvrdog diska u datoteku
-imena <strong>h1.mbr</strong>.</p>
-</li>
-<li><p class="first">Koje veličine su spremljene datoteke? Zašto?</p>
-</li>
-<li><p class="first">Pregledati sadržaj datoteka koristeći opciju <strong>/Show</strong> (primjer :
-<strong>mbrwiz /Show=file /Filename=h1.mbr</strong>), te usporediti sa
+<strong>“_USB.mbr”</strong>.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Primjer : <code class="docutils literal notranslate"><span class="pre">PP\_USB.mbr</span></code> za ime Pero Perić</p>
+</div>
+<ol class="arabic simple" start="8">
+<li>Spremiti sadržaj Master Boot Record sektora tvrdog diska u datoteku
+imena <strong>h1.mbr</strong>.</li>
+<li>Koje veličine su spremljene datoteke? Zašto?</li>
+<li>Pregledati sadržaj datoteka koristeći opciju <strong>/Show</strong>, te usporediti sa
 informacijama iz 6. zadatka. Što se može zaključiti, odgovara li
-sadržaj spremljenih datoteka stvarnom stanju na uređajima?</p>
-</li>
-<li><p class="first">Izvaditi USB pogon, ponovno pokrenuti računalo i sa HOME particije
+sadržaj spremljenih datoteka stvarnom stanju na uređajima?</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Primjer: <code class="docutils literal notranslate"><span class="pre">mbrwiz</span> <span class="pre">/Show=file</span> <span class="pre">/Filename=h1.mbr</span></code></p>
+</div>
+<ol class="arabic simple" start="11">
+<li>Izvaditi USB pogon, ponovno pokrenuti računalo i sa HOME particije
 započeti postupak prebacivanja na A1 particiju pokretanjem
 <strong>a1.bat</strong> datoteke. Odmah nakon toga priključiti USB pogon u
 računalo kako bi se pojavio MultiBoot izbornik. Odabrati “Hiren’s
 Boot CD” stavku. Pojaviti će se slijedeći izbornik te je u njemu
-potrebno odabrati „Mini Windows XP“ opciju.</p>
-</li>
-<li><p class="first">Ponoviti postupak iz 5. zadatka. Koliko se sad particija nalazi u
-particijskoj tablici na tvrdom disku? Zašto?</p>
-</li>
-<li><p class="first">Spremiti pričuvnu kopiju A1 particije pod imenom <strong>a1.mbr</strong> u
+potrebno odabrati „Mini Windows XP“ opciju.</li>
+<li>Ponoviti postupak iz 5. zadatka. Koliko se sad particija nalazi u
+particijskoj tablici na tvrdom disku? Zašto?</li>
+<li>Spremiti pričuvnu kopiju A1 particije pod imenom <strong>a1.mbr</strong> u
 direktorij MBRWIZD na USB pogonu, koristeći apsolutnu putanju u
-<strong>/Filename</strong> opciji (Primjer: <strong>mbrwiz.exe /Disk=1 /Save=MBR
-/filename=C:\IME_RAZREDA\MBRWiz3\a1.mbr, C: zamijeniti sa slovom
-USB pogona, a IME_RAZREDA sa oznakom tvojeg razreda</strong>).</p>
-</li>
+<strong>/Filename</strong> opciji.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Primjer:
+<code class="docutils literal notranslate"><span class="pre">mbrwiz.exe</span> <span class="pre">/Disk=1</span> <span class="pre">/Save=MBR</span> <span class="pre">/filename=C:\\IME\_RAZREDA\\MBRWiz3\\a1.mbr</span></code></p>
+<p class="last"><strong>C: zamijeniti sa slovom USB pogona, a IME_RAZREDA sa oznakom tvojeg razreda</strong></p>
+</div>
+<ol class="arabic" start="14">
 <li><p class="first">Zamijeniti sadržaj MBRa na tvrdom disku koristeći <strong>h1.mbr</strong>
 datoteku. Ponovno pokrenuti računalo bez USB pogona. Na kojoj se
 particiji nalazite? Zašto?</p>
@@ -268,13 +272,13 @@ opciju.</p>
 <li><p class="first">Stvoriti datoteku sa imenom <strong>a1.bat</strong> i spremiti ju u postojeći
 direktorij <strong>MBRWiz3</strong> na USB pogonu.</p>
 </li>
-<li><p class="first">Upisati slijedeći tekst pod navodnicima (ne upisivati navodnike) u
-datoteku iz 17. zadatka:</p>
-<p><strong>“&#64;echo off</strong></p>
-<p><strong>Cls</strong></p>
-<p><strong>Echo Skripta za prebacivanje na A1 particiju (H3 i A1)</strong></p>
-<p><strong>mbrwiz /disk=1 /restore=MBR /filename=a1.mbr /confirm
-/shutdown=4”</strong></p>
+<li><p class="first">Upisati slijedeći tekst u datoteku iz 17. zadatka:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@echo</span> <span class="n">off</span>
+<span class="bp">cls</span>
+<span class="n">echo</span> <span class="n">Skripta</span> <span class="n">za</span> <span class="n">prebacivanje</span> <span class="n">na</span> <span class="n">A1</span> <span class="n">particiju</span> <span class="p">(</span><span class="n">H3</span> <span class="n">i</span> <span class="n">A1</span><span class="p">)</span>
+<span class="n">mbrwiz</span> <span class="o">/</span><span class="n">disk</span><span class="o">=</span><span class="mi">1</span> <span class="o">/</span><span class="n">restore</span><span class="o">=</span><span class="n">MBR</span> <span class="o">/</span><span class="n">filename</span><span class="o">=</span><span class="n">a1</span><span class="o">.</span><span class="n">mbr</span> <span class="o">/</span><span class="n">confirm</span> <span class="o">/</span><span class="n">shutdown</span><span class="o">=</span><span class="mi">4</span>
+</pre></div>
+</div>
 <p>Spremiti datoteku.</p>
 </li>
 <li><p class="first">Koja je funkcija <strong>/confirm</strong> i <strong>/shutdown=4</strong> opcija? Pokrenuti

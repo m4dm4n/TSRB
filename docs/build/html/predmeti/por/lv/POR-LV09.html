@@ -194,70 +194,61 @@
 zapisivati u bilježnicu. Odgovoriti u bilježnicu na postavljena pitanja
 vezana uz ovu vježbu.</p>
 <p><strong>Zadaci:</strong></p>
-<ol class="arabic">
-<li><p class="first">Iz <strong>HOME</strong> particije ponovno pokrenuti računalo i u Multiboot
+<ol class="arabic simple">
+<li>Iz <strong>HOME</strong> particije ponovno pokrenuti računalo i u Multiboot
 izborniku odabrati “Other OS and Tools”, te zatim “Hiren’s Boot CD”
 stavku. Pojaviti će se slijedeći izbornik te je u njemu potrebno
 odabrati „Mini Windows XP“ opciju. Nakon učitavanja „Mini Windows
-XP“ sustava, pojaviti će se radna površina.</p>
-</li>
-<li><p class="first">Spremiti sadržaj Master Boot Record sektora tvrdog diska u datoteku
+XP“ sustava, pojaviti će se radna površina.</li>
+<li>Spremiti sadržaj Master Boot Record sektora tvrdog diska u datoteku
 imena <strong>h1.mbr</strong> unutar MBRWIZ3 direktorija na USB pogonu.
 Provjeriti sadržaj datoteke kako bi se uvjerili da je spremljen
-ispravan MBR (sa HOME particijom u tablici).</p>
-</li>
-<li><p class="first">Pomoću aplikacije MBRWIZ3 ispisati popis particijskih tablica, te
+ispravan MBR (sa HOME particijom u tablici).</li>
+<li>Pomoću aplikacije MBRWIZ3 ispisati popis particijskih tablica, te
 zapisati osnovne informacije HOME particije (BootFlag, Partition
 type ID, Početni LBA sektor particije, Broj sektora koje particija
-zauzima na disku, izračunati završni sektor particije)</p>
-</li>
-<li><p class="first">Izvaditi USB pogon, ponovno pokrenuti računalo i sa HOME particije
+zauzima na disku, izračunati završni sektor particije)</li>
+<li>Izvaditi USB pogon, ponovno pokrenuti računalo i sa HOME particije
 započeti postupak prebacivanja na A1 particiju. Odmah nakon toga
 priključiti USB pogon u računalo kako bi se pojavio MultiBoot
 izbornik. Odabrati “Other OS and Tools”, te zatim “Hiren’s Boot CD”
 stavku. Pojaviti će se slijedeći izbornik te je u njemu potrebno
-odabrati „Mini Windows XP“ opciju.</p>
-</li>
-<li><p class="first">Spremiti sadržaj Master Boot Record sektora tvrdog diska u datoteku
+odabrati „Mini Windows XP“ opciju.</li>
+<li>Spremiti sadržaj Master Boot Record sektora tvrdog diska u datoteku
 imena <strong>a1.mbr</strong> unutar MBRWIZ3 direktorija na USB pogonu.
 Provjeriti sadržaj datoteke kako bi se uvjerili da je spremljen
-ispravan MBR (sa H3 i A1 particijama u tablici).</p>
-</li>
-<li><p class="first">Pomoću aplikacije MBRWIZ ispisati popis particijskih tablica, te
+ispravan MBR (sa H3 i A1 particijama u tablici).</li>
+<li>Pomoću aplikacije MBRWIZ ispisati popis particijskih tablica, te
 zapisati osnovne informacije H3 i A1 particija (BootFlag, Partition
 type ID, Početni LBA sektor particije, Broj sektora koje particija
-zauzima na disku, izračunati završni sektor particije)</p>
-</li>
-<li><p class="first">Ponovno pokrenuti računalo sa priključenim USB pogonom. U
+zauzima na disku, izračunati završni sektor particije)</li>
+<li>Ponovno pokrenuti računalo sa priključenim USB pogonom. U
 “Multiboot” izborniku odabrati Linux distributions, te zatim “Linux
-Mint” operacijski sustav</p>
-</li>
-<li><p class="first">Pokrenuti aplikaciju Terminal (gnome-terminal). Pokrenuti novi
+Mint” operacijski sustav</li>
+<li>Pokrenuti aplikaciju Terminal (gnome-terminal). Pokrenuti novi
 terminal , ovaj put kao root korisnik (ALT+F2, upisati “gksu
 gnome-terminal”, bez navodnika). Koja je razlika između dva Terminal
-prozora?</p>
-</li>
-<li><p class="first">Upisati u oba prozora naredbu “whoami” i uočiti razliku (za pomoć
+prozora?</li>
+<li>Upisati u oba prozora naredbu “whoami” i uočiti razliku (za pomoć
 oko aplikacije upisati “man whoami”). <strong>Zatvoriti prozor Terminala
 koji je pokrenut pod pravima “root” korisnika (upisati “exit”).</strong> U
 budućnosti ne koristiti Terminale učitane sa pravima root korisnika,
 već koristiti “sudo” aplikaciju prilikom potrebe postizanja prava
-root korisnika.</p>
-</li>
-<li><p class="first">U terminalu proučiti manual naredbe fdisk(man fdisk). Detaljno
-proučiti DEVICES, DISK LABELS i OPTIONS poglavlja.</p>
-</li>
-<li><p class="first">Ispisati popis i sadržaj particijskih tablica uređaja za pohranu
-pomoću fdisk naredbe. Što se dogodilo?</p>
-</li>
-<li><p class="first">Ponoviti prošli zadatak, no ovaj puta s pravima root korisnika
-(naredba sudo). Koje uređaje je aplikacija prepoznala?</p>
-</li>
-<li><p class="first">Prepoznati “device id” unutarnjeg hard diska te pokrenuti fdisk
+root korisnika.</li>
+<li>U terminalu proučiti manual naredbe fdisk(man fdisk). Detaljno
+proučiti DEVICES, DISK LABELS i OPTIONS poglavlja.</li>
+<li>Ispisati popis i sadržaj particijskih tablica uređaja za pohranu
+pomoću fdisk naredbe. Što se dogodilo?</li>
+<li>Ponoviti prošli zadatak, no ovaj puta s pravima root korisnika
+(naredba sudo). Koje uređaje je aplikacija prepoznala?</li>
+<li>Prepoznati “device id” unutarnjeg hard diska te pokrenuti fdisk
 aplikaciju (s pravima root korisnika, koristiti <strong>sudo</strong>), a kao
 parametar navesti “device id”. Obavezno unijeti opciju za
-kompatibilnost sa DOS tipom operacijskog sustava ( -c=dos ).</p>
-<p>NAPOMENA : Primijetiti kako se izgled naredbenog terminala
+kompatibilnost sa DOS tipom operacijskog sustava ( -c=dos ).</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Primijetiti kako se izgled naredbenog terminala
 promijenio, te je sad aktivan prompt of fdisk aplikacije. U
 aplikaciji su dozvoljena isključivo slova za odabir opcija (navedeno
 u slijedećem zadatku). Bitno je paziti na okolinu u kojoj se
@@ -268,39 +259,35 @@ aplikacija će prepoznati isključivo prvo slovo “s”, te aktivirati
 opciju koju podržava. U tom konkretnom slučaju, aktivirati će se
 opcija “Create a new empty Sun disklabel” na MBR području tvrdog
 diska, odnosno postići će se neželjen efekt radnje.</p>
-<p>Bitno je paziti što se radi, te imati kontrolu nad situacijom</p>
-</li>
-<li><p class="first">Pozvati pomoć unutar aplikacije i detaljni proučiti slijedeće opcije
-: <strong>a, d, n, p, q, t, w.</strong></p>
-</li>
-<li><p class="first">Ispisati sadržaj particijske tablice hard diska.</p>
-</li>
-<li><p class="first">Obrisati sve unose iz particijske tablice, te kreirati nove prema
+<p class="last"><strong>Bitno je paziti što se radi, te imati kontrolu nad situacijom.</strong></p>
+</div>
+<ol class="arabic simple" start="14">
+<li>Pozvati pomoć unutar aplikacije i detaljni proučiti slijedeće opcije
+: <strong>a, d, n, p, q, t, w.</strong></li>
+<li>Ispisati sadržaj particijske tablice hard diska.</li>
+<li>Obrisati sve unose iz particijske tablice, te kreirati nove prema
 specifikacijama HOME particije. <strong>PROVJERITI adrese i usporediti ih
-sa dokumentacijom!</strong></p>
-</li>
-<li><p class="first">Potvrditi (zapisati) unesene promjene. Ponovno pokrenuti računalo (
+sa dokumentacijom!</strong></li>
+<li>Potvrditi (zapisati) unesene promjene. Ponovno pokrenuti računalo (
 sudo reboot), te izvaditi USB pogon iz računala. Uvjeriti se kako je
-učitana HOME particija.</p>
-</li>
-<li><p class="first">Ponovno pokrenuti računalo sa priključenim USB pogonom. U
+učitana HOME particija.</li>
+<li>Ponovno pokrenuti računalo sa priključenim USB pogonom. U
 “Multiboot” izborniku odabrati Linux distributions, te zatim “Linux
-Mint” operacijski sustav</p>
-</li>
-<li><p class="first">U GNU/Linux fdisk aplikaciji obrisati sve unose iz particijske
+Mint” operacijski sustav</li>
+<li>U GNU/Linux fdisk aplikaciji obrisati sve unose iz particijske
 tablice, te kreirati nove prema specifikacijama A1 particije.
-<strong>PROVJERITI adrese i usporediti ih sa dokumentacijom!</strong></p>
-</li>
-<li><p class="first">Potvrditi (zapisati) unesene promjene. Ponovno pokrenuti računalo (
+<strong>PROVJERITI adrese i usporediti ih sa dokumentacijom!</strong></li>
+<li>Potvrditi (zapisati) unesene promjene. Ponovno pokrenuti računalo (
 sudo reboot), te izvaditi USB pogon iz računala. Uvjeriti se kako je
-učitana A1 particija.</p>
-</li>
-<li><p class="first">Vratiti računalo na HOME particiju.</p>
-<p><strong>ZA DOMAĆU ZADAĆU DETALJNO PROUČITI I OBJASNITI “DOS COMPATIBILITY”
-OPCIJU U ELABORATU. OBVEZNO NAVESTI IZVORE INFORMACIJA ( linkovi sa
-interneta, članci iz časopisa, knjige… )</strong></p>
-</li>
+učitana A1 particija.</li>
+<li>Vratiti računalo na HOME particiju.</li>
 </ol>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">ZA DOMAĆU ZADAĆU DETALJNO PROUČITI I OBJASNITI “DOS COMPATIBILITY”
+OPCIJU U ELABORATU. OBVEZNO NAVESTI IZVORE INFORMACIJA ( linkovi sa
+interneta, članci iz časopisa, knjige… )</p>
+</div>
 </div>
 </div>
 

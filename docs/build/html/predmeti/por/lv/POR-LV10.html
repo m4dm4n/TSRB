@@ -194,26 +194,28 @@
 zapisivati u bilježnicu. Odgovoriti u bilježnicu na postavljena pitanja
 vezana uz ovu vježbu.</p>
 <p><strong>Zadaci:</strong></p>
-<ol class="arabic">
-<li><p class="first">Iz <strong>HOME</strong> particije ponovno pokrenuti računalo i u Multiboot
+<ol class="arabic simple">
+<li>Iz <strong>HOME</strong> particije ponovno pokrenuti računalo i u Multiboot
 izborniku odabrati “Other OS and Tools”, te zatim “Hiren’s Boot CD”
 stavku. Pojaviti će se slijedeći izbornik te je u njemu potrebno
 odabrati „Mini Windows XP“ opciju. Nakon učitavanja „Mini Windows XP“
-sustava, pojaviti će se radna površina.</p>
-</li>
-<li><p class="first">Spremiti sadržaj Master Boot Record sektora tvrdog diska u datoteku
+sustava, pojaviti će se radna površina.</li>
+<li>Spremiti sadržaj Master Boot Record sektora tvrdog diska u datoteku
 imena <strong>h1.mbr</strong> unutar MBRWIZ3 direktorija na USB pogonu. Provjeriti
 sadržaj datoteke kako bi se uvjerili da je spremljen ispravan MBR (sa
-HOME particijom u tablici).</p>
-</li>
-<li><p class="first">Odabrati radni direktorij MBRFILE na particiji USB pogona. Pomoću
+HOME particijom u tablici).</li>
+<li>Odabrati radni direktorij MBRFILE na particiji USB pogona. Pomoću
 aplikacije MBRWIZD pregledati sadržaj particijske tablice kja se
 nalazi u datoteci H132HBKP.mbr (/Show opcija). Zapisati osnovne
 informacije svih particija u tablici ( BootFlag, Partition type ID,
-Start Sector, izračunati završni sektor).</p>
-<p>NAPOMENA: Ime datoteke H132HBKP.mbr označava da se u datoteci nalazi
+Start Sector, izračunati završni sektor).</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Ime datoteke H132HBKP.mbr označava da se u datoteci nalazi
 sadržaj 3 particije (H13 + 2H + BKP)</p>
-</li>
+</div>
+<ol class="arabic" start="4">
 <li><p class="first">Pomoću aplikacije <strong>MBRWIZ</strong> vratiti sadržaj datoteke
 <strong>H132HBKP.mbr</strong> na <strong>MBR</strong> tvrdog diska, te zatim ponovno pokrenuti
 računalo. U <strong>Multiboot</strong> izborniku odabrati “<strong>System Tools</strong>”, te
@@ -249,7 +251,11 @@ na ekranu? Može li se uočiti lokacija datoteke?</p>
 “2&gt;/dev/null” (ne upisivati navodnike). Je li došlo do promjene u
 rezultatu? Prikazuju li se poruke o grešci? Mogu li se sad iščitati
 lokacije datoteke “tc-install.sh”?</p>
-<p>NAPOMENA: Područje iz ovog zadatka će biti obrađeno u kasnijim
+</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Područje iz ovog zadatka će biti obrađeno u kasnijim
 vježbama, no u osnovi svaka naredba koja se pokrene rezultate
 prikazuje na standardnom izlazu (eng. standard output, termin koji
 uglavnom podrazumijeva ekran zaslona). S druge strane, standardan
@@ -272,79 +278,60 @@ standardnim porukama i porukama o grešci. Svaka poruka o grešci
 standard error tip poruke. Pri preusmjeravanju rezultata , razlikuju
 se u identifikaciji brojevima, odnosno 1 označava standard output, a
 2 standard error, što je moguće bolje shvatiti u slijedećim
-primjerima :</p>
-<p>&gt; izlaz.txt preusmjerava standardni izlaz u datoteku izlaz.txt</p>
-<p>1&gt; izlaz.txt preusmjerava standardni izlaz u datoteku izlaz.txt</p>
-<p>2&gt; izlaz.txt preusmjerava standardne greške u datoteku izlaz.txt</p>
-<p>&amp;&gt; izlaz.txt preusmjerava standardni izlaz i standardne greške u
-datoteku izlaz.txt</p>
+primjerima</p>
+<p><code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">izlaz.txt</span> <span class="pre">preusmjerava</span> <span class="pre">standardni</span> <span class="pre">izlaz</span> <span class="pre">u</span> <span class="pre">datoteku</span> <span class="pre">izlaz.txt</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">1&gt;</span> <span class="pre">izlaz.txt</span> <span class="pre">preusmjerava</span> <span class="pre">standardni</span> <span class="pre">izlaz</span> <span class="pre">u</span> <span class="pre">datoteku</span> <span class="pre">izlaz.txt</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">2&gt;</span> <span class="pre">izlaz.txt</span> <span class="pre">preusmjerava</span> <span class="pre">standardne</span> <span class="pre">greške</span> <span class="pre">u</span> <span class="pre">datoteku</span> <span class="pre">izlaz.txt</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">&amp;&gt;</span> <span class="pre">izlaz.txt</span> <span class="pre">preusmjerava</span> <span class="pre">standardni</span> <span class="pre">izlaz</span> <span class="pre">i</span> <span class="pre">standardne</span> <span class="pre">greške</span> <span class="pre">u</span> <span class="pre">datoteku</span> <span class="pre">izlaz.txt</span></code></p>
 <p>Za kraj , /dev/null je posebna vrsta datoteke u Linux sustavima koji
 prihvaća bilo kakav podatak, te ga odbaci. Može ju se smatrati kao
 “crna rupa” za podatke. Svaki podatak koji se preusmjerava u tu
 datoteku nestaje.</p>
-<p>Stoga, primjer iz zadatka “find / -name “tc-install.sh” 2&gt;/dev/null”
+<p class="last">Stoga, primjer iz zadatka “find / -name “tc-install.sh” 2&gt;/dev/null”
 preusmjerava poruke o grešci u /dev/null datoteku koja odbacuje
 iste, te se na standardan izlaz prikazuju samo standardne uspješne
 poruke.</p>
-</li>
-<li><p class="first">Postaviti /usr/local/bin kao radni direktorij (ne prepisivati sve,
-navikavati se na korištenje TAB tipke za autocomplete)</p>
-</li>
-<li><p class="first">Ispisati sadržaj direktorija i pronaći tc-install.sh datoteku.</p>
-</li>
-<li><p class="first">Upisati u naredbenu liniju samo tc-install.sh (ekstenzija <strong>sh</strong>
+</div>
+<ol class="arabic simple" start="12">
+<li>Postaviti /usr/local/bin kao radni direktorij (ne prepisivati sve,
+navikavati se na korištenje TAB tipke za autocomplete)</li>
+<li>Ispisati sadržaj direktorija i pronaći tc-install.sh datoteku.</li>
+<li>Upisati u naredbenu liniju samo tc-install.sh (ekstenzija <strong>sh</strong>
 označava kako se radi o izvršnoj skripti ljuske, odnosno <strong>SH</strong>ell
 skripti, kao što je npr. <strong>BAT</strong>ch skripta u MS DOS/Windows
-operacijskim sustavima)</p>
-</li>
-<li><p class="first">Ponoviti prethodni zadatak, no prije imena upisati naredbu sudo za
-pokretanje skripte sa root ovlastima.</p>
-</li>
-<li><p class="first">Odabrati opciju skidanja potrebnih paketa sa interneta (opcija n)</p>
-</li>
-<li><p class="first">Odabrati opciju instalacije 32bitne verzije operacijskog sustava
-(opcija 32)</p>
-</li>
-<li><p class="first">Odabrati opciju Frugal (opcija f) za instalaciju na particiju tvrdog
+operacijskim sustavima)</li>
+<li>Ponoviti prethodni zadatak, no prije imena upisati naredbu sudo za
+pokretanje skripte sa root ovlastima.</li>
+<li>Odabrati opciju skidanja potrebnih paketa sa interneta (opcija n)</li>
+<li>Odabrati opciju instalacije 32bitne verzije operacijskog sustava
+(opcija 32)</li>
+<li>Odabrati opciju Frugal (opcija f) za instalaciju na particiju tvrdog
 diska. Ostale dvije opcije se koriste za instalaciju na USB pogon te
 se cijeli uređaj ponovno particionira u samo jednu particiju (NE
-KORISTITI NIJEDNU OD TIH OPCIJA!!!)</p>
-</li>
-<li><p class="first">Odabrati opciju za instalaciju na particiju (redni broj 2)</p>
-</li>
-<li><p class="first">Pročitati popis ponuđenih particija, no ne nastaviti sa odabirom,
-već nasilno izaći iz skripte koristeći kombinaciju tipki CTRL+c</p>
-</li>
-<li><p class="first">Pozvati aplikaciju “fdisk” sa opcijom “-l” za prikaz svih
+KORISTITI NIJEDNU OD TIH OPCIJA!!!)</li>
+<li>Odabrati opciju za instalaciju na particiju (redni broj 2)</li>
+<li>Pročitati popis ponuđenih particija, no ne nastaviti sa odabirom,
+već nasilno izaći iz skripte koristeći kombinaciju tipki CTRL+c</li>
+<li>Pozvati aplikaciju “fdisk” sa opcijom “-l” za prikaz svih
 prepoznatih uređaja za pohranu i particija na njima. Prema
 prikazanim informacijama odlučiti koju oznaku ima particija od 258MB
 na koju će se instalirati TinyCore distribucija. Provjeriti
-ispravnost odluke sa nastavnikom i kolegama.</p>
-</li>
-<li><p class="first">Ponoviti radnje od 15.-19. Zadatka. U popisu particija upisati redni
-broj oznake koja odgovara željenoj particiji.</p>
-</li>
-<li><p class="first">Dopustiti instalaciju bootloader programa za podizanje operacijskog
+ispravnost odluke sa nastavnikom i kolegama.</li>
+<li>Ponoviti radnje od 15.-19. Zadatka. U popisu particija upisati redni
+broj oznake koja odgovara željenoj particiji.</li>
+<li>Dopustiti instalaciju bootloader programa za podizanje operacijskog
 sustava (opcija y). Bootloader će se instalirati u dva dijela, u
-Master Boot Code područje, te na samu particiju.</p>
-</li>
-<li><p class="first">Kao lokaciju za dodatne pakete navesti putanju <strong>/tmp/tce</strong></p>
-</li>
-<li><p class="first">S obzirom da je proces postavljanja struktura datotečnih sustava već
+Master Boot Code područje, te na samu particiju.</li>
+<li>Kao lokaciju za dodatne pakete navesti putanju <strong>/tmp/tce</strong></li>
+<li>S obzirom da je proces postavljanja struktura datotečnih sustava već
 odrađen u Partition Wizard aplikaciji, odabrati redni broj opcije sa
-NONE nazivom.</p>
-</li>
-<li><p class="first">Postaviti boot flag na SDA1 particiju (opcija y).</p>
-</li>
-<li><p class="first">Prepisati žuto označen tekst, kao dodatne opcije bootloadera.</p>
-</li>
-<li><p class="first">Potvrditi instalaciju (opcija y)</p>
-</li>
-<li><p class="first">Ponovno pokrenuti računalo bez USB pogona u njemu, te se uvjeriti u
-uspješnost instalacije operacijskog sustava.</p>
-</li>
-<li><p class="first">Vratiti računalo na HOME particiju, te složiti radno mjesto.</p>
-</li>
+NONE nazivom.</li>
+<li>Postaviti boot flag na SDA1 particiju (opcija y).</li>
+<li>Prepisati žuto označen tekst, kao dodatne opcije bootloadera.</li>
+<li>Potvrditi instalaciju (opcija y)</li>
+<li>Ponovno pokrenuti računalo bez USB pogona u njemu, te se uvjeriti u
+uspješnost instalacije operacijskog sustava.</li>
+<li>Vratiti računalo na HOME particiju, te složiti radno mjesto.</li>
 </ol>
 </div>
 </div>

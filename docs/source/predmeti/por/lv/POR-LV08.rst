@@ -166,19 +166,21 @@ vezana uz ovu vježbu.
     kopirati ga, te zalijepiti na prvi slijedeći prazan sektor na
     uređaju.
 
-    NAPOMENA : Neki USB pogoni nemaju MBR područje, već se na prvom
-    sektoru nalazi Boot Sector, odnosno prvi sektor particije. Sa takvom
-    strukturom, USB pogon neće biti prepoznat (od strane BIOS sustava)
-    kao USB tvrdi disk, već kao USB Floppy. Razlog tomu je što se na
-    disketama mogla nalaziti isključivo jedna particija, te je ona
-    zauzimala kompletno područje medija. Početak particije je bio na
-    prvom sektoru.
+..  note::
 
-    U tom slučaju , potrebno je aplikacijom Rufus stvoriti MBR strukturu
-    na USB pogonu (upute su na mrežno dijeljenom disku), te ponoviti
-    postupak Yumi Multiboot instalacije.
+     Neki USB pogoni nemaju MBR područje, već se na prvom
+     sektoru nalazi Boot Sector, odnosno prvi sektor particije. Sa takvom
+     strukturom, USB pogon neće biti prepoznat (od strane BIOS sustava)
+     kao USB tvrdi disk, već kao USB Floppy. Razlog tomu je što se na
+     disketama mogla nalaziti isključivo jedna particija, te je ona
+     zauzimala kompletno područje medija. Početak particije je bio na
+     prvom sektoru.
 
-30. OVAJ ZADATAK ODRADITI SAMO NA JEDNOM USB POGONU, samo zbog
+     U tom slučaju , potrebno je aplikacijom Rufus stvoriti MBR strukturu
+     na USB pogonu (upute su na mrežno dijeljenom disku), te ponoviti
+     postupak Yumi Multiboot instalacije.
+
+30. **OVAJ ZADATAK ODRADITI SAMO NA JEDNOM USB POGONU**, samo zbog
     demonstracije. ZA ODRADU OVOG ZADATKA OBVEZNO JE IMATI DRUGI
     ISPRAVAN USB POGON. Ručno obrisati kompletan prvi sektor USB pogona,
     te ponovno pokrenuti računalo sa USB pogonom u njemu. Što se
@@ -188,14 +190,16 @@ vezana uz ovu vježbu.
     aplikaciju, te vratiti kopiju MBR područja na ispražnjen sektor
     "neispravnog" USB pogona. Provjeriti ispravnost radnje.
 
-    NAPOMENA: Ponekad se događa situacija da se, prilikom vraćanja
-    različitih MBR područja pomoću aplikacije MBRWizard, upiše
-    neispravna vrijednost "/Disk" opcije, te se kopija spremi na USB
-    pogon, umjesto prvi sektor tvrdog diska. U tom slučaju je dobro
-    imati pričuvnu kopiju MBR područja USB pogona, kako bi se uređaju
-    brzo vratila funkcionalnost. U suprotnom je potrebno ponovno
-    stvoriti particiju na uređaju, te ponoviti postupak instalacije YUMI
-    Multiboot sustava.
+..  note::
+
+     Ponekad se događa situacija da se, prilikom vraćanja
+     različitih MBR područja pomoću aplikacije MBRWizard, upiše
+     neispravna vrijednost "/Disk" opcije, te se kopija spremi na USB
+     pogon, umjesto prvi sektor tvrdog diska. U tom slučaju je dobro
+     imati pričuvnu kopiju MBR područja USB pogona, kako bi se uređaju
+     brzo vratila funkcionalnost. U suprotnom je potrebno ponovno
+     stvoriti particiju na uređaju, te ponoviti postupak instalacije YUMI
+     Multiboot sustava.
 
 31. Ponovno pokrenuti računalo sa priključenim USB pogonom, te vratiti
     sadržaj datoteke h1.mbr na Master Boot Record tvrdog diska

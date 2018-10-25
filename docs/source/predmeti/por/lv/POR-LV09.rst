@@ -73,19 +73,21 @@ vezana uz ovu vježbu.
     parametar navesti "device id". Obavezno unijeti opciju za
     kompatibilnost sa DOS tipom operacijskog sustava ( -c=dos ).
 
-    NAPOMENA : Primijetiti kako se izgled naredbenog terminala
-    promijenio, te je sad aktivan prompt of fdisk aplikacije. U
-    aplikaciji su dozvoljena isključivo slova za odabir opcija (navedeno
-    u slijedećem zadatku). Bitno je paziti na okolinu u kojoj se
-    korisnik nalazi, te koristiti one mogućnosti koje su mu dopuštene u
-    toj okolini. Na primjer, nije moguće unutar fdisk aplikacije upisati
-    "sudo reboot", te očekivati ponovno pokretanje računala. Fdisk
-    aplikacija će prepoznati isključivo prvo slovo "s", te aktivirati
-    opciju koju podržava. U tom konkretnom slučaju, aktivirati će se
-    opcija "Create a new empty Sun disklabel" na MBR području tvrdog
-    diska, odnosno postići će se neželjen efekt radnje.
+..  note::
+   
+     Primijetiti kako se izgled naredbenog terminala
+     promijenio, te je sad aktivan prompt of fdisk aplikacije. U
+     aplikaciji su dozvoljena isključivo slova za odabir opcija (navedeno
+     u slijedećem zadatku). Bitno je paziti na okolinu u kojoj se
+     korisnik nalazi, te koristiti one mogućnosti koje su mu dopuštene u
+     toj okolini. Na primjer, nije moguće unutar fdisk aplikacije upisati
+     "sudo reboot", te očekivati ponovno pokretanje računala. Fdisk
+     aplikacija će prepoznati isključivo prvo slovo "s", te aktivirati
+     opciju koju podržava. U tom konkretnom slučaju, aktivirati će se
+     opcija "Create a new empty Sun disklabel" na MBR području tvrdog
+     diska, odnosno postići će se neželjen efekt radnje.
 
-    Bitno je paziti što se radi, te imati kontrolu nad situacijom
+     **Bitno je paziti što se radi, te imati kontrolu nad situacijom.**
 
 14. Pozvati pomoć unutar aplikacije i detaljni proučiti slijedeće opcije
     : **a, d, n, p, q, t, w.**
@@ -114,6 +116,8 @@ vezana uz ovu vježbu.
 
 21. Vratiti računalo na HOME particiju.
 
-    **ZA DOMAĆU ZADAĆU DETALJNO PROUČITI I OBJASNITI "DOS COMPATIBILITY"
-    OPCIJU U ELABORATU. OBVEZNO NAVESTI IZVORE INFORMACIJA ( linkovi sa
-    interneta, članci iz časopisa, knjige... )**
+..  important::
+
+     ZA DOMAĆU ZADAĆU DETALJNO PROUČITI I OBJASNITI "DOS COMPATIBILITY"
+     OPCIJU U ELABORATU. OBVEZNO NAVESTI IZVORE INFORMACIJA ( linkovi sa
+     interneta, članci iz časopisa, knjige... )

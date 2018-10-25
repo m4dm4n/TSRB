@@ -16,7 +16,8 @@ vezana uz ovu vježbu.
    opciju. Nakon učitavanja „Mini Windows XP“ sustava, pojaviti će se
    radna površina.
 
-2. NETWORK CONNECTION. SHARE. U slučaju potrebe za pristup dokumentima
+2. U slučaju potrebe za pristup nastavnim sadržajima, potrebno je aktivirati mrežni upravljački program, postaviti automatsko dohvaćanje
+   IP adresa, te pristupiti mrežnom dijeljenom direktoriju.
 
 3. Pokrenuti HBCD menu i odabrati izbornik Programs, te zatim
    Partition/Boot/MBR. Unutar izbornika odabrati aplikaciju Disk Genius.
