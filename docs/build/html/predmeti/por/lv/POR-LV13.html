@@ -32,6 +32,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="TSRB_TEST 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="Laboratorijske vježbe" href="index.html"/>
         <link rel="next" title="Upute za vježbe" href="../skripta/index.html"/>
@@ -105,7 +108,7 @@
 <li class="toctree-l4"><a class="reference internal" href="POR-LV10.html">LV10</a></li>
 <li class="toctree-l4"><a class="reference internal" href="POR-LV11.html">LV11</a></li>
 <li class="toctree-l4"><a class="reference internal" href="POR-LV12.html">LV12</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="">LV13</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">LV13</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../skripta/index.html">Upute za vježbe</a></li>
@@ -170,7 +173,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/predmeti/por/lv/POR-LV13.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/predmeti/por/lv/POR-LV13.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -194,47 +197,46 @@ vezana uz ovu vježbu.</p>
 <ol class="arabic">
 <li><p class="first">Iz <strong>HOME</strong> particije ponovno pokrenuti računalo sa priključenim USB
 pogonom (prema prethodnim uputama). U <strong>Multiboot</strong> izborniku
-odabrati &#8220;<strong>System Tools</strong>&#8221;, te zatim &#8220;<strong>Windows 98</strong>&#8221; operacijski
-sustav. Volkov Commander aplikaciju pokrenuti sa &#8220;<strong>vc</strong>&#8221; naredbom.</p>
+odabrati “<strong>System Tools</strong>”, te zatim “<strong>Windows 98</strong>” operacijski
+sustav. Volkov Commander aplikaciju pokrenuti sa “<strong>vc</strong>” naredbom.</p>
 </li>
 <li><p class="first">Pomoću aplikacije <strong>MBRWIZD</strong> vratiti sadržaj datoteke
 <strong>H132HBKP.mbr</strong> na <strong>MBR</strong> tvrdog diska, te zatim ponovno pokrenuti
 računalo bez USB pogona. Odabrati <strong>Windows 7</strong> operacijski sustav.</p>
 </li>
-<li><p class="first">Pokrenuti &#8220;<strong>Device manager</strong>&#8221; konzolu (upisati ime u Start-&gt;Search
+<li><p class="first">Pokrenuti “<strong>Device manager</strong>” konzolu (upisati ime u Start-&gt;Search
 bar) i uočiti uređaje sa žutim upitnikom. Što znači taj znak?</p>
-<p><strong>DODATAK</strong>: Druga tri načina za pristup &#8220;<strong>Device manager</strong>&#8221; konzoli
-su :</p>
-</li>
-</ol>
-<ol class="loweralpha simple">
+<p><strong>DODATAK</strong>: Druga tri načina za pristup “<strong>Device manager</strong>” konzoli su:</p>
+<blockquote>
+<div><ol class="loweralpha simple">
 <li>Desni klik na Computer-&gt;Properties-&gt;<strong>Device manager</strong></li>
-<li>Start-&gt;u Search bar upisati &#8220;devmgmt.msc&#8221; ( msc ekstenzija označava
+<li>Start-&gt;u Search bar upisati “devmgmt.msc” ( msc ekstenzija označava
 Microsoft Management Console Snap-in Control datoteku)</li>
 <li>Desni klik na Computer-&gt;Manage-&gt;<strong>Device manager</strong></li>
 </ol>
-<ol class="arabic">
+</div></blockquote>
+</li>
 <li><p class="first">Spojiti mrežni kabel u računalu na donju mrežnu karticu te odabrati
-&#8220;<strong>WORK NETWORK</strong>&#8221; opciju prilikom upita.</p>
+“<strong>WORK NETWORK</strong>” opciju prilikom upita.</p>
 </li>
 <li><p class="first">Instalirati <strong>WINCDEmu</strong> aplikaciju (Setup datoteka nalazi se mrežno
 dijeljenom direktoriju, APPL poddirektorij)</p>
 </li>
 <li><p class="first">Zapisati putanju mrežno dijeljenog direktorija na kojem se nalaze
 instalacijske datoteke upravljačkih programa
-(<strong>\\IP_ADRESA\2h\por\appl\driveri</strong>)</p>
+(<strong>\IP_ADRESA\2h\por\appl\driveri</strong>)</p>
 </li>
 <li><p class="first">Stvoriti novi direktorij imena <strong>DRIVERI</strong> u korijenskom direktoriju
 <strong>BKP</strong> particije</p>
 </li>
 <li><p class="first">Kopirati sa mrežnog dijeljenog diska u direktorij <strong>DRIVERI</strong>
-datoteke : &#8220;<strong>Parallel_drivers.iso</strong>&#8221;, &#8220;<strong>Serial_drivers.iso</strong>&#8221; i
-&#8220;<strong>VGA_drivers.iso</strong>&#8221;.</p>
+datoteke : “<strong>Parallel_drivers.iso</strong>”, “<strong>Serial_drivers.iso</strong>” i
+“<strong>VGA_drivers.iso</strong>”.</p>
 </li>
-<li><p class="first">U <strong>Device manager</strong> konzoli, odabrati &#8220;<strong>Properties</strong>&#8221; na
-&#8220;<strong>Ethernet controller</strong>&#8221; uređaju, te u slijedećem prozoru odabrati
-karticu <strong>Details</strong>. U istoj kartici, u izborniku &#8220;<strong>Property</strong>&#8221;
-odabrati opciju &#8220;<strong>Hardware IDs</strong>&#8221;. Zapisati najdulju liniju i
+<li><p class="first">U <strong>Device manager</strong> konzoli, odabrati “<strong>Properties</strong>” na
+“<strong>Ethernet controller</strong>” uređaju, te u slijedećem prozoru odabrati
+karticu <strong>Details</strong>. U istoj kartici, u izborniku “<strong>Property</strong>”
+odabrati opciju “<strong>Hardware IDs</strong>”. Zapisati najdulju liniju i
 uočiti stavke <strong>PCI</strong>,<strong>VEN</strong>,<strong>DEV</strong>, <strong>SUBSYS</strong> i <strong>REV</strong></p>
 <p>(primjer <strong>PCI\VEN_10EC&amp;DEV_8168&amp;SUBSYS_76731462&amp;REV_06)</strong>.</p>
 <p>Što bi za taj uređaj predstavljale stavke <strong>PCI</strong>, <strong>VEN</strong> i <strong>DEV</strong>
@@ -249,93 +251,93 @@ PCI-Z).</p>
 <li><p class="first">U popisu prikazanih uređaja uočiti stavke sa narančastim trokutom i
 usporediti sa popisom iz 3. zadatka. Podudaraju li se stavke?</p>
 </li>
-<li><p class="first">U stavci &#8220;<strong>Ethernet controller</strong>&#8221; (u <strong>PCI-Z</strong> aplikaciji) uočiti
+<li><p class="first">U stavci “<strong>Ethernet controller</strong>” (u <strong>PCI-Z</strong> aplikaciji) uočiti
 stupce <strong>Vendor</strong> i <strong>Device</strong> te <strong>PCI Device</strong>. Što označavaju
 polja <strong>VEN</strong> (VEN_10EC) i <strong>DEV</strong> (DEV_8168) u stupcu <strong>PCI
 Device</strong> za taj uređaj. Koja tvrtka je proizvela ovaj uređaj?</p>
 </li>
-<li><p class="first">U <strong>Device manager</strong> konzoli, odabrati &#8220;<strong>Properties</strong>&#8221; na
-&#8220;<strong>Ethernet controller</strong>&#8221; uređaju, te zatim odabrati opciju
-&#8220;<strong>Update driver software</strong>&#8221;. U slijedećem prozoru odabrati opciju
+<li><p class="first">U <strong>Device manager</strong> konzoli, odabrati “<strong>Properties</strong>” na
+“<strong>Ethernet controller</strong>” uređaju, te zatim odabrati opciju
+“<strong>Update driver software</strong>”. U slijedećem prozoru odabrati opciju
 ručnog lociranja i instalacije upravljačkog programa. U lokaciju
 upisati punu putanju lokacije upravljačkih programa matične ploče,
 mrežni uređaj i upisati potrebnog proizvođača iz popisa. Ostaviti
-uključenu opciju &#8220;<strong>Include subfolders</strong>&#8221; (prilikom pretraživanja
+uključenu opciju “<strong>Include subfolders</strong>” (prilikom pretraživanja
 upravljačkih programa uređaja, instalacija će gledati i u svim
 poddirektorijima unutar zadanog) i potvrditi pretragu/instalaciju
-upravljačkih programa odabirom opcije &#8220;<strong>Next</strong>&#8221;. Uvjeriti se da je
+upravljačkih programa odabirom opcije “<strong>Next</strong>”. Uvjeriti se da je
 instalacija uspješno izvršena.</p>
 </li>
-<li><p class="first">Učitati &#8220;<strong>Serial_drivers.iso</strong>&#8221; datoteku (desni klik i <strong>Select
+<li><p class="first">Učitati “<strong>Serial_drivers.iso</strong>” datoteku (desni klik i <strong>Select
 Drive &amp; Mount</strong> opcija) kao virtualni CD</p>
 </li>
-<li><p class="first">U <strong>Device manager</strong> konzoli, odabrati &#8220;<strong>Properties</strong>&#8221; na prvom
-&#8220;<strong>PCI Serial Port</strong>&#8221; uređaju, te zatim odabrati opciju &#8220;<strong>Update
-driver software</strong>&#8221;. U slijedećem prozoru odabrati opciju ručnog
+<li><p class="first">U <strong>Device manager</strong> konzoli, odabrati “<strong>Properties</strong>” na prvom
+“<strong>PCI Serial Port</strong>” uređaju, te zatim odabrati opciju “<strong>Update
+driver software</strong>”. U slijedećem prozoru odabrati opciju ručnog
 lociranja i instalacije upravljačkog programa. Odabrati direktorij
 na učitanom virtualnom CD uređaju koji odgovara tipu i verziji
 operacijskog sustava (Microsoft Windows 7, 64 bitni). Ostaviti
-uključenu opciju &#8220;<strong>Include subfolders</strong>&#8221; i potvrditi
+uključenu opciju “<strong>Include subfolders</strong>” i potvrditi
 pretragu/instalaciju upravljačkih programa odabirom opcije
-&#8220;<strong>Next</strong>&#8221;. Uvjeriti se da je instalacija uspješno izvršena.</p>
+“<strong>Next</strong>”. Uvjeriti se da je instalacija uspješno izvršena.</p>
 </li>
-<li><p class="first">Ponoviti postupak za drugi &#8220;<strong>PCI Serial Port</strong>&#8221; nepoznati uređaj.</p>
+<li><p class="first">Ponoviti postupak za drugi “<strong>PCI Serial Port</strong>” nepoznati uređaj.</p>
 </li>
-<li><p class="first">U <strong>Device manager</strong> konzoli, odabrati &#8220;<strong>Properties</strong>&#8221; na &#8220;<strong>SM Bus
-Controller</strong>&#8221; uređaju, te u slijedećem prozoru odabrati karticu
-Details. U istoj kartici, u izborniku &#8220;<strong>Property</strong>&#8221; odabrati opciju
-&#8220;<strong>Hardware IDs</strong>&#8221;. Zapisati stavke VEN i DEV. Pomoću aplikacije
+<li><p class="first">U <strong>Device manager</strong> konzoli, odabrati “<strong>Properties</strong>” na “<strong>SM Bus
+Controller</strong>” uređaju, te u slijedećem prozoru odabrati karticu
+Details. U istoj kartici, u izborniku “<strong>Property</strong>” odabrati opciju
+“<strong>Hardware IDs</strong>”. Zapisati stavke VEN i DEV. Pomoću aplikacije
 PCI-Z prepoznati radi li se o <strong>Chipset SMBus</strong> kontroleru (
 <strong>System Management Bus</strong>), proizvođač <strong>Intel</strong> (uočiti znakovitost
 <strong>VEN</strong> polja).</p>
 </li>
 <li><p class="first">Na mrežno dijeljenom disku pronaći direktorij sa upravljačkim
-programima matične ploče, tip &#8220;<strong>chipset</strong>&#8221;, proizvođač <strong>Intel</strong>. U
-poddirektorijima ručno potražiti u svakoj &#8220;<strong>MSIinst.xml</strong>&#8221;
+programima matične ploče, tip “<strong>chipset</strong>”, proizvođač <strong>Intel</strong>. U
+poddirektorijima ručno potražiti u svakoj “<strong>MSIinst.xml</strong>”
 (otvoriti u Notepad aplikaciji, pronaći <strong>&lt;VIDDID&gt;</strong> kategoriju)
 liniju koja sadrži i odgovara <strong>VEN&amp;DEV</strong> poljima iz prošlog
 zadatka. Iz tog direktorija pokrenuti instalacijsku datoteku
-&#8220;<strong>infinst_autol.exe</strong>&#8221; i potvrdno odgovoriti na sva pitanja. Na
+“<strong>infinst_autol.exe</strong>” i potvrdno odgovoriti na sva pitanja. Na
 kraju instalacije dozvoliti ponovno pokretanje računala i provjeriti
 ispravnost instalacije.</p>
 </li>
-<li><p class="first">Desnim klikom na virtualni CD uređaj odabrati opciju &#8220;<strong>Mount
-another disc image</strong>&#8221; i odabrati &#8220;<strong>Parallel_drivers.iso</strong>&#8221;. Pomoću
+<li><p class="first">Desnim klikom na virtualni CD uređaj odabrati opciju “<strong>Mount
+another disc image</strong>” i odabrati “<strong>Parallel_drivers.iso</strong>”. Pomoću
 aplikacije <strong>PCI-Z</strong> doznati proizvođača i model kontrolera za
 paralelne portove, te na virtualnom CD uređaju odabrati prikladan
 direktorij (Proizvođač, model, verzija i tip operacijskog sustava) i
-pokrenuti &#8220;<strong>MOSCHIP_Setup.exe</strong>&#8221; instalacijsku datoteku. Nakon
+pokrenuti “<strong>MOSCHIP_Setup.exe</strong>” instalacijsku datoteku. Nakon
 završene instalacije provjeriti promjenu u <strong>Device manager</strong>
-konzoli. Ako nema promjena, odabrati opciju &#8220;<strong>Scan for hardware
-changes</strong>&#8221; u &#8220;<strong>Action</strong>&#8221; izborniku. Ima li promjena?</p>
+konzoli. Ako nema promjena, odabrati opciju “<strong>Scan for hardware
+changes</strong>” u “<strong>Action</strong>” izborniku. Ima li promjena?</p>
 </li>
 <li><p class="first">Pomoću aplikacije <strong>PCI-Z</strong> uočiti zadnji uređaj koji nema
 instaliran upravljački program, te saznati proizvođača i model
 (Intel Management Engine Interface Controller). U <strong>Device manager</strong>
-konzoli, odabrati &#8220;<strong>Properties</strong>&#8221; na &#8220;<strong>PCI Simple Communications
-Controller</strong>&#8221; uređaju, te zatim odabrati opciju &#8220;<strong>Update driver
-software</strong>&#8221;. U slijedećem prozoru odabrati opciju ručnog lociranja i
+konzoli, odabrati “<strong>Properties</strong>” na “<strong>PCI Simple Communications
+Controller</strong>” uređaju, te zatim odabrati opciju “<strong>Update driver
+software</strong>”. U slijedećem prozoru odabrati opciju ručnog lociranja i
 instalacije upravljačkog programa. U lokaciju upisati punu putanju
-lokacije upravljačkih programa matične ploče, &#8220;<strong>OtherDriver</strong>&#8221; i
-odabrati &#8220;<strong>Intel ME Driver</strong>&#8221; direktorij. Ostaviti uključenu opciju
-&#8220;<strong>Include subfolders</strong>&#8221; i potvrditi pretragu/instalaciju
-upravljačkih programa odabirom opcije &#8220;<strong>Next</strong>&#8221;. Uvjeriti se da je
+lokacije upravljačkih programa matične ploče, “<strong>OtherDriver</strong>” i
+odabrati “<strong>Intel ME Driver</strong>” direktorij. Ostaviti uključenu opciju
+“<strong>Include subfolders</strong>” i potvrditi pretragu/instalaciju
+upravljačkih programa odabirom opcije “<strong>Next</strong>”. Uvjeriti se da je
 instalacija uspješno izvršena.</p>
 </li>
-<li><p class="first">Desnim klikom na virtualni CD uređaj odabrati opciju &#8220;<strong>Mount
-another disc image</strong>&#8221; i odabrati &#8220;<strong>VGA_drivers.iso</strong>&#8221;. Pokrenuti
-&#8220;<strong>Launch.exe</strong>&#8221; datoteku, te odabrati <strong>Ati Easy Install</strong> opciju (
+<li><p class="first">Desnim klikom na virtualni CD uređaj odabrati opciju “<strong>Mount
+another disc image</strong>” i odabrati “<strong>VGA_drivers.iso</strong>”. Pokrenuti
+“<strong>Launch.exe</strong>” datoteku, te odabrati <strong>Ati Easy Install</strong> opciju (
 Windows 7 operacijski sustav). Odabrati <strong>Custom</strong> instalaciju (
 dozvoliti stvaranje direktorija), te od svih odabranih opcija za
-instalaciju isključiti &#8220;<strong>Catalyst Control Center 2</strong>&#8221;, ostale
+instalaciju isključiti “<strong>Catalyst Control Center 2</strong>”, ostale
 opcije ostaviti. Na kraju instalacije dozvoliti ponovno pokretanje
 računala i provjeriti ispravnost instalacije. Je li rezolucija
 monitora promijenjena?</p>
 </li>
 <li><p class="first">Ponovno pokrenuti računalo i u <strong>Multiboot</strong> izborniku odabrati
-&#8220;<strong>Other OS and Tools&#8221;, te zatim &#8220;Hiren&#8217;s Boot CD</strong>&#8221; stavku.
+“<strong>Other OS and Tools”, te zatim “Hiren’s Boot CD</strong>” stavku.
 Pojaviti će se slijedeći izbornik te je u njemu potrebno odabrati
-&#8220;<strong>Mini Windows XP</strong>&#8221; opciju. Nakon učitavanja &#8220;<strong>Mini Windows XP</strong>&#8221;
+“<strong>Mini Windows XP</strong>” opciju. Nakon učitavanja “<strong>Mini Windows XP</strong>”
 sustava, pojaviti će se radna površina. Pokrenuti aplikaciju
 <strong>Windows Explorer</strong>. U direktoriju <strong>IMAGE</strong> pokrenuti
 <strong>GHOST32.exe</strong> aplikaciju i prema uputama spremiti pričuvne kopije
@@ -398,12 +400,13 @@ laboratorijske vježbe (potrebno je pokrenuti skriptu iz
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

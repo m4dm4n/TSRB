@@ -32,6 +32,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="TSRB_TEST 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="Laboratorijske vježbe" href="index.html"/>
         <link rel="next" title="LV04" href="POR-LV04.html"/>
@@ -95,7 +98,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Praktične osnove računalstva</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Laboratorijske vježbe</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="POR-LV02.html">LV02</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="">LV03</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">LV03</a></li>
 <li class="toctree-l4"><a class="reference internal" href="POR-LV04.html">LV04</a></li>
 <li class="toctree-l4"><a class="reference internal" href="POR-LV05.html">LV05</a></li>
 <li class="toctree-l4"><a class="reference internal" href="POR-LV06.html">LV06</a></li>
@@ -170,7 +173,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/predmeti/por/lv/POR-LV03.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/predmeti/por/lv/POR-LV03.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -220,17 +223,17 @@ TinyCore.</p>
 <li><p class="first">Kopirati SRW98BIG.IMG u Multiboot direktorij.</p>
 </li>
 <li><p class="first">Ručno dodati slijedeći kod u datoteku SYSTEM.CFG koja se nalazi na
-putanji &#8220;\multiboot\menu\system.cfg&#8221;. Tekst dodati nakon linije sa sadržajem &#8220;MENU
-SEPARATOR&#8221;. Obavezno ostaviti praznu liniju prije ubacivanja koda:</p>
-<div class="highlight-python"><div class="highlight"><pre>label unetbootindefault
+putanji “\multiboot\menu\system.cfg”. Tekst dodati nakon linije sa sadržajem “MENU
+SEPARATOR”. Obavezno ostaviti praznu liniju prije ubacivanja koda:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">label</span> <span class="n">unetbootindefault</span>
 
-menu label DOS - MS WINDOWS 98
+<span class="n">menu</span> <span class="n">label</span> <span class="n">DOS</span> <span class="o">-</span> <span class="n">MS</span> <span class="n">WINDOWS</span> <span class="mi">98</span>
 
-MENU INDENT 1
+<span class="n">MENU</span> <span class="n">INDENT</span> <span class="mi">1</span>
 
-kernel memdisk
+<span class="n">kernel</span> <span class="n">memdisk</span>
 
-append initrd=/multiboot/srw98big.img
+<span class="n">append</span> <span class="n">initrd</span><span class="o">=/</span><span class="n">multiboot</span><span class="o">/</span><span class="n">srw98big</span><span class="o">.</span><span class="n">img</span>
 </pre></div>
 </div>
 </li>
@@ -289,12 +292,13 @@ ispravnost instalacije.</p>
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

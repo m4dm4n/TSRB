@@ -31,8 +31,7 @@ vezana uz ovu vježbu.
    i provjeriti uspješnost podizanja TinyCore Linux distribucije, te se
    zatim vratiti u Windows 10 operacijski sustav
 
-5. Instalirati EasyBCD aplikaciju sa lokacije
-   `\\\\IP\_ADRESA\\2h\\por\\appl\\` __
+5. Instalirati EasyBCD aplikaciju sa lokacije \\\\IP\_ADRESA\\2h\\por\\appl\\
 
 6. Pokrenuti EasyBCD aplikaciju i proučiti sučelje.
 

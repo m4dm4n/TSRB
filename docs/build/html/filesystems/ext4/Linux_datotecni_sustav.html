@@ -32,6 +32,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="TSRB_TEST 1.0 documentation" href="../../index.html"/>
         <link rel="up" title="EXT4" href="index.html"/>
         <link rel="next" title="NTFS" href="../ntfs/index.html"/>
@@ -93,7 +96,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../pojmovi.html"><strong>Pojmovi</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../opcenito.html"><strong>Što je datotečni sustav</strong></a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">EXT4</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href=""><strong>Razvoj EXT4 datotečnog sustava</strong></a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><strong>Razvoj EXT4 datotečnog sustava</strong></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#struktura-ext4-datotecnog-sustava"><strong>Struktura EXT4 datotečnog sustava</strong></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#grupe-blokova"><strong>Grupe blokova</strong></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#superblock"><strong>Superblock</strong></a></li>
@@ -169,7 +172,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/filesystems/ext4/Linux_datotecni_sustav.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/filesystems/ext4/Linux_datotecni_sustav.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -193,7 +196,7 @@ sustav, koji je i danas popularan na mnogim računalima.</p>
 <p>Ubrzo je stvoren EXT3 datotečni sustav, koji zadržava kompatibilnost sa
 EXT2, no omogućava i slijedeće nove značajke : Dnevnik zapisa (eng.
 Journal), Mogućnost proširenja veličine datotečnog sustava (čak i u
-&#8220;online&#8221; modu) , Hash-tree indeksiranje za velike direktorije.</p>
+“online” modu) , Hash-tree indeksiranje za velike direktorije.</p>
 <p>Zadnja iteracija EXT datotečnih sustava je EXT4.</p>
 <div class="line-block">
 <div class="line">Sam povijesni razvoj općenitih datotečnih sustava moguće je pogledati
@@ -351,7 +354,7 @@ znakova u imenu</strong>)</li>
 <li>UUID volumena (s_uuid[16], char)</li>
 <li>Podržane značajke datotečnog sustava (s_feature_compat,
 s_feature_incompat, s_feature_ro_compat)</li>
-<li>Itd...</li>
+<li>Itd…</li>
 </ul>
 <p>Kompletan opis cijele SuperBlock strukture je opisana na slijedećoj
 poveznici :
@@ -369,7 +372,7 @@ EXT3,EXT4) na toj particiji.</p>
 <p>Navedena struktura, za razliku od SuperBlock dijela sadrži informacije o
 konfiguracijama pojedinih grupa. Jednako kao i u slučaju SuperBlock
 strukture, Group Descriptors se kopira u svaku grupu blokova (eng. Block
-Groups), osim ako nije uključena značajka &#8220;sparse_super&#8221;. U tom slučaju
+Groups), osim ako nije uključena značajka “sparse_super”. U tom slučaju
 vrijede pravila kao i za SuperBlock. Na početku grupe blokova koje
 nemaju kopiju SuperBlock i Group Descriptors struktura, nalazi se
 slijedeća struktura po redoslijedu ( uglavnom Data Block Bitmap, iako to
@@ -394,7 +397,7 @@ prazna datoteka od 100MB te je na nju postavljen EXT4 datotečni sustav
 (mkfs.ext4 alat, veličina bloka je 4k).</p>
 <p>Prvo će biti predstavljene informacije o datotečnom sustavu pomoću alata
 fsstat (dio grupe alata unutar sleuthkit paketa, instalirati sa naredbom
-&#8220;apt-get install sleuthkit&#8221;). Informacije koje nemaju nikakvu vrijednost
+“apt-get install sleuthkit”). Informacije koje nemaju nikakvu vrijednost
 vezane uz ovaj primjer su izrezane iz izlaznog rezultata (/cut linije).
 Nakon fsstat izlaza, bit će prikazan ispis kompletne Group Descriptors
 strukture u originalnom obliku koji je zapisan na disk. Bojama su
@@ -417,7 +420,7 @@ liniji)</p>
 <p>File System Type: Ext4</p>
 <p>Volume Name:</p>
 <p>Volume ID: d0342eb32c739ab934523487c8ced4b</p>
-<p><tt class="docutils literal"><span class="pre">**/cut</span> <span class="pre">**</span></tt></p>
+<p><code class="docutils literal notranslate"><span class="pre">**/cut</span> <span class="pre">**</span></code></p>
 <p>Source OS: Linux</p>
 <p>Dynamic Structure</p>
 <p>Compat Features: Journal, Ext Attributes, Resize Inode, Dir Index</p>
@@ -470,12 +473,12 @@ heksadecimalni oblik), originalni zapis (heksadecimalni oblik, little
 endian način zapisa, 16B u jednoj liniji), te zapis u ASCII obliku.</p>
 <p><a class="reference external" href="mailto:ids&#37;&#52;&#48;ids2">ids<span>&#64;</span>ids2</a> ~/LINUX_PRIMJERI $ dd if=disk_image_100M bs=4096 skip=1
 count=1 | xxd</p>
-<p>0000000:0800 0000 1800 0000 2800 0000 d05c f563 ........(....\.c</p>
-<p>0000010:0200 0400 0000 0000 0000 0000 f563 0f8e .............c..</p>
-<p>0000020:0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
-<p>0000030:0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
-<p>0000040:0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
-<p>0000050:0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
+<p>0000000:0800 0000 1800 0000 2800 0000 d05c f563 ……..(…..c</p>
+<p>0000010:0200 0400 0000 0000 0000 0000 f563 0f8e ………….c..</p>
+<p>0000020:0000 0000 0000 0000 0000 0000 0000 0000 …………….</p>
+<p>0000030:0000 0000 0000 0000 0000 0000 0000 0000 …………….</p>
+<p>0000040:0000 0000 0000 0000 0000 0000 0000 0000 …………….</p>
+<p>0000050:0000 0000 0000 0000 0000 0000 0000 0000 …………….</p>
 <p>Od cijelog bloka veličine 4kB, prikazano je samo prvih 96B, s obzirom da
 je nakon 32. bajta blok ispunjen nulama. Temeljem izlaznih podataka,
 može se zaključiti kako se na datotečnom sustavu nalazi samo jedna grupa
@@ -523,7 +526,7 @@ dijelovi.</p>
 <p>File System Type: Ext4</p>
 <p>Volume Name:</p>
 <p>Volume ID: d0342eb32c739ab934523487c8ced4b</p>
-<p><tt class="docutils literal"><span class="pre">**/cut</span> <span class="pre">**</span></tt></p>
+<p><code class="docutils literal notranslate"><span class="pre">**/cut</span> <span class="pre">**</span></code></p>
 <p>Source OS: Linux</p>
 <p>Dynamic Structure</p>
 <p>Compat Features: Journal, Ext Attributes, Resize Inode, Dir Index</p>
@@ -538,8 +541,8 @@ Inode Size</p>
 <p>Super Block: 0 - 0</p>
 <p>Group Descriptor Table: 1 - 1</p>
 <p>Group Descriptor Growth Blocks: 2 - 7</p>
-<p><tt class="docutils literal"><span class="pre">**/cut**</span></tt></p>
-<p>Moguće je uočiti kako je aktivna značajka &#8220;Resize Inode&#8221;, te je
+<p><code class="docutils literal notranslate"><span class="pre">**/cut**</span></code></p>
+<p>Moguće je uočiti kako je aktivna značajka “Resize Inode”, te je
 rezervirano dodatnih 6 blokova za buduće proširenje datotečnog sustava i
 to odmah u nastavku nakon Group Descriptor tablice (iako je na prvi
 pogled samo 6 rezerviranih blokova daleko od faktora povećanja 1024x,
@@ -556,9 +559,9 @@ specijalnog Inodea sa brojem 7 (proučiti specijalne Inodeove).</p>
 <div class="line">File ACL: 0 Directory ACL: 0</div>
 <div class="line">Links: 1 Blockcount: 56</div>
 <div class="line">Fragment: Address: 0 Number: 0 Size: 0</div>
-<div class="line">ctime: 0x591d7d95 &#8211; Thu May 18 12:55:17 2017</div>
-<div class="line">atime: 0x591d7d95 &#8211; Thu May 18 12:55:17 2017</div>
-<div class="line">mtime: 0x591d7d95 &#8211; Thu May 18 12:55:17 2017</div>
+<div class="line">ctime: 0x591d7d95 – Thu May 18 12:55:17 2017</div>
+<div class="line">atime: 0x591d7d95 – Thu May 18 12:55:17 2017</div>
+<div class="line">mtime: 0x591d7d95 – Thu May 18 12:55:17 2017</div>
 <div class="line">BLOCKS:</div>
 <div class="line">(DIND):840, (IND):2, (IND):3, (IND):4, (IND):5, (IND):6, (IND):7</div>
 <div class="line">TOTAL: 7</div>
@@ -631,15 +634,15 @@ blokova i rezerviranih GDT blokova ne može biti veći od 1024 blokova.</p>
 sam sadržaj neke datoteke (odnosno upućuje na podatkovne blokove te
 datoteke). U samom Inodeu se nalaze određeni metapodaci o datoteci na
 koju upućuje (vrijeme stvaranja, modificiranja, veličina, lokacija na
-datotečnom sustavu...).</p>
+datotečnom sustavu…).</p>
 <p>Uprocesu stvaranja datotečnog sustava (podjela particije na blokove,
-stvaranje osnovnih struktura...), stvara se i tablica Inodeova, gdje
+stvaranje osnovnih struktura…), stvara se i tablica Inodeova, gdje
 njihov broj ovisi o zadanom omjeru broj_bajtova/Inode. Drugim riječima,
 za svaki broj bajtova na datotečnom sustavu bit će stvoren jedan Inode.
 Sam omjer može se vidjeti u konfiguracijskoj datoteci alata <strong>mke2fs</strong>
 (/etc/mke2fs.conf):</p>
 <p>[defaults]</p>
-<p>...</p>
+<p>…</p>
 <p>blocksize = 4096</p>
 <p>inode_size = 256</p>
 <p>inode_ratio = 16384</p>
@@ -653,7 +656,7 @@ has_journal,extent,huge_file,flex_bg,uninit_bg,dir_nlink,extra_isize</p>
 <p>auto_64-bit_support = 1</p>
 <p>inode_size = 256</p>
 <p>}</p>
-<p>...</p>
+<p>…</p>
 <p>big = {</p>
 <p>inode_ratio = 32768</p>
 <p>}</p>
@@ -749,7 +752,7 @@ count=23000</strong></p>
 blokovi (100% zauzeće) dok je iskorišten samo jedan dodatan Inode za
 datoteku. Datoteka je na kraju obrisana.</strong></p>
 <p><strong>U slijedećem primjeru će se stvoriti velik broj simboličkih linkova
-koji upućuju na direktorij &#8220;lost+found&#8221;.</strong></p>
+koji upućuju na direktorij “lost+found”.</strong></p>
 <p><strong>ids&#64;ids2 for i in {1..25595};do ln -s lost+found/ mirko$i;echo
 $i;done</strong></p>
 <p>1</p>
@@ -779,7 +782,7 @@ bitna koncepta implementirana u EXT datotečne sustave, a to su :</p>
 <p>Koncepti će biti pojašnjeni kroz slijedeći primjer, a to je ispis
 sadržaja korijenskog direktorija:</p>
 <p><a class="reference internal" href="../../_images/image6.png"><img alt="image5" src="../../_images/image6.png" style="width: 6.30000in; height: 3.31667in;" /></a></p>
-<p>Između ostalih opcija naredbe &#8220;ls&#8221; za ispis sadržaja direktorija,
+<p>Između ostalih opcija naredbe “ls” za ispis sadržaja direktorija,
 korištena je i opcija -i (prikaz i broja indeksa svake datoteke, odnosno
 Inode vezan uz samu datoteku).</p>
 <p>Kao što je već rečeno, na EXT datotečnim sustavima sve je prikazano kao
@@ -789,7 +792,7 @@ slobodan nedodijeljen Inode se povezuje sa tom datotekom (koju još u
 ovom trenutku zapravo definira isključivo sadržaj, recimo tekst neke
 tekstualne datoteke, bez imena). U samom Inodeu se nalaze metapodaci o
 toj novostvorenoj datoteci (vlasnik datoteke, veličina, vremena
-pristupa/izmjene/stvaranja...). Ono što se ne nalazi u nijednom od
+pristupa/izmjene/stvaranja…). Ono što se ne nalazi u nijednom od
 navedenih pojmova (datoteka, Inode) je bitna stavka za korisnike
 sustava, a to je <strong>ime datoteke</strong>. Ime datoteke se stvara kao stavka u
 nekom direktoriju. Ta stavka se u osnovi sastoji od dvije stvari : ime
@@ -798,17 +801,17 @@ link) između samog sirovog sadržaja datoteke, dodijeljenog joj indeks
 broja, te mogućnošću pristupa toj datoteci preko imena koje se nalazi u
 određenom direktoriju.</p>
 <p>Vraćajući se na gornji primjer na slici, svijetloplavom bojom je
-označena jedna stavka direktorija. Ime te stavke je jedna točka &#8221;.&#8221; ,
+označena jedna stavka direktorija. Ime te stavke je jedna točka “.” ,
 što je zapravo specijalno ime direktorija koje upućuje na samog sebe.
 Drugim riječima, s obzirom da je naredba za ispis sadržaja direktorija
 pokrenuta iz korijenskog direktorija (koji je na vrhu same hijerarhije
 direktorija, odnosno ne postoji prethodni direktorij iznad njega),
-stavka sa imenom točka &#8221;.&#8221; zapravo upućuje na isti taj korijenski
-direktorij. Slijedeća stavka u direktoriju ima ime od dvije točke &#8221;..&#8221;,
+stavka sa imenom točka “.” zapravo upućuje na isti taj korijenski
+direktorij. Slijedeća stavka u direktoriju ima ime od dvije točke “..”,
 što je još jedno specijalno ime direktorija koje upućuje na prethodni
 direktorij u hijerarhiji. Kako je već rečeno da ne postoji prethodni
 direktorij iznad korijenskog direktorija, stavka sa imenom dvije točke
-&#8221;..&#8221; će ponovno upućivati na isti taj korijenski direktorij. Prilikom
+“..” će ponovno upućivati na isti taj korijenski direktorij. Prilikom
 stvaranja svakog novog direktorija na datotečnom sustavu automatski će
 se stvoriti i navedene dvije stavke.</p>
 <p>Za pojašnjenje, prikazano je kretanje kroz direktorije koristeći pune
@@ -824,17 +827,17 @@ primijetiti kako je u jednom koraku prođeno više direktorija u
 strukturi.</p>
 <p>Slijedeći primjer u radnom direktoriju putanje /etc/init.d prikazuje
 kako se korištenjem naredbe za izmjenu direktorija (naredba <strong>cd</strong>) i
-argumentom sa imenom točka &#8221;.&#8221;, nije promijenila lokacija direktorija.
+argumentom sa imenom točka “.”, nije promijenila lokacija direktorija.
 Nakon toga, višekratnom uporabom naredbe za izmjenu direktorija i
-argumentom sa imenom dvije točke &#8221;..&#8221;, u svakom koraku se radni
+argumentom sa imenom dvije točke “..”, u svakom koraku se radni
 direktorij promijenio za jedan korak iznad u hijerarhiji, sve do
-korijenskog direktorija &#8220;/&#8221;. Zadnja tri primjera pokazuju kako upotreba
-argumenata &#8221;.&#8221; ili &#8221;..&#8221; ne mijenja samu lokaciju radnog direktorija,
+korijenskog direktorija “/”. Zadnja tri primjera pokazuju kako upotreba
+argumenata “.” ili “..” ne mijenja samu lokaciju radnog direktorija,
 odnosno jednaka je kao i u primjeru kada se koristi apsolutna putanja sa
-navedenim argumentom imena korijenskog direktorija &#8220;/&#8221;.</p>
+navedenim argumentom imena korijenskog direktorija “/”.</p>
 <div class="line-block">
 <div class="line">Vraćajući se na primjer stavke korijenskog direktorija sa imenom točka
-&#8221;.&#8221; označene u svijetloplavom pravokutniku, brojka 2 u prvom stupcu
+“.” označene u svijetloplavom pravokutniku, brojka 2 u prvom stupcu
 (stupac je označen crvenom bojom za sve stavke u direktoriju) označava
 broj indeksa ( eng. Inode) dodijeljen toj datoteci (podsjetnik: sve je
 datoteka). Time je stvorena poveznica između sadržaja datoteke i
@@ -855,16 +858,16 @@ prije pojašnjenja tog primjera, bolje je koncept objasniti prvo na
 jednostavnijem.</p>
 <p><a class="reference internal" href="../../_images/image8.png"><img alt="image7" src="../../_images/image8.png" style="width: 5.41667in; height: 0.95833in;" /></a></p>
 <p>Kao što je vidljivo na slici, stvorena je nova prazna datoteka imena
-&#8220;svjetske_tajne.txt&#8221;. Sam sadržaj datoteke (u ovom slučaju ga nema) se
+“svjetske_tajne.txt”. Sam sadržaj datoteke (u ovom slučaju ga nema) se
 nalazi u nekom podatkovnom bloku na datotečnom sustavu, dodijeljen joj
 je 929568. Inode iz Inode tablice ( time je stvorena čvrsta poveznica),
 te je na kraju procesa i stvorena stavka direktorija s imenom
-&#8220;svjetske_tajne.txt&#8221; koja upućuje na taj Inode. Vidljivo je i kako je
+“svjetske_tajne.txt” koja upućuje na taj Inode. Vidljivo je i kako je
 trenutan broj čvrstih poveznica prema toj datoteci samo jedan.</p>
-<p>Pomoću naredbe za stvaranje poveznica između datoteka &#8220;ln&#8221; (standardne
+<p>Pomoću naredbe za stvaranje poveznica između datoteka “ln” (standardne
 vrijednosti podrazumijevaju stvaranje fizičkih poveznica, no moguće je
 stvaranje i simboličkih) stvorit će se dvije poveznice na postojeću
-datoteku &#8220;svjetske_tajne.txt&#8221;. Prikazom sadržaja direktorija (opcija za
+datoteku “svjetske_tajne.txt”. Prikazom sadržaja direktorija (opcija za
 prikaz Inode brojeva uključena) moguće je uočiti kako obje novostvorene
 datoteke upućuju na jednak Inode pod brojem 929568. Dodatno, može se
 primijetiti kako je broj čvrstih poveznica prema toj datoteci povećan sa
@@ -954,46 +957,41 @@ je drugačiji od čvrstih poveznica. Za razliku od čvrstih poveznica koje
 dijele isti Inode sa originalnom datotekom, simboličke poveznice su nove
 datoteke sa drugim dodijeljenim Inodeom (kao i kod svakog stvaranja
 datoteke). Osnovne razlike u odnosu na čvrste poveznice su :</p>
-<ul>
-<li><p class="first">Simbolička poveznica i originalna datoteka ne dijele isti Inode broj</p>
-</li>
+<ul class="simple">
+<li>Simbolička poveznica i originalna datoteka ne dijele isti Inode broj</li>
 <li><dl class="first docutils">
 <dt>Simboličke poveznice mogu upućivati na datoteke koje se nalaze na</dt>
-<dd><p class="first last">različitom datotečnom sustavu (na drugoj particiji)</p>
-</dd>
+<dd>različitom datotečnom sustavu (na drugoj particiji)</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>Nakon brisanja originalne datoteke na koju upućuje simbolička</dt>
-<dd><p class="first last">poveznica, ona više nije dostupna</p>
-</dd>
+<dd>poveznica, ona više nije dostupna</dd>
 </dl>
 </li>
-<li><p class="first">Dodavanje simboličkih poveznica ne mijenja brojač čvrstih poveznica</p>
-</li>
-<li><p class="first">Mogu upućivati na direktorije</p>
-</li>
+<li>Dodavanje simboličkih poveznica ne mijenja brojač čvrstih poveznica</li>
+<li>Mogu upućivati na direktorije</li>
 </ul>
 <p>Razlika može biti prikazana i na način kao u donjoj slici:</p>
 <p>Drugim riječima, simboličke poveznice najviše podsjećaju na termin
 poveznica u svakodnevnom korištenju (eng. shortcut) jer samo ukazuju na
 lokaciju željene datoteke.</p>
 <p>U primjeru na slici ispod stvorena je simbolička poveznica (može se
-koristiti već spomenuta aplikacija za stvaranje poveznica &#8220;ln&#8221; uz
-upotrebu opcije &#8220;-s&#8221;). Simbolička poveznica je poseban tip datoteke te
-je tako i označena u ispisu sadržaja direktorija (primijetiti slovo &#8220;L&#8221;
+koristiti već spomenuta aplikacija za stvaranje poveznica “ln” uz
+upotrebu opcije “-s”). Simbolička poveznica je poseban tip datoteke te
+je tako i označena u ispisu sadržaja direktorija (primijetiti slovo “L”
 unutar žutog okvira, eng. Link).</p>
 <p>Nadalje, može se primijetiti kako simbolička poveznica pod imenom
-&#8220;SIMBOLIČKI&#8221; i Inode brojem 929994 upućuje na datoteku &#8220;hostname&#8221;
+“SIMBOLIČKI” i Inode brojem 929994 upućuje na datoteku “hostname”
 (unutar /etc direktorija) sa drugačijim Inode brojem 785066. U ovom
 slučaju , veličina datoteke SIMBOLIČKI je 13 bajta (putanja
 /etc/hostname zauzima ukupno 13 znakova).</p>
 <p><a class="reference internal" href="../../_images/image17.png"><img alt="image15" src="../../_images/image17.png" style="width: 6.30000in; height: 0.68588in;" /></a></p>
 <p>No, što se nalazi unutar simboličke poveznice, koji je sadržaj te
-datoteke? Standardnim načinom (npr. aplikacijom &#8220;cat&#8221;) će se uvijek
+datoteke? Standardnim načinom (npr. aplikacijom “cat”) će se uvijek
 prikazati sadržaj datoteke na koju poveznica upućuje, što je i dokazano
 u slijedećem primjeru. Za prikaz stvarnog sadržaja simboličke poveznice,
-može se koristiti aplikacija &#8220;readlink&#8221;.</p>
+može se koristiti aplikacija “readlink”.</p>
 <p><a class="reference internal" href="../../_images/image18.png"><img alt="image16" src="../../_images/image18.png" style="width: 4.48819in; height: 0.97708in;" /></a></p>
 <p>Detaljniji pregled karakteristika simboličke poveznice prikazati će
 jednu zanimljivost, nije dodijeljen nijedan podatkovni blok za zapis
@@ -1010,13 +1008,13 @@ zapis sadržaja.</p>
 Inode brojem 929994.</p>
 <p>S obzirom da je struktura datotečnog sustava raspodijeljena po grupama,
 potrebno je saznati grupu u kojoj se nalazi Inode. Aplikacija
-&#8220;<strong>istat</strong>&#8221; prikazuje i grupu blokova u kojoj se nalazi Inode, a ona je
+“<strong>istat</strong>” prikazuje i grupu blokova u kojoj se nalazi Inode, a ona je
 pod brojem 113.</p>
 <p>Detaljnu strukturu datotečnog sustava je moguće iščitati pomoću već
-spomenute aplikacije &#8220;<strong>fsstat</strong>&#8221;. Izlazni rezultat bit će spremljen u
-datoteku &#8220;<strong>fsstat_sda2</strong>&#8221; (<strong>sda2</strong> je uređaj na kojem se nalazi
+spomenute aplikacije “<strong>fsstat</strong>”. Izlazni rezultat bit će spremljen u
+datoteku “<strong>fsstat_sda2</strong>” (<strong>sda2</strong> je uređaj na kojem se nalazi
 datotečni sustav). Zatim će se upotrebom uzorka za pretraživanje (pomoću
-&#8220;<strong>grep</strong>&#8221; aplikacije i korištenjem opcije <strong>-n</strong> za prikaz linije u
+“<strong>grep</strong>” aplikacije i korištenjem opcije <strong>-n</strong> za prikaz linije u
 datoteci) prikazati linija u datoteci na kojoj se nalazi traženi filter.</p>
 <p>Slijedeći korak je ispis sadržaja datoteke na ekran, počevši od nađene
 linije, sve do završetka informacija koje se tiču detalja grupe blokova
@@ -1080,23 +1078,20 @@ putanja odredišne datoteke? Zašto? Opisati proces izračuna.</p>
 <p><a class="reference internal" href="../../_images/image25.png"><img alt="image23" src="../../_images/image25.png" style="width: 6.30000in; height: 3.76923in;" /></a></p>
 <p>Proučiti radnje na gornjoj slici, te na temelju upisanih naredbi i
 izlaznih rezultata odgovoriti:</p>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Koje izmjene i karakteristike ima kopirana simbolička poveznica</dt>
-<dd><p class="first last">(Inode, Veličina datoteke, Prava pristupa)? Što se može zaključiti?</p>
-</dd>
+<dd>(Inode, Veličina datoteke, Prava pristupa)? Što se može zaključiti?</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>Koje izmjene i karakteristike ima premještena simbolička poveznica</dt>
-<dd><p class="first last">(Inode, Veličina datoteke, Prava pristupa)? Što se može zaključiti?</p>
-</dd>
+<dd>(Inode, Veličina datoteke, Prava pristupa)? Što se može zaključiti?</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>Upućuje li premještena simbolička poveznica na ispravnu putanju</dt>
-<dd><p class="first last">odredišne datoteke? Zašto?</p>
-</dd>
+<dd>odredišne datoteke? Zašto?</dd>
 </dl>
 </li>
 </ul>
@@ -1129,30 +1124,23 @@ datoteka?</li>
 <p>Direktorij u EXT datotečnim sustavima je zapravo datoteka u koju su
 zapisane stavke , odnosno objekti unutar direktorija. Svaka stavka
 sadrži slijedeće informacije:</p>
-<ul>
-<li><p class="first">Inode broj na koji upućuje stavka direktorija</p>
-</li>
-<li><p class="first">Ukupna duljina stavke</p>
-</li>
-<li><p class="first">Duljina imena stavke</p>
-</li>
+<ul class="simple">
+<li>Inode broj na koji upućuje stavka direktorija</li>
+<li>Ukupna duljina stavke</li>
+<li>Duljina imena stavke</li>
 <li><dl class="first docutils">
-<dt>Tip datoteke (pod uvjetom da je aktivna &#8220;filetype&#8221; značajka u</dt>
-<dd><p class="first last">datotečnom sustavu)</p>
-</dd>
+<dt>Tip datoteke (pod uvjetom da je aktivna “filetype” značajka u</dt>
+<dd>datotečnom sustavu)</dd>
 </dl>
 </li>
-<li><p class="first">Ime datoteke</p>
-</li>
+<li>Ime datoteke</li>
 </ul>
 <p>Zapisi u direktorij izvršeni su na jedan od dva načina :</p>
-<ul>
-<li><p class="first">Linearni način zapisa</p>
-</li>
+<ul class="simple">
+<li>Linearni način zapisa</li>
 <li><dl class="first docutils">
 <dt>Indeksirani način zapisa (eng. Hash tree , mora biti aktivna</dt>
-<dd><p class="first last">&#8220;dir_index&#8221; značajka u datotečnom sustavu)</p>
-</dd>
+<dd>“dir_index” značajka u datotečnom sustavu)</dd>
 </dl>
 </li>
 </ul>
@@ -1165,7 +1153,7 @@ primjera može se vidjeti kako svaka stavka sadrži slijedeće informacije:</p>
 <ul class="simple">
 <li>Inode broj</li>
 <li>Vrsta datoteke (npr. direktorij, simbolička poveznica, regularna
-datoteka...)</li>
+datoteka…)</li>
 <li>Prava pristupa (Vlasnik, Grupa, Ostali)</li>
 <li>Broj čvrstih poveznica</li>
 <li>Vlasnik datoteke</li>
@@ -1183,7 +1171,7 @@ imena datoteke. Jedino mjesto gdje se spominje ime datoteke (između
 spomenute veze Inode broja, sadržaja datoteke i stavke direktorija) jest
 u samoj stavci unutar direktorija.</p>
 <p><strong>Napomena:</strong></p>
-<p>Ovisno o podržava li datotečni sustav značajku &#8220;filetype&#8221; u samu stavku
+<p>Ovisno o podržava li datotečni sustav značajku “filetype” u samu stavku
 direktorija se ujedno sprema i tip datoteke. U suprotnom, spremaju se
 samo ime datoteke i Inode broj. Je li značajka aktivna na datotečnom
 sustavu može se vidjeti postupkom prikazanom na slijedećem primjeru:</p>
@@ -1234,7 +1222,7 @@ datoteku, te se sadržaj prikazuje nekim hex editorom (u ovom slučaju
 <strong>ghex</strong>). S obzirom da je ostatak podatkovnog bloka prazan, nije
 prikazan na slici.</p>
 <p><a class="reference internal" href="../../_images/image31.png"><img alt="image29" src="../../_images/image31.png" style="width: 6.30000in; height: 3.20164in;" /></a></p>
-<p>S obzirom da datotečni sustav ima aktiviranu podršku &#8220;filetype&#8221; za
+<p>S obzirom da datotečni sustav ima aktiviranu podršku “filetype” za
 spremanje tipa datoteke u strukturu stavke direktorija, ona će biti
 slijedeće strukture:</p>
 <table border="1" class="docutils">
@@ -1317,7 +1305,7 @@ slijedeće strukture:</p>
 <p>2E-&gt;0x 2E = .</p>
 <p>000000-&gt;Ostatak do kraja stavke</p>
 <p>Zaključak, radi se o prvoj stavci direktorija, koji upućuje na samog
-sebe. Direktoriji &#8221;.&#8221; i &#8221;..&#8221; su uvijek prve dvije stavke u svakom
+sebe. Direktoriji “.” i “..” su uvijek prve dvije stavke u svakom
 direktoriju.</p>
 <p>Primjer datoteke disk_image_100M</p>
 <p>E1300E00-&gt;0x000E30E1 = 930017</p>
@@ -1334,9 +1322,9 @@ aplikacije za prikaz sadržaja direktorija.</p>
 <p><strong>Za vježbu:</strong></p>
 <p>Na gore prikazani način pronaći i zapisati informacije za slijedeće
 stavke:</p>
-<p><strong>Direktorij &#8221;..&#8221;</strong></p>
-<p><strong>Datoteka &#8220;fsstat_sda2&#8221;</strong></p>
-<p><strong>Direktorij &#8220;SIMLINKOVI&#8221;</strong></p>
+<p><strong>Direktorij “..”</strong></p>
+<p><strong>Datoteka “fsstat_sda2”</strong></p>
+<p><strong>Direktorij “SIMLINKOVI”</strong></p>
 </div>
 <div class="section" id="indeksirani-nacin-zapisa-u-direktorij">
 <h1><strong>Indeksirani način zapisa u direktorij</strong><a class="headerlink" href="#indeksirani-nacin-zapisa-u-direktorij" title="Permalink to this headline">¶</a></h1>
@@ -1393,7 +1381,7 @@ implementacijama zapisa)</p>
 </li>
 <li><p class="first">Stavke u strukturi su povezane (eng. linked list), te nije moguće
 nasumično pretraživanje (C je vezan uz B koji je vezan za A)</p>
-<p>Itd...</p>
+<p>Itd…</p>
 </li>
 </ol>
 <p>Drugim riječima, postoje razne situacije u kojima se koristi linearno
@@ -1596,7 +1584,7 @@ prema hash vrijednosti.</p>
 <p>Koraci prilikom pretraživanja neke datoteke su slijedeći :</p>
 <ol class="arabic simple">
 <li>Pročitaj sadržaj prvog bloka datoteke direktorija (eng. Index Root)</li>
-<li>Izračunaj hash vrijednost datoteke (Datoteka11.txt -&gt; 0x9f2ceffc...)</li>
+<li>Izračunaj hash vrijednost datoteke (Datoteka11.txt -&gt; 0x9f2ceffc…)</li>
 <li>Odluči koji list čvor pretraživati (Hash vrijednost ranga odabranog
 list čvora u sebi sadrži i hash vrijednost odredišne datoteke)</li>
 <li>Ako nađeni čvor nije list čvor, pretraživanje se nastavlja u nižoj
@@ -1621,7 +1609,7 @@ sadržaj nekog direktorija u kojem se nalazi deset datoteka
 (Datoteka1.txt - Datoteka10.txt). Na slici nije prikazan cijeli blok iz
 razloga što je ostatak prostora prazan. Metoda linearnog pristupa i
 zapisa se koristi sve dok se ne popuni cijeli blok zapisima. Crvenim
-okvirom su označeni zapisi za direktorije &#8221;.&#8221; i &#8221;..&#8221;. Nakon njih kreću
+okvirom su označeni zapisi za direktorije “.” i “..”. Nakon njih kreću
 zapisi za datoteke.</p>
 <p><strong>Prije Indeksiranja</strong></p>
 <p>Nakon što se zapisima popuni dodijeljeni blok, ako datotečni sustav
@@ -1630,14 +1618,14 @@ dodijeljuje minimalan potreban broj blokova za Htree stablo. Prvi blok
 (koji je bio popunjen linearnim zapisima) mijenja funkciju i strukturu,
 te postaje DX_ROOT (Index Root). Prvo se može primijetiti promjena u
 odnosu na gornju sliku. Radi kompatibilnosti , zapisi označenih
-direktorija i dalje ostaju, no duljina zapisa direktorija &#8221;..&#8221; je
+direktorija i dalje ostaju, no duljina zapisa direktorija “..” je
 promijenjena u 4084 bajta (vidljivo u označenom okviru, vrijednost
 0x0FF4, odnosno sve do kraja bloka (prvi zapis je duljine 12 bajta,
 ukupno 4096 bajta). Razlog tomu je za slučaj ako bi se podigao EXT2/EXT3
 (bez podrške pregleda/upravljanja Htree strukture) datotečni sustav na
 particiji sa navedenim direktorijem, kako se ne bi izmijenila Htree
 struktura sa pokušajem linearnog zapisa. U tom slučaju će se nakon
-ispisa &#8221;.&#8221; i &#8221;..&#8221; stavki preskočiti cijeli blok, te će se slijedeći blok
+ispisa “.” i “..” stavki preskočiti cijeli blok, te će se slijedeći blok
 normalno pretraživati linearnim algoritmom.</p>
 <p>Nakon dvije stavke navedenih direktorija, slijedi struktura koja opisuje
 detalje stvorene Htree strukture :</p>
@@ -1694,7 +1682,7 @@ direktorija (5 blokova po 4096 bajta).</p>
 informacije. Vidljivo je koji su podatkovni blokovi dodijeljeni (imati
 na umu da se ovdje radi o apsolutnim adresama tih blokova, za razliku od
 relativnih u odnosu na direktorij), te da je aktivna zastavica opcije
-&#8220;Hash Indexed Directory&#8221;.</p>
+“Hash Indexed Directory”.</p>
 <p><a class="reference internal" href="../../_images/image45.png"><img alt="image35" src="../../_images/image45.png" style="width: 5.36762in; height: 3.34167in;" /></a></p>
 <p><strong>Prikaz Inode strukture indeksiranog direktorija</strong></p>
 <p>Na slijedeće dvije slike može se primijetiti razlika između standardnog
@@ -1749,10 +1737,10 @@ zapis prepisao.</li>
 ( Pomoć : Koja je duljina posljednje stavke direktorija? )</li>
 <li>Saznati Inode broj direktorija, te zapisati vrijednost zastavice
 EXT4_INDEX_FL (hashed indexes directory). Pomoć : Detalje je
-moguće saznati &#8220;<strong>istat</strong>&#8221; naredbom</li>
+moguće saznati “<strong>istat</strong>” naredbom</li>
 <li>Stvoriti potreban broj novih datoteka proizvoljnog imena kako bi se
 prepunio podatkovni blok i pojavila potreba za dodjelom novog.</li>
-<li>Pomoću &#8220;<strong>istat</strong>&#8221; naredbe , saznati koji su novi podatkovni blokovi
+<li>Pomoću “<strong>istat</strong>” naredbe , saznati koji su novi podatkovni blokovi
 dodijeljeni direktoriju. Ponovno zapisati vrijednost zastavice
 EXT4_INDEX_FL (hashed indexes directory).</li>
 <li>Prema strukturi Htree stabla, iscrtati stablo čvorova kao prema
@@ -1783,7 +1771,7 @@ veličina. Uobičajena veličina jednog bloka na EXT4 datotečnom sustavu je
 zatim grupiraju u <strong>grupe blokova</strong>. Kao što je već prethodno
 objašnjeno, sa 4KiB veličinom blokova, u jednoj <strong>grupi blokova</strong> se
 nalazi ukupno <strong>32768</strong> blokova. Svaka grupa blokova ima svoju strukturu
-(group descriptors, inode table, inode bitmap, block bitmap...).</p>
+(group descriptors, inode table, inode bitmap, block bitmap…).</p>
 <p>Na slici ispod je prikazana korelacija između sektora (plava), blokova
 (ljubičasta) i grupe blokova (narančasta).</p>
 <p><a class="reference internal" href="../../_images/image49.png"><img alt="image38" src="../../_images/image49.png" style="width: 6.30000in; height: 0.39993in;" /></a></p>
@@ -1846,25 +1834,25 @@ superblock</strong> u određenoj mjeri rješava tu situaciju.</p>
 </div>
 <div class="section" id="prilog-detaljna-inode-struktura-ext4">
 <h1><strong>Prilog - Detaljna Inode struktura (EXT4)</strong><a class="headerlink" href="#prilog-detaljna-inode-struktura-ext4" title="Permalink to this headline">¶</a></h1>
-<p>0000100: ed41 0000 0010 0000 b073 5359 ed16 1c59 .A.......sSY...Y</p>
-<p>0000110: ed16 1c59 0000 0000 0000 1700 0800 0000 ...Y............</p>
-<p>0000120: 0000 0800 2400 0000 0af3 0100 0400 0000 ....$...........</p>
-<p>0000130: 0000 0000 0000 0000 0100 0000 1124 0000 .............$..</p>
-<p>0000140: 0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
-<p>0000150: 0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
-<p>0000160: 0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
-<p>0000170: 0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
-<p>0000180: 1c00 0000 7cbc 2caa 7cbc 2caa 8c8d dac1 ....|.,.|.,.....</p>
-<p>0000190: 5c25 1459 0000 0000 0000 0000 0000 0000 \%.Y............</p>
-<p>00001a0: 0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
-<p>00001b0: 0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
-<p>00001c0: 0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
-<p>00001d0: 0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
-<p>00001e0: 0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
-<p>00001f0: 0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
+<p>0000100: ed41 0000 0010 0000 b073 5359 ed16 1c59 .A…….sSY…Y</p>
+<p>0000110: ed16 1c59 0000 0000 0000 1700 0800 0000 …Y…………</p>
+<p>0000120: 0000 0800 2400 0000 0af3 0100 0400 0000 ….$………..</p>
+<p>0000130: 0000 0000 0000 0000 0100 0000 1124 0000 ………….$..</p>
+<p>0000140: 0000 0000 0000 0000 0000 0000 0000 0000 …………….</p>
+<p>0000150: 0000 0000 0000 0000 0000 0000 0000 0000 …………….</p>
+<p>0000160: 0000 0000 0000 0000 0000 0000 0000 0000 …………….</p>
+<p>0000170: 0000 0000 0000 0000 0000 0000 0000 0000 …………….</p>
+<p>0000180: 1c00 0000 7cbc 2caa 7cbc 2caa 8c8d dac1 ….|.,.|.,…..</p>
+<p>0000190: 5c25 1459 0000 0000 0000 0000 0000 0000 \%.Y…………</p>
+<p>00001a0: 0000 0000 0000 0000 0000 0000 0000 0000 …………….</p>
+<p>00001b0: 0000 0000 0000 0000 0000 0000 0000 0000 …………….</p>
+<p>00001c0: 0000 0000 0000 0000 0000 0000 0000 0000 …………….</p>
+<p>00001d0: 0000 0000 0000 0000 0000 0000 0000 0000 …………….</p>
+<p>00001e0: 0000 0000 0000 0000 0000 0000 0000 0000 …………….</p>
+<p>00001f0: 0000 0000 0000 0000 0000 0000 0000 0000 …………….</p>
 <p>Za primjer prvog opisa preuzeta je Inode stavka root direktorija ( / )
 na aktivnom Linux sustavu, koji se nalazi na EXT4 datotečnom sustavu. S
-obzirom da je aktivirana značajka &#8220;Extra Inode Size&#8221; (nova značajka
+obzirom da je aktivirana značajka “Extra Inode Size” (nova značajka
 podržana od EXT4 verzije datotečnog sustava), Inode stavke mogu preći
 standardnu veličinu od 128B (veličina Inodeova u EXT2 i EXT3 verzijama).
 Sama veličina jednog Inodea je zapisana u SuperBlock strukturi
@@ -1927,7 +1915,7 @@ Iz tog razloga, preuzeta je ukupna veličina Inode stavke iz tablice od
 <td>S_ISUID (Set UID)</td>
 </tr>
 <tr class="row-odd"><td>These are mutually-exclusive file types:</td>
-<td>&nbsp;</td>
+<td>&#160;</td>
 </tr>
 <tr class="row-even"><td>0x1000</td>
 <td>S_IFIFO (FIFO)</td>
@@ -1973,7 +1961,7 @@ vremena</strong></p>
 <p><strong>Zadnje vrijeme izmjene sadržaja datoteke u sekundama od referentnog
 vremena</strong></p>
 <p>4B - ED16 1C59 - 591C 16ED</p>
-<p><strong>Vrijeme postavljanja statusa &#8220;deleted&#8221; u sekundama od referentnog
+<p><strong>Vrijeme postavljanja statusa “deleted” u sekundama od referentnog
 vremena</strong></p>
 <p>4B - 0000 0000 - 0000 0000</p>
 <p>S obzirom da je ovdje vrijednost 0, radi se o Inodeu koji se koristi
@@ -2104,16 +2092,16 @@ EXT4_ECOMPR_FL (compression error), which was never used.</td>
 </tr>
 <tr class="row-odd"><td>0x4B80FF</td>
 <td>User-modifiable flags. Note that while EXT4_JOURNAL_DATA_FL and EXT4_EXTENTS_FL
-can be set with setattr, they are not in the kernel&#8217;s EXT4_FL_USER_MODIFIABLE
+can be set with setattr, they are not in the kernel’s EXT4_FL_USER_MODIFIABLE
 mask, since it needs to handle the setting of these flags in a special manner
 and they are masked out of the set of flags that are saved directly to i_flags.</td>
 </tr>
 </tbody>
 </table>
 <p>4B - 0000 0800 - 0008 0000</p>
-<p>Polje se poklapa sa zastavicom koja govori da Inode koristi &#8220;Extents&#8221;
+<p>Polje se poklapa sa zastavicom koja govori da Inode koristi “Extents”
 način adresiranja podatkovnih blokova ( nešto kasnije o razlici između
-direktnog/indirektnog adresiranja blokova i &#8220;Extents&#8221; načina)</p>
+direktnog/indirektnog adresiranja blokova i “Extents” načina)</p>
 <p><strong>Podaci ovisni o operacijskom sustavu (GNU Linux, GNU Hurd, MASIX)</strong></p>
 <p>S obzirom da se proučava datotečni sustav na Linux distribuciji, gleda
 se Linux polje</p>
@@ -2262,32 +2250,32 @@ zaglavlje extent struktura, što znači da preostaje 4 extent struktura (
 <p>Prema izračunu, potrebno kako bi se došlo do sadržaja root direktorija,
 potrebno je učitati fizički blok 9233 na datotečnom sustavu.</p>
 <p><a class="reference external" href="mailto:ids&#37;&#52;&#48;ids2">ids<span>&#64;</span>ids2</a> / $ sudo dd if=/dev/sda2 bs=4096 count=1 skip=9233 | xxd</p>
-<p>0000000: 0200 0000 0c00 0102 2e00 0000 0200 0000 ................</p>
-<p>0000010: 0c00 0202 2e2e 0000 0b00 0000 1400 0a02 ................</p>
-<p>0000020: 6c6f 7374 2b66 6f75 6e64 0000 01fe 0300 lost+found......</p>
-<p>0000030: 0c00 0302 6269 6e00 01fd 0500 0c00 0402 ....bin.........</p>
-<p>0000040: 626f 6f74 01fc 0700 0c00 0302 6465 7600 boot........dev.</p>
-<p>0000050: 01fa 0b00 0c00 0302 6574 6300 01f9 0d00 ........etc.....</p>
-<p>0000060: 0c00 0402 686f 6d65 01f8 0f00 0c00 0302 ....home........</p>
-<p>0000070: 6c69 6200 01ff 0100 1000 0502 6c69 6236 lib.........lib6</p>
-<p>0000080: 3400 0000 01f7 1100 1000 0502 6d65 6469 4...........medi</p>
-<p>0000090: 6100 0000 01f6 1300 0c00 0302 6d6e 7400 a...........mnt.</p>
-<p>00000a0: 02fe 0300 0c00 0302 6f70 7400 02fd 0500 ........opt.....</p>
-<p>00000b0: 0c00 0402 7072 6f63 02ff 0100 0c00 0402 ....proc........</p>
-<p>00000c0: 726f 6f74 02fc 0700 0c00 0302 7275 6e00 root........run.</p>
-<p>00000d0: 02fa 0b00 0c00 0402 7362 696e 02f9 0d00 ........sbin....</p>
-<p>00000e0: 0c00 0302 7372 7600 02f8 0f00 0c00 0302 ....srv.........</p>
-<p>00000f0: 7379 7300 02f7 1100 0c00 0302 746d 7000 sys.........tmp.</p>
-<p>0000100: 02f6 1300 0c00 0302 7573 7200 03fc 0700 ........usr.....</p>
-<p>0000110: 0c00 0302 7661 7200 0c00 0000 1400 0a07 ....var.........</p>
-<p>0000120: 696e 6974 7264 2e69 6d67 0000 0d00 0000 initrd.img......</p>
-<p>0000130: 1000 0707 766d 6c69 6e75 7a00 82fb 1100 ....vmlinuz.....</p>
-<p>0000140: c40e 0702 2e63 6f6e 6669 6700 7d2d 0000 .....config.}-..</p>
-<p>0000150: b40e 1201 2e69 736d 6f75 6e74 2d74 6573 .....ismount-tes</p>
-<p>0000160: 742d 6669 6c65 0000 0000 0000 0000 0000 t-file..........</p>
-<p>0000170: 0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
-<p>0000180: 0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
-<p>0000190: 0000 0000 0000 0000 0000 0000 0000 0000 ................</p>
+<p>0000000: 0200 0000 0c00 0102 2e00 0000 0200 0000 …………….</p>
+<p>0000010: 0c00 0202 2e2e 0000 0b00 0000 1400 0a02 …………….</p>
+<p>0000020: 6c6f 7374 2b66 6f75 6e64 0000 01fe 0300 lost+found……</p>
+<p>0000030: 0c00 0302 6269 6e00 01fd 0500 0c00 0402 ….bin………</p>
+<p>0000040: 626f 6f74 01fc 0700 0c00 0302 6465 7600 boot……..dev.</p>
+<p>0000050: 01fa 0b00 0c00 0302 6574 6300 01f9 0d00 ……..etc…..</p>
+<p>0000060: 0c00 0402 686f 6d65 01f8 0f00 0c00 0302 ….home……..</p>
+<p>0000070: 6c69 6200 01ff 0100 1000 0502 6c69 6236 lib………lib6</p>
+<p>0000080: 3400 0000 01f7 1100 1000 0502 6d65 6469 4………..medi</p>
+<p>0000090: 6100 0000 01f6 1300 0c00 0302 6d6e 7400 a………..mnt.</p>
+<p>00000a0: 02fe 0300 0c00 0302 6f70 7400 02fd 0500 ……..opt…..</p>
+<p>00000b0: 0c00 0402 7072 6f63 02ff 0100 0c00 0402 ….proc……..</p>
+<p>00000c0: 726f 6f74 02fc 0700 0c00 0302 7275 6e00 root……..run.</p>
+<p>00000d0: 02fa 0b00 0c00 0402 7362 696e 02f9 0d00 ……..sbin….</p>
+<p>00000e0: 0c00 0302 7372 7600 02f8 0f00 0c00 0302 ….srv………</p>
+<p>00000f0: 7379 7300 02f7 1100 0c00 0302 746d 7000 sys………tmp.</p>
+<p>0000100: 02f6 1300 0c00 0302 7573 7200 03fc 0700 ……..usr…..</p>
+<p>0000110: 0c00 0302 7661 7200 0c00 0000 1400 0a07 ….var………</p>
+<p>0000120: 696e 6974 7264 2e69 6d67 0000 0d00 0000 initrd.img……</p>
+<p>0000130: 1000 0707 766d 6c69 6e75 7a00 82fb 1100 ….vmlinuz…..</p>
+<p>0000140: c40e 0702 2e63 6f6e 6669 6700 7d2d 0000 …..config.}-..</p>
+<p>0000150: b40e 1201 2e69 736d 6f75 6e74 2d74 6573 …..ismount-tes</p>
+<p>0000160: 742d 6669 6c65 0000 0000 0000 0000 0000 t-file……….</p>
+<p>0000170: 0000 0000 0000 0000 0000 0000 0000 0000 …………….</p>
+<p>0000180: 0000 0000 0000 0000 0000 0000 0000 0000 …………….</p>
+<p>0000190: 0000 0000 0000 0000 0000 0000 0000 0000 …………….</p>
 <p>Slijedi ispis sadržaja korijenskog direktorija:</p>
 <p><a class="reference external" href="mailto:ids&#37;&#52;&#48;ids2">ids<span>&#64;</span>ids2</a> / $ ls -alhi</p>
 <p>total 104K</p>
@@ -2295,7 +2283,7 @@ potrebno je učitati fizički blok 9233 na datotečnom sustavu.</p>
 <p>2 drwxr-xr-x 23 root root 4.0K Jun 30 11:43 ..</p>
 <p>261633 drwxr-xr-x 2 root root 4.0K May 11 11:16 bin</p>
 <p>392449 drwxr-xr-x 3 root root 4.0K May 11 11:23 boot</p>
-<p>1178498 drwx&#8212;&#8212; 3 root mdm 4.0K May 11 11:06 .config</p>
+<p>1178498 drwx—— 3 root mdm 4.0K May 11 11:06 .config</p>
 <p>3 drwxr-xr-x 14 root root 3.3K Jun 12 13:43 dev</p>
 <p>784897 drwxr-xr-x 140 root root 12K May 17 11:34 etc</p>
 <p>915713 drwxr-xr-x 3 root root 4.0K May 11 10:55 home</p>
@@ -2303,12 +2291,12 @@ potrebno je učitati fizički blok 9233 na datotečnom sustavu.</p>
 /boot/initrd.img-3.16.0-4-amd64</p>
 <p>1046529 drwxr-xr-x 22 root root 4.0K May 11 10:55 lib</p>
 <p>130817 drwxr-xr-x 2 root root 4.0K May 11 11:14 lib64</p>
-<p>11 drwx&#8212;&#8212; 2 root root 16K May 11 10:48 lost+found</p>
+<p>11 drwx—— 2 root root 16K May 11 10:48 lost+found</p>
 <p>1177345 drwxr-xr-x 2 root root 4.0K Jan 16 17:35 media</p>
 <p>1308161 drwxr-xr-x 4 root root 4.0K Jun 12 13:43 mnt</p>
 <p>261634 drwxr-xr-x 4 root root 4.0K Jan 16 18:05 opt</p>
 <p>1 dr-xr-xr-x 164 root root 0 May 12 12:22 proc</p>
-<p>130818 drwx&#8212;&#8212; 6 root root 4.0K Jun 12 13:55 root</p>
+<p>130818 drwx—— 6 root root 4.0K Jun 12 13:55 root</p>
 <p>7458 drwxr-xr-x 29 root root 960 May 13 07:35 run</p>
 <p>784898 drwxr-xr-x 2 root root 12K May 11 11:29 sbin</p>
 <p>915714 drwxr-xr-x 2 root root 4.0K Jan 16 17:35 srv</p>
@@ -2386,12 +2374,13 @@ datoteke/direktoriji na datotečnom sustavu.</p>
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

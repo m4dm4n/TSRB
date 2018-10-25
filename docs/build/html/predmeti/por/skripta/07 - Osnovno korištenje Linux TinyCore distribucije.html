@@ -32,6 +32,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="TSRB_TEST 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="Upute za vježbe" href="index.html"/>
         <link rel="next" title="08 - Osnove korištenja HxD aplikacije" href="08 - Osnove korištenja HxD aplikacije.html"/>
@@ -101,7 +104,7 @@
 <li class="toctree-l4"><a class="reference internal" href="04 - Osnove korištenja Partition Wizard aplikacije.html">04 - Osnove korištenja Partition Wizard aplikacije</a></li>
 <li class="toctree-l4"><a class="reference internal" href="05 - Osnove korištenja Total Commander aplikacije.html">05 - Osnove korištenja Total Commander aplikacije</a></li>
 <li class="toctree-l4"><a class="reference internal" href="06 - Osnove korištenja MBRWizard aplikacije.html">06 - Osnove korištenja MBRWizard aplikacije</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="">07 - Osnovno korištenje GNU/Linux operacijskog sustava (TinyCore distribucija)</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">07 - Osnovno korištenje GNU/Linux operacijskog sustava (TinyCore distribucija)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="08 - Osnove korištenja HxD aplikacije.html">08 - Osnove korištenja HxD aplikacije</a></li>
 <li class="toctree-l4"><a class="reference internal" href="09 - Osnove korištenja GNU Linux Fdisk aplikacije.html">09 - Osnove korištenja GNU/Linux Fdisk aplikacije</a></li>
 <li class="toctree-l4"><a class="reference internal" href="11 - Instalacija Windows10 operacijskog sustava.html">11 - Instalacija Microsoft Windows 10 operacijskog sustava</a></li>
@@ -173,7 +176,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/predmeti/por/skripta/07 - Osnovno korištenje Linux TinyCore distribucije.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/predmeti/por/skripta/07 - Osnovno korištenje Linux TinyCore distribucije.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -193,7 +196,7 @@ upravljanje direktorijima i datotekama (sadržaj je univerzalan za sve
 GNU/Linux distribucije), te upravljanje paketima, odnosno instalacijom
 softvera (sadržaj je vezan uz TinyCore distribuciju). Namjena obrađenog
 sadržaja nije osnovno korištenje GNU/Linux sustava, već minimalan opis
-potrebnih koraka za stvaranje &#8220;<strong>dual-boot</strong>&#8221; sustava između odabrane
+potrebnih koraka za stvaranje “<strong>dual-boot</strong>” sustava između odabrane
 GNU/Linux distribucije i Microsoft Windows 10 operacijskog sustava.</p>
 <p>Razlog zašto se koristi TinyCore distribucija leži u tome što su
 učenicima dodijeljene 3 particije na korištenje u laboratoriju veličina
@@ -234,7 +237,7 @@ vizualnog.</p>
 :</p>
 <ul class="simple">
 <li>hostname ( naziv hosta, odnosno računala)</li>
-<li>whoami (&#8220;tko sam ja?&#8221;, odnosno ispisuje trenutno prijavljenog
+<li>whoami (“tko sam ja?”, odnosno ispisuje trenutno prijavljenog
 korisnika)</li>
 <li>cd (Change Directory, naredba služi za kretanje po strukturi
 direktorija)</li>
@@ -244,7 +247,7 @@ direktorija)</li>
 direktorija)</li>
 </ul>
 <p>NAPOMENA: Naredbe cd i ls u gornjem primjeru dodatno upisan parametar
-nakon samog imena naredbe. Parametar &#8220;/&#8221; u ovom slučaju definira
+nakon samog imena naredbe. Parametar “/” u ovom slučaju definira
 putanju, odnosno korijenski direktorij za traženu radnju naredbe.
 Upotrebom naredbe <strong>cd</strong> za promjenu radnog direktorija i navedenog
 parametra, rezultat će biti postavljanje korijenskog direktorija kao
@@ -286,7 +289,7 @@ bilježnicu, novi predmeti se jedino mogu staviti na već postojeću
 nepreglednu hrpu. Najčešći način organizacije ovog nereda je
 implementacija kutija, i premještanje predmeta u te kutije. Na te kutije
 se odmah zapisuju neke oznake koje će predstavljati kategoriju kojoj će
-pripadati predmeti. Recimo, u kutiju natpisa &#8220;Fotografije&#8221; će se
+pripadati predmeti. Recimo, u kutiju natpisa “Fotografije” će se
 stavljati sve fotografije unutar te prostorije. Sad je moguće
 objašnjavati kompleksniju organizaciju prostora, no situacija objašnjava
 analogiju kutije i direktorija, odnosno svrhu istog. Da se sve datoteke
@@ -307,10 +310,10 @@ potrebno je upisati naredbu <strong>cd</strong> ili <strong>chdir</strong> te ka
 navesti željenu putanju. Drugi način je pojedinačno upisivati direktorij
 po direktorij,sve do krajnjeg željenog direktorija. Za vraćanje u
 prethodne direktorije se kao parametar koristi poseban naziv prethodnog
-direktorija &#8221;..&#8221; (isti je naziv i na Microsoft sustavima). Kada putanja
+direktorija “..” (isti je naziv i na Microsoft sustavima). Kada putanja
 u sebi ne sadrži točne nazive direktorija, već njen efekt ovisi o
 poziciji radnog direktorija, takva putanja se zove <strong>relativna</strong>. Za
-primjer, putanja &#8221;../../..&#8221; je relativna putanja jer je njen efekt
+primjer, putanja “../../..” je relativna putanja jer je njen efekt
 vraćanje za tri direktorija u hijerarhiji. Svi postupci su prikazani na
 slijedećoj slici.</p>
 <p><a class="reference internal" href="../../../_images/image71.png"><img alt="image5" src="../../../_images/image71.png" style="width: 2.75591in; height: 1.85823in;" /></a></p>
@@ -323,11 +326,11 @@ roditeljske direktorije po potrebi.</p>
 <p><a class="reference internal" href="../../../_images/image82.png"><img alt="image6" src="../../../_images/image82.png" style="width: 4.70362in; height: 2.75591in;" /></a></p>
 <p>Za brisanje postojećih direktorija, koristi se naredba rmdir i željeno
 ime direktorija. Na slici ispod prikazano je osnovno korištenje naredbe.
-Zatim je obrisan direktorij &#8220;<strong>mirko</strong>&#8221;, te nakon njega svi direktoriji
+Zatim je obrisan direktorij “<strong>mirko</strong>”, te nakon njega svi direktoriji
 koji počinju sa imenom <strong>M</strong> (korišten je wildcard znak * za zamjenu
 svih daljnjih znakova). U slijedećem koraku je bio pokušaj brisanja
-strukture direktorija &#8220;prvi/drugi/treći&#8221;, no pokazalo se kako je obrisan
-samo zadnji &#8220;treći&#8221; direktorij u strukturi, dok su ostali direktoriji
+strukture direktorija “prvi/drugi/treći”, no pokazalo se kako je obrisan
+samo zadnji “treći” direktorij u strukturi, dok su ostali direktoriji
 bili netaknuti. U tu svrhu je potrebno koristiti opciju koja će
 uključiti i brisanje roditeljske direktorije u strukturi (zadnji
 primjer).</p>
@@ -395,8 +398,8 @@ neće biti obrađene u dokumentu.</p>
 <p>Iz gornjeg primjera, može se primijetiti kako se u popisu nalazi jedna
 regularna datoteka, te jedna specijalna (konkretno,simbolička
 poveznica). Ostale stavke predstavljaju direktoriji (primijetiti i
-prisjetiti se svrhe dva direktorija na vrhu s imenima &#8220;<strong>.</strong>&#8221; i
-&#8220;<strong>..</strong>&#8221;).</p>
+prisjetiti se svrhe dva direktorija na vrhu s imenima “<strong>.</strong>” i
+“<strong>..</strong>”).</p>
 <p>Za stvaranje novih praznih datoteka, najčešće se koristi naredba
 <strong>touch</strong> (iako joj to nije originalna namjena). U donjem primjeru,
 stvorene su tri datoteke. Dvije datoteke dijele isto ime, no sa
@@ -467,7 +470,7 @@ konfiguraciju.</p>
 bi se pojaviti ljuska MS Windows98 operacijskog sustava, kao potvrda
 ispravne instalacije. Ponovno ugasiti virtualni stroj, i dodati nazad
 VMUDrive000.vmdk datoteku. U Settings izborniku, kategorija Storage,
-kliknuti na &#8220;Controller:SATA&#8221; i sa odabrati opciju za dodavanje tvrdog
+kliknuti na “Controller:SATA” i sa odabrati opciju za dodavanje tvrdog
 diska na kontroler, te u slijedećem prozoru odabrati postojeći disk.</p>
 <p><a class="reference internal" href="../../../_images/image161.png"><img alt="image14" src="../../../_images/image161.png" style="width: 6.92708in; height: 4.51042in;" /></a></p>
 <p>Ući u direktorij sa imenom virtualnog stroja (obratiti pozornost gdje su
@@ -524,12 +527,13 @@ stroj.</p>
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

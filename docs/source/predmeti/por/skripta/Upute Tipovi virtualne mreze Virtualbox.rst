@@ -27,6 +27,8 @@ računala, zapravo pokrenuti kao procesi unutar domaćinskog operacijskog
 sustava. Svu komunikaciju sa hardverom fizičkog računala ili vanjskim
 svijetom održavaju isključivo preko tog domaćinskog sustava.
 
+|image0|
+
 Na slijedećoj slici nalazi se popis svih načina mrežnog povezivanja:
 
 -  Not attached
@@ -43,7 +45,7 @@ Na slijedećoj slici nalazi se popis svih načina mrežnog povezivanja:
 
 -  Generic Driver
 
-|image0|
+|image1|
 
 Dva su načina koja neće biti detaljnije objašnjena: Not Attached i
 Generic Driver. "Not Attached" je stanje gdje je instalirana virtualna
@@ -59,7 +61,11 @@ je slabo dokumentiran, nalazi se samo u izvornom kodu aplikacije
 (potrebno je posebno kompilirati kod), te je predviđen samo za Linux ili
 Unix sustave.
 
-Bridged Adapter
+
+
+
+
+**Bridged Adapter**
 
 U ovom načinu povezivanja, mrežne kartice (virtualne) virtualnih
 strojeva povezane su na virtualni preklopnik, koji je pak povezan na
@@ -76,6 +82,8 @@ njima će se isto dodijeliti neka adresa iz te mreže. Isto tako može biti
 obrnuta situacija, na virtualnim strojevima može biti takav poslužitelj
 koji će dodijeljivati IP adrese svima povezanima u tu mrežu.
 
+|image2|
+
 Naravno, veza između virtualnog preklopnika i fizičke mrežne nije u
 obliku žice koja je nekako priključena na fizički sklop, već se radi o
 softverskoj implementaciji gdje se preklopnik „zakači“ (eng. hooks) na
@@ -83,9 +91,15 @@ upravljački program (eng. driver) mrežne kartice. Ako se pogledaju
 postavke upravljačkog programa mrežne kartice domaćina, može se uočiti
 dodatno instaliran modul „VirtualBox NDIS6 Bridged Networking driver“ .
 
-|image1|
+|image3|
 
-NAT
+
+
+
+
+
+
+**NAT**
 
 Ovaj tip povezivanja je najlakše opisati primjerom u svakodnevnom
 životu. Visok postotak korisnika koji koriste kućni internet su na njega
@@ -110,7 +124,7 @@ brojem porta). Takva tablica se zove NAT tablica (točnije , radi se o
 PAT tablici, no ovo područje nije tema dokumenta). Na slijedećoj slici
 nalazi se primjer sa objašnjenjem jedne NAT tablice:
 
-|image2|
+|image4|
 
 Izvor :
 https://microchip.wdfiles.com/local--files/tcpip:nat-translation-table/nat_table.png
@@ -158,7 +172,11 @@ virtualni strojevi imaju istu IP adresu, Virtualbox NAT engine ih drži
 izoliranima jedne od drugih. Zapravo, dobro se podsjetiti da je sve iza
 NATa zaštićeno i da jednake IP adrese uopće nisu problem.
 
-NAT Network
+|image5|
+
+
+
+**NAT Network**
 
 Vezano na prošli tip povezivanja, NAT Network tip je zapravo samo
 određena nadogradnja. Umjesto jednog virtualnog stroja po NAT segmentu,
@@ -169,6 +187,8 @@ jednog usmjernika sa NAT funkcijom, sa mogućnošću povezivanja na
 Internet. Računala koja su spojena u jednu NAT mrežu mogu međusobno
 komunicirati.
 
+|image6|
+
 Razlika je samo u implementaciji i konfiguraciji. NAT Network segment se
 neće stvoriti automatski, već ga je potrebno ručno konfigurirati. Za
 takvu radnju, potrebno je odabrati općenite postavke Virtualbox
@@ -177,11 +197,15 @@ označenu tipku (prva slika ispod), stvorit će nova NAT mreža. Zatim je
 potrebno odabrati tipku za izmjenu postavki te mreže (druga slika
 ispod), te upisati željeni adresni rang i ostale detalje.
 
-|image3|
+|image7|
 
-|image4|
+|image8|
 
-Internal network
+
+
+
+
+**Internal network**
 
 Virtualni strojevi su u ovoj topologiji povezani međusobno sa virtualnim
 preklopnikom. S obzirom da preklopnik nije povezan ni na koji način sa
@@ -193,7 +217,11 @@ poslužitelj (od strane Virtualbox aplikacije) koji će dodijeljivati
 adrese, već ih je potrebno ručno konfigurirati, ili na neki drugi način
 (primjer je instalirati neki poslužitelj sa DHCP rolom).
 
-Host-only network
+
+|image9|
+
+
+**Host-only network**
 
 Virtualni strojevi kojima je konfiguriran ovaj način mrežne povezanosti
 ostvaruju vezu isključivo sa domaćinom. Veza je obostrana, no ograničena
@@ -203,21 +231,23 @@ se stvara zaseban mrežni priključak na domaćinu, te se konfiguriraju
 mrežne postavke. Svaka veza će se nalaziti u nezavisnoj mreži sa samo ta
 dva uređaja.
 
+|image10|
+
 Uz svaku instalaciju Virtualbox aplikacije će se instalirati standardno
 jedan mrežni priključak specijalne namjene, za Host-Only tip mreže, što
 je moguće vidjeti na slijedećoj slici.
 
-|image5|
+|image11|
 
 Postavke za Host-Only tip mreže se nalaze unutar Virtualbox aplikacije,
 File izbornik -> Host Network manager.
 
-|image6|
+|image12|
 
 Na slici ispod se nalaze preporučene postavke za već stvoren Host-Only
 mrežni priključak.
 
-|image7|
+|image13|
 
 Za stvaranje dodatnog Host-Only mrežnog priključka, unutar Host Network
 Manager prozora, potrebno je odabrati tipku Create. Nakon što je
@@ -234,42 +264,61 @@ konfigurirati ugrađeni VirtualBox DHCP poslužitelj sa osnovnim
 postavkama (IP adresa DHCP poslužitelja, adresu podmreže, te početnu i
 završnu adresu dodijeljivanja).
 
-|image8|
+|image14|
 
-|image9|
+|image15|
 
 Za kraj, svaki opisani tip mreže ima svoju namjenu, te je prije odabira
 potrebno razmisliti i točno definirati mrežnu topologiju virtualne
 infrastrukture, te prema tome prilagoditi i konfigurirati tipove mrežnih
 priključaka.
 
-.. |image0| image:: UP02/image2.png
+
+.. |image0| image:: UP02/image1.png
+   :width: 2.32083in
+   :height: 3.82083in
+.. |image1| image:: UP02/image2.png
    :width: 4.21667in
    :height: 2.15833in
-.. |image1| image:: UP02/image4.png
+.. |image2| image:: UP02/image3.png
+   :width: 1.62083in
+   :height: 3.0625in
+.. |image3| image:: UP02/image4.png
    :width: 3.92222in
    :height: 4.93472in
-.. |image2| image:: UP02/image5.png
+.. |image4| image:: UP02/image5.png
    :width: 6.30000in
    :height: 3.72021in
-.. |image3| image:: UP02/image8.png
+.. |image5| image:: UP02/image6.png
+   :width: 1.49583in
+   :height: 3.0625in
+.. |image6| image:: UP02/image7.png
+   :width: 1.66666in
+   :height: 3.0625in
+.. |image7| image:: UP02/image8.png
    :width: 5.61042in
    :height: 3.80486in
-.. |image4| image:: UP02/image9.png
+.. |image8| image:: UP02/image9.png
    :width: 5.62713in
    :height: 4.31169in
-.. |image5| image:: UP02/image12.png
+.. |image9| image:: UP02/image10.png
+   :width: 1.66666in
+   :height: 3.0625in
+.. |image10| image:: UP02/image11.png
+   :width: 1.66666in
+   :height: 3.0625in
+.. |image11| image:: UP02/image12.png
    :width: 3.26042in
    :height: 3.69792in
-.. |image6| image:: UP02/image13.png
+.. |image12| image:: UP02/image13.png
    :width: 2.97917in
    :height: 2.95833in
-.. |image7| image:: UP02/image14.png
+.. |image13| image:: UP02/image14.png
    :width: 6.30000in
    :height: 3.65106in
-.. |image8| image:: UP02/image15.png
+.. |image14| image:: UP02/image15.png
    :width: 6.30000in
    :height: 4.18287in
-.. |image9| image:: UP02/image16.png
+.. |image15| image:: UP02/image16.png
    :width: 6.30000in
    :height: 4.18287in

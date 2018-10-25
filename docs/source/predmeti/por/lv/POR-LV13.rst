@@ -22,34 +22,33 @@ vezana uz ovu vježbu.
 3. Pokrenuti "**Device manager**" konzolu (upisati ime u Start->Search
    bar) i uočiti uređaje sa žutim upitnikom. Što znači taj znak?
 
-   **DODATAK**: Druga tri načina za pristup "**Device manager**" konzoli
-   su :
+   **DODATAK**: Druga tri načina za pristup "**Device manager**" konzoli su:
 
-a) Desni klik na Computer->Properties->\ **Device manager**
+    a) Desni klik na Computer->Properties->\ **Device manager**
 
-b) Start->u Search bar upisati "devmgmt.msc" ( msc ekstenzija označava
-   Microsoft Management Console Snap-in Control datoteku)
+    b) Start->u Search bar upisati "devmgmt.msc" ( msc ekstenzija označava
+       Microsoft Management Console Snap-in Control datoteku)
 
-c) Desni klik na Computer->Manage->\ **Device manager**
+    c) Desni klik na Computer->Manage->\ **Device manager**
 
-1.  Spojiti mrežni kabel u računalu na donju mrežnu karticu te odabrati
+4.  Spojiti mrežni kabel u računalu na donju mrežnu karticu te odabrati
     "**WORK NETWORK**" opciju prilikom upita.
 
-2.  Instalirati **WINCDEmu** aplikaciju (Setup datoteka nalazi se mrežno
+5.  Instalirati **WINCDEmu** aplikaciju (Setup datoteka nalazi se mrežno
     dijeljenom direktoriju, APPL poddirektorij)
 
-3.  Zapisati putanju mrežno dijeljenog direktorija na kojem se nalaze
+6.  Zapisati putanju mrežno dijeljenog direktorija na kojem se nalaze
     instalacijske datoteke upravljačkih programa
     (**\\\\IP\_ADRESA\\2h\\por\\appl\\driveri**)
 
-4.  Stvoriti novi direktorij imena **DRIVERI** u korijenskom direktoriju
+7.  Stvoriti novi direktorij imena **DRIVERI** u korijenskom direktoriju
     **BKP** particije
 
-5.  Kopirati sa mrežnog dijeljenog diska u direktorij **DRIVERI**
+8.  Kopirati sa mrežnog dijeljenog diska u direktorij **DRIVERI**
     datoteke : "**Parallel\_drivers.iso**", "**Serial\_drivers.iso**" i
     "**VGA\_drivers.iso**".
 
-6.  U **Device manager** konzoli, odabrati "**Properties**" na
+9.  U **Device manager** konzoli, odabrati "**Properties**" na
     "**Ethernet controller**" uređaju, te u slijedećem prozoru odabrati
     karticu **Details**. U istoj kartici, u izborniku "**Property**"
     odabrati opciju "**Hardware IDs**". Zapisati najdulju liniju i
@@ -60,21 +59,21 @@ c) Desni klik na Computer->Manage->\ **Device manager**
     Što bi za taj uređaj predstavljale stavke **PCI**, **VEN** i **DEV**
     ?
 
-7.  Raspakirati sadržaj komprimirane datoteke **PCI-Z** (datoteka se
+10. Raspakirati sadržaj komprimirane datoteke **PCI-Z** (datoteka se
     nalazi mrežno dijeljenom direktoriju, APPL poddirektorij) na radnu
     površinu (u direktorij **PCI-Z**). Pokrenuti izvršnu datoteku u tom
     direktoriju. Pročitati informacije o svrsi aplikacije (Help->About
     PCI-Z).
 
-8.  U popisu prikazanih uređaja uočiti stavke sa narančastim trokutom i
+11. U popisu prikazanih uređaja uočiti stavke sa narančastim trokutom i
     usporediti sa popisom iz 3. zadatka. Podudaraju li se stavke?
 
-9.  U stavci "**Ethernet controller**" (u **PCI-Z** aplikaciji) uočiti
+12. U stavci "**Ethernet controller**" (u **PCI-Z** aplikaciji) uočiti
     stupce **Vendor** i **Device** te **PCI Device**. Što označavaju
     polja **VEN** (VEN\_10EC) i **DEV** (DEV\_8168) u stupcu **PCI
     Device** za taj uređaj. Koja tvrtka je proizvela ovaj uređaj?
 
-10. U **Device manager** konzoli, odabrati "**Properties**" na
+13. U **Device manager** konzoli, odabrati "**Properties**" na
     "**Ethernet controller**" uređaju, te zatim odabrati opciju
     "**Update driver software**". U slijedećem prozoru odabrati opciju
     ručnog lociranja i instalacije upravljačkog programa. U lokaciju
@@ -86,10 +85,10 @@ c) Desni klik na Computer->Manage->\ **Device manager**
     upravljačkih programa odabirom opcije "**Next**". Uvjeriti se da je
     instalacija uspješno izvršena.
 
-11. Učitati "**Serial\_drivers.iso**" datoteku (desni klik i **Select
+14. Učitati "**Serial\_drivers.iso**" datoteku (desni klik i **Select
     Drive & Mount** opcija) kao virtualni CD
 
-12. U **Device manager** konzoli, odabrati "**Properties**" na prvom
+15. U **Device manager** konzoli, odabrati "**Properties**" na prvom
     "**PCI Serial Port**" uređaju, te zatim odabrati opciju "**Update
     driver software**". U slijedećem prozoru odabrati opciju ručnog
     lociranja i instalacije upravljačkog programa. Odabrati direktorij
@@ -99,9 +98,9 @@ c) Desni klik na Computer->Manage->\ **Device manager**
     pretragu/instalaciju upravljačkih programa odabirom opcije
     "**Next**". Uvjeriti se da je instalacija uspješno izvršena.
 
-13. Ponoviti postupak za drugi "**PCI Serial Port**" nepoznati uređaj.
+16. Ponoviti postupak za drugi "**PCI Serial Port**" nepoznati uređaj.
 
-14. U **Device manager** konzoli, odabrati "**Properties**" na "**SM Bus
+17. U **Device manager** konzoli, odabrati "**Properties**" na "**SM Bus
     Controller**" uređaju, te u slijedećem prozoru odabrati karticu
     Details. U istoj kartici, u izborniku "**Property**" odabrati opciju
     "**Hardware IDs**". Zapisati stavke VEN i DEV. Pomoću aplikacije
@@ -109,7 +108,7 @@ c) Desni klik na Computer->Manage->\ **Device manager**
     **System Management Bus**), proizvođač **Intel** (uočiti znakovitost
     **VEN** polja).
 
-15. Na mrežno dijeljenom disku pronaći direktorij sa upravljačkim
+18. Na mrežno dijeljenom disku pronaći direktorij sa upravljačkim
     programima matične ploče, tip "**chipset**", proizvođač **Intel**. U
     poddirektorijima ručno potražiti u svakoj "**MSIinst.xml**"
     (otvoriti u Notepad aplikaciji, pronaći **<VIDDID>** kategoriju)
@@ -119,7 +118,7 @@ c) Desni klik na Computer->Manage->\ **Device manager**
     kraju instalacije dozvoliti ponovno pokretanje računala i provjeriti
     ispravnost instalacije.
 
-16. Desnim klikom na virtualni CD uređaj odabrati opciju "**Mount
+19. Desnim klikom na virtualni CD uređaj odabrati opciju "**Mount
     another disc image**" i odabrati "**Parallel\_drivers.iso**". Pomoću
     aplikacije **PCI-Z** doznati proizvođača i model kontrolera za
     paralelne portove, te na virtualnom CD uređaju odabrati prikladan
@@ -129,7 +128,7 @@ c) Desni klik na Computer->Manage->\ **Device manager**
     konzoli. Ako nema promjena, odabrati opciju "**Scan for hardware
     changes**" u "**Action**" izborniku. Ima li promjena?
 
-17. Pomoću aplikacije **PCI-Z** uočiti zadnji uređaj koji nema
+20. Pomoću aplikacije **PCI-Z** uočiti zadnji uređaj koji nema
     instaliran upravljački program, te saznati proizvođača i model
     (Intel Management Engine Interface Controller). U **Device manager**
     konzoli, odabrati "**Properties**" na "**PCI Simple Communications
@@ -142,7 +141,7 @@ c) Desni klik na Computer->Manage->\ **Device manager**
     upravljačkih programa odabirom opcije "**Next**". Uvjeriti se da je
     instalacija uspješno izvršena.
 
-18. Desnim klikom na virtualni CD uređaj odabrati opciju "**Mount
+21. Desnim klikom na virtualni CD uređaj odabrati opciju "**Mount
     another disc image**" i odabrati "**VGA\_drivers.iso**". Pokrenuti
     "**Launch.exe**" datoteku, te odabrati **Ati Easy Install** opciju (
     Windows 7 operacijski sustav). Odabrati **Custom** instalaciju (
@@ -152,7 +151,7 @@ c) Desni klik na Computer->Manage->\ **Device manager**
     računala i provjeriti ispravnost instalacije. Je li rezolucija
     monitora promijenjena?
 
-19. Ponovno pokrenuti računalo i u **Multiboot** izborniku odabrati
+22. Ponovno pokrenuti računalo i u **Multiboot** izborniku odabrati
     "**Other OS and Tools", te zatim "Hiren's Boot CD**" stavku.
     Pojaviti će se slijedeći izbornik te je u njemu potrebno odabrati
     "**Mini Windows XP**" opciju. Nakon učitavanja "**Mini Windows XP**"
@@ -162,6 +161,6 @@ c) Desni klik na Computer->Manage->\ **Device manager**
     **H13** (ime **H13appl.gho**) i **WIN7** (ime **WIN7appl.gho**)
     particija.
 
-20. Vratiti se na **HOME** particiju uz pomoć skripte iz prošle
+23. Vratiti se na **HOME** particiju uz pomoć skripte iz prošle
     laboratorijske vježbe (potrebno je pokrenuti skriptu iz
     **Windows98** operacijskog sustava na **H13** particiji).

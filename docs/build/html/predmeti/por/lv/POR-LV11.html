@@ -32,6 +32,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="TSRB_TEST 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="Laboratorijske vježbe" href="index.html"/>
         <link rel="next" title="LV12" href="POR-LV12.html"/>
@@ -103,7 +106,7 @@
 <li class="toctree-l4"><a class="reference internal" href="POR-LV08.html">LV08</a></li>
 <li class="toctree-l4"><a class="reference internal" href="POR-LV09.html">LV09</a></li>
 <li class="toctree-l4"><a class="reference internal" href="POR-LV10.html">LV10</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="">LV11</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">LV11</a></li>
 <li class="toctree-l4"><a class="reference internal" href="POR-LV12.html">LV12</a></li>
 <li class="toctree-l4"><a class="reference internal" href="POR-LV13.html">LV13</a></li>
 </ul>
@@ -170,7 +173,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/predmeti/por/lv/POR-LV11.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/predmeti/por/lv/POR-LV11.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -193,7 +196,7 @@ vezana uz ovu vježbu.</p>
 <p><strong>Zadaci:</strong></p>
 <ol class="arabic simple">
 <li>Iz <strong>HOME</strong> particije ponovno pokrenuti računalo i u Multiboot
-izborniku odabrati &#8220;Other OS and Tools&#8221;, te zatim &#8220;Hiren&#8217;s Boot CD&#8221;
+izborniku odabrati “Other OS and Tools”, te zatim “Hiren’s Boot CD”
 stavku. Pojaviti će se slijedeći izbornik te je u njemu potrebno
 odabrati „Mini Windows XP“ opciju. Nakon učitavanja „Mini Windows XP“
 sustava, pojaviti će se radna površina.</li>
@@ -208,46 +211,38 @@ distribucije instalirane u prethodnoj laboratorijskoj vježbi.</li>
 <li>Staviti instalacijski DVD <strong>Windows 10</strong> operacijskog sustava u DVD
 uređaj,te ponovno pokrenuti računalo. Pritiskom na bilo koju tipku
 potvrditi početak instalacijskog postupka.</li>
-<li>Instalaciju <strong>Windows 7</strong> sustava izvršiti sa slijedećim parametrima
-i koracima :</li>
-</ol>
-<ol class="loweralpha simple">
-<li>Engleski jezik, hrvatski oblik prikaza valute i vremena, standardni
-tip tipkovnice</li>
+<li>Instalaciju <strong>Windows 10</strong> sustava izvršiti sa slijedećim parametrima
+i koracima :<ol class="loweralpha">
+<li>Engleski jezik, hrvatski oblik prikaza valute i vremena, standardni tip tipkovnice</li>
 <li>Odabrati <strong>Install now</strong> opciju</li>
 <li>Povrditi <strong>EULA</strong> licencne uvjete</li>
-<li>Odabrati <strong>CUSTOM</strong> tip instalacije (svježa instalacija Windows
-sustava)</li>
-<li><strong>NE PROĆI OVAJ KORAK DOK NASTAVNIK NIJE DOZVOLIO !!!!! RUČNO
-ODABRATI 2H PARTICIJU ( 20GB ) ZA LOKACIJU INSTALACIJE !!!!</strong></li>
-<li>Pričekati postupak stvaranja strukture direktorija i prebacivanja
-datoteka na datotečni sustav 2H particije, te završetak instalacije</li>
-<li>Prilikom informacije &#8220;To skip disk checking, press any key within 5
-second(s)&#8221;, ne dirati tipkovnicu, dopustiti da se izvrši proces
+<li>Odabrati <strong>CUSTOM</strong> tip instalacije (svježa instalacija Windows sustava)</li>
+<li><strong>NE PROĆI OVAJ KORAK DOK NASTAVNIK NIJE DOZVOLIO !!!!! RUČNO ODABRATI 2H PARTICIJU ( 20GB ) ZA LOKACIJU INSTALACIJE !!!!</strong></li>
+<li>Pričekati postupak stvaranja strukture direktorija i prebacivanja datoteka na datotečni sustav 2H particije, te završetak instalacije</li>
+<li>Prilikom informacije “To skip disk checking, press any key within 5 second(s)”, ne dirati tipkovnicu, dopustiti da se izvrši proces
 provjere integriteta datotečnog sustava</li>
 <li>Odabrati <strong>Customize</strong> opciju</li>
 <li>Onemogućiti svih 5 ponuđenih opcija i odabrati tipku Next</li>
 <li>Onemogućiti sve 3 opcije i odabrati tipku Next</li>
 <li>Ponovno onemogućiti sve 3 opcije i odabrati tipku Next</li>
-<li>Odabrati opciju &#8220;Join a local Active Directory domain&#8221;</li>
+<li>Odabrati opciju “Join a local Active Directory domain”</li>
 <li>Korisničko ime : <strong>WSxy</strong> (treće radno mjesto računala će imati WS03)</li>
-<li>Upisati lozinku koja je jednaka korisničkom imenu (paziti na
-mala/velika slova)</li>
+<li>Upisati lozinku koja je jednaka korisničkom imenu (paziti na mala/velika slova)</li>
 <li>Ne uključivati Cortana podsustav (Not now opcija)</li>
 <li>Pričekati neko vrijeme za dovršavanje instalacije</li>
 <li>Dopustiti otkrivenost računala na mreži</li>
 </ol>
-<ol class="arabic simple">
+</li>
 <li>Isključiti automatsko obnavljanje zakrpa sustava (u Group Policy
 prozoru)</li>
 <li>Prema dostupnim uputama izvršiti potrebne korake za postizanje <strong>DUAL
 BOOT</strong> sustava između <strong>TinyCore</strong> sustava na <strong>H13</strong> particiji i
-<strong>Windows 7</strong> sustava na <strong>2H</strong> particiji</li>
+<strong>Windows 10</strong> sustava na <strong>2H</strong> particiji</li>
 <li>U korijenskom direktoriju BKP particije stvoriti direktorij imena
 IMAGE. Prekopirati cijeli sadržaj direktorija GHOST na USB pogonu u
 novostvoreni direktorij.</li>
 <li>Ponovno pokrenuti računalo i u <strong>Multiboot</strong> izborniku odabrati
-&#8220;Other <strong>OS and Tools</strong>&#8221;, te zatim &#8220;<strong>Hiren&#8217;s Boot CD</strong>&#8221; stavku.
+“Other <strong>OS and Tools</strong>”, te zatim “<strong>Hiren’s Boot CD</strong>” stavku.
 Pojaviti će se slijedeći izbornik te je u njemu potrebno odabrati
 „<strong>Mini Windows XP</strong>“ opciju. Nakon učitavanja „<strong>Mini Windows
 XP</strong>“ sustava, pojaviti će se radna površina. Pokrenuti aplikaciju
@@ -307,12 +302,13 @@ XP</strong>“ sustava, pojaviti će se radna površina. Pokrenuti aplikaciju
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

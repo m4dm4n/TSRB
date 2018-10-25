@@ -154,26 +154,28 @@ Napisati skriptu koja će automatizirati postupak (novu lozinku i korisnika upis
 .. hint::
 
     PRIMJER RJEŠENJA ZADATKA:
-
-    #!/bin/bash
-
-    USERNAME="$1"
-
-    read -sp 'Lozinka:' PASSWORD
-    echo
     
-    UNREADMAIL=$(curl -u $USERNAME\@gmail.com:$PASSWORD --silent "https://mail.google.com/mail/feed/atom" | cut -d"<" -f8 | cut -d">" -f2)
-    
-    
-    if [ $UNREADMAIL -gt 0 ]
-      then
-      echo "You have unread mail"
-    #  PS1="\\[\\e[33m\\]\_NEW-MAIL\_\\[\\e[m\\]\\[\\e[33m\\]\\u\[\\e[m\\]\\[\\e[33m\\]\\\\$\\[\\e[m\\]\\[\\e[33m\\]\\h\\[\\e[m\\]\\[\\e[33m\\]-\\[\\e[m\\]\\[\\e[33m\\]\\w\\[\\e[m\\]\\[\\e[33m\\]\\\\$\\[\\e[m\\] "
-       PS1="\\[\\e[33m\\]\_NEW-MAIL\_\\[\\e[m\\]\\[\\033[01;32m\\]\\u@\\h\\[\\033[01;34m\\] \\w \\$\\[\\033[00m\\]"
-    else
-      echo "Zero unread mail"
-      source ~/.bashrc
-    fi
+    ::
+      #!/bin/bash
+      
+      USERNAME="$1"
+      
+      read -sp 'Lozinka:' PASSWORD
+      echo
+      
+      UNREADMAIL=$(curl -u $USERNAME\@gmail.com:$PASSWORD --silent "https://mail.google.com/mail/feed/atom" | cut -d"<" -f8 | cut -d">" -f2)
+      
+      
+      if [ $UNREADMAIL -gt 0 ]
+        then
+        echo "You have unread mail"
+      ``#  PS1="\\[\\e[33m\\]\_NEW-MAIL\_\\[\\e[m\\]\\[\\e[33m\\]\\u\[\\e[m\\]\\[\\e[33m\\]\\\\$\\[\\e[m\\]\\[\\e[33m\\]\\h\\[\\e[m\\]\\[\\e[33m\\]-\\[\\e[m\\]\\[\\e[33m\\]\\w\\[\\e[m\\]\\[\\e[33m\\]\\\\$\\[\\e[m\\] "``
+         ``PS1="\\[\\e[33m\\]\_NEW-MAIL\_\\[\\e[m\\]\\[\\033[01;32m\\]\\u@\\h\\[\\033[01;34m\\] \\w \\$\\[\\033[00m\\]"``
+
+      else
+        echo "Zero unread mail"
+        source ~/.bashrc
+      fi
 
 
 .. tip::
@@ -191,7 +193,7 @@ PRIMJER RJEŠENJA 18. ZADATKA:
 .. hint::
 
     Izgled prompta:
-
+    
     IP adresa: 192.168.70.44
     Korisnik : ids
     

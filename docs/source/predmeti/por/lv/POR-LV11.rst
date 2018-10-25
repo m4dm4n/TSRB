@@ -30,62 +30,56 @@ vezana uz ovu vježbu.
    uređaj,te ponovno pokrenuti računalo. Pritiskom na bilo koju tipku
    potvrditi početak instalacijskog postupka.
 
-5. Instalaciju **Windows 7** sustava izvršiti sa slijedećim parametrima
+5. Instalaciju **Windows 10** sustava izvršiti sa slijedećim parametrima
    i koracima :
 
-a. Engleski jezik, hrvatski oblik prikaza valute i vremena, standardni
-   tip tipkovnice
+   a. Engleski jezik, hrvatski oblik prikaza valute i vremena, standardni tip tipkovnice
 
-b. Odabrati **Install now** opciju
+   b. Odabrati **Install now** opciju
 
-c. Povrditi **EULA** licencne uvjete
+   c. Povrditi **EULA** licencne uvjete
 
-d. Odabrati **CUSTOM** tip instalacije (svježa instalacija Windows
-   sustava)
+   d. Odabrati **CUSTOM** tip instalacije (svježa instalacija Windows sustava)
 
-e. **NE PROĆI OVAJ KORAK DOK NASTAVNIK NIJE DOZVOLIO !!!!! RUČNO
-   ODABRATI 2H PARTICIJU ( 20GB ) ZA LOKACIJU INSTALACIJE !!!!**
+   e. **NE PROĆI OVAJ KORAK DOK NASTAVNIK NIJE DOZVOLIO !!!!! RUČNO ODABRATI 2H PARTICIJU ( 20GB ) ZA LOKACIJU INSTALACIJE !!!!**
 
-f. Pričekati postupak stvaranja strukture direktorija i prebacivanja
-   datoteka na datotečni sustav 2H particije, te završetak instalacije
+   f. Pričekati postupak stvaranja strukture direktorija i prebacivanja datoteka na datotečni sustav 2H particije, te završetak instalacije
 
-g. Prilikom informacije "To skip disk checking, press any key within 5
-   second(s)", ne dirati tipkovnicu, dopustiti da se izvrši proces
-   provjere integriteta datotečnog sustava
+   g. Prilikom informacije "To skip disk checking, press any key within 5 second(s)", ne dirati tipkovnicu, dopustiti da se izvrši proces
+      provjere integriteta datotečnog sustava
 
-h. Odabrati **Customize** opciju
+   h. Odabrati **Customize** opciju
 
-i. Onemogućiti svih 5 ponuđenih opcija i odabrati tipku Next
+   i. Onemogućiti svih 5 ponuđenih opcija i odabrati tipku Next
 
-j. Onemogućiti sve 3 opcije i odabrati tipku Next
+   j. Onemogućiti sve 3 opcije i odabrati tipku Next
 
-k. Ponovno onemogućiti sve 3 opcije i odabrati tipku Next
+   k. Ponovno onemogućiti sve 3 opcije i odabrati tipku Next
 
-l. Odabrati opciju "Join a local Active Directory domain"
+   l. Odabrati opciju "Join a local Active Directory domain"
 
-m. Korisničko ime : **WSxy** (treće radno mjesto računala će imati WS03)
+   m. Korisničko ime : **WSxy** (treće radno mjesto računala će imati WS03)
 
-n. Upisati lozinku koja je jednaka korisničkom imenu (paziti na
-   mala/velika slova)
+   n. Upisati lozinku koja je jednaka korisničkom imenu (paziti na mala/velika slova)
 
-o. Ne uključivati Cortana podsustav (Not now opcija)
+   o. Ne uključivati Cortana podsustav (Not now opcija)
 
-p. Pričekati neko vrijeme za dovršavanje instalacije
+   p. Pričekati neko vrijeme za dovršavanje instalacije
 
-q. Dopustiti otkrivenost računala na mreži
+   q. Dopustiti otkrivenost računala na mreži
 
-1. Isključiti automatsko obnavljanje zakrpa sustava (u Group Policy
+6. Isključiti automatsko obnavljanje zakrpa sustava (u Group Policy
    prozoru)
 
-2. Prema dostupnim uputama izvršiti potrebne korake za postizanje **DUAL
+7. Prema dostupnim uputama izvršiti potrebne korake za postizanje **DUAL
    BOOT** sustava između **TinyCore** sustava na **H13** particiji i
-   **Windows 7** sustava na **2H** particiji
+   **Windows 10** sustava na **2H** particiji
 
-3. U korijenskom direktoriju BKP particije stvoriti direktorij imena
+8. U korijenskom direktoriju BKP particije stvoriti direktorij imena
    IMAGE. Prekopirati cijeli sadržaj direktorija GHOST na USB pogonu u
    novostvoreni direktorij.
 
-4. Ponovno pokrenuti računalo i u **Multiboot** izborniku odabrati
+9. Ponovno pokrenuti računalo i u **Multiboot** izborniku odabrati
    "Other **OS and Tools**", te zatim "**Hiren's Boot CD**" stavku.
    Pojaviti će se slijedeći izbornik te je u njemu potrebno odabrati
    „\ **Mini Windows XP**\ “ opciju. Nakon učitavanja „\ **Mini Windows
@@ -94,4 +88,4 @@ q. Dopustiti otkrivenost računala na mreži
    **GHOST32.exe** aplikaciju i prema uputama spremiti pričuvne kopije
    **H13** (ime **H13.gho**) i WIN10 (ime **WIN10.gho**) particija.
 
-5. Vratiti se na **HOME** particiju.
+10. Vratiti se na **HOME** particiju.

@@ -32,6 +32,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="TSRB_TEST 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="Laboratorijske vježbe" href="index.html"/>
         <link rel="next" title="LV11" href="POR-LV11.html"/>
@@ -102,16 +105,16 @@
 <li class="toctree-l4"><a class="reference internal" href="POR-LV07.html">LV07</a></li>
 <li class="toctree-l4"><a class="reference internal" href="POR-LV08.html">LV08</a></li>
 <li class="toctree-l4"><a class="reference internal" href="POR-LV09.html">LV09</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="">LV10</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">LV10</a></li>
 <li class="toctree-l4"><a class="reference internal" href="POR-LV11.html">LV11</a></li>
 <li class="toctree-l4"><a class="reference internal" href="POR-LV12.html">LV12</a></li>
 <li class="toctree-l4"><a class="reference internal" href="POR-LV13.html">LV13</a></li>
-<li class="toctree-l4"><a class="reference internal" href="POR-LV14.html">LV14</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../skripta/index.html">Upute za vježbe</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../linux/index.html">Klijentski otvoreni operacijski sustavi</a></li>
 </ul>
 </li>
 </ul>
@@ -170,7 +173,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/predmeti/por/lv/POR-LV10.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/predmeti/por/lv/POR-LV10.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -193,7 +196,7 @@ vezana uz ovu vježbu.</p>
 <p><strong>Zadaci:</strong></p>
 <ol class="arabic">
 <li><p class="first">Iz <strong>HOME</strong> particije ponovno pokrenuti računalo i u Multiboot
-izborniku odabrati &#8220;Other OS and Tools&#8221;, te zatim &#8220;Hiren&#8217;s Boot CD&#8221;
+izborniku odabrati “Other OS and Tools”, te zatim “Hiren’s Boot CD”
 stavku. Pojaviti će se slijedeći izbornik te je u njemu potrebno
 odabrati „Mini Windows XP“ opciju. Nakon učitavanja „Mini Windows XP“
 sustava, pojaviti će se radna površina.</p>
@@ -213,43 +216,39 @@ sadržaj 3 particije (H13 + 2H + BKP)</p>
 </li>
 <li><p class="first">Pomoću aplikacije <strong>MBRWIZ</strong> vratiti sadržaj datoteke
 <strong>H132HBKP.mbr</strong> na <strong>MBR</strong> tvrdog diska, te zatim ponovno pokrenuti
-računalo. U <strong>Multiboot</strong> izborniku odabrati &#8220;<strong>System Tools</strong>&#8221;, te
-zatim &#8220;<strong>Partition wizard</strong>&#8221; opciju.</p>
+računalo. U <strong>Multiboot</strong> izborniku odabrati “<strong>System Tools</strong>”, te
+zatim “<strong>Partition wizard</strong>” opciju.</p>
 </li>
 <li><p class="first">Provjeriti informacije o particijima na tvrdom disku ( <strong>Partition
 Properties</strong>, <strong>Partition Info</strong>) i usporediti sa dokumentacijom iz
 3. zadatka. Sadržaj se mora poklapati.</p>
 </li>
 <li><p class="first">Ponovno stvoriti FAT32 datotečni sustav (opcija Format) na H13
-particiji. Kao oznaku particije (Partition label) upisati &#8220;H13&#8221; (bez
+particiji. Kao oznaku particije (Partition label) upisati “H13” (bez
 navodnika). Na ostale dvije alocirane particije 2H i BKP, obje
 veličine 20GB, treba postaviti NTFS datotečni sustav.</p>
-<blockquote>
-<div><p>Ne zaboraviti <strong>Apply</strong> opciju kao potvrdu.</p>
-</div></blockquote>
+<p>Ne zaboraviti <strong>Apply</strong> opciju kao potvrdu.</p>
 </li>
-</ol>
-<ol class="arabic">
 <li><p class="first">Provjeriti je li H13 particija aktivna ( postavljena BootFlag
 zastavica) i nalazi li se kod 0x0C kao oznaka datotečnog sustava na
 particiji.</p>
 </li>
 <li><p class="first">Izaći iz <strong>Partition Wizard</strong> aplikacije (računalo će se ponovno
-pokrenuti), odabrati &#8220;Linux Distributions&#8221;, te zatim &#8220;TinyCore&#8221;
+pokrenuti), odabrati “Linux Distributions”, te zatim “TinyCore”
 stavku.</p>
 </li>
-<li><p class="first">Instalirati &#8220;tc-install&#8221; skriptu pomoću tce-load aplikacije</p>
+<li><p class="first">Instalirati “tc-install” skriptu pomoću tce-load aplikacije</p>
 </li>
-<li><p class="first">Potražiti lokaciju skripte naredbom &#8220;find / -name &#8220;tc-install.sh&#8221;
+<li><p class="first">Potražiti lokaciju skripte naredbom “find / -name “tc-install.sh”
 (objašnjenje : aplikacija find, pretraživanje počinje od korijenskog
 direktorija /, opcija pretraživanja po imenu -name, unos željenog
 imena kao argument stavljen pod navodnike). Koji rezultat se pojavio
 na ekranu? Može li se uočiti lokacija datoteke?</p>
 </li>
 <li><p class="first">Ponovno upisati liniju iz prošlog zadatka, no na kraju dodati
-&#8220;2&gt;/dev/null&#8221; (ne upisivati navodnike). Je li došlo do promjene u
+“2&gt;/dev/null” (ne upisivati navodnike). Je li došlo do promjene u
 rezultatu? Prikazuju li se poruke o grešci? Mogu li se sad iščitati
-lokacije datoteke &#8220;tc-install.sh&#8221;?</p>
+lokacije datoteke “tc-install.sh”?</p>
 <p>NAPOMENA: Područje iz ovog zadatka će biti obrađeno u kasnijim
 vježbama, no u osnovi svaka naredba koja se pokrene rezultate
 prikazuje na standardnom izlazu (eng. standard output, termin koji
@@ -269,7 +268,7 @@ svježi sadržaj)</p>
 izlaza : standard output i standard error. Kao što se može iščitati
 iz samih imena, aplikacija odjeljuje izlazne rezultate prema
 standardnim porukama i porukama o grešci. Svaka poruka o grešci
-(npr. File not found, No permissions, Bad command...) je zapravo
+(npr. File not found, No permissions, Bad command…) je zapravo
 standard error tip poruke. Pri preusmjeravanju rezultata , razlikuju
 se u identifikaciji brojevima, odnosno 1 označava standard output, a
 2 standard error, što je moguće bolje shvatiti u slijedećim
@@ -281,9 +280,9 @@ primjerima :</p>
 datoteku izlaz.txt</p>
 <p>Za kraj , /dev/null je posebna vrsta datoteke u Linux sustavima koji
 prihvaća bilo kakav podatak, te ga odbaci. Može ju se smatrati kao
-&#8220;crna rupa&#8221; za podatke. Svaki podatak koji se preusmjerava u tu
+“crna rupa” za podatke. Svaki podatak koji se preusmjerava u tu
 datoteku nestaje.</p>
-<p>Stoga, primjer iz zadatka &#8220;find / -name &#8220;tc-install.sh&#8221; 2&gt;/dev/null&#8221;
+<p>Stoga, primjer iz zadatka “find / -name “tc-install.sh” 2&gt;/dev/null”
 preusmjerava poruke o grešci u /dev/null datoteku koja odbacuje
 iste, te se na standardan izlaz prikazuju samo standardne uspješne
 poruke.</p>
@@ -316,7 +315,7 @@ KORISTITI NIJEDNU OD TIH OPCIJA!!!)</p>
 <li><p class="first">Pročitati popis ponuđenih particija, no ne nastaviti sa odabirom,
 već nasilno izaći iz skripte koristeći kombinaciju tipki CTRL+c</p>
 </li>
-<li><p class="first">Pozvati aplikaciju &#8220;fdisk&#8221; sa opcijom &#8220;-l&#8221; za prikaz svih
+<li><p class="first">Pozvati aplikaciju “fdisk” sa opcijom “-l” za prikaz svih
 prepoznatih uređaja za pohranu i particija na njima. Prema
 prikazanim informacijama odlučiti koju oznaku ima particija od 258MB
 na koju će se instalirati TinyCore distribucija. Provjeriti
@@ -398,12 +397,13 @@ uspješnost instalacije operacijskog sustava.</p>
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

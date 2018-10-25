@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Klijentski otvoreni operacijski sustavi
-=======================================
+========================================
 
 Contents:
 

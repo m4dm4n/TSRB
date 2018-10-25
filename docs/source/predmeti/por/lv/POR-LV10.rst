@@ -44,25 +44,25 @@ vezana uz ovu vježbu.
    navodnika). Na ostale dvije alocirane particije 2H i BKP, obje
    veličine 20GB, treba postaviti NTFS datotečni sustav.
 
-    Ne zaboraviti **Apply** opciju kao potvrdu.
+   Ne zaboraviti **Apply** opciju kao potvrdu.
 
-1.  Provjeriti je li H13 particija aktivna ( postavljena BootFlag
-    zastavica) i nalazi li se kod 0x0C kao oznaka datotečnog sustava na
-    particiji.
+7. Provjeriti je li H13 particija aktivna ( postavljena BootFlag
+   zastavica) i nalazi li se kod 0x0C kao oznaka datotečnog sustava na
+   particiji.
 
-2.  Izaći iz **Partition Wizard** aplikacije (računalo će se ponovno
-    pokrenuti), odabrati "Linux Distributions", te zatim "TinyCore"
-    stavku.
+8. Izaći iz **Partition Wizard** aplikacije (računalo će se ponovno
+   pokrenuti), odabrati "Linux Distributions", te zatim "TinyCore"
+   stavku.
 
-3.  Instalirati "tc-install" skriptu pomoću tce-load aplikacije
+9. Instalirati "tc-install" skriptu pomoću tce-load aplikacije
 
-4.  Potražiti lokaciju skripte naredbom "find / -name "tc-install.sh"
+10. Potražiti lokaciju skripte naredbom "find / -name "tc-install.sh"
     (objašnjenje : aplikacija find, pretraživanje počinje od korijenskog
     direktorija /, opcija pretraživanja po imenu -name, unos željenog
     imena kao argument stavljen pod navodnike). Koji rezultat se pojavio
     na ekranu? Može li se uočiti lokacija datoteke?
 
-5.  Ponovno upisati liniju iz prošlog zadatka, no na kraju dodati
+11. Ponovno upisati liniju iz prošlog zadatka, no na kraju dodati
     "2>/dev/null" (ne upisivati navodnike). Je li došlo do promjene u
     rezultatu? Prikazuju li se poruke o grešci? Mogu li se sad iščitati
     lokacije datoteke "tc-install.sh"?
@@ -113,60 +113,60 @@ vezana uz ovu vježbu.
     iste, te se na standardan izlaz prikazuju samo standardne uspješne
     poruke.
 
-6.  Postaviti /usr/local/bin kao radni direktorij (ne prepisivati sve,
+12. Postaviti /usr/local/bin kao radni direktorij (ne prepisivati sve,
     navikavati se na korištenje TAB tipke za autocomplete)
 
-7.  Ispisati sadržaj direktorija i pronaći tc-install.sh datoteku.
+13. Ispisati sadržaj direktorija i pronaći tc-install.sh datoteku.
 
-8.  Upisati u naredbenu liniju samo tc-install.sh (ekstenzija **sh**
+14. Upisati u naredbenu liniju samo tc-install.sh (ekstenzija **sh**
     označava kako se radi o izvršnoj skripti ljuske, odnosno **SH**\ ell
     skripti, kao što je npr. **BAT**\ ch skripta u MS DOS/Windows
     operacijskim sustavima)
 
-9.  Ponoviti prethodni zadatak, no prije imena upisati naredbu sudo za
+15. Ponoviti prethodni zadatak, no prije imena upisati naredbu sudo za
     pokretanje skripte sa root ovlastima.
 
-10. Odabrati opciju skidanja potrebnih paketa sa interneta (opcija n)
+16. Odabrati opciju skidanja potrebnih paketa sa interneta (opcija n)
 
-11. Odabrati opciju instalacije 32bitne verzije operacijskog sustava
+17. Odabrati opciju instalacije 32bitne verzije operacijskog sustava
     (opcija 32)
 
-12. Odabrati opciju Frugal (opcija f) za instalaciju na particiju tvrdog
+18. Odabrati opciju Frugal (opcija f) za instalaciju na particiju tvrdog
     diska. Ostale dvije opcije se koriste za instalaciju na USB pogon te
     se cijeli uređaj ponovno particionira u samo jednu particiju (NE
     KORISTITI NIJEDNU OD TIH OPCIJA!!!)
 
-13. Odabrati opciju za instalaciju na particiju (redni broj 2)
+19. Odabrati opciju za instalaciju na particiju (redni broj 2)
 
-14. Pročitati popis ponuđenih particija, no ne nastaviti sa odabirom,
+20. Pročitati popis ponuđenih particija, no ne nastaviti sa odabirom,
     već nasilno izaći iz skripte koristeći kombinaciju tipki CTRL+c
 
-15. Pozvati aplikaciju "fdisk" sa opcijom "-l" za prikaz svih
+21. Pozvati aplikaciju "fdisk" sa opcijom "-l" za prikaz svih
     prepoznatih uređaja za pohranu i particija na njima. Prema
     prikazanim informacijama odlučiti koju oznaku ima particija od 258MB
     na koju će se instalirati TinyCore distribucija. Provjeriti
     ispravnost odluke sa nastavnikom i kolegama.
 
-16. Ponoviti radnje od 15.-19. Zadatka. U popisu particija upisati redni
+22. Ponoviti radnje od 15.-19. Zadatka. U popisu particija upisati redni
     broj oznake koja odgovara željenoj particiji.
 
-17. Dopustiti instalaciju bootloader programa za podizanje operacijskog
+23. Dopustiti instalaciju bootloader programa za podizanje operacijskog
     sustava (opcija y). Bootloader će se instalirati u dva dijela, u
     Master Boot Code područje, te na samu particiju.
 
-18. Kao lokaciju za dodatne pakete navesti putanju **/tmp/tce**
+24. Kao lokaciju za dodatne pakete navesti putanju **/tmp/tce**
 
-19. S obzirom da je proces postavljanja struktura datotečnih sustava već
+25. S obzirom da je proces postavljanja struktura datotečnih sustava već
     odrađen u Partition Wizard aplikaciji, odabrati redni broj opcije sa
     NONE nazivom.
 
-20. Postaviti boot flag na SDA1 particiju (opcija y).
+26. Postaviti boot flag na SDA1 particiju (opcija y).
 
-21. Prepisati žuto označen tekst, kao dodatne opcije bootloadera.
+27. Prepisati žuto označen tekst, kao dodatne opcije bootloadera.
 
-22. Potvrditi instalaciju (opcija y)
+28. Potvrditi instalaciju (opcija y)
 
-23. Ponovno pokrenuti računalo bez USB pogona u njemu, te se uvjeriti u
+29. Ponovno pokrenuti računalo bez USB pogona u njemu, te se uvjeriti u
     uspješnost instalacije operacijskog sustava.
 
-24. Vratiti računalo na HOME particiju, te složiti radno mjesto.
+30. Vratiti računalo na HOME particiju, te složiti radno mjesto.

@@ -32,6 +32,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="TSRB_TEST 1.0 documentation" href="../../../index.html"/>
         <link rel="up" title="Laboratorijske vježbe" href="index.html"/>
         <link rel="next" title="LV10" href="POR-LV10.html"/>
@@ -101,17 +104,17 @@
 <li class="toctree-l4"><a class="reference internal" href="POR-LV06.html">LV06</a></li>
 <li class="toctree-l4"><a class="reference internal" href="POR-LV07.html">LV07</a></li>
 <li class="toctree-l4"><a class="reference internal" href="POR-LV08.html">LV08</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="">LV09</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">LV09</a></li>
 <li class="toctree-l4"><a class="reference internal" href="POR-LV10.html">LV10</a></li>
 <li class="toctree-l4"><a class="reference internal" href="POR-LV11.html">LV11</a></li>
 <li class="toctree-l4"><a class="reference internal" href="POR-LV12.html">LV12</a></li>
 <li class="toctree-l4"><a class="reference internal" href="POR-LV13.html">LV13</a></li>
-<li class="toctree-l4"><a class="reference internal" href="POR-LV14.html">LV14</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../skripta/index.html">Upute za vježbe</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../linux/index.html">Klijentski otvoreni operacijski sustavi</a></li>
 </ul>
 </li>
 </ul>
@@ -170,7 +173,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/predmeti/por/lv/POR-LV09.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/predmeti/por/lv/POR-LV09.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -193,7 +196,7 @@ vezana uz ovu vježbu.</p>
 <p><strong>Zadaci:</strong></p>
 <ol class="arabic">
 <li><p class="first">Iz <strong>HOME</strong> particije ponovno pokrenuti računalo i u Multiboot
-izborniku odabrati &#8220;Other OS and Tools&#8221;, te zatim &#8220;Hiren&#8217;s Boot CD&#8221;
+izborniku odabrati “Other OS and Tools”, te zatim “Hiren’s Boot CD”
 stavku. Pojaviti će se slijedeći izbornik te je u njemu potrebno
 odabrati „Mini Windows XP“ opciju. Nakon učitavanja „Mini Windows
 XP“ sustava, pojaviti će se radna površina.</p>
@@ -211,7 +214,7 @@ zauzima na disku, izračunati završni sektor particije)</p>
 <li><p class="first">Izvaditi USB pogon, ponovno pokrenuti računalo i sa HOME particije
 započeti postupak prebacivanja na A1 particiju. Odmah nakon toga
 priključiti USB pogon u računalo kako bi se pojavio MultiBoot
-izbornik. Odabrati &#8220;Other OS and Tools&#8221;, te zatim &#8220;Hiren&#8217;s Boot CD&#8221;
+izbornik. Odabrati “Other OS and Tools”, te zatim “Hiren’s Boot CD”
 stavku. Pojaviti će se slijedeći izbornik te je u njemu potrebno
 odabrati „Mini Windows XP“ opciju.</p>
 </li>
@@ -226,19 +229,19 @@ type ID, Početni LBA sektor particije, Broj sektora koje particija
 zauzima na disku, izračunati završni sektor particije)</p>
 </li>
 <li><p class="first">Ponovno pokrenuti računalo sa priključenim USB pogonom. U
-&#8220;Multiboot&#8221; izborniku odabrati Linux distributions, te zatim &#8220;Linux
-Mint&#8221; operacijski sustav</p>
+“Multiboot” izborniku odabrati Linux distributions, te zatim “Linux
+Mint” operacijski sustav</p>
 </li>
 <li><p class="first">Pokrenuti aplikaciju Terminal (gnome-terminal). Pokrenuti novi
-terminal , ovaj put kao root korisnik (ALT+F2, upisati &#8220;gksu
-gnome-terminal&#8221;, bez navodnika). Koja je razlika između dva Terminal
+terminal , ovaj put kao root korisnik (ALT+F2, upisati “gksu
+gnome-terminal”, bez navodnika). Koja je razlika između dva Terminal
 prozora?</p>
 </li>
-<li><p class="first">Upisati u oba prozora naredbu &#8220;whoami&#8221; i uočiti razliku (za pomoć
-oko aplikacije upisati &#8220;man whoami&#8221;). <strong>Zatvoriti prozor Terminala
-koji je pokrenut pod pravima &#8220;root&#8221; korisnika (upisati &#8220;exit&#8221;).</strong> U
+<li><p class="first">Upisati u oba prozora naredbu “whoami” i uočiti razliku (za pomoć
+oko aplikacije upisati “man whoami”). <strong>Zatvoriti prozor Terminala
+koji je pokrenut pod pravima “root” korisnika (upisati “exit”).</strong> U
 budućnosti ne koristiti Terminale učitane sa pravima root korisnika,
-već koristiti &#8220;sudo&#8221; aplikaciju prilikom potrebe postizanja prava
+već koristiti “sudo” aplikaciju prilikom potrebe postizanja prava
 root korisnika.</p>
 </li>
 <li><p class="first">U terminalu proučiti manual naredbe fdisk(man fdisk). Detaljno
@@ -250,9 +253,9 @@ pomoću fdisk naredbe. Što se dogodilo?</p>
 <li><p class="first">Ponoviti prošli zadatak, no ovaj puta s pravima root korisnika
 (naredba sudo). Koje uređaje je aplikacija prepoznala?</p>
 </li>
-<li><p class="first">Prepoznati &#8220;device id&#8221; unutarnjeg hard diska te pokrenuti fdisk
+<li><p class="first">Prepoznati “device id” unutarnjeg hard diska te pokrenuti fdisk
 aplikaciju (s pravima root korisnika, koristiti <strong>sudo</strong>), a kao
-parametar navesti &#8220;device id&#8221;. Obavezno unijeti opciju za
+parametar navesti “device id”. Obavezno unijeti opciju za
 kompatibilnost sa DOS tipom operacijskog sustava ( -c=dos ).</p>
 <p>NAPOMENA : Primijetiti kako se izgled naredbenog terminala
 promijenio, te je sad aktivan prompt of fdisk aplikacije. U
@@ -260,10 +263,10 @@ aplikaciji su dozvoljena isključivo slova za odabir opcija (navedeno
 u slijedećem zadatku). Bitno je paziti na okolinu u kojoj se
 korisnik nalazi, te koristiti one mogućnosti koje su mu dopuštene u
 toj okolini. Na primjer, nije moguće unutar fdisk aplikacije upisati
-&#8220;sudo reboot&#8221;, te očekivati ponovno pokretanje računala. Fdisk
-aplikacija će prepoznati isključivo prvo slovo &#8220;s&#8221;, te aktivirati
+“sudo reboot”, te očekivati ponovno pokretanje računala. Fdisk
+aplikacija će prepoznati isključivo prvo slovo “s”, te aktivirati
 opciju koju podržava. U tom konkretnom slučaju, aktivirati će se
-opcija &#8220;Create a new empty Sun disklabel&#8221; na MBR području tvrdog
+opcija “Create a new empty Sun disklabel” na MBR području tvrdog
 diska, odnosno postići će se neželjen efekt radnje.</p>
 <p>Bitno je paziti što se radi, te imati kontrolu nad situacijom</p>
 </li>
@@ -281,8 +284,8 @@ sudo reboot), te izvaditi USB pogon iz računala. Uvjeriti se kako je
 učitana HOME particija.</p>
 </li>
 <li><p class="first">Ponovno pokrenuti računalo sa priključenim USB pogonom. U
-&#8220;Multiboot&#8221; izborniku odabrati Linux distributions, te zatim &#8220;Linux
-Mint&#8221; operacijski sustav</p>
+“Multiboot” izborniku odabrati Linux distributions, te zatim “Linux
+Mint” operacijski sustav</p>
 </li>
 <li><p class="first">U GNU/Linux fdisk aplikaciji obrisati sve unose iz particijske
 tablice, te kreirati nove prema specifikacijama A1 particije.
@@ -293,9 +296,9 @@ sudo reboot), te izvaditi USB pogon iz računala. Uvjeriti se kako je
 učitana A1 particija.</p>
 </li>
 <li><p class="first">Vratiti računalo na HOME particiju.</p>
-<p><strong>ZA DOMAĆU ZADAĆU DETALJNO PROUČITI I OBJASNITI &#8220;DOS COMPATIBILITY&#8221;
+<p><strong>ZA DOMAĆU ZADAĆU DETALJNO PROUČITI I OBJASNITI “DOS COMPATIBILITY”
 OPCIJU U ELABORATU. OBVEZNO NAVESTI IZVORE INFORMACIJA ( linkovi sa
-interneta, članci iz časopisa, knjige... )</strong></p>
+interneta, članci iz časopisa, knjige… )</strong></p>
 </li>
 </ol>
 </div>
@@ -349,12 +352,13 @@ interneta, članci iz časopisa, knjige... )</strong></p>
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
