@@ -121,12 +121,11 @@ vezana uz ovu vježbu.
 21. Stvoriti datoteku sa imenom **h1.bat** i spremiti ju u direktorij
     MBRWiz3 na USB pogonu.
 
-22. Upisati slijedeći tekst pod navodnicima (ne upisivati navodnike) u
-    datoteku iz 21. zadatka:
+22. Upisati slijedeći tekst u datoteku iz 21. zadatka:
 
-    "**mbrwiz /disk=1 /restore=MBR /filename=h1.mbr /confirm
-    /shutdown=4**"
+    ``mbrwiz /disk=1 /restore=MBR /filename=h1.mbr /confirm /shutdown=4``
 
+    
     Spremiti datoteku.
 
 23. Pokrenuti datoteku **h1.bat** i izvaditi USB pogon iz računala.
