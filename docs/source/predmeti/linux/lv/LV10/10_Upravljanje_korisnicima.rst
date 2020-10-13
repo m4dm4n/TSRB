@@ -176,6 +176,7 @@ Napisati skriptu koja će automatizirati postupak (novu lozinku i korisnika upis
         echo "Zero unread mail"
         source ~/.bashrc
       fi
+      
 
 
 .. tip::
