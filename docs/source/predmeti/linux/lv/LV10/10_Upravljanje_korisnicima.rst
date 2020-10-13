@@ -174,9 +174,13 @@ Napisati skriptu koja će automatizirati postupak (novu lozinku i korisnika upis
 
       else
         echo "Zero unread mail"
+
         source ~/.bashrc
+
       fi
-      
+
+
+
 
 
 .. tip::
@@ -194,25 +198,36 @@ PRIMJER RJEŠENJA 18. ZADATKA:
 .. hint::
 
     Izgled prompta:
-    
+
     IP adresa: 192.168.70.44
     Korisnik : ids
-    
+
                  total       used       free     shared    buffers     cached
+
     Mem:          2.0G       1.7G       219M        86M        20M       259M
-    ids@ids2 ~ $ 
-    
-    
+
+    ids@ids2 ~ $
+
+
     Početni dio sadržaja ~/.bashrc datoteke:
-    
+
     # ~/.bashrc: executed by bash(1) for non-login shells.
+
     # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+
     # for examples
-    
+
     #ISPIS INFORMACIJA
+
     IP=$(hostname -I)
+
     echo IP adresa: $IP
+
     echo Korisnik : $USER
+
     echo
+
     free -ht | egrep 'total|Mem'
+
     /OSTATAK DATOTEKE
+
