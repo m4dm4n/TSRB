@@ -12,6 +12,7 @@ Contents:
    :maxdepth: 2
 
    Upute za kućno korištenje laboratorijskih vježbi.rst
+   Upute Virtualbox Razne Greske.rst
    Upute Instalacija Virtualbox Guest Tools.rst
    Upute Tipovi virtualne mreze Virtualbox.rst
    04 - Osnove korištenja Partition Wizard aplikacije.rst
