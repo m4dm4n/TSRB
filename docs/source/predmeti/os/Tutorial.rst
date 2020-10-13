@@ -23,7 +23,7 @@ Pokrenuti komandnu liniju (ikona se nalazi na Taskbaru), te upisati tekst sa sli
 
 TEKST :
 
-net use z: "\\192.168.70.252\Nastava\OS_IMAGES"
+net use z: ``\\192.168.70.252\Nastava\OS_IMAGES``
 
 |image5|
 
@@ -101,7 +101,7 @@ U traci za pretraživanje Start izbornika upisati Powershell, te u popisu desnim
 
 Unutar PowerShell prozora naredbom **Get-ExecutionPolicy** provjeriti postavljenu sigurnosnu razinu, te sa **Set-ExecutionPolicy Unrestricted** smanjiti razinu i omogućiti izvršavanje skripti koje nisu potpisane digitalnim certifikatom. Sa slovom A odabrati **Yes to All** opciju i potvrditi tipkom enter.
 
-Premjestiti se u direktorij radne površine naredbom **cd $env:userprofile\Desktop**, te pokrenuti skriptu **.\RunThisFirst.ps1** (znakovi .\ označavaju samo da se skripta nalazi u trenutnom direktoriju).
+Premjestiti se u direktorij radne površine naredbom **cd $env:userprofile\\Desktop**, te pokrenuti skriptu **.\\RunThisFirst.ps1** (znakovi .\ označavaju samo da se skripta nalazi u trenutnom direktoriju).
 
 |image17|
 
