@@ -11,3 +11,5 @@ Contents:
 .. toctree::
    :maxdepth: 3
 
+   Tutorial.rst
+   
