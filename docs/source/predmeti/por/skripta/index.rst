@@ -26,4 +26,4 @@ Contents:
    12 - Spremanje pricuvne kopije.rst
    14 - Upravljanje korisničkim računima u Windows 10 operacijskom sustavu.rst
    Prilog 1.rst
-   Prilog 2.rst
+..   Prilog 2.rst

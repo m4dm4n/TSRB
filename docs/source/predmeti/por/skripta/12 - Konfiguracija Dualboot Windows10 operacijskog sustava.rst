@@ -51,10 +51,10 @@ U otvorenom prozoru odabrati karticu View, te učiniti slijedeće radnje :
 - **Isključiti** opciju "Hide extensions for known file types"
 
 - **Isključiti** opciju "Hide protected operating system files
-(Recommended)". Nakon odabira ove opcije, potrebno je još jednom
-potvrditi odabir u novom prozoru. Primijetiti kako se zaštićenim
-datotekama operacijskog sustava smatraju one datoteke koje imaju
-aktivirane System i Hidden atribute.
+  (Recommended)". Nakon odabira ove opcije, potrebno je još jednom
+  potvrditi odabir u novom prozoru. Primijetiti kako se zaštićenim
+  datotekama operacijskog sustava smatraju one datoteke koje imaju
+  aktivirane System i Hidden atribute.
 
 |image5|
 
