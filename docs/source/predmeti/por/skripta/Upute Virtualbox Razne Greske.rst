@@ -1,6 +1,13 @@
 Razne greške i rješenja za Virtualbox
 =====================================
 
+.. raw:: html
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/I8ik8pDTgJE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
+
 U ovom dokumentu bit će navedene razne moguće greške prilikom rada sa Virtualbox aplikacijom, te ponuđena rješenja. Prije kontaktiranja       
 nastavnika za pomoć, svakako je potrebno proći kroz ovaj popis te pokušati samostalno riješiti problem.
 
