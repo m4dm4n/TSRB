@@ -225,71 +225,71 @@ ponovno pokrenuti.
    :width: 1.57480in
    :height: 0.63653in
 .. |image3| image:: UP01/image03.png
-   :width: 3.54331in
-   :height: 3.08855in
+   :width: 4.46in
+   :height: 3.805in
 .. |image4| image:: UP01/image04.png
-   :width: 3.14961in
-   :height: 0.60266in
+   :width: 4.1in
+   :height: 3.58in
 .. |image5| image:: UP01/image05.png
-   :width: 3.14961in
-   :height: 0.85090in
+   :width: 2.78in
+   :height: 0.865in
 .. |image6| image:: UP01/image06.png
-   :width: 3.93701in
-   :height: 1.36287in
+   :width: 3.275in
+   :height: 0.975in
 .. |image7| image:: UP01/image07.png
-   :width: 4.33071in
-   :height: 1.85001in
+   :width: 4.385in
+   :height: 2.7in
 .. |image8| image:: UP01/image08.png
-   :width: 3.47222in
-   :height: 1.08333in
+   :width: 3.875in
+   :height: 3.34in
 .. |image9| image:: UP01/image09.png
-   :width: 4.09236in
-   :height: 1.21319in
+   :width: 3.875in
+   :height: 3.34in
 .. |image10| image:: UP01/image10.png
-   :width: 3.93701in
-   :height: 1.64281in
+   :width: 3.875in
+   :height: 3.34in
 .. |image11| image:: UP01/image11.png
-   :width: 3.93701in
-   :height: 4.30140in
+   :width: 4.385in
+   :height: 3.32in
 .. |image12| image:: UP01/image12.png
-   :width: 4.33071in
-   :height: 3.36182in
+   :width: 4.74in
+   :height: 3.9in
 .. |image13| image:: UP01/image13.png
-   :width: 3.93701in
-   :height: 1.80356in
+   :width: 5.005in
+   :height: 3.56in
 .. |image14| image:: UP01/image14.png
-   :width: 3.54331in
-   :height: 3.09975in
+   :width: 4.565in
+   :height: 2.935in
 .. |image15| image:: UP01/image15.png
-   :width: 4.72441in
-   :height: 2.04906in
+   :width: 4.395in
+   :height: 3.835in
 .. |image16| image:: UP01/image16.png
-   :width: 3.93681in
-   :height: 3.62361in
+   :width: 5.32in
+   :height: 2.3in
 .. |image17| image:: UP01/image17.png
-   :width: 3.34646in
-   :height: 3.06886in
+   :width: 3.465in
+   :height: 3.185in
 .. |image18| image:: UP01/image18.png
-   :width: 3.34646in
-   :height: 3.07313in
+   :width: 3.5in
+   :height: 3.06in
 .. |image19| image:: UP01/image19.png
-   :width: 4.33071in
-   :height: 1.28610in
+   :width: 3.5in
+   :height: 3.06in
 .. |image20| image:: UP01/image20.png
-   :width: 4.72441in
-   :height: 3.53746in
+   :width: 3.475in
+   :height: 1.1in
 .. |image21| image:: UP01/image21.png
-   :width: 3.93701in
-   :height: 2.04103in
+   :width: 5.33in
+   :height: 4.005in
 .. |image22| image:: UP01/image22.png
-   :width: 3.14961in
-   :height: 2.27185in
+   :width: 3.645in
+   :height: 2.755in
 .. |image23| image:: UP01/image23.png
-   :width: 3.54331in
-   :height: 1.93822in
+   :width: 3.165in
+   :height: 2.28in
 .. |image24| image:: UP01/image24.png
-   :width: 3.14961in
-   :height: 2.23599in
+   :width: 3.295in
+   :height: 1.8in
 .. |image25| image:: UP01/image25.png
-   :width: 3.14961in
-   :height: 2.23599in
+   :width: 3.405in
+   :height: 2.825in
