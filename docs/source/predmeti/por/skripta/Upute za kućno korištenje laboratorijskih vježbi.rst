@@ -10,95 +10,96 @@ Virtual Machine USB Boot
 
 Ispravan i konfiguriran Multiboot USB pogon prema uputama (tema **Stvaranje Multiboot USB pogona**)
 
-
 Potrebno je sa službene stranice skinuti posljednju verziju aplikacije VirtualBox, te ju instalirati na računalo. Mogu se potvrditi preporučene opcije za vrijeme instalacije.
 Zatim je potrebno skinuti posljednju verziju VMUSB aplikacije sa navedene poveznice. Poželjno je skinuti x64 verziju (ako je kućni operacijski sustav 64bit), no ovisno o želji korisnika,
 može se skinuti Portable ili Setup verzija aplikacije. Portable verziju nije potrebno instalirati na računalo, već se može samo pokrenuti. Preporuka je skinuti Setup verziju, te
 ju instalirati.
+
 
 Nakon što je VirtualBox aplikacije uspješno instalirana, provjeriti ispravnost pokretanja aplikacije (aplikacija će možda tražiti administratorske ovlasti, dozvoliti zahtjev).
 
 Prije korištenja USB pogona za podizanje sustava, treba stvoriti novi
 virtualni stroj.
 
-1. Odabrati opciju NEW :
+#. Unutar VirtualBox aplikacije, odabrati opciju NEW :
 
-    |image0|
+   |image2|
 
-1. Upisati ime novog virtualnog stroja, te pod tip i verziju
-   operacijskog sustava ostaviti predloženu vrijednost.
+#. Upisati ime novog virtualnog stroja, te pod tip i verziju operacijskog sustava 
+   ostaviti  predloženu vrijednost (kao prema slici). Postaviti minimalno 512MB 
+   radne memorije, dok je preporučeno staviti barem 2048MB. Imati na umu ukupnu 
+   i raspoloživu količinu radne memorije. Odabrati opciju stvaranja novog 
+   virtualnog tvrdog diska, te kliknuti **Create**.
 
-|image1|
+   |image3|
 
-1. Postaviti minimalno 512MB radne memorije, dok je preporučeno staviti
-   barem 1024MB. Imati na umu ukupnu i raspoloživu količinu radne
-   memorije.
+#. U slijedećem prozoru upisati ime virtualnog tvrdog diska, gdje je poželjno 
+   označiti prvim rednim brojem na kraju (kao na slici), s obzirom da će se 
+   kasnije stvarati dodatni diskovi. Odabrati veličinu virtualnog diska od **30GB**, 
+   te ostaviti preporučene opcije od **VDI** tip diska i **Dynamically allocated**. 
+   Na kraju kliknuti na tipku **Create**.
 
-|image2|
+   |image4|
 
-1. Dodati novi virtualni tvrdi disk. Odabrati VDI tip tvrdog diska u
-   slijedećem koraku.
-
-|image3|
-
-1. Pročitati razlike između dinamičke i fiksne alokacije virtualnog
-   tvrdog diska, te ovisno o raspoloživom prostoru na korisničkom tvrdom
-   disku odabrati neku opciju. Dinamička alokacija je uglavnom dovoljna
-   i predstavlja optimalan omjer zauzetosti prostora i performansi.
-
-|image4|
-
-1. Upisati ime virtualnog tvrdog diska. Poželjno je označiti prvim
-   rednim brojem na kraju s obzirom da će se kasnije stvarati dodatni
-   diskovi. Ostaviti 25GB kao preporučenu vrijednost veličine diska.
-
-|image5|
-
-1. Virtualni stroj će u ovom trenutku biti stvoren. Poželjno je dodati
+#. Virtualni stroj će u ovom trenutku biti stvoren. Poželjno je dodati
    još jedan virtualni tvrdi disk te je za to potrebno odabrati postavke
    stvorenog stroja. Desnim klikom miša na ime stroja, i odabrati
    Settings:
 
-|image6|
+   |image5|
 
-1. Odabrati kategoriju Storage, odabrati opciju „Adds hard disk“, te
-   zatim „Create new disk“:
+#. Odabrati kategoriju Storage, odabrati opciju „Adds hard disk“, te
+   zatim „Create“ (Create disk image) :
 
-|image7|
+   |image6|
 
-1. Ponoviti postupke od točke 4-6. Poželjno je da drugi disk ima nešto
-   veći ili manji kapacitet (20 ili 30GB) kako bi se lakše razlikovali
-   prilikom korištenja virtualnog stroja, iako će se razlikovati prema
-   virtualnim SATA sučeljima.
+   |image7|
 
-|image8|
+#. Odabrati **VDI** tip diska i kliknuti na **Next** tipku.
 
-1. Pripremljeni USB pogon povezati na računalo, te pokrenuti Virtual
-   Machine USB Boot aplikaciju. Odabrati opciju Add te izvršiti
-   konfiguraciju sa proizvoljnim imenom nove veze, odabranim imenom
-   stvorenog virtualnog stroja i na kraju odabirom USB pogona. Potvrditi
-   sa OK.
+   |image8|
 
-|image9|
+#. Pročitati razlike između dinamičke i fiksne alokacije virtualnog tvrdog diska, 
+   te odabrati opciju **Dynamically allocated** . 
+   Dinamička alokacija je uglavnom dovoljna i predstavlja optimalan omjer zauzetosti 
+   prostora i performansi. Kliknuti na **Next** tipku.
 
-1. Odabrati Start opciju. U slučaju prikazane poruke, potrebno je
-   izmijeniti konfiguraciju virtualnog stroja u Virtualbox aplikaciji (
-   Settings-Storage kategorija).
+   |image9|
 
-|image10|
+#. Upisati ime i veličinu diska kao prema slici, te kliknuti na tipku **Create**.
 
-1. Kako bi se USB pogon mogao koristiti, uvjet je da bude povezan na
-   prvi SATA port (SATA0) u virtualnom stroju, te on mora biti slobodan.
-   Prilagoditi da uređaji počinju od SATA1 virtualnog sučelja.
+   |image10|
+#. U popisu, pod grupom **Not Attached**, odabrati novostvoreni disk **LAB_VDI_2.vdi**, te
+   kliknuti na tipku **Choose**.
 
    |image11|
 
-2. Nakon izvršene konfiguracije , ponoviti korak 11. , te bi se
-   MultiBoot izbornik trebao pojaviti nakon pokretanja virtualnog
-   stroja.
+#. U otvorenom prozoru posložiti poredak diskova na slijedeći način:
+
+   * SATA0 port mora biti prazan
+   * SATA1 - LAB_VDI_1.vdi
+   * SATA2 - LAB_VDI_2.vdi
+   * SATA3 - Optički disk (Empty)
+
+   |
 
    |image12|
 
+#. **Ugasiti VirtualBox aplikaciju**. Pripremljeni USB pogon povezati na računalo, 
+   te pokrenuti Virtual Machine USB Boot aplikaciju. Kliknuti na tipku **Options**, te zatim
+   na karticu **VirtualBox**. Kao prema slici dodati **VM** u putanji i kliknuti na **OK**.
+
+   |image13|
+
+#. Odabrati opciju Add te izvršiti konfiguraciju sa odabranim imenom stvorenog 
+   virtualnog stroja odabirom USB pogona. Potvrditi sa **OK**.
+
+   |image14|
+
+#. U glavnom prozoru kliknuti na **Start**. Nakon pokretanja virtualnog stroja trebao bi se
+   pojaviti MultiBoot izbornik. 
+
+   |image15|
 
 
 Nakon što se Multiboot izbornik pojavio, odabrati podizbornik "System Tools" i zatim "Partition Wizard". Pričekati pokretanje Partition Wizard aplikacije.
@@ -111,7 +112,7 @@ prethodno praćene upute, diskovi bi se trebali razlikovati u veličini).
 Za početak potrebno je stvoriti nove particije za daljnje korištenje sa
 slijedećom namjenom :
 
--  Disk1 za operacijski sustav (Dual boot)
+-  Disk1 za operacijske sustave (Dual boot)
 
 -  Disk2 za podatke korisnika
 
@@ -120,13 +121,13 @@ odabrati opciju Create. Na slijedećoj slici prikazane su sve mogućnosti
 odabira opcije Create, no zbog jednostavnosti korištenja, poželjno je
 odabrati jednu metodu i koristiti samo nju.
 
-|image13|
+|image16|
 
 U slijedećem koraku odabrati tip particije kao primarnu, FAT32 datotečni
 sustav, oznaku particije, te veličinu od 259MB. Sve ostale opcije
 ostaviti kao zadane i potvrditi na OK tipku.
 
-|image14|
+|image17|
 
 Isti proces učiniti za drugu particiju na tom disku (WIN7 oznaka), i
 treću (jedinu na disku) particiju sa slijedećim napomenama:
@@ -141,21 +142,21 @@ treću (jedinu na disku) particiju sa slijedećim napomenama:
 
 Primjer postavki prikazan je u slijedeće dvije slike:
 
-|image15|\ |image16|
+|image18|\ |image19|
 
 Nakon izvršenog procesa trebala bi se pokazati slijedeća struktura
 particija na diskovima
 
-|image17|
+|image20|
 
 Iako su se odabrale postavke, proces stvaranja particija još nije
 započeo već se samo postavio kao zadatak čije je izvršavanje potrebno
 potvrditi sa opcijom Apply.
 
-Još jednom provjeriti postavke i usporediti sa dokumentacijom prije
+Još jednom provjeriti postavke i usporediti sa prethodnom dokumentacijom prije
 potvrde izvršavanja zadataka!
 
-|image18|
+|image21|
 
 Nakon što su stvorene particije i postavljeni datotečni sustavi na njih,
 kako bi se operacijski sustav nakon instalacije mogao podići, bitno je
@@ -166,7 +167,7 @@ pod terminom Bootflag (Bootable Flag). Potrebno je kliknuti desnom
 tipkom miša na WIN98 particiju, odabrati izbornik Modify, te Set Active
 opciju.
 
-|image19|
+|image22|
 
 Dodatno na istoj particiji, potrebno je izmijeniti tip FAT32 particije,
 koji mijenja metodu na koji način će operacijski sustav adresirati tu
@@ -185,7 +186,7 @@ Potrebno je kliknuti desnom tipkom miša na WIN98 particiju, odabrati
 izbornik Modify, te Change Partition Type ID opciju. U otvorenom prozoru
 iz padajućeg izbornika odabrati opciju prikazanu na slici:
 
-|image20|
+|image23|
 
 Još jednom potvrditi izvršavanje zadataka sa Apply opcijom.
 
@@ -195,14 +196,14 @@ desnom tipkom miša na ciljanu particiju, odabrati opciju Format, te u
 prozoru upisati novu oznaku particije, datotečni sustav te veličinu
 klastera (koju je uglavnom dovoljno ostaviti kao zadanu vrijednost).
 
-|image21|
+|image24|
 
 Do osnovnih informacija o particiji može se doći desnim klikom na
 željenu particiju, opcija Properties, te na kraju kartica Partition
 Info. Na slici je je prikazan primjer informacija o stvorenoj WIN7
 particiji:
 
-|image22|
+|image25|
 
 Može se primijetiti Partition Type ID sa vrijednošću 0x07 (primijetiti
 način heksadecimalnog zapisa, često se ispred vrijednosti dodaje 0x),
@@ -214,78 +215,81 @@ Za vježbu provjeriti osnovne informacije WIN98 particije, te uočiti vezu
 između završnog sektora WIN98 particije i početnog sektora WIN7
 particije. Koji zaključak se može dovesti?
 
+
 Kad je završen rad sa aplikacijom Partition Wizard, može se iz izbornika
 General odabrati opcija Exit, ili jednostavno kliknuti na X ikonu u
 gornjem desnom dijelu ekrana. Aplikacija će se ugasiti i računalo
 ponovno pokrenuti.
 
-
-.. |image0| image:: UP01/image2.png
+.. |image2| image:: UP01/image02.png
    :width: 1.57480in
    :height: 0.63653in
-.. |image1| image:: UP01/image3.png
+.. |image3| image:: UP01/image03.png
    :width: 3.54331in
    :height: 3.08855in
-.. |image2| image:: UP01/image4.png
+.. |image4| image:: UP01/image04.png
    :width: 3.14961in
    :height: 0.60266in
-.. |image3| image:: UP01/image5.png
+.. |image5| image:: UP01/image05.png
    :width: 3.14961in
    :height: 0.85090in
-.. |image4| image:: UP01/image6.png
+.. |image6| image:: UP01/image06.png
    :width: 3.93701in
    :height: 1.36287in
-.. |image5| image:: UP01/image7.png
+.. |image7| image:: UP01/image07.png
    :width: 4.33071in
    :height: 1.85001in
-.. |image6| image:: UP01/image8.png
+.. |image8| image:: UP01/image08.png
    :width: 3.47222in
    :height: 1.08333in
-.. |image7| image:: UP01/image9.png
+.. |image9| image:: UP01/image09.png
    :width: 4.09236in
    :height: 1.21319in
-.. |image8| image:: UP01/image10.png
+.. |image10| image:: UP01/image10.png
    :width: 3.93701in
    :height: 1.64281in
-.. |image9| image:: UP01/image11.png
+.. |image11| image:: UP01/image11.png
    :width: 3.93701in
    :height: 4.30140in
-.. |image10| image:: UP01/image12.png
+.. |image12| image:: UP01/image12.png
    :width: 4.33071in
    :height: 3.36182in
-.. |image11| image:: UP01/image13.png
+.. |image13| image:: UP01/image13.png
    :width: 3.93701in
    :height: 1.80356in
-.. |image12| image:: UP01/image14.png
+.. |image14| image:: UP01/image14.png
    :width: 3.54331in
    :height: 3.09975in
-.. |image13| image:: UP01/image15.png
+.. |image15| image:: UP01/image15.png
    :width: 4.72441in
    :height: 2.04906in
-.. |image14| image:: UP01/image16.png
+.. |image16| image:: UP01/image16.png
    :width: 3.93681in
    :height: 3.62361in
-.. |image15| image:: UP01/image17.png
+.. |image17| image:: UP01/image17.png
    :width: 3.34646in
    :height: 3.06886in
-.. |image16| image:: UP01/image18.png
+.. |image18| image:: UP01/image18.png
    :width: 3.34646in
    :height: 3.07313in
-.. |image17| image:: UP01/image19.png
+.. |image19| image:: UP01/image19.png
    :width: 4.33071in
    :height: 1.28610in
-.. |image18| image:: UP01/image20.png
+.. |image20| image:: UP01/image20.png
    :width: 4.72441in
    :height: 3.53746in
-.. |image19| image:: UP01/image21.png
+.. |image21| image:: UP01/image21.png
    :width: 3.93701in
    :height: 2.04103in
-.. |image20| image:: UP01/image22.png
+.. |image22| image:: UP01/image22.png
    :width: 3.14961in
    :height: 2.27185in
-.. |image21| image:: UP01/image23.png
+.. |image23| image:: UP01/image23.png
    :width: 3.54331in
    :height: 1.93822in
-.. |image22| image:: UP01/image24.png
+.. |image24| image:: UP01/image24.png
+   :width: 3.14961in
+   :height: 2.23599in
+.. |image25| image:: UP01/image25.png
    :width: 3.14961in
    :height: 2.23599in
