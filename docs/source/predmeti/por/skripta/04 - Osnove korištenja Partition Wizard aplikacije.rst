@@ -5,7 +5,7 @@
 
 Stvaranje nove particije na nealociranom (praznom) prostoru tvrdog diska
 
-NAPOMENA : Nealocirani prostor se uobičajeno naziva i slobodan, odnosno
+NAPOMENA : - Nealocirani prostor se uobičajeno naziva i slobodan, odnosno
 prazan prostor na tvrdom disku na kojem je moguće stvoriti nove
 particije, no precizno rečeno, radi se isključivo samo o prostoru koji
 nije definiran početnim i završnim adresama u particijskoj tablici
